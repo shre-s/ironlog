@@ -5,6 +5,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [4.5.0] — 2026-03-08
+
+### Fixed
+- **Dashboard nudge showing wrong day:** "You trained today 🔥" was appearing when the user had actually trained the previous calendar day. The bug was caused by comparing raw millisecond elapsed time (dividing by 86,400,000 and flooring) rather than calendar dates. Training at 11:30 PM and checking the dashboard at 8 AM the next morning produces only ~8.5 hours elapsed — which floors to 0, incorrectly matching "today". Fixed by stripping both timestamps to midnight before comparing, so the result always reflects calendar days regardless of time-of-day.
+
+---
+
 ## [4.4.0] — 2026-03-08
 
 ### Changed
