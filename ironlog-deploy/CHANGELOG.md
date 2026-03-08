@@ -1,0 +1,87 @@
+# Changelog
+
+All notable changes to IronLog are documented here.  
+Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+
+---
+
+## [4.1.0] — 2026-03-08
+
+### Fixed
+- Expanded session card in History List view now collapses automatically when navigating away to another tab — previously the expanded state persisted across tab switches
+
+### Added
+- **Draft auto-save (Option A):** Logger state is continuously written to `il_draft` in localStorage as the user types. On next app open, if an unsaved session is detected, a recovery banner appears at the top of the Log tab showing the workout name, exercise count, and last-saved timestamp. User can restore or discard. Draft is cleared on successful save.
+- **Browser close warning (Option B):** If exercises have been entered and the user tries to close the browser tab or navigate away entirely, a native browser confirmation dialog is shown. Note: iOS Safari may suppress this dialog — Option A covers those cases.
+- **Logger state survives tab switching (Option C):** Logger mode, exercise list, session name, and notes are now held in root state. Tapping away to another tab mid-session and returning to Log preserves everything exactly as left.
+
+---
+
+## [4.0.0] — 2026-03-08
+
+### Added
+- **Dashboard navigation:** Total Sessions card navigates to History → List → All filter. This Week card navigates to History → Calendar → Week view. Recent session rows are tappable and open the selected session pre-expanded in History List view.
+- **Soft delete with undo:** Deleting a session from History shows a 5-second undo toast. After expiry, session moves to `il_deleted` storage with a timestamp rather than being permanently removed.
+- **Deleted Sessions section:** Collapsible section at the bottom of History tab showing soft-deleted sessions with days-until-expiry indicator. Per-item Restore and Delete Forever (with inline confirmation). Sessions auto-purge after 30 days on app load.
+- **Edit saved sessions:** Pencil icon on every History list card opens the logger pre-filled with that session's data. Save Changes overwrites the original by ID.
+- **Session notes:** Free-text notes field added to the logger. Preview shown in collapsed History list cards; full text shown in expanded detail view.
+- **Custom exercises saved to library:** Typing a custom exercise name and tapping Add reveals an inline muscle group picker. On confirm, the exercise is saved to `il_custom_ex` and appears across all future sessions with a purple "custom" badge.
+- **Personal Records tracking:** Every session save scans for new Epley estimated 1RM records by exercise. New PRs fire a toast notification. Top 5 PRs displayed on Dashboard.
+- **Progressive overload suggestions:** When an exercise is added to the logger, the app looks up the last logged performance and shows a dismissible suggestion chip (e.g. "Last: 80kg × 8 → try 82.5kg"). Compound lifts use 2.5kg increments, isolation lifts use 1kg.
+- **Dashboard stats:** Current and longest training streaks, total all-time volume, this week vs last week session count, most trained muscle group, days-since-last-workout nudge after 2+ rest days.
+- **Import / Export / QR:** History header now includes JSON export, CSV export, QR code export (last 30 days, via api.qrserver.com), and JSON file import with union-by-ID merge to prevent duplicates.
+
+### Changed
+- Dashboard replaced static placeholder stats with live computed data from session history.
+- `main.jsx` updated to import from `./App` instead of `./IronLog`. Stale `IronLog.jsx` removed from `src/`.
+
+### Storage keys added
+- `il_deleted` — soft-deleted sessions with `deletedAt` timestamp
+- `il_custom_ex` — user-defined exercises with name, category, and metadata
+- `il_prs` — personal records keyed by exercise name with weight, reps, e1RM, and date
+- `il_draft` — in-progress logger session for crash recovery
+
+---
+
+## [3.0.0] — 2026-03-07
+
+### Added
+- **Calendar views:** History tab now has a List / Calendar toggle. Calendar offers Day, Week, Month, and Year views.
+- **Heatmap:** Amber intensity heatmap across all calendar views based on session volume. Today outlined in green.
+- **Session detail popovers:** Tapping any trained day in calendar views opens a workout detail panel (inline for Day, popover for Week/Month, bottom sheet for Year).
+- **Workout detail component:** Shared `SessionDetail` component used across all views showing exercises, sets, weight × reps, RIR, and RPE.
+- **Export:** JSON and CSV export buttons added to History header.
+- **PWA:** App configured as a Progressive Web App with offline support via vite-plugin-pwa. Installable to home screen on iOS and Android.
+
+### Changed
+- History tab redesigned with List/Calendar mode toggle.
+- Session cards in List view now expand inline to show full workout detail.
+
+---
+
+## [2.0.0] — 2026-03-06
+
+### Added
+- **10 science-based programs:** Tennis Foundation (2x), Tennis Performance (4x), Tennis Elite (6x PPL), Nippard Essentials (2x and 3x), Nippard Upper/Lower (4x), Athlean-X Combination (5x), RP Hypertrophy (4x), Calisthenics Foundation (3x).
+- **Program browser:** Filter by category and days/week. Program recommendation engine based on availability and goal.
+- **Program detail view:** Full workout breakdown with exercise targets, sets, reps, RIR, RPE, rest periods, and coaching notes.
+- **RIR integration:** RIR (Reps in Reserve) displayed as the primary intensity metric throughout the logger and program views, with RPE shown as secondary.
+- **Rest timer:** Inline rest timer in the logger with presets (60s, 90s, 120s, 180s) and a fixed floating display. Skip button.
+- **Nutrition tab:** Macro calculator based on Jeff Nippard's Pure Bodybuilding Nutrition principles. Bulk / Maintenance / Cut phases with protein, fat, and carb targets computed from bodyweight. Supplement guide and key principles.
+- **226 exercises** across chest, back, shoulders, legs, glutes, arms, core, athletic, and calisthenics categories.
+
+### Changed
+- Logger updated to support program workout loading — selecting a program workout pre-populates exercises, sets, targets, and coaching notes.
+- Home tab updated to show active program card with direct link to Log.
+
+---
+
+## [1.0.0] — 2026-03-05
+
+### Added
+- Initial release.
+- **Workout logger:** Free-form session logging with exercise search by category, custom exercise entry, set/rep/weight/RIR/RPE tracking per set, set completion toggle.
+- **History tab:** Chronological list of saved sessions with expandable detail view. Filter by All / Program / Free.
+- **Dashboard:** Total sessions, this week count, active program indicator, recent sessions list, quick action buttons.
+- **localStorage persistence:** All session data stored locally under `il_sessions`. No account or server required.
+- **Responsive layout:** Mobile-first design, works in browser and as installed PWA.
