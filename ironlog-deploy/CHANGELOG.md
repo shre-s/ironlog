@@ -5,6 +5,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [4.2.0] — 2026-03-08
+
+### Fixed
+- **Critical crash: white screen when adding an exercise to a session.** Three helper functions were referenced by incorrect names in the WorkoutLogger render and in the session save handler — `getLastPerformance` (correct: `getLastExData`), `suggestWeight` (correct: `nextWeight`), and `checkNewPRs` (correct: `detectNewPRs`). All three caused `ReferenceError` crashes at runtime. The progressive overload suggestions, PR detection on save, and exercise logging were all broken as a result. This has been present since v4.0.0 but only became visible once the correct build was deployed to Netlify.
+
+---
+
 ## [4.1.0] — 2026-03-08
 
 ### Fixed
