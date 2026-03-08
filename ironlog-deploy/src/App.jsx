@@ -858,7 +858,11 @@ function Dashboard({sessions,activeProg,setView,prs,customExercises,goToHistory}
   const totalVol=sessions.reduce((a,s)=>{let v=0;s.exercises?.forEach(ex=>ex.sets?.forEach(st=>{v+=(parseFloat(st.w)||0)*(parseFloat(st.r)||0);}));return a+v;},0);
   const {current:streak,longest:longestStreak}=computeStreaks(sessions);
   const lastSession=sessions[0];
-  const daysSinceLast=lastSession?Math.floor((now-new Date(lastSession.date))/86400000):null;
+  const daysSinceLast=lastSession?(()=>{
+    const today=new Date(); today.setHours(0,0,0,0);
+    const lastDate=new Date(lastSession.date); lastDate.setHours(0,0,0,0);
+    return Math.round((today-lastDate)/86400000);
+  })():null;
 
   // Most trained muscle group (from all exercises ever)
   const catCounts={};
