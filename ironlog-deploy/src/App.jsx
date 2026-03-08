@@ -736,27 +736,31 @@ export default function IronLog() {
     let committed=false;
     const doCommit=async()=>{
       if(committed) return; committed=true;
-      const newDel=[{session:s,deletedAt:Date.now()},...deletedSessions];
-      setDeletedSessions(newDel);
-      await store.set("il_deleted",newDel);
+      setDeletedSessions(prev=>{
+        const newDel=[{session:s,deletedAt:Date.now()},...prev];
+        store.set("il_deleted",newDel);
+        return newDel;
+      });
     };
     const doUndo=async()=>{
       if(committed) return;
       committed=true;
       clearTimeout(undoTimers.current[toastId]);
-      const restored=[s,...sessions.filter(x=>x.id!==id)];
-      setSessions(restored);
-      await store.set("il_sessions",restored);
+      setSessions(prev=>{
+        const restored=[s,...prev.filter(x=>x.id!==id)];
+        store.set("il_sessions",restored);
+        return restored;
+      });
     };
     undoTimers.current[toastId]=setTimeout(doCommit,5000);
     addToast(`Deleted: ${s.name}`,{type:"info",duration:5000,undo:doUndo});
-  },[sessions,deletedSessions,addToast]);
+  },[sessions,addToast]);
 
   const restoreSession = useCallback(async(id)=>{
     const item=deletedSessions.find(x=>x.session.id===id);
     if(!item) return;
     const newDel=deletedSessions.filter(x=>x.session.id!==id);
-    const restored=[item.session,...sessions];
+    const restored=[...sessions,item.session].sort((a,b)=>new Date(b.date)-new Date(a.date));
     setDeletedSessions(newDel); setSessions(restored);
     await store.set("il_deleted",newDel); await store.set("il_sessions",restored);
     addToast(`Restored: ${item.session.name}`);
