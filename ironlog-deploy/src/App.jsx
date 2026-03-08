@@ -564,9 +564,10 @@ const S = {
   app:{ minHeight:"100vh", background:"#060c18", color:"#f1f5f9", fontFamily:"'Segoe UI',system-ui,sans-serif", WebkitTapHighlightColor:"transparent", WebkitUserSelect:"none", userSelect:"none" },
   hdr:{ background:"rgba(6,12,24,0.96)", borderBottom:"1px solid rgba(245,158,11,0.2)", position:"sticky", top:0, zIndex:50 },
   hdrIn:{ maxWidth:820, margin:"0 auto", padding:"0 16px", display:"flex", alignItems:"center", justifyContent:"space-between", height:58 },
-  logo:{ display:"flex", alignItems:"center", gap:8 },
-  logoT:{ fontWeight:900, fontSize:19, letterSpacing:2, color:"#f1f5f9" },
+  logo:{ display:"flex", flexDirection:"column", alignItems:"flex-start", gap:2 },
+  logoT:{ fontWeight:900, fontSize:19, letterSpacing:4, color:"#f1f5f9", fontFamily:"'Black Ops One',sans-serif, 'Segoe UI'" },
   logoA:{ color:"#f59e0b" },
+  logoLine:{ width:"100%", height:2, background:"linear-gradient(90deg, #f59e0b, rgba(245,158,11,0.2))", borderRadius:2 },
   nav:{ display:"flex", gap:2 },
   navB:{ display:"flex", flexDirection:"column", alignItems:"center", padding:"6px 9px", background:"transparent", border:"none", cursor:"pointer", borderRadius:8, gap:2, outline:"none", WebkitTapHighlightColor:"transparent" },
   navBA:{ background:"rgba(245,158,11,0.12)" },
@@ -803,7 +804,7 @@ export default function IronLog() {
       <div style={S.app}>
         <header style={S.hdr}>
           <div style={S.hdrIn}>
-            <div style={S.logo}><span>🔩</span><span style={S.logoT}>IRON<span style={S.logoA}>LOG</span></span></div>
+            <div style={S.logo}><span style={S.logoT}>IRON<span style={S.logoA}>LOG</span></span><div style={S.logoLine}/></div>
             <button onClick={()=>setEditSession(null)} style={{...S.bs,fontSize:12}}>← Cancel Edit</button>
           </div>
         </header>
@@ -819,7 +820,7 @@ export default function IronLog() {
     <div style={S.app}>
       <header style={S.hdr}>
         <div style={S.hdrIn}>
-          <div style={S.logo}><span>🔩</span><span style={S.logoT}>IRON<span style={S.logoA}>LOG</span></span></div>
+          <div style={S.logo}><span style={S.logoT}>IRON<span style={S.logoA}>LOG</span></span><div style={S.logoLine}/></div>
           <nav style={S.nav}>
             {tabs.map(t=>(
               <button key={t.id} onClick={()=>{
