@@ -5,6 +5,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [4.4.0] — 2026-03-08
+
+### Changed
+- **New logo — C4 wordmark design:** Replaced the 🔩 emoji + plain text logo with a refined text-only wordmark. "IRON" in white Black Ops One typeface, "LOG" in amber, with a left-anchored amber gradient underline beneath. Black Ops One font loaded via Google Fonts in `index.html`.
+
+---
+
 ## [4.3.0] — 2026-03-08
 
 ### Fixed
