@@ -5,6 +5,14 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [4.3.0] — 2026-03-08
+
+### Fixed
+- **Quick successive deletes losing sessions:** Deleting two sessions in quick succession caused only the last-deleted session to appear in Deleted Sessions — the first was silently lost. Root cause was a stale closure inside `delSession`: both undo timers captured the same empty `deletedSessions` array at call time, so when they fired after 5 seconds each wrote `[session]` independently, with the second overwriting the first. Fixed by using functional state updaters (`setDeletedSessions(prev => ...)`) inside `doCommit` and `doUndo` so they always read current state at the time the timer fires, not the captured value.
+- **Restored sessions appearing at wrong position in History:** Restoring a deleted session always placed it at the top of the list regardless of its original date. Fixed by sorting the restored sessions array by date descending after insertion, consistent with how the rest of the list is ordered.
+
+---
+
 ## [4.2.0] — 2026-03-08
 
 ### Fixed
