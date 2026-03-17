@@ -564,9 +564,10 @@ const S = {
   app:{ minHeight:"100vh", background:"#060c18", color:"#f1f5f9", fontFamily:"'Segoe UI',system-ui,sans-serif", WebkitTapHighlightColor:"transparent", WebkitUserSelect:"none", userSelect:"none" },
   hdr:{ background:"rgba(6,12,24,0.96)", borderBottom:"1px solid rgba(245,158,11,0.2)", position:"sticky", top:0, zIndex:50 },
   hdrIn:{ maxWidth:820, margin:"0 auto", padding:"0 16px", display:"flex", alignItems:"center", justifyContent:"space-between", height:58 },
-  logo:{ display:"flex", alignItems:"center", gap:8 },
-  logoT:{ fontWeight:900, fontSize:19, letterSpacing:2, color:"#f1f5f9" },
+  logo:{ display:"flex", flexDirection:"column", alignItems:"flex-start", gap:2 },
+  logoT:{ fontWeight:900, fontSize:19, letterSpacing:4, color:"#f1f5f9", fontFamily:"'Black Ops One',sans-serif, 'Segoe UI'" },
   logoA:{ color:"#f59e0b" },
+  logoLine:{ width:"100%", height:2, background:"linear-gradient(90deg, #f59e0b, rgba(245,158,11,0.2))", borderRadius:2 },
   nav:{ display:"flex", gap:2 },
   navB:{ display:"flex", flexDirection:"column", alignItems:"center", padding:"6px 9px", background:"transparent", border:"none", cursor:"pointer", borderRadius:8, gap:2, outline:"none", WebkitTapHighlightColor:"transparent" },
   navBA:{ background:"rgba(245,158,11,0.12)" },
@@ -605,167 +606,228 @@ const S = {
 };
 
 // ── TOAST SYSTEM ─────────────────────────────────────────
-function Toast({toasts}){
+function Toast({toasts,removeToast}){
   return(
-    <div style={{position:"fixed",bottom:84,left:"50%",transform:"translateX(-50%)",zIndex:200,display:"flex",flexDirection:"column",gap:8,alignItems:"center",pointerEvents:"none"}}>
+    <div style={{position:"fixed",bottom:84,left:"50%",transform:"translateX(-50%)",zIndex:200,display:"flex",flexDirection:"column",gap:8,alignItems:"center",pointerEvents:"none",width:"92%",maxWidth:420}}>
       {toasts.map(t=>(
-        <div key={t.id} style={{background:t.bg||"rgba(15,23,42,0.97)",border:`1px solid ${t.bc||"rgba(245,158,11,0.4)"}`,borderRadius:12,padding:"10px 18px",color:"#f1f5f9",fontSize:13,fontWeight:600,boxShadow:"0 4px 24px rgba(0,0,0,0.6)",whiteSpace:"nowrap",display:"flex",alignItems:"center",gap:10,pointerEvents:"auto",maxWidth:"90vw"}}>
-          <span style={{overflow:"hidden",textOverflow:"ellipsis"}}>{t.msg}</span>
-          {t.onUndo&&<button onClick={t.onUndo} style={{background:"rgba(245,158,11,0.2)",border:"1px solid rgba(245,158,11,0.5)",color:"#f59e0b",borderRadius:6,padding:"3px 10px",cursor:"pointer",fontSize:12,fontWeight:700,outline:"none",flexShrink:0}}>Undo</button>}
+        <div key={t.id} style={{background:t.type==="pr"?"#0d1627":"rgba(15,23,42,0.97)",border:`1px solid ${t.type==="pr"?"rgba(245,158,11,0.5)":t.type==="error"?"rgba(239,68,68,0.5)":"rgba(255,255,255,0.15)"}`,borderRadius:12,padding:"11px 16px",color:"#f1f5f9",fontSize:13,fontWeight:600,boxShadow:"0 4px 24px rgba(0,0,0,0.6)",display:"flex",alignItems:"center",justifyContent:"space-between",gap:10,pointerEvents:"auto",width:"100%",boxSizing:"border-box",animation:"slideUp 0.25s ease"}}>
+          <style>{`@keyframes slideUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}`}</style>
+          <span style={{color:t.type==="pr"?"#f59e0b":t.type==="error"?"#ef4444":"#f1f5f9",overflow:"hidden",textOverflow:"ellipsis"}}>{t.msg}</span>
+          {t.undo&&<button onClick={()=>{t.undo();removeToast(t.id);}} style={{background:"rgba(245,158,11,0.2)",border:"1px solid rgba(245,158,11,0.5)",color:"#f59e0b",borderRadius:6,padding:"4px 10px",cursor:"pointer",fontSize:12,fontWeight:700,outline:"none",flexShrink:0,WebkitTapHighlightColor:"transparent"}}>Undo</button>}
         </div>
       ))}
     </div>
   );
 }
 
-export default function IronLog(){
-  const [view,setView]=useState("dashboard");
-  const [sessions,setSessions]=useState([]);
-  const [deletedSessions,setDeletedSessions]=useState([]);
-  const [activeProg,setActiveProg]=useState(null);
-  const [customExercises,setCustomExercises]=useState([]);
-  const [prs,setPrs]=useState({});
-  const [loaded,setLoaded]=useState(false);
-  const [toasts,setToasts]=useState([]);
-  const [editingSession,setEditingSession]=useState(null);
-  const toastRefs=useRef({});
 
+export default function IronLog() {
+  const [view,setView] = useState("dashboard");
+  const [sessions,setSessions] = useState([]);
+  const [deletedSessions,setDeletedSessions] = useState([]); // {session, deletedAt}
+  const [activeProg,setActiveProg] = useState(null);
+  const [customExercises,setCustomExercises] = useState([]); // {id,name,cat,equipment,pattern}
+  const [prs,setPrs] = useState({});
+  const [loaded,setLoaded] = useState(false);
+  const [toasts,setToasts] = useState([]);
+  const [editSession,setEditSession] = useState(null); // session being edited
+  // ── Issue 3: Logger draft state lifted to root (Options A + C) ──
+  const [loggerDraft,setLoggerDraft] = useState(null); // persists across tab switches
+  // History navigation state — lifted so Dashboard can drive it
+  const [historyMode,setHistoryMode] = useState("list");
+  const [historyCalView,setHistoryCalView] = useState("month");
+  const [historyExp,setHistoryExp] = useState(null);
+  const [historyFlt,setHistoryFlt] = useState("all");
+  const undoTimers=useRef({});
+
+  // Navigate to History with specific mode/view/session pre-set
+  const goToHistory=useCallback((opts={})=>{
+    if(opts.mode)            setHistoryMode(opts.mode);
+    if(opts.calView)         setHistoryCalView(opts.calView);
+    if(opts.exp!==undefined) setHistoryExp(opts.exp);
+    if(opts.flt)             setHistoryFlt(opts.flt);
+    setView("history");
+  },[]);
+
+  // Load all state from localStorage
   useEffect(()=>{
     (async()=>{
       const s=await store.get("il_sessions");
-      const p=await store.get("il_prog");
       const d=await store.get("il_deleted");
+      const p=await store.get("il_prog");
       const cx=await store.get("il_custom_ex");
-      const pr=await store.get("il_prs");
+      const savedPrs=await store.get("il_prs");
+      const draft=await store.get("il_draft"); // Option A: restore draft
       if(s) setSessions(s);
-      if(p) setActiveProg(p);
       if(cx) setCustomExercises(cx);
-      if(pr) setPrs(pr);
+      if(savedPrs) setPrs(savedPrs);
+      if(draft) setLoggerDraft(draft); // will prompt user to restore in WorkoutLogger
+      // Load deleted and auto-purge >30 days
       if(d){
-        const cutoff=Date.now()-30*24*60*60*1000;
-        const live=d.filter(x=>new Date(x.deletedAt).getTime()>cutoff);
-        setDeletedSessions(live);
-        await store.set("il_deleted",live);
+        const now=Date.now();
+        const alive=d.filter(item=>now-item.deletedAt < 30*24*60*60*1000);
+        setDeletedSessions(alive);
+        if(alive.length!==d.length) await store.set("il_deleted",alive);
       }
+      if(p) setActiveProg(p);
       setLoaded(true);
     })();
   },[]);
 
+  // Option A helpers — persist draft to localStorage
+  const saveDraft=useCallback(async(draft)=>{
+    setLoggerDraft(draft);
+    await store.set("il_draft",draft);
+  },[]);
+
+  const clearDraft=useCallback(async()=>{
+    setLoggerDraft(null);
+    await store.set("il_draft",null);
+  },[]);
+
   const addToast=useCallback((msg,opts={})=>{
     const id=Date.now()+Math.random();
-    setToasts(t=>[...t,{id,msg,...opts}]);
-    const timer=setTimeout(()=>{
-      setToasts(t=>t.filter(x=>x.id!==id));
-      opts.onExpire?.();
-    },opts.ms||3500);
-    toastRefs.current[id]=timer;
+    setToasts(t=>[...t,{id,msg,type:opts.type||"info",undo:opts.undo||null}]);
+    setTimeout(()=>setToasts(t=>t.filter(x=>x.id!==id)),opts.duration||4000);
     return id;
   },[]);
 
-  const killToast=useCallback((id)=>{
-    clearTimeout(toastRefs.current[id]);
+  const removeToast=useCallback((id)=>{
     setToasts(t=>t.filter(x=>x.id!==id));
+    if(undoTimers.current[id]){ clearTimeout(undoTimers.current[id]); delete undoTimers.current[id]; }
   },[]);
 
-  const saveSession=useCallback(async(s)=>{
+  const saveSession = useCallback(async(s)=>{
+    // Check for new PRs before saving
+    const newPRs=detectNewPRs(s,prs);
     const u=[s,...sessions];
     setSessions(u);
     await store.set("il_sessions",u);
-    const{updated,newPRs}=detectNewPRs(s,prs);
-    if(newPRs.length){
-      setPrs(updated);
-      await store.set("il_prs",updated);
-      newPRs.slice(0,2).forEach((pr,i)=>{
-        setTimeout(()=>addToast(`🏆 New PR: ${pr.name} — ${pr.w}kg × ${pr.r}`,{ms:5000,bc:"rgba(250,204,21,0.5)"}),i*600+400);
+    // Update PR store
+    if(newPRs.length>0){
+      const updatedPRs={...prs};
+      newPRs.forEach(pr=>{ updatedPRs[pr.name]={w:pr.w,r:pr.r,e1rm:pr.e1rm,date:s.date,sessionName:s.name}; });
+      setPrs(updatedPRs);
+      await store.set("il_prs",updatedPRs);
+      newPRs.slice(0,3).forEach((pr,i)=>{
+        setTimeout(()=>addToast(`🏆 New PR: ${pr.name} — ${pr.w}kg × ${pr.r}`,{type:"pr",duration:6000}),i*600);
       });
     }
   },[sessions,prs,addToast]);
 
-  const updateSession=useCallback(async(updated)=>{
-    const u=sessions.map(s=>s.id===updated.id?updated:s);
+  const updateSession = useCallback(async(s)=>{
+    const u=sessions.map(x=>x.id===s.id?s:x);
     setSessions(u);
     await store.set("il_sessions",u);
-    addToast("✅ Session updated");
-  },[sessions,addToast]);
+    setEditSession(null);
+  },[sessions]);
 
-  const saveProg=useCallback(async(p)=>{
+  const saveProg = useCallback(async(p)=>{
     setActiveProg(p); await store.set("il_prog",p);
   },[]);
 
-  const softDelete=useCallback(async(id)=>{
-    const target=sessions.find(s=>s.id===id);
-    if(!target) return;
-    const newSess=sessions.filter(s=>s.id!==id);
-    setSessions(newSess);
-    await store.set("il_sessions",newSess);
-    let undone=false;
-    const tid=addToast(`Deleted: ${target.name}`,{
-      ms:5000,
-      onUndo:async()=>{
-        undone=true; killToast(tid);
-        const restored=[target,...newSess].sort((a,b)=>new Date(b.date)-new Date(a.date));
-        setSessions(restored);
-        await store.set("il_sessions",restored);
-        addToast("↩ Restored",{ms:2500});
-      },
-      onExpire:async()=>{
-        if(!undone){
-          const nd=[...deletedSessions,{...target,deletedAt:new Date().toISOString()}];
-          setDeletedSessions(nd);
-          await store.set("il_deleted",nd);
-        }
-      }
-    });
-  },[sessions,deletedSessions,addToast,killToast]);
+  // Soft delete — move to deleted bucket, show undo toast
+  const delSession = useCallback(async(id)=>{
+    const s=sessions.find(x=>x.id===id);
+    if(!s) return;
+    const u=sessions.filter(x=>x.id!==id);
+    setSessions(u);
+    await store.set("il_sessions",u);
+    const toastId=Date.now()+Math.random();
+    let committed=false;
+    const doCommit=async()=>{
+      if(committed) return; committed=true;
+      setDeletedSessions(prev=>{
+        const newDel=[{session:s,deletedAt:Date.now()},...prev];
+        store.set("il_deleted",newDel);
+        return newDel;
+      });
+    };
+    const doUndo=async()=>{
+      if(committed) return;
+      committed=true;
+      clearTimeout(undoTimers.current[toastId]);
+      setSessions(prev=>{
+        const restored=[s,...prev.filter(x=>x.id!==id)];
+        store.set("il_sessions",restored);
+        return restored;
+      });
+    };
+    undoTimers.current[toastId]=setTimeout(doCommit,5000);
+    addToast(`Deleted: ${s.name}`,{type:"info",duration:5000,undo:doUndo});
+  },[sessions,addToast]);
 
-  const restoreSession=useCallback(async(id)=>{
-    const target=deletedSessions.find(s=>s.id===id);
-    if(!target) return;
-    const{deletedAt,...clean}=target;
-    const nd=deletedSessions.filter(s=>s.id!==id);
-    const ns=[clean,...sessions].sort((a,b)=>new Date(b.date)-new Date(a.date));
-    setDeletedSessions(nd); setSessions(ns);
-    await store.set("il_deleted",nd);
-    await store.set("il_sessions",ns);
-    addToast("↩ Restored to History",{ms:2500});
+  const restoreSession = useCallback(async(id)=>{
+    const item=deletedSessions.find(x=>x.session.id===id);
+    if(!item) return;
+    const newDel=deletedSessions.filter(x=>x.session.id!==id);
+    const restored=[...sessions,item.session].sort((a,b)=>new Date(b.date)-new Date(a.date));
+    setDeletedSessions(newDel); setSessions(restored);
+    await store.set("il_deleted",newDel); await store.set("il_sessions",restored);
+    addToast(`Restored: ${item.session.name}`);
   },[deletedSessions,sessions,addToast]);
 
-  const permanentDelete=useCallback(async(id)=>{
-    const nd=deletedSessions.filter(s=>s.id!==id);
-    setDeletedSessions(nd);
-    await store.set("il_deleted",nd);
+  const permDeleteSession = useCallback(async(id)=>{
+    const newDel=deletedSessions.filter(x=>x.session.id!==id);
+    setDeletedSessions(newDel);
+    await store.set("il_deleted",newDel);
   },[deletedSessions]);
 
-  const saveCustomExercise=useCallback(async(ex)=>{
-    if(customExercises.find(e=>e.name.toLowerCase().trim()===ex.name.toLowerCase().trim())) return;
-    const upd=[...customExercises,ex];
-    setCustomExercises(upd);
-    await store.set("il_custom_ex",upd);
+  const saveCustomEx = useCallback(async(ex)=>{
+    const exists=customExercises.some(e=>e.name.toLowerCase()===ex.name.toLowerCase());
+    if(exists) return;
+    const u=[ex,...customExercises];
+    setCustomExercises(u);
+    await store.set("il_custom_ex",u);
   },[customExercises]);
 
-  const importSessions=useCallback(async(incoming)=>{
-    const ids=new Set(sessions.map(s=>s.id));
-    const fresh=incoming.filter(s=>!ids.has(s.id));
-    if(!fresh.length){addToast("No new sessions to import",{ms:3000});return;}
-    const merged=[...sessions,...fresh].sort((a,b)=>new Date(b.date)-new Date(a.date));
+  const importSessions = useCallback(async(incoming)=>{
+    const existingIds=new Set(sessions.map(s=>s.id));
+    const newOnes=incoming.filter(s=>!existingIds.has(s.id));
+    if(newOnes.length===0){ addToast("No new sessions to import",{type:"info"}); return; }
+    const merged=[...newOnes,...sessions];
     setSessions(merged);
     await store.set("il_sessions",merged);
-    addToast(`✅ Imported ${fresh.length} session${fresh.length>1?"s":""}`,{ms:3500});
+    addToast(`✅ Imported ${newOnes.length} session${newOnes.length>1?"s":""}`);
   },[sessions,addToast]);
 
   if(!loaded) return <div style={{...S.app,display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{color:"#f59e0b",fontSize:18,letterSpacing:2}}>LOADING...</span></div>;
 
-  const allExercises=[...ALL_EX,...customExercises.map(e=>({...e,isCustom:true}))];
+  // Combined exercise list (built-in + custom) — used by Dashboard for muscle group tracking
+  const allExercises=[...customExercises.map(e=>({...e,isCustom:true})),...ALL_EX];
+
   const tabs=[{id:"dashboard",icon:"⚡",label:"Home"},{id:"programs",icon:"📋",label:"Programs"},{id:"log",icon:"✏️",label:"Log"},{id:"history",icon:"📊",label:"History"},{id:"nutrition",icon:"🥗",label:"Nutrition"}];
 
-  return(
+  // Edit mode: render WorkoutLogger with pre-filled session
+  if(editSession){
+    return(
+      <div style={S.app}>
+        <header style={S.hdr}>
+          <div style={S.hdrIn}>
+            <div style={S.logo}><span style={S.logoT}>IRON<span style={S.logoA}>LOG</span></span><div style={S.logoLine}/></div>
+            <button onClick={()=>setEditSession(null)} style={{...S.bs,fontSize:12}}>← Cancel Edit</button>
+          </div>
+        </header>
+        <main style={S.main}>
+          <WorkoutLogger activeProg={activeProg} saveSession={updateSession} setView={()=>setEditSession(null)} customExercises={customExercises} saveCustomEx={saveCustomEx} sessions={sessions} editMode={true} editData={editSession}/>
+        </main>
+        <Toast toasts={toasts} removeToast={removeToast}/>
+      </div>
+    );
+  }
+
+  return (
     <div style={S.app}>
       <header style={S.hdr}>
         <div style={S.hdrIn}>
-          <div style={S.logo}><span>🔩</span><span style={S.logoT}>IRON<span style={S.logoA}>LOG</span></span></div>
+          <div style={S.logo}><span style={S.logoT}>IRON<span style={S.logoA}>LOG</span></span><div style={S.logoLine}/></div>
           <nav style={S.nav}>
             {tabs.map(t=>(
-              <button key={t.id} onClick={()=>setView(t.id)} style={{...S.navB,...(view===t.id?S.navBA:{})}}>
+              <button key={t.id} onClick={()=>{
+                // Collapse any expanded session when navigating away from history
+                if(view==="history" && t.id!=="history") setHistoryExp(null);
+                setView(t.id);
+              }} style={{...S.navB,...(view===t.id?S.navBA:{})}}>
                 <span style={S.navI}>{t.icon}</span><span style={S.navL}>{t.label}</span>
               </button>
             ))}
@@ -773,94 +835,99 @@ export default function IronLog(){
         </div>
       </header>
       <main style={S.main}>
-        {view==="dashboard"&&<Dashboard sessions={sessions} activeProg={activeProg} setView={setView} prs={prs}/>}
-        {view==="programs"&&<ProgramBrowser activeProg={activeProg} saveProg={saveProg} setView={setView}/>}
-        {view==="log"&&(editingSession
-          ?<WorkoutLogger activeProg={activeProg} saveSession={updateSession} setView={setView} allExercises={allExercises} saveCustomExercise={saveCustomExercise} sessions={sessions} editingSession={editingSession} onCancelEdit={()=>{setEditingSession(null);setView("history");}}/>
-          :<WorkoutLogger activeProg={activeProg} saveSession={saveSession} setView={setView} allExercises={allExercises} saveCustomExercise={saveCustomExercise} sessions={sessions}/>
-        )}
-        {view==="history"&&<History sessions={sessions} softDelete={softDelete} deletedSessions={deletedSessions} restoreSession={restoreSession} permanentDelete={permanentDelete} importSessions={importSessions} onEdit={s=>{setEditingSession(s);setView("log");}}/>}
-        {view==="nutrition"&&<Nutrition/>}
+        {view==="dashboard"  && <Dashboard sessions={sessions} activeProg={activeProg} setView={setView} prs={prs} customExercises={customExercises} goToHistory={goToHistory}/>}
+        {view==="programs"   && <ProgramBrowser activeProg={activeProg} saveProg={saveProg} setView={setView}/>}
+        {view==="log"        && <WorkoutLogger activeProg={activeProg} saveSession={saveSession} setView={setView} customExercises={customExercises} saveCustomEx={saveCustomEx} sessions={sessions} loggerDraft={loggerDraft} saveDraft={saveDraft} clearDraft={clearDraft}/>}
+        {view==="history"    && <History sessions={sessions} delSession={delSession} importSessions={importSessions} deletedSessions={deletedSessions} restoreSession={restoreSession} permDeleteSession={permDeleteSession} setEditSession={setEditSession} historyMode={historyMode} setHistoryMode={setHistoryMode} historyCalView={historyCalView} setHistoryCalView={setHistoryCalView} historyExp={historyExp} setHistoryExp={setHistoryExp} historyFlt={historyFlt} setHistoryFlt={setHistoryFlt}/>}
+        {view==="nutrition"  && <Nutrition/>}
       </main>
-      <Toast toasts={toasts}/>
+      <Toast toasts={toasts} removeToast={removeToast}/>
     </div>
   );
 }
 
-function Dashboard({sessions,activeProg,setView,prs}){
-  const prog=activeProg?PROGRAMS.find(p=>p.id===activeProg.id):null;
-  const{current:curStreak,longest:bestStreak,lastDate}=computeStreaks(sessions);
-  const now=new Date(); now.setHours(0,0,0,0);
-  const daysSince=lastDate?Math.round((now-new Date(lastDate+"T12:00:00"))/86400000):null;
 
-  const weekStart=new Date(now); weekStart.setDate(now.getDate()-now.getDay());
-  const lastWkStart=new Date(weekStart); lastWkStart.setDate(weekStart.getDate()-7);
-  const thisWk=sessions.filter(s=>new Date(s.date)>=weekStart).length;
-  const lastWk=sessions.filter(s=>new Date(s.date)>=lastWkStart&&new Date(s.date)<weekStart).length;
+// ── DASHBOARD (enhanced with stats, streaks, PRs) ────────
+function Dashboard({sessions,activeProg,setView,prs,customExercises,goToHistory}){
+  const prog = activeProg ? PROGRAMS.find(p=>p.id===activeProg.id) : null;
 
+  // Stats
+  const now=Date.now();
+  const thisWeek=sessions.filter(s=>(now-new Date(s.date))/86400000<7);
+  const lastWeek=sessions.filter(s=>{const d=(now-new Date(s.date))/86400000;return d>=7&&d<14;});
   const totalVol=sessions.reduce((a,s)=>{let v=0;s.exercises?.forEach(ex=>ex.sets?.forEach(st=>{v+=(parseFloat(st.w)||0)*(parseFloat(st.r)||0);}));return a+v;},0);
+  const {current:streak,longest:longestStreak}=computeStreaks(sessions);
+  const lastSession=sessions[0];
+  const daysSinceLast=lastSession?(()=>{
+    const today=new Date(); today.setHours(0,0,0,0);
+    const lastDate=new Date(lastSession.date); lastDate.setHours(0,0,0,0);
+    return Math.round((today-lastDate)/86400000);
+  })():null;
 
-  const catCount={};
+  // Most trained muscle group (from all exercises ever)
+  const catCounts={};
   sessions.forEach(s=>s.exercises?.forEach(ex=>{
-    const found=ALL_EX.find(e=>e.name===ex.name);
-    if(found) catCount[found.cat]=(catCount[found.cat]||0)+1;
+    const found=[...ALL_EX,...customExercises].find(e=>e.name===ex.name);
+    if(found){ catCounts[found.cat]=(catCounts[found.cat]||0)+1; }
   }));
-  const topCat=Object.entries(catCount).sort((a,b)=>b[1]-a[1])[0];
+  const topCat=Object.entries(catCounts).sort((a,b)=>b[1]-a[1])[0]?.[0];
 
-  const topPRs=Object.values(prs).sort((a,b)=>b.e1rm-a.e1rm).slice(0,5);
+  // Top 5 PRs by e1rm
+  const topPRs=Object.entries(prs).sort((a,b)=>b[1].e1rm-a[1].e1rm).slice(0,5);
 
-  const nudge=daysSince===null?null
-    :daysSince===0?"Trained today 💪"
-    :daysSince===1?"Last trained yesterday"
-    :daysSince>=3?`${daysSince} days since last workout — time to train?`
-    :null;
+  const nudge=daysSinceLast===null?null:daysSinceLast===0?"You trained today 🔥":daysSinceLast===1?"You trained yesterday. Keep it up!":daysSinceLast>=3?`${daysSinceLast} days since your last workout. Time to train!`:null;
 
-  return(
+  return (
     <div style={S.pg}>
-      <div style={S.pgH}><h1 style={S.pgT}>Dashboard</h1><p style={S.pgS}>Your training at a glance</p></div>
+      <div style={S.pgH}><h1 style={S.pgT}>⚡ Dashboard</h1><p style={S.pgS}>Your training at a glance</p></div>
 
-      {nudge&&<div style={{background:daysSince>=3?"rgba(239,68,68,0.08)":"rgba(74,222,128,0.08)",border:`1px solid ${daysSince>=3?"rgba(239,68,68,0.25)":"rgba(74,222,128,0.25)"}`,borderRadius:10,padding:"10px 14px",marginBottom:12,fontSize:13,color:daysSince>=3?"#ef4444":"#4ade80",fontWeight:600}}>{nudge}</div>}
+      {nudge&&<div style={{background:daysSinceLast>=3?"rgba(245,158,11,0.08)":"rgba(74,222,128,0.06)",border:`1px solid ${daysSinceLast>=3?"rgba(245,158,11,0.25)":"rgba(74,222,128,0.2)"}`,borderRadius:12,padding:"12px 16px",marginBottom:12,color:daysSinceLast>=3?"#f59e0b":"#4ade80",fontSize:13,fontWeight:600}}>{nudge}</div>}
 
-      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:12}}>
-        <div style={{background:"rgba(245,158,11,0.06)",border:"1px solid rgba(245,158,11,0.2)",borderRadius:12,padding:"14px"}}>
-          <div style={{color:"#f59e0b",fontSize:10,fontWeight:700,letterSpacing:1,marginBottom:6}}>TRAINING STREAK</div>
-          <div style={{color:"#f59e0b",fontWeight:900,fontSize:30,lineHeight:1}}>{curStreak}<span style={{fontSize:14,fontWeight:600}}> days</span></div>
-          <div style={{color:"#64748b",fontSize:11,marginTop:4}}>Best: {bestStreak} days</div>
+      {/* Stats grid */}
+      <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:10,marginBottom:12}}>
+        {[
+          {label:"Total Sessions",value:sessions.length,icon:"🏋️",color:"#f59e0b",onClick:()=>goToHistory({mode:"list",flt:"all"})},
+          {label:"This Week",value:thisWeek.length+(lastWeek.length>0?` (↑${thisWeek.length-lastWeek.length>=0?"+":""}${thisWeek.length-lastWeek.length} vs last)`:``),icon:"📅",color:"#4ade80",onClick:()=>goToHistory({mode:"calendar",calView:"week"})},
+          {label:"Current Streak",value:streak+(streak>0?" day"+(streak>1?"s":""):""),icon:"🔥",color:streak>=7?"#ef4444":streak>=3?"#f59e0b":"#94a3b8",onClick:null},
+          {label:"Longest Streak",value:longestStreak+(longestStreak>0?" day"+(longestStreak>1?"s":""):""),icon:"🏅",color:"#a78bfa",onClick:null},
+        ].map((st,i)=>(
+          <div key={i} onClick={st.onClick||undefined}
+            style={{background:"rgba(255,255,255,0.03)",border:`1px solid ${st.color}30`,borderRadius:12,padding:"14px 14px",cursor:st.onClick?"pointer":"default",transition:st.onClick?"opacity 0.15s":"none",WebkitTapHighlightColor:"transparent"}}
+            onMouseEnter={e=>{if(st.onClick)e.currentTarget.style.opacity="0.8";}}
+            onMouseLeave={e=>{e.currentTarget.style.opacity="1";}}>
+            <div style={{fontSize:20,marginBottom:4}}>{st.icon}</div>
+            <div style={{color:st.color,fontWeight:800,fontSize:18,lineHeight:1.1}}>{st.value}</div>
+            <div style={{color:"#64748b",fontSize:11,marginTop:3}}>{st.label}{st.onClick&&<span style={{color:st.color,fontSize:9,marginLeft:4,opacity:0.6}}>↗</span>}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Volume + top muscle */}
+      <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:10,marginBottom:12}}>
+        <div style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(74,222,128,0.2)",borderRadius:12,padding:"14px 14px"}}>
+          <div style={{color:"#64748b",fontSize:11,marginBottom:4}}>TOTAL VOLUME</div>
+          <div style={{color:"#4ade80",fontWeight:800,fontSize:18}}>{totalVol>0?(totalVol/1000).toFixed(1)+"k kg":"—"}</div>
+          <div style={{color:"#475569",fontSize:11,marginTop:2}}>all time</div>
         </div>
-        <div style={{background:"rgba(74,222,128,0.06)",border:"1px solid rgba(74,222,128,0.2)",borderRadius:12,padding:"14px"}}>
-          <div style={{color:"#4ade80",fontSize:10,fontWeight:700,letterSpacing:1,marginBottom:6}}>TOTAL VOLUME</div>
-          <div style={{color:"#4ade80",fontWeight:900,fontSize:30,lineHeight:1}}>{totalVol>=1000?(totalVol/1000).toFixed(1)+"k":(totalVol||"—")}<span style={{fontSize:14,fontWeight:600}}>{totalVol>0?" kg":""}</span></div>
-          <div style={{color:"#64748b",fontSize:11,marginTop:4}}>{sessions.length} sessions total</div>
+        <div style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(139,92,246,0.2)",borderRadius:12,padding:"14px 14px"}}>
+          <div style={{color:"#64748b",fontSize:11,marginBottom:4}}>TOP MUSCLE</div>
+          <div style={{color:"#a78bfa",fontWeight:800,fontSize:18,textTransform:"capitalize"}}>{topCat||"—"}</div>
+          <div style={{color:"#475569",fontSize:11,marginTop:2}}>most trained</div>
         </div>
       </div>
 
-      <div style={{...S.card,marginBottom:12}}>
-        <div style={S.cHdr}><h2 style={S.cT}>This Week</h2></div>
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8}}>
-          {[
-            {l:"This week",v:thisWk,c:"#f59e0b"},
-            {l:"Last week",v:lastWk,c:"#94a3b8"},
-            {l:"Top muscle",v:topCat?topCat[0]:"—",c:"#a78bfa"},
-          ].map((st,i)=>(
-            <div key={i} style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(255,255,255,0.06)",borderRadius:10,padding:"10px",textAlign:"center"}}>
-              <div style={{color:st.c,fontWeight:800,fontSize:i===2?12:22,marginBottom:3}}>{st.v}</div>
-              <div style={{color:"#64748b",fontSize:10}}>{st.l}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-
+      {/* Personal Records */}
       {topPRs.length>0&&(
         <div style={S.card}>
-          <div style={S.cHdr}><h2 style={S.cT}>🏆 Personal Records</h2><span style={{color:"#64748b",fontSize:11}}>Est. 1RM (Epley)</span></div>
-          {topPRs.map((pr,i)=>(
-            <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 0",borderTop:"1px solid rgba(255,255,255,0.05)"}}>
+          <div style={S.cHdr}><h2 style={S.cT}>🏆 Personal Records</h2><span style={{color:"#64748b",fontSize:12}}>Est. 1RM</span></div>
+          {topPRs.map(([name,pr],i)=>(
+            <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 0",borderTop:i>0?"1px solid rgba(255,255,255,0.05)":"none"}}>
               <div>
-                <div style={{color:"#e2e8f0",fontWeight:600,fontSize:13}}>{pr.name}</div>
-                <div style={{color:"#64748b",fontSize:11,marginTop:2}}>{pr.w}kg × {pr.r} · {new Date(pr.date).toLocaleDateString("en-US",{month:"short",day:"numeric"})}</div>
+                <div style={{color:"#e2e8f0",fontWeight:600,fontSize:13}}>{name}</div>
+                <div style={{color:"#64748b",fontSize:11,marginTop:1}}>{pr.w}kg × {pr.r} · {new Date(pr.date).toLocaleDateString("en-US",{month:"short",day:"numeric"})}</div>
               </div>
               <div style={{textAlign:"right"}}>
-                <div style={{color:"#f59e0b",fontWeight:800,fontSize:16}}>{pr.e1rm}<span style={{fontSize:11}}> kg</span></div>
+                <div style={{color:"#f59e0b",fontWeight:800,fontSize:15}}>{pr.e1rm.toFixed(1)}<span style={{fontSize:10,fontWeight:600}}> kg</span></div>
                 <div style={{color:"#475569",fontSize:10}}>e1RM</div>
               </div>
             </div>
@@ -868,7 +935,7 @@ function Dashboard({sessions,activeProg,setView,prs}){
         </div>
       )}
 
-      {prog?(
+      {prog ? (
         <div style={S.card}>
           <div style={S.cHdr}><h2 style={S.cT}>Active Program</h2><button onClick={()=>setView("programs")} style={S.lnk}>Change</button></div>
           <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:12}}>
@@ -880,11 +947,11 @@ function Dashboard({sessions,activeProg,setView,prs}){
           </div>
           <button onClick={()=>setView("log")} style={S.bp}>✏️ Log Next Workout</button>
         </div>
-      ):(
-        <div style={{...S.card,textAlign:"center",padding:"28px 24px"}}>
-          <div style={{fontSize:40,marginBottom:12}}>📋</div>
-          <div style={{color:"#f1f5f9",fontWeight:600,marginBottom:8}}>No Active Program</div>
-          <div style={{color:"#64748b",fontSize:14,marginBottom:16}}>Browse programs to find one that fits your goals</div>
+      ) : (
+        <div style={{...S.card,textAlign:"center",padding:"24px"}}>
+          <div style={{fontSize:36,marginBottom:10}}>📋</div>
+          <div style={{color:"#f1f5f9",fontWeight:600,marginBottom:6}}>No Active Program</div>
+          <div style={{color:"#64748b",fontSize:13,marginBottom:14}}>Browse programs to find one that fits your goals</div>
           <button onClick={()=>setView("programs")} style={S.bp}>Browse Programs</button>
         </div>
       )}
@@ -898,11 +965,19 @@ function Dashboard({sessions,activeProg,setView,prs}){
       </div>
       {sessions.length>0&&(
         <div style={S.card}>
-          <div style={S.cHdr}><h2 style={S.cT}>Recent Sessions</h2><button onClick={()=>setView("history")} style={S.lnk}>See All</button></div>
+          <div style={S.cHdr}><h2 style={S.cT}>Recent Sessions</h2><button onClick={()=>goToHistory({mode:"list",flt:"all"})} style={S.lnk}>See All</button></div>
           {sessions.slice(0,3).map(s=>(
-            <div key={s.id} style={{padding:"10px 0",borderTop:"1px solid rgba(255,255,255,0.05)"}}>
-              <div style={{color:"#e2e8f0",fontWeight:600,fontSize:14}}>{s.name}</div>
-              <div style={{color:"#64748b",fontSize:12,marginTop:3}}>{new Date(s.date).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"})} · {s.exercises?.length||0} exercises</div>
+            <div key={s.id} onClick={()=>goToHistory({mode:"list",flt:"all",exp:s.id})}
+              style={{padding:"10px 0",borderTop:"1px solid rgba(255,255,255,0.05)",cursor:"pointer",WebkitTapHighlightColor:"transparent"}}
+              onMouseEnter={e=>e.currentTarget.style.opacity="0.75"}
+              onMouseLeave={e=>e.currentTarget.style.opacity="1"}>
+              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                <div style={{color:"#e2e8f0",fontWeight:600,fontSize:14}}>{s.name}</div>
+                <span style={{color:"#475569",fontSize:11}}>↗</span>
+              </div>
+              <div style={{color:"#64748b",fontSize:12,marginTop:3}}>
+                {new Date(s.date).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"})} · {s.exercises?.length||0} exercises
+              </div>
             </div>
           ))}
         </div>
@@ -1084,29 +1159,49 @@ function ProgDetail({prog,isActive,saveProg,setView,m}){
   );
 }
 
-function WorkoutLogger({activeProg,saveSession,setView,allExercises,saveCustomExercise,sessions,editingSession,onCancelEdit}){
-  const isEditing=!!editingSession;
-  const [mode,setMode]=useState(isEditing?"active":null);
-  const [selW,setSelW]=useState(isEditing?editingSession.workoutName:null);
-  const [exercises,setExercises]=useState(()=>isEditing?(editingSession.exercises?.map(ex=>({
-    uid:Date.now()+Math.random(),name:ex.name,notes:ex.notes||"",
-    tSets:ex.tSets||"3",tReps:ex.tReps||"8-12",tRpe:ex.tRpe||"8",tRir:ex.tRir||"2",tRest:ex.tRest||"90 sec",
-    sets:(ex.sets?.length?ex.sets.map(s=>({...s,done:false})):[{w:"",r:"",rpe:"",rir:"",done:false}])
-  }))||[]):[]);
-  const [name,setName]=useState(isEditing?editingSession.name:"");
-  const [sessionNotes,setSessionNotes]=useState(isEditing?editingSession.sessionNotes||"":"");
+
+// ── WORKOUT LOGGER (enhanced: custom ex save, overload suggestions, edit mode, notes) ──
+function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCustomEx,sessions,editMode=false,editData=null,loggerDraft,saveDraft,clearDraft}){
+  const allEx=[...customExercises.map(e=>({...e,isCustom:true})),...ALL_EX];
+
+  // Option A: check if a recoverable draft exists (from a previous session close)
+  // A draft is "recoverable" if it has exercises and was saved >60s ago (not just a live session)
+  const recoverableDraft = !editMode && loggerDraft?.exercises?.length>0 && loggerDraft?.savedAt && (Date.now()-loggerDraft.savedAt > 10000);
+  const [showDraftBanner,setShowDraftBanner] = useState(recoverableDraft);
+
+  const [mode,setMode]=useState(()=>{
+    // Option C: restore mode from draft if available
+    if(!editMode && loggerDraft?.mode && !recoverableDraft) return loggerDraft.mode;
+    return editMode?"active":null;
+  });
+  const [selW,setSelW]=useState(()=>(!editMode&&loggerDraft?.selW&&!recoverableDraft)?loggerDraft.selW:(editData?.workoutName||null));
+  const [exercises,setExercises]=useState(()=>{
+    // Option C: restore from live draft
+    if(!editMode && loggerDraft?.exercises?.length>0 && !recoverableDraft) return loggerDraft.exercises;
+    if(editData?.exercises){
+      return editData.exercises.map(ex=>({
+        uid:Date.now()+Math.random(),
+        name:ex.name, notes:ex.notes||"",
+        tSets:String(ex.sets?.length||3),tReps:ex.tReps||"8-12",tRpe:ex.tRpe||"8",tRir:ex.tRir||"2",tRest:ex.tRest||"90 sec",
+        sets:(ex.sets?.length?ex.sets:[{w:"",r:"",rpe:"",rir:"",done:false}])
+      }));
+    }
+    return [];
+  });
+  const [name,setName]=useState(()=>(!editMode&&loggerDraft?.name&&!recoverableDraft)?loggerDraft.name:(editData?.name||""));
+  const [sessionNotes,setSessionNotes]=useState(()=>(!editMode&&loggerDraft?.sessionNotes&&!recoverableDraft)?loggerDraft.sessionNotes:(editData?.notes||""));
   const [query,setQuery]=useState("");
   const [selCat,setSelCat]=useState("chest");
   const [saved,setSaved]=useState(false);
   const [restSecs,setRestSecs]=useState(null);
   const [customName,setCustomName]=useState("");
   const [customCat,setCustomCat]=useState("chest");
-  const [showCustomCat,setShowCustomCat]=useState(false);
-  const [dimSug,setDimSug]=useState({});
+  const [showCustomCatPicker,setShowCustomCatPicker]=useState(false);
+  const [dismissedSuggestions,setDismissedSuggestions]=useState(new Set());
   const timerRef=useRef(null);
 
   const prog=activeProg?PROGRAMS.find(p=>p.id===activeProg.id):null;
-  const CATS_ALL=[...new Set(allExercises.map(e=>e.cat))];
+  const ALL_CATS=["chest","back","shoulders","legs","glutes","arms","core","athletic","calisthenics"];
 
   const startTimer=(s)=>{
     if(timerRef.current) clearInterval(timerRef.current);
@@ -1118,30 +1213,60 @@ function WorkoutLogger({activeProg,saveSession,setView,allExercises,saveCustomEx
   };
   useEffect(()=>()=>{if(timerRef.current)clearInterval(timerRef.current)},[]);
 
+  // Option A: auto-save draft to localStorage whenever session state changes
+  useEffect(()=>{
+    if(editMode||saved) return; // don't draft during edit mode or after save
+    const draft={mode,selW,name,sessionNotes,exercises,savedAt:Date.now()};
+    saveDraft(draft);
+  },[mode,selW,name,sessionNotes,exercises]); // eslint-disable-line
+
+  // Option B: warn before tab/browser close if session has content
+  useEffect(()=>{
+    const hasContent = exercises.length>0 || name;
+    const handler=(e)=>{
+      if(hasContent){ e.preventDefault(); e.returnValue=""; }
+    };
+    window.addEventListener("beforeunload",handler);
+    return()=>window.removeEventListener("beforeunload",handler);
+  },[exercises,name]);
+
   const loadWorkout=(wn)=>{
     if(!prog) return;
     const w=prog.workouts[wn];
     setSelW(wn); setName(`${prog.name} – ${wn}`);
     setExercises(w.exs.map(ex=>({
-      uid:Date.now()+Math.random(),name:getN(ex.id),
+      uid:Date.now()+Math.random(),
+      name:getN(ex.id),
       tSets:String(ex.sets),tReps:ex.reps,tRpe:ex.rpe,tRir:ex.rir||"",tRest:ex.rest,notes:ex.notes||"",
       sets:Array.from({length:parseInt(String(ex.sets))||3},()=>({w:"",r:"",rpe:"",rir:"",done:false}))
     })));
     setMode("active");
   };
 
-  const addEx=(ex)=>setExercises(p=>[...p,{
-    uid:Date.now()+Math.random(),name:ex.name,
-    tSets:"3",tReps:"8-12",tRpe:"8",tRir:"2",tRest:"90 sec",notes:"",
-    sets:[{w:"",r:"",rpe:"",rir:"",done:false}]
-  }]);
+  const addEx=(ex)=>{
+    setExercises(p=>[...p,{
+      uid:Date.now()+Math.random(),name:ex.name,
+      tSets:"3",tReps:"8-12",tRpe:"8",tRir:"2",tRest:"90 sec",notes:"",
+      sets:[{w:"",r:"",rpe:"",rir:"",done:false}]
+    }]);
+  };
 
-  const handleCustomAdd=()=>{
+  const addCustomEx=()=>{
     if(!customName.trim()) return;
-    if(!showCustomCat){setShowCustomCat(true);return;}
-    saveCustomExercise({id:"custom_"+Date.now(),name:customName.trim(),cat:customCat,isCustom:true});
-    addEx({name:customName.trim()});
-    setCustomName(""); setShowCustomCat(false);
+    if(showCustomCatPicker){
+      // Save to library
+      const newEx={id:"custom_"+Date.now(),name:customName.trim(),cat:customCat,equipment:"",pattern:"",isCustom:true};
+      saveCustomEx(newEx);
+      setExercises(p=>[...p,{
+        uid:Date.now()+Math.random(),name:customName.trim(),
+        tSets:"3",tReps:"8-12",tRpe:"8",tRir:"2",tRest:"90 sec",notes:"",
+        sets:[{w:"",r:"",rpe:"",rir:"",done:false}]
+      }]);
+      setCustomName(""); setShowCustomCatPicker(false);
+    } else {
+      setCustomCat(selCat);
+      setShowCustomCatPicker(true);
+    }
   };
 
   const upSet=(ei,si,f,v)=>setExercises(p=>p.map((ex,i)=>i!==ei?ex:{...ex,sets:ex.sets.map((s,j)=>j!==si?s:{...s,[f]:v})}));
@@ -1151,36 +1276,57 @@ function WorkoutLogger({activeProg,saveSession,setView,allExercises,saveCustomEx
 
   const handleSave=async()=>{
     const session={
-      id:isEditing?editingSession.id:Date.now(),
-      date:isEditing?editingSession.date:new Date().toISOString(),
+      id:editData?.id||Date.now(),
+      date:editData?.date||new Date().toISOString(),
       name:name||"Workout "+new Date().toLocaleDateString(),
-      progId:activeProg?.id||null, workoutName:selW, sessionNotes,
+      notes:sessionNotes,
+      progId:activeProg?.id||null, workoutName:selW,
       exercises:exercises.map(ex=>({name:ex.name,notes:ex.notes,tReps:ex.tReps,tRpe:ex.tRpe,tRir:ex.tRir,sets:ex.sets.filter(s=>s.w||s.r)}))
     };
     await saveSession(session);
-    if(isEditing){onCancelEdit();return;}
+    await clearDraft(); // Option A: clear draft on successful save
     setSaved(true);
     setTimeout(()=>setView("history"),1200);
   };
 
-  const catExs=query?allExercises.filter(e=>e.name.toLowerCase().includes(query.toLowerCase())).slice(0,14):allExercises.filter(e=>e.cat===selCat);
+  const catExs=query
+    ?allEx.filter(e=>e.name.toLowerCase().includes(query.toLowerCase())).slice(0,14)
+    :allEx.filter(e=>e.cat===selCat);
 
-  if(saved) return(
+  const ALL_CATS_DISPLAY=["chest","back","shoulders","legs","glutes","arms","core","athletic","calisthenics"];
+
+  if(saved) return (
     <div style={{...S.pg,textAlign:"center",paddingTop:80}}>
       <div style={{fontSize:60,marginBottom:16}}>✅</div>
-      <div style={{color:"#4ade80",fontSize:24,fontWeight:700}}>Session Saved!</div>
+      <div style={{color:"#4ade80",fontSize:24,fontWeight:700}}>{editMode?"Session Updated!":"Session Saved!"}</div>
       <div style={{color:"#64748b",marginTop:8}}>Great work 💪</div>
     </div>
   );
 
-  return(
+  return (
     <div style={S.pg}>
-      <div style={S.pgH}>
-        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-          <h1 style={S.pgT}>{isEditing?"Edit Session":"Log Workout"}</h1>
-          {isEditing&&<button onClick={onCancelEdit} style={S.bs}>← Cancel</button>}
+      <div style={S.pgH}><h1 style={S.pgT}>{editMode?"✏️ Edit Session":"Log Workout"}</h1></div>
+
+      {/* Option A: Draft recovery banner — shown when app was closed mid-session */}
+      {showDraftBanner&&(
+        <div style={{background:"rgba(245,158,11,0.08)",border:"1px solid rgba(245,158,11,0.35)",borderRadius:12,padding:"14px 16px",marginBottom:14}}>
+          <div style={{color:"#f59e0b",fontWeight:700,fontSize:14,marginBottom:4}}>📋 Unsaved session found</div>
+          <div style={{color:"#94a3b8",fontSize:13,marginBottom:12}}>
+            "{loggerDraft.name||"Untitled workout"}" · {loggerDraft.exercises?.length||0} exercises · {new Date(loggerDraft.savedAt).toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"})}
+          </div>
+          <div style={{display:"flex",gap:8}}>
+            <button onClick={()=>{
+              setMode(loggerDraft.mode||"active");
+              setSelW(loggerDraft.selW||null);
+              setName(loggerDraft.name||"");
+              setSessionNotes(loggerDraft.sessionNotes||"");
+              setExercises(loggerDraft.exercises||[]);
+              setShowDraftBanner(false);
+            }} style={S.bp}>↩ Restore Session</button>
+            <button onClick={async()=>{await clearDraft();setShowDraftBanner(false);}} style={S.bs}>Discard</button>
+          </div>
         </div>
-      </div>
+      )}
 
       {restSecs!==null&&(
         <div style={{position:"fixed",top:72,right:16,zIndex:100,background:"#0f172a",border:"2px solid #f59e0b",borderRadius:14,padding:"12px 20px",textAlign:"center",boxShadow:"0 8px 32px rgba(0,0,0,0.6)"}}>
@@ -1188,11 +1334,11 @@ function WorkoutLogger({activeProg,saveSession,setView,allExercises,saveCustomEx
           <div style={{color:restSecs<=10?"#ef4444":"#f59e0b",fontSize:34,fontWeight:900,fontFamily:"monospace"}}>
             {Math.floor(restSecs/60)}:{String(restSecs%60).padStart(2,"0")}
           </div>
-          <button onClick={()=>{clearInterval(timerRef.current);setRestSecs(null);}} style={{marginTop:6,background:"transparent",border:"1px solid #475569",borderRadius:6,color:"#64748b",fontSize:11,padding:"3px 10px",cursor:"pointer"}}>Skip</button>
+          <button onClick={()=>{clearInterval(timerRef.current);setRestSecs(null);}} style={{marginTop:6,background:"transparent",border:"1px solid #475569",borderRadius:6,color:"#64748b",fontSize:11,padding:"3px 10px",cursor:"pointer",WebkitTapHighlightColor:"transparent"}}>Skip</button>
         </div>
       )}
 
-      {!mode&&(
+      {!mode&&!editMode&&(
         <div style={S.card}>
           <h2 style={S.cT}>Choose Logging Mode</h2>
           <div style={{display:"flex",gap:12,flexWrap:"wrap",marginTop:16}}>
@@ -1222,16 +1368,14 @@ function WorkoutLogger({activeProg,saveSession,setView,allExercises,saveCustomEx
         </div>
       )}
 
-      {mode==="active"&&<>
+      {(mode==="active"||editMode)&&<>
         <div style={S.card}>
           <div style={S.lbl}>Session Name</div>
           <input value={name} onChange={e=>setName(e.target.value)} placeholder="e.g. Upper A – Week 2" style={{...S.inp,marginTop:6}}/>
-          <div style={{marginTop:12}}>
-            <div style={S.lbl}>Session Notes <span style={{color:"#475569",fontWeight:400,fontSize:11}}>(optional)</span></div>
-            <textarea value={sessionNotes} onChange={e=>setSessionNotes(e.target.value)}
-              placeholder="How did it feel? Any notes..."
-              style={{...S.inp,marginTop:6,height:56,resize:"none",lineHeight:1.5,fontFamily:"inherit"}}/>
-          </div>
+          <div style={{...S.lbl,marginTop:12}}>Session Notes (optional)</div>
+          <textarea value={sessionNotes} onChange={e=>setSessionNotes(e.target.value)}
+            placeholder="How did it feel? Any PRs, soreness, notes..."
+            style={{...S.inp,marginTop:6,minHeight:60,resize:"vertical",lineHeight:1.5}}/>
         </div>
 
         <div style={S.card}>
@@ -1239,92 +1383,108 @@ function WorkoutLogger({activeProg,saveSession,setView,allExercises,saveCustomEx
           <input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search exercises..." style={{...S.inp,marginBottom:10}}/>
           {!query&&(
             <div style={{display:"flex",gap:6,flexWrap:"wrap",marginBottom:10}}>
-              {CATS_ALL.map(c=><button key={c} onClick={()=>setSelCat(c)} style={{...S.chip,fontSize:11,padding:"4px 10px",...(selCat===c?S.chipA:{})}}>{c}</button>)}
+              {ALL_CATS_DISPLAY.map(c=><button key={c} onClick={()=>setSelCat(c)} style={{...S.chip,fontSize:11,padding:"4px 10px",...(selCat===c?S.chipA:{})}}>{c}</button>)}
             </div>
           )}
           <div style={{maxHeight:180,overflowY:"auto"}}>
-            {catExs.map(ex=>(
-              <button key={ex.id||ex.name} onClick={()=>addEx(ex)}
-                style={{display:"block",width:"100%",textAlign:"left",padding:"8px 10px",background:"transparent",border:"none",cursor:"pointer",color:"#e2e8f0",borderRadius:6,marginBottom:2,fontSize:13}}>
-                + {ex.name} <span style={{color:"#475569",fontSize:11}}>({ex.cat})</span>
-                {ex.isCustom&&<span style={{color:"#a78bfa",fontSize:10,marginLeft:6,background:"rgba(139,92,246,0.12)",border:"1px solid rgba(139,92,246,0.25)",borderRadius:4,padding:"1px 5px"}}>custom</span>}
+            {catExs.map((ex,idx)=>(
+              <button key={ex.id||idx} onClick={()=>addEx(ex)} style={{display:"block",width:"100%",textAlign:"left",padding:"8px 10px",background:"transparent",border:"none",cursor:"pointer",color:"#e2e8f0",borderRadius:6,marginBottom:2,fontSize:13,WebkitTapHighlightColor:"transparent"}}>
+                + {ex.name}
+                {ex.isCustom&&<span style={{marginLeft:6,background:"rgba(139,92,246,0.2)",color:"#a78bfa",fontSize:9,fontWeight:700,padding:"1px 5px",borderRadius:4,verticalAlign:"middle"}}>CUSTOM</span>}
+                <span style={{color:"#475569",fontSize:11}}> ({ex.cat})</span>
               </button>
             ))}
           </div>
-          {/* Custom exercise */}
-          <div style={{marginTop:10,background:"rgba(255,255,255,0.02)",borderRadius:10,padding:"10px 12px",border:"1px solid rgba(255,255,255,0.06)"}}>
-            <div style={{display:"flex",gap:8}}>
-              <input value={customName} onChange={e=>{setCustomName(e.target.value);if(showCustomCat)setShowCustomCat(false);}}
-                placeholder="Custom exercise name..." style={{...S.inp,flex:1}}
-                onKeyDown={e=>{if(e.key==="Enter")handleCustomAdd();}}/>
-              <button onClick={handleCustomAdd} style={S.bp}>{showCustomCat?"Save":"Add"}</button>
-            </div>
-            {showCustomCat&&(
-              <div style={{marginTop:10}}>
-                <div style={{...S.lbl,marginBottom:6}}>Muscle group <span style={{color:"#64748b",fontWeight:400,fontSize:11}}>(saves to your library)</span></div>
-                <div style={{display:"flex",gap:5,flexWrap:"wrap"}}>
-                  {["chest","back","shoulders","legs","glutes","arms","core","athletic","calisthenics"].map(c=>(
-                    <button key={c} onClick={()=>setCustomCat(c)} style={{...S.chip,fontSize:11,padding:"4px 10px",...(customCat===c?S.chipA:{})}}>{c}</button>
+
+          {/* Custom exercise input */}
+          <div style={{marginTop:10}}>
+            {showCustomCatPicker?(
+              <div style={{background:"rgba(139,92,246,0.08)",border:"1px solid rgba(139,92,246,0.2)",borderRadius:10,padding:"12px"}}>
+                <div style={{color:"#a78bfa",fontSize:12,fontWeight:700,marginBottom:8}}>Save "{customName}" to library — pick muscle group:</div>
+                <div style={{display:"flex",gap:5,flexWrap:"wrap",marginBottom:10}}>
+                  {ALL_CATS_DISPLAY.map(c=>(
+                    <button key={c} onClick={()=>setCustomCat(c)} style={{...S.chip,fontSize:10,padding:"4px 9px",...(customCat===c?{...S.chipA,borderColor:"#a78bfa",color:"#a78bfa",background:"rgba(139,92,246,0.2)"}:{})}}>{c}</button>
                   ))}
                 </div>
+                <div style={{display:"flex",gap:8}}>
+                  <button onClick={addCustomEx} style={{...S.bp,background:"#8b5cf6",flex:1}}>✓ Save & Add</button>
+                  <button onClick={()=>setShowCustomCatPicker(false)} style={{...S.bs,padding:"10px 14px"}}>Cancel</button>
+                </div>
+              </div>
+            ):(
+              <div style={{display:"flex",gap:8}}>
+                <input value={customName} onChange={e=>setCustomName(e.target.value)} placeholder="Custom exercise name..." style={{...S.inp,flex:1}}
+                  onKeyDown={e=>{if(e.key==="Enter"&&customName.trim()) addCustomEx();}}/>
+                <button onClick={addCustomEx} style={S.bp}>Add</button>
               </div>
             )}
           </div>
         </div>
 
         {exercises.map((ex,ei)=>{
-          const last=getLastExData(ex.name,sessions);
-          const sugg=last?nextWeight(last.w,ex.name):null;
+          const lastPerf=getLastExData(ex.name,sessions);
+          const showSuggestion=lastPerf&&!dismissedSuggestions.has(ex.uid);
+          const suggestedW=lastPerf?nextWeight(lastPerf.w,ex.name):null;
           return(
-          <div key={ex.uid} style={S.card}>
-            <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:6}}>
-              <div style={{flex:1}}>
-                <div style={{color:"#f1f5f9",fontWeight:700,fontSize:15}}>{ex.name}</div>
-                <div style={{color:"#64748b",fontSize:12,marginTop:3}}>
-                  Target: {ex.tSets} sets × {ex.tReps}
-                  {ex.tRir&&<span style={{color:"#f59e0b",fontWeight:600}}> · RIR {ex.tRir}</span>}
-                  <span style={{color:"#475569"}}> (RPE {ex.tRpe})</span>
-                  {" · "}{ex.tRest} rest
+            <div key={ex.uid} style={S.card}>
+              <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:showSuggestion?8:10}}>
+                <div style={{flex:1}}>
+                  <div style={{color:"#f1f5f9",fontWeight:700,fontSize:15}}>{ex.name}</div>
+                  <div style={{color:"#64748b",fontSize:12,marginTop:3}}>
+                    Target: {ex.tSets} sets × {ex.tReps}
+                    {ex.tRir&&<span style={{color:"#f59e0b",fontWeight:600}}> · RIR {ex.tRir}</span>}
+                    <span style={{color:"#475569"}}> (RPE {ex.tRpe})</span>
+                    {" · "}{ex.tRest} rest
+                  </div>
                 </div>
-                {ex.notes&&<div style={{color:"#475569",fontSize:11,marginTop:3,fontStyle:"italic"}}>{ex.notes}</div>}
+                <button onClick={()=>remEx(ei)} style={{background:"transparent",border:"1px solid rgba(239,68,68,0.2)",color:"rgba(239,68,68,0.5)",borderRadius:6,padding:"4px 8px",cursor:"pointer",fontSize:12,WebkitTapHighlightColor:"transparent"}}>✕</button>
               </div>
-              <button onClick={()=>remEx(ei)} style={{background:"transparent",border:"none",color:"rgba(239,68,68,0.5)",cursor:"pointer",fontSize:20,lineHeight:1}}>×</button>
-            </div>
 
-            {last&&sugg&&!dimSug[ex.uid]&&(
-              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",background:"rgba(245,158,11,0.06)",border:"1px solid rgba(245,158,11,0.2)",borderRadius:8,padding:"7px 10px",marginBottom:10}}>
-                <span style={{color:"#f59e0b",fontSize:12}}>⬆ Last: <strong>{last.w}kg × {last.r}</strong> → try <strong>{sugg}kg</strong></span>
-                <button onClick={()=>setDimSug(d=>({...d,[ex.uid]:true}))} style={{background:"transparent",border:"none",color:"#475569",cursor:"pointer",fontSize:14,padding:"0 4px"}}>×</button>
-              </div>
-            )}
+              {/* Progressive overload suggestion */}
+              {showSuggestion&&(
+                <div style={{background:"rgba(74,222,128,0.06)",border:"1px solid rgba(74,222,128,0.2)",borderRadius:8,padding:"8px 12px",marginBottom:10,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                  <div>
+                    <span style={{color:"#4ade80",fontSize:11,fontWeight:700}}>📈 Last: </span>
+                    <span style={{color:"#94a3b8",fontSize:11}}>{lastPerf.w}kg × {lastPerf.r} · </span>
+                    <span style={{color:"#4ade80",fontSize:11,fontWeight:700}}>Try {suggestedW}kg today</span>
+                  </div>
+                  <button onClick={()=>setDismissedSuggestions(s=>new Set([...s,ex.uid]))}
+                    style={{background:"transparent",border:"none",color:"#475569",cursor:"pointer",fontSize:14,WebkitTapHighlightColor:"transparent"}}>×</button>
+                </div>
+              )}
 
-            <div style={{display:"grid",gridTemplateColumns:"24px 1fr 1fr 1fr 1fr 32px 24px",gap:4,marginBottom:6}}>
-              {["#","Wt","Reps","RIR","RPE","✓",""].map((h,i)=>(
-                <div key={i} style={{color:i===3?"#f59e0b":"#475569",fontSize:10,textAlign:"center",fontWeight:i===3?700:400}}>{h}</div>
+              {ex.sets.map((st,si)=>(
+                <div key={si} style={{display:"grid",gridTemplateColumns:"auto 1fr 1fr 1fr 1fr auto",gap:6,alignItems:"center",marginBottom:6}}>
+                  <div style={{color:"#475569",fontSize:11,minWidth:32,textAlign:"center"}}>Set {si+1}</div>
+                  <div><div style={{color:"#64748b",fontSize:9,marginBottom:2,textAlign:"center"}}>kg</div>
+                    <input value={st.w} onChange={e=>upSet(ei,si,"w",e.target.value)} type="number" style={{...S.sinp,...(st.done?S.sinpD:{})}} placeholder="—"/></div>
+                  <div><div style={{color:"#64748b",fontSize:9,marginBottom:2,textAlign:"center"}}>reps</div>
+                    <input value={st.r} onChange={e=>upSet(ei,si,"r",e.target.value)} type="number" style={{...S.sinp,...(st.done?S.sinpD:{})}} placeholder="—"/></div>
+                  <div><div style={{color:"#64748b",fontSize:9,marginBottom:2,textAlign:"center"}}>RIR</div>
+                    <input value={st.rir} onChange={e=>upSet(ei,si,"rir",e.target.value)} type="number" style={{...S.sinp,...(st.done?S.sinpD:{})}} placeholder="—"/></div>
+                  <div><div style={{color:"#64748b",fontSize:9,marginBottom:2,textAlign:"center"}}>RPE</div>
+                    <input value={st.rpe} onChange={e=>upSet(ei,si,"rpe",e.target.value)} type="number" style={{...S.sinp,...(st.done?S.sinpD:{})}} placeholder="—"/></div>
+                  <button onClick={()=>upSet(ei,si,"done",!st.done)} style={{...S.doneB,...(st.done?S.doneBA:{}),width:34,flexShrink:0,WebkitTapHighlightColor:"transparent"}}>✓</button>
+                </div>
               ))}
-            </div>
-            {ex.sets.map((set,si)=>(
-              <div key={si} style={{display:"grid",gridTemplateColumns:"24px 1fr 1fr 1fr 1fr 32px 24px",gap:4,marginBottom:4,alignItems:"center"}}>
-                <div style={{color:"#64748b",fontSize:11,textAlign:"center"}}>{si+1}</div>
-                <input value={set.w} onChange={e=>upSet(ei,si,"w",e.target.value)} placeholder="kg" style={{...S.sinp,...(set.done?S.sinpD:{})}}/>
-                <input value={set.r} onChange={e=>upSet(ei,si,"r",e.target.value)} placeholder={ex.tReps} style={{...S.sinp,...(set.done?S.sinpD:{})}}/>
-                <input value={set.rir} onChange={e=>upSet(ei,si,"rir",e.target.value)} placeholder={ex.tRir||"RIR"}
-                  style={{...S.sinp,borderColor:set.done?"rgba(74,222,128,0.3)":"rgba(245,158,11,0.35)",color:set.done?"#4ade80":"#f59e0b"}}/>
-                <input value={set.rpe} onChange={e=>upSet(ei,si,"rpe",e.target.value)} placeholder={ex.tRpe} style={{...S.sinp,...(set.done?S.sinpD:{})}}/>
-                <button onClick={()=>{upSet(ei,si,"done",!set.done);if(!set.done)startTimer(90);}} style={{...S.doneB,...(set.done?S.doneBA:{})}}>{set.done?"✓":"○"}</button>
-                <button onClick={()=>remSet(ei,si)} style={{background:"transparent",border:"none",color:"rgba(239,68,68,0.4)",cursor:"pointer",fontSize:14}}>×</button>
+              <div style={{display:"flex",gap:8,marginTop:8,flexWrap:"wrap"}}>
+                <button onClick={()=>addSet(ei)} style={S.addS}>+ Set</button>
+                {ex.sets.length>1&&<button onClick={()=>remSet(ei,ex.sets.length-1)} style={S.addS}>− Set</button>}
+                {[60,90,120].map(s=>(
+                  <button key={s} onClick={()=>startTimer(s)} style={{...S.tmrB,WebkitTapHighlightColor:"transparent"}}>⏱ {s}s</button>
+                ))}
               </div>
-            ))}
-            <div style={{display:"flex",gap:8,marginTop:8,flexWrap:"wrap"}}>
-              <button onClick={()=>addSet(ei)} style={S.addS}>+ Set</button>
-              {[60,90,120,180].map(s=><button key={s} onClick={()=>startTimer(s)} style={S.tmrB}>⏱{s}s</button>)}
+              <div style={{marginTop:10}}>
+                <input value={ex.notes} onChange={e=>setExercises(p=>p.map((x,i)=>i!==ei?x:{...x,notes:e.target.value}))}
+                  placeholder="Notes for this exercise..." style={{...S.inp,fontSize:12,padding:"8px 10px"}}/>
+              </div>
             </div>
-          </div>
-        );})}
+          );
+        })}
 
         {exercises.length>0&&(
-          <button onClick={handleSave} style={{...S.bp,width:"100%",padding:"15px",fontSize:16,fontWeight:700,borderRadius:12}}>
-            {isEditing?"💾 Save Changes":"💾 Save Session"} ({exercises.length} exercises)
+          <button onClick={handleSave} style={{...S.bp,width:"100%",padding:"14px",fontSize:15,marginTop:4}}>
+            {editMode?"💾 Save Changes":"💾 Save Session"}
           </button>
         )}
       </>}
@@ -1332,7 +1492,234 @@ function WorkoutLogger({activeProg,saveSession,setView,allExercises,saveCustomEx
   );
 }
 
-// ── SHARED SESSION DETAIL (used by all calendar views + list) ────────────────
+// ── HISTORY ───────────────────────────────────────────────
+function History({sessions,delSession,importSessions,deletedSessions,restoreSession,permDeleteSession,setEditSession,historyMode,setHistoryMode,historyCalView,setHistoryCalView,historyExp,setHistoryExp,historyFlt,setHistoryFlt}){
+  const mode=historyMode; const setMode=setHistoryMode;
+  const calView=historyCalView; const setCalView=setHistoryCalView;
+  const exp=historyExp; const setExp=setHistoryExp;
+  const flt=historyFlt; const setFlt=setHistoryFlt;
+  const [currentDate,setCurrentDate]=useState(new Date());
+  const [selectedDay,setSelectedDay]=useState(calToday());
+  const [showQR,setShowQR]=useState(false);
+  const [showDeleted,setShowDeleted]=useState(false);
+  const [confirmPermDel,setConfirmPermDel]=useState(null); // session id
+
+  const sbd=calSessionsByDate(sessions);
+  const maxV=calMaxVol(sessions);
+  const filtered=sessions.filter(s=>flt==="all"||(flt==="program"&&s.progId)||(flt==="free"&&!s.progId));
+  const vol=(s)=>{let v=0;s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{v+=(parseFloat(set.w)||0)*(parseFloat(set.r)||0);}));return v;};
+
+  // File import handler
+  const handleImport=(e)=>{
+    const file=e.target.files?.[0]; if(!file) return;
+    const reader=new FileReader();
+    reader.onload=(ev)=>{
+      try{
+        const data=JSON.parse(ev.target.result);
+        const incoming=Array.isArray(data)?data:(data.sessions||[]);
+        importSessions(incoming);
+      }catch{ alert("Invalid file. Please use an IronLog JSON export."); }
+    };
+    reader.readAsText(file);
+    e.target.value="";
+  };
+
+  // QR data = last 30 days
+  const qrData=JSON.stringify({
+    exported:new Date().toISOString(),
+    sessions:sessions.filter(s=>(Date.now()-new Date(s.date))/86400000<=30)
+  });
+
+  const ebtn={background:"rgba(139,92,246,0.12)",border:"1px solid rgba(139,92,246,0.3)",color:"#a78bfa",borderRadius:8,padding:"7px 10px",cursor:"pointer",fontSize:11,fontWeight:700,fontFamily:"inherit",outline:"none",WebkitTapHighlightColor:"transparent"};
+  const ebtnG={background:"rgba(74,222,128,0.1)",border:"1px solid rgba(74,222,128,0.3)",color:"#4ade80",borderRadius:8,padding:"7px 10px",cursor:"pointer",fontSize:11,fontWeight:700,fontFamily:"inherit",outline:"none",WebkitTapHighlightColor:"transparent"};
+
+  return(
+    <div style={S.pg}>
+      <div style={S.pgH}>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:8}}>
+          <div><h1 style={S.pgT}>History</h1><p style={S.pgS}>{sessions.length} sessions logged</p></div>
+          <div style={{display:"flex",gap:6,flexWrap:"wrap",justifyContent:"flex-end"}}>
+            {sessions.length>0&&<>
+              <button onClick={()=>exportJSON(sessions)} title="Export JSON backup" style={ebtn}>⬇ JSON</button>
+              <button onClick={()=>exportCSV(sessions)} title="Export CSV" style={ebtnG}>⬇ CSV</button>
+              <button onClick={()=>setShowQR(true)} title="QR Export (last 30 days)" style={{...ebtn,background:"rgba(245,158,11,0.1)",border:"1px solid rgba(245,158,11,0.3)",color:"#f59e0b"}}>⬡ QR</button>
+            </>}
+            <label style={{...ebtn,background:"rgba(6,182,212,0.1)",border:"1px solid rgba(6,182,212,0.3)",color:"#06b6d4",cursor:"pointer"}}>
+              ⬆ Import
+              <input type="file" accept=".json" onChange={handleImport} style={{display:"none"}}/>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      {showQR&&<QRModal data={qrData} onClose={()=>setShowQR(false)}/>}
+
+      {sessions.length===0?(
+        <div style={{...S.card,textAlign:"center",padding:"48px 24px"}}>
+          <div style={{fontSize:48,marginBottom:16}}>📊</div>
+          <div style={{color:"#f1f5f9",fontWeight:600,marginBottom:8}}>No sessions yet</div>
+          <div style={{color:"#64748b",fontSize:14}}>Log your first workout to see it here</div>
+        </div>
+      ):(
+        <>
+          {/* List / Calendar toggle */}
+          <div style={{display:"flex",background:"rgba(255,255,255,0.04)",borderRadius:10,padding:3,marginBottom:14,border:"1px solid rgba(255,255,255,0.07)"}}>
+            {[{id:"list",l:"📋 List"},{id:"calendar",l:"📅 Calendar"}].map(m=>(
+              <button key={m.id} onClick={()=>setMode(m.id)} style={{flex:1,background:mode===m.id?"#f59e0b":"transparent",color:mode===m.id?"#000":"#64748b",border:"none",borderRadius:8,padding:"8px 0",fontFamily:"inherit",fontWeight:700,fontSize:13,cursor:"pointer",transition:"all 0.15s",WebkitTapHighlightColor:"transparent"}}>{m.l}</button>
+            ))}
+          </div>
+
+          {/* ── LIST MODE ── */}
+          {mode==="list"&&(
+            <>
+              <div style={{display:"flex",gap:8,marginBottom:14,flexWrap:"wrap"}}>
+                {[{id:"all",l:"All"},{id:"program",l:"Program"},{id:"free",l:"Free"}].map(f=>(
+                  <button key={f.id} onClick={()=>setFlt(f.id)} style={{...S.chip,...(flt===f.id?S.chipA:{})}}>{f.l}</button>
+                ))}
+              </div>
+              {filtered.map(s=>{
+                const sv=vol(s);
+                const isExp=exp===s.id;
+                return(
+                  <div key={s.id} style={{...S.card,padding:0,overflow:"hidden",border:`1px solid ${isExp?"rgba(245,158,11,0.25)":"rgba(255,255,255,0.06)"}`,transition:"border-color 0.15s"}}>
+                    <div onClick={()=>setExp(isExp?null:s.id)}
+                      style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",padding:"14px 16px",cursor:"pointer",WebkitTapHighlightColor:"transparent"}}>
+                      <div style={{flex:1}}>
+                        <div style={{color:"#f1f5f9",fontWeight:700,fontSize:15}}>{s.name}</div>
+                        <div style={{color:"#64748b",fontSize:12,marginTop:4}}>
+                          {new Date(s.date).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric"})}
+                          {" · "}{s.exercises?.length||0} exercises
+                          {sv>0&&` · ${sv.toLocaleString()} kg`}
+                        </div>
+                      </div>
+                      <div style={{display:"flex",alignItems:"center",gap:6,marginLeft:8,flexShrink:0}}>
+                        <span style={{color:"#475569",fontSize:13,transition:"transform 0.2s",display:"inline-block",transform:isExp?"rotate(180deg)":"rotate(0deg)"}}>▼</span>
+                        <button onClick={(e)=>{e.stopPropagation();setEditSession(s);}} title="Edit session"
+                          style={{background:"transparent",border:"1px solid rgba(245,158,11,0.3)",color:"#f59e0b",borderRadius:6,padding:"5px 8px",cursor:"pointer",fontSize:12,outline:"none",WebkitTapHighlightColor:"transparent"}}>✏️</button>
+                        <button onClick={(e)=>{e.stopPropagation();delSession(s.id);}}
+                          style={{background:"transparent",border:"1px solid rgba(239,68,68,0.3)",color:"rgba(239,68,68,0.6)",borderRadius:6,padding:"5px 9px",cursor:"pointer",fontSize:13,outline:"none",WebkitTapHighlightColor:"transparent"}}>×</button>
+                      </div>
+                    </div>
+                    <div style={{maxHeight:isExp?1200:0,overflow:"hidden",transition:"max-height 0.35s cubic-bezier(0.4,0,0.2,1)"}}>
+                      <div style={{padding:"0 16px 16px",borderTop:"1px solid rgba(255,255,255,0.05)"}}>
+                        <SessionDetail session={s}/>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </>
+          )}
+
+          {/* ── CALENDAR MODE ── */}
+          {mode==="calendar"&&(
+            <>
+              <div style={{display:"flex",background:"rgba(255,255,255,0.03)",borderRadius:8,padding:2,marginBottom:12,gap:2}}>
+                {["day","week","month","year"].map(v=>(
+                  <button key={v} onClick={()=>setCalView(v)} style={{flex:1,background:calView===v?"#f59e0b":"transparent",color:calView===v?"#000":"#64748b",border:"none",borderRadius:6,padding:"6px 0",fontFamily:"inherit",fontWeight:700,fontSize:11,cursor:"pointer",textTransform:"uppercase",letterSpacing:0.4,transition:"all 0.15s",WebkitTapHighlightColor:"transparent"}}>{v}</button>
+                ))}
+              </div>
+              {calView==="day"   &&<CalDayView   selectedDay={selectedDay} setSelectedDay={setSelectedDay} sbd={sbd}/>}
+              {calView==="week"  &&<CalWeekView  currentDate={currentDate} setCurrentDate={setCurrentDate} selectedDay={selectedDay} setSelectedDay={setSelectedDay} sbd={sbd} maxV={maxV}/>}
+              {calView==="month" &&<CalMonthView currentDate={currentDate} setCurrentDate={setCurrentDate} selectedDay={selectedDay} setSelectedDay={setSelectedDay} sbd={sbd} maxV={maxV}/>}
+              {calView==="year"  &&<CalYearView  currentDate={currentDate} setCurrentDate={setCurrentDate} selectedDay={selectedDay} setSelectedDay={setSelectedDay} sbd={sbd} maxV={maxV} sessions={sessions}/>}
+            </>
+          )}
+        </>
+      )}
+
+      {/* ── DELETED SESSIONS ── */}
+      <div style={{marginTop:20}}>
+        <button onClick={()=>setShowDeleted(v=>!v)}
+          style={{width:"100%",display:"flex",justifyContent:"space-between",alignItems:"center",background:"rgba(239,68,68,0.04)",border:"1px solid rgba(239,68,68,0.15)",borderRadius:12,padding:"12px 16px",cursor:"pointer",fontFamily:"inherit",WebkitTapHighlightColor:"transparent",outline:"none"}}>
+          <span style={{color:"#ef4444",fontWeight:700,fontSize:13}}>🗑 Deleted Sessions</span>
+          <div style={{display:"flex",alignItems:"center",gap:8}}>
+            {deletedSessions.length>0&&<span style={{background:"rgba(239,68,68,0.15)",color:"#ef4444",borderRadius:20,padding:"2px 8px",fontSize:12,fontWeight:700}}>{deletedSessions.length}</span>}
+            <span style={{color:"#64748b",fontSize:13,transition:"transform 0.2s",display:"inline-block",transform:showDeleted?"rotate(180deg)":"rotate(0deg)"}}>▼</span>
+          </div>
+        </button>
+        <div style={{maxHeight:showDeleted?2000:0,overflow:"hidden",transition:"max-height 0.4s cubic-bezier(0.4,0,0.2,1)"}}>
+          <div style={{paddingTop:8}}>
+            {deletedSessions.length===0?(
+              <div style={{...S.card,textAlign:"center",padding:"24px",color:"#475569",fontSize:13}}>No deleted sessions</div>
+            ):(
+              deletedSessions.map(({session:s,deletedAt})=>{
+                const daysLeft=30-Math.floor((Date.now()-deletedAt)/86400000);
+                const isConfirming=confirmPermDel===s.id;
+                return(
+                  <div key={s.id} style={{...S.card,borderColor:"rgba(239,68,68,0.15)",marginBottom:8}}>
+                    <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
+                      <div style={{flex:1}}>
+                        <div style={{color:"#94a3b8",fontWeight:600,fontSize:14}}>{s.name}</div>
+                        <div style={{color:"#475569",fontSize:12,marginTop:3}}>
+                          {new Date(s.date).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric"})}
+                          {" · "}{s.exercises?.length||0} exercises
+                        </div>
+                        <div style={{color:"#ef4444",fontSize:11,marginTop:4}}>
+                          Deleted {new Date(deletedAt).toLocaleDateString("en-US",{month:"short",day:"numeric"})} · {daysLeft} day{daysLeft!==1?"s":""} until permanent deletion
+                        </div>
+                      </div>
+                    </div>
+                    {isConfirming?(
+                      <div style={{marginTop:10,background:"rgba(239,68,68,0.08)",border:"1px solid rgba(239,68,68,0.2)",borderRadius:8,padding:"10px 12px"}}>
+                        <div style={{color:"#ef4444",fontSize:12,fontWeight:600,marginBottom:8}}>Permanently delete "{s.name}"? This cannot be undone.</div>
+                        <div style={{display:"flex",gap:8}}>
+                          <button onClick={()=>{permDeleteSession(s.id);setConfirmPermDel(null);}} style={{...S.bd,padding:"7px 14px",fontSize:12,flex:1}}>Delete Forever</button>
+                          <button onClick={()=>setConfirmPermDel(null)} style={{...S.bs,padding:"7px 14px",fontSize:12}}>Cancel</button>
+                        </div>
+                      </div>
+                    ):(
+                      <div style={{display:"flex",gap:8,marginTop:10}}>
+                        <button onClick={()=>restoreSession(s.id)} style={{...S.bs,padding:"7px 14px",fontSize:12,borderColor:"rgba(74,222,128,0.3)",color:"#4ade80",flex:1}}>↩ Restore</button>
+                        <button onClick={()=>setConfirmPermDel(s.id)} style={{...S.bd,padding:"7px 14px",fontSize:12}}>Delete Forever</button>
+                      </div>
+                    )}
+                  </div>
+                );
+              })
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+// ── QR MODAL ─────────────────────────────────────────────
+function QRModal({data,onClose}){
+  const ref=useRef(null);
+  const [err,setErr]=useState(null);
+  useEffect(()=>{
+    if(!ref.current) return;
+    const script=document.createElement("script");
+    script.src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js";
+    script.onload=()=>{
+      try{
+        ref.current.innerHTML="";
+        new window.QRCode(ref.current,{text:data,width:240,height:240,colorDark:"#000",colorLight:"#fff",correctLevel:window.QRCode.CorrectLevel.M});
+      }catch(e){setErr("Data too large for QR. Use file export instead.");}
+    };
+    script.onerror=()=>setErr("Could not load QR library. Check your connection.");
+    document.head.appendChild(script);
+    return()=>{try{document.head.removeChild(script);}catch{}};
+  },[data]);
+  return(
+    <div onClick={onClose} style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.8)",zIndex:300,display:"flex",alignItems:"center",justifyContent:"center"}}>
+      <div onClick={e=>e.stopPropagation()} style={{background:"#0d1627",border:"1px solid rgba(245,158,11,0.3)",borderRadius:20,padding:"24px",textAlign:"center",maxWidth:300,width:"88%"}}>
+        <div style={{color:"#f59e0b",fontWeight:700,fontSize:14,marginBottom:4}}>📱 QR Export</div>
+        <div style={{color:"#64748b",fontSize:12,marginBottom:16}}>Last 30 days · Scan on another device then import the saved file</div>
+        {err
+          ?<div style={{color:"#ef4444",fontSize:13,padding:"20px 0"}}>{err}</div>
+          :<div ref={ref} style={{background:"#fff",padding:10,borderRadius:10,display:"inline-block",minWidth:240,minHeight:240}}/>
+        }
+        <button onClick={onClose} style={{...S.bs,width:"100%",marginTop:16}}>Close</button>
+      </div>
+    </div>
+  );
+}
+
+// ── SESSION DETAIL ────────────────────────────────────────
 function SessionDetail({session}){
   return(
     <div>
@@ -1344,8 +1731,7 @@ function SessionDetail({session}){
               <span style={{color:"#e2e8f0",fontWeight:600,fontSize:13}}>{ex.name}</span>
               <span style={{color:"#f59e0b",fontSize:11,fontWeight:700}}>
                 {ex.sets?.reduce((a,s)=>(parseFloat(s.w)||0)*(parseFloat(s.r)||0)+a,0)>0
-                  ? ex.sets.reduce((a,s)=>(parseFloat(s.w)||0)*(parseFloat(s.r)||0)+a,0).toLocaleString()+" kg"
-                  : ""}
+                  ?ex.sets.reduce((a,s)=>(parseFloat(s.w)||0)*(parseFloat(s.r)||0)+a,0).toLocaleString()+" kg":""}
               </span>
             </div>
             <div style={{display:"flex",flexWrap:"wrap",gap:5}}>
@@ -1366,107 +1752,35 @@ function SessionDetail({session}){
   );
 }
 
-// ── POPOVER POSITION (flip+shift) ────────────────────────
+// ── POPOVER POSITION ─────────────────────────────────────
 function calcPopoverPos(cellRect,containerRect,cardW,cardH){
-  const vp={w:window.innerWidth,h:window.innerHeight};
   const PAD=8;
-  // anchor relative to container
   const anchorLeft=cellRect.left-containerRect.left;
   const anchorTop=cellRect.bottom-containerRect.top+6;
   const anchorTopAbove=cellRect.top-containerRect.top-cardH-6;
-  // horizontal: try left-align to cell, shift if clips right
   let left=anchorLeft;
   if(left+cardW>containerRect.width-PAD) left=containerRect.width-cardW-PAD;
   if(left<PAD) left=PAD;
-  // arrow offset relative to card
   const arrowLeft=Math.max(8,Math.min(anchorLeft-left+cellRect.width/2-6,cardW-20));
-  // vertical: flip above if clips bottom of viewport
-  const wouldClipBottom=cellRect.bottom+cardH+6>vp.h-PAD;
+  const wouldClipBottom=cellRect.bottom+cardH+6>window.innerHeight-PAD;
   const top=wouldClipBottom?anchorTopAbove:anchorTop;
-  const flipped=wouldClipBottom;
-  return{left,top,arrowLeft,flipped};
+  return{left,top,arrowLeft,flipped:wouldClipBottom};
 }
 
 // ── CALENDAR HELPERS ─────────────────────────────────────
-const CAL_MONTHS_SHORT = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-const CAL_MONTHS_FULL  = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-const CAL_DAYS_SHORT   = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-
-function calToday(){
-  const n=new Date();
-  return `${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,"0")}-${String(n.getDate()).padStart(2,"0")}`;
-}
-function calFmt(d){
-  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
-}
-function calSessionsByDate(sessions){
-  const m={};
-  sessions.forEach(s=>{
-    const key=s.date.slice(0,10);
-    if(!m[key]) m[key]=[];
-    m[key].push(s);
-  });
-  return m;
-}
-function calVolForDate(sbd,ds){
-  return (sbd[ds]||[]).reduce((a,s)=>{
-    let v=0;
-    s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{v+=(parseFloat(set.w)||0)*(parseFloat(set.r)||0);}));
-    return a+v;
-  },0);
-}
-function calMaxVol(sessions){
-  const byDate={};
-  sessions.forEach(s=>{
-    const key=s.date.slice(0,10);
-    s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{
-      byDate[key]=(byDate[key]||0)+(parseFloat(set.w)||0)*(parseFloat(set.r)||0);
-    }));
-  });
-  return Math.max(1,...Object.values(byDate));
-}
-function calIntensity(sbd,ds,maxV){
-  const vol=calVolForDate(sbd,ds);
-  return vol===0?0:0.2+(vol/maxV)*0.8;
-}
-function heatBg(intensity){
-  if(intensity===0) return "rgba(255,255,255,0.02)";
-  const r=Math.round(120+intensity*135),g=Math.round(60+intensity*98),b=Math.round(0+intensity*11);
-  return `rgba(${r},${g},${b},${0.25+intensity*0.65})`;
-}
-
-// Selected=white, today=green, trained=subtle amber border
-function dayCellBorder(isToday,isSel,trained){
-  if(isToday)      return "2px solid #4ade80";
-  if(isSel&&trained) return "2px solid #f1f5f9";
-  if(trained)      return "1px solid rgba(245,158,11,0.3)";
-  return "1px solid transparent";
-}
-function dayCellNumColor(isToday,isSel,trained,intensity){
-  if(isToday)  return "#4ade80";
-  if(isSel&&trained) return "#f1f5f9";
-  if(trained&&intensity>0.55) return "rgba(0,0,0,0.75)";
-  if(trained)  return "#fde68a";
-  return "#475569";
-}
-
-function HeatLegend(){
-  return(
-    <div style={{display:"flex",alignItems:"center",gap:6,justifyContent:"flex-end",flexWrap:"wrap"}}>
-      <span style={{fontSize:10,color:"#64748b"}}>Low</span>
-      {[0.15,0.35,0.55,0.75,1.0].map(a=>(
-        <div key={a} style={{width:13,height:13,borderRadius:3,background:heatBg(a)}}/>
-      ))}
-      <span style={{fontSize:10,color:"#64748b"}}>High</span>
-      <div style={{width:1,height:13,background:"rgba(255,255,255,0.07)",margin:"0 4px"}}/>
-      <div style={{width:13,height:13,borderRadius:3,border:"2px solid #4ade80",background:"rgba(74,222,128,0.1)"}}/>
-      <span style={{fontSize:10,color:"#4ade80",fontWeight:600}}>Today</span>
-      <div style={{width:1,height:13,background:"rgba(255,255,255,0.07)",margin:"0 4px"}}/>
-      <div style={{width:13,height:13,borderRadius:3,border:"2px solid #f1f5f9",background:"rgba(241,245,249,0.08)"}}/>
-      <span style={{fontSize:10,color:"#f1f5f9",fontWeight:600}}>Selected</span>
-    </div>
-  );
-}
+const CAL_MONTHS_SHORT=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const CAL_MONTHS_FULL=["January","February","March","April","May","June","July","August","September","October","November","December"];
+const CAL_DAYS_SHORT=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+function calToday(){const n=new Date();return`${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,"0")}-${String(n.getDate()).padStart(2,"0")}`;}
+function calFmt(d){return`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;}
+function calSessionsByDate(sessions){const m={};sessions.forEach(s=>{const k=s.date.slice(0,10);if(!m[k])m[k]=[];m[k].push(s);});return m;}
+function calVolForDate(sbd,ds){return(sbd[ds]||[]).reduce((a,s)=>{let v=0;s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{v+=(parseFloat(set.w)||0)*(parseFloat(set.r)||0);}));return a+v;},0);}
+function calMaxVol(sessions){const byDate={};sessions.forEach(s=>{const k=s.date.slice(0,10);s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{byDate[k]=(byDate[k]||0)+(parseFloat(set.w)||0)*(parseFloat(set.r)||0);}));});return Math.max(1,...Object.values(byDate));}
+function calIntensity(sbd,ds,maxV){const vol=calVolForDate(sbd,ds);return vol===0?0:0.2+(vol/maxV)*0.8;}
+function heatBg(intensity){if(intensity===0)return"rgba(255,255,255,0.02)";const r=Math.round(120+intensity*135),g=Math.round(60+intensity*98),b=Math.round(0+intensity*11);return`rgba(${r},${g},${b},${0.25+intensity*0.65})`;}
+function dayCellBorder(isToday,isSel,trained){if(isToday)return"2px solid #4ade80";if(isSel&&trained)return"2px solid #f1f5f9";if(trained)return"1px solid rgba(245,158,11,0.3)";return"1px solid transparent";}
+function dayCellNumColor(isToday,isSel,trained,intensity){if(isToday)return"#4ade80";if(isSel&&trained)return"#f1f5f9";if(intensity>0.55)return"rgba(0,0,0,0.85)";if(trained)return"#fde68a";return"#475569";}
+function HeatLegend(){const steps=[0,0.2,0.4,0.6,0.8,1.0];return(<div style={{display:"flex",alignItems:"center",gap:4,marginTop:4}}><span style={{color:"#475569",fontSize:9}}>Vol:</span>{steps.map((a,i)=><div key={i} style={{width:13,height:13,borderRadius:3,background:heatBg(a)}}/>)}<span style={{color:"#475569",fontSize:9}}>High</span></div>);}
 
 // ── CAL DAY VIEW ──────────────────────────────────────────
 function CalDayView({selectedDay,setSelectedDay,sbd}){
@@ -1482,9 +1796,7 @@ function CalDayView({selectedDay,setSelectedDay,sbd}){
       <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:20}}>
         <button onClick={()=>shift(-1)} style={nbtn}>← Day</button>
         <div style={{textAlign:"center"}}>
-          <div style={{fontWeight:700,fontSize:15,color:isToday?"#4ade80":"#f1f5f9"}}>
-            {new Date(selectedDay+"T12:00:00").toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric",year:"numeric"})}
-          </div>
+          <div style={{fontWeight:700,fontSize:15,color:isToday?"#4ade80":"#f1f5f9"}}>{new Date(selectedDay+"T12:00:00").toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric",year:"numeric"})}</div>
           {isToday&&<div style={{fontSize:11,color:"#4ade80",fontWeight:600,marginTop:2}}>Today</div>}
         </div>
         <button onClick={()=>shift(1)} style={nbtn}>Day →</button>
@@ -1498,11 +1810,7 @@ function CalDayView({selectedDay,setSelectedDay,sbd}){
       ):(
         <>
           <div style={{display:"flex",gap:8,marginBottom:16}}>
-            {[
-              {v:sessions.length,l:"session"+(sessions.length>1?"s":""),c:"#f59e0b",bg:"rgba(245,158,11,0.08)",bd:"rgba(245,158,11,0.2)"},
-              {v:totalVol>0?totalVol.toLocaleString():"—",l:"kg volume",c:"#4ade80",bg:"rgba(74,222,128,0.08)",bd:"rgba(74,222,128,0.2)"},
-              {v:sessions.reduce((a,s)=>a+(s.exercises?.length||0),0),l:"exercises",c:"#a78bfa",bg:"rgba(139,92,246,0.08)",bd:"rgba(139,92,246,0.2)"},
-            ].map((st,i)=>(
+            {[{v:sessions.length,l:"session"+(sessions.length>1?"s":""),c:"#f59e0b",bg:"rgba(245,158,11,0.08)",bd:"rgba(245,158,11,0.2)"},{v:totalVol>0?totalVol.toLocaleString():"—",l:"kg volume",c:"#4ade80",bg:"rgba(74,222,128,0.08)",bd:"rgba(74,222,128,0.2)"},{v:sessions.reduce((a,s)=>a+(s.exercises?.length||0),0),l:"exercises",c:"#a78bfa",bg:"rgba(139,92,246,0.08)",bd:"rgba(139,92,246,0.2)"}].map((st,i)=>(
               <div key={i} style={{flex:1,background:st.bg,border:`1px solid ${st.bd}`,borderRadius:8,padding:"10px 12px"}}>
                 <div style={{color:st.c,fontWeight:700,fontSize:20}}>{st.v}</div>
                 <div style={{color:"#64748b",fontSize:11}}>{st.l}</div>
@@ -1513,21 +1821,16 @@ function CalDayView({selectedDay,setSelectedDay,sbd}){
             const sv=(()=>{let v=0;s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{v+=(parseFloat(set.w)||0)*(parseFloat(set.r)||0);}));return v;})();
             const isExp=expSession===s.id;
             return(
-              <div key={i} style={{background:"rgba(255,255,255,0.02)",border:`1px solid ${isExp?"rgba(245,158,11,0.3)":"rgba(255,255,255,0.06)"}`,borderRadius:10,marginBottom:8,overflow:"hidden",transition:"border-color 0.15s"}}>
-                <div onClick={()=>setExpSession(isExp?null:s.id)}
-                  style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"12px 14px",cursor:"pointer",WebkitTapHighlightColor:"transparent"}}>
+              <div key={i} style={{background:"rgba(255,255,255,0.02)",border:`1px solid ${isExp?"rgba(245,158,11,0.3)":"rgba(255,255,255,0.06)"}`,borderRadius:10,marginBottom:8,overflow:"hidden"}}>
+                <div onClick={()=>setExpSession(isExp?null:s.id)} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"12px 14px",cursor:"pointer",WebkitTapHighlightColor:"transparent"}}>
                   <div>
                     <div style={{fontWeight:700,color:"#f1f5f9",fontSize:13}}>{s.name}</div>
                     <div style={{color:"#64748b",fontSize:11,marginTop:2}}>{s.exercises?.length||0} exercises{sv>0?` · ${sv.toLocaleString()} kg`:""}</div>
                   </div>
-                  <div style={{display:"flex",alignItems:"center",gap:10}}>
-                    <span style={{color:"#475569",fontSize:14,transition:"transform 0.2s",display:"inline-block",transform:isExp?"rotate(180deg)":"rotate(0deg)"}}>▼</span>
-                  </div>
+                  <span style={{color:"#475569",fontSize:14,transition:"transform 0.2s",display:"inline-block",transform:isExp?"rotate(180deg)":"rotate(0deg)"}}>▼</span>
                 </div>
                 <div style={{maxHeight:isExp?800:0,overflow:"hidden",transition:"max-height 0.3s cubic-bezier(0.4,0,0.2,1)"}}>
-                  <div style={{padding:"0 14px 14px"}}>
-                    <SessionDetail session={s}/>
-                  </div>
+                  <div style={{padding:"0 14px 14px"}}><SessionDetail session={s}/></div>
                 </div>
               </div>
             );
@@ -1548,87 +1851,47 @@ function CalWeekView({currentDate,setCurrentDate,selectedDay,setSelectedDay,sbd,
   const dayLbls=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
   const shiftWeek=(n)=>{const d=new Date(currentDate);d.setDate(d.getDate()+n*7);setCurrentDate(d);setExpSession(null);};
   const s0=weekDays[0],s6=weekDays[6];
-  const wLabel=s0.getMonth()===s6.getMonth()
-    ?`${CAL_MONTHS_FULL[s0.getMonth()]} ${s0.getDate()}–${s6.getDate()}, ${s0.getFullYear()}`
-    :`${CAL_MONTHS_SHORT[s0.getMonth()]} ${s0.getDate()} – ${CAL_MONTHS_SHORT[s6.getMonth()]} ${s6.getDate()}, ${s0.getFullYear()}`;
+  const wLabel=s0.getMonth()===s6.getMonth()?`${CAL_MONTHS_FULL[s0.getMonth()]} ${s0.getDate()}–${s6.getDate()}, ${s0.getFullYear()}`:`${CAL_MONTHS_SHORT[s0.getMonth()]} ${s0.getDate()} – ${CAL_MONTHS_SHORT[s6.getMonth()]} ${s6.getDate()}, ${s0.getFullYear()}`;
   const totalVol=weekDays.reduce((a,d)=>a+calVolForDate(sbd,calFmt(d)),0);
   const trainedDays=weekDays.filter(d=>(sbd[calFmt(d)]||[]).length>0).length;
   const nbtn={background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.1)",color:"#94a3b8",borderRadius:8,padding:"6px 12px",cursor:"pointer",fontSize:12,fontFamily:"inherit",fontWeight:600,outline:"none",WebkitTapHighlightColor:"transparent"};
-
-  const handleDayClick=(ds)=>{
-    if(ds===selectedDay){setSelectedDay(null);setExpSession(null);}
-    else{setSelectedDay(ds);setExpSession(null);}
-  };
-
   const selSessions=selectedDay?(sbd[selectedDay]||[]):[];
-
+  const handleDayClick=(ds)=>{if(ds===selectedDay){setSelectedDay(null);setExpSession(null);}else{setSelectedDay(ds);setExpSession(null);}};
   return(
     <div>
       <div style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(255,255,255,0.06)",borderRadius:14,padding:"14px 14px",marginBottom:10}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
           <button onClick={()=>shiftWeek(-1)} style={nbtn}>← Week</button>
-          <div style={{textAlign:"center"}}>
-            <div style={{fontWeight:700,fontSize:13}}>{wLabel}</div>
-            <div style={{color:"#64748b",fontSize:11,marginTop:1}}>{trainedDays} sessions{totalVol>0?` · ${totalVol.toLocaleString()} kg`:""}</div>
-          </div>
+          <div style={{textAlign:"center"}}><div style={{fontWeight:700,fontSize:13}}>{wLabel}</div><div style={{color:"#64748b",fontSize:11,marginTop:1}}>{trainedDays} sessions{totalVol>0?` · ${totalVol.toLocaleString()} kg`:""}</div></div>
           <button onClick={()=>shiftWeek(1)} style={nbtn}>Week →</button>
         </div>
         <HeatLegend/>
         <div style={{display:"grid",gridTemplateColumns:"repeat(7,1fr)",gap:5,marginTop:12}}>
           {weekDays.map((d,i)=>{
-            const ds=calFmt(d);
-            const sessions=sbd[ds]||[];
-            const trained=sessions.length>0;
-            const isToday=ds===TODAY;
-            const isSel=ds===selectedDay;
-            const intensity=calIntensity(sbd,ds,maxV);
-            const vol=calVolForDate(sbd,ds);
+            const ds=calFmt(d);const sessions=sbd[ds]||[];const trained=sessions.length>0;const isToday=ds===TODAY;const isSel=ds===selectedDay;const intensity=calIntensity(sbd,ds,maxV);const vol=calVolForDate(sbd,ds);
             return(
-              <div key={i} onClick={()=>handleDayClick(ds)}
-                style={{borderRadius:10,padding:"8px 6px",minHeight:100,background:heatBg(intensity),
-                  border:dayCellBorder(isToday,isSel,trained),boxSizing:"border-box",
-                  cursor:"pointer",transition:"all 0.12s",position:"relative",outline:"none",WebkitTapHighlightColor:"transparent"}}>
-                <div style={{fontSize:9,color:isToday?"#4ade80":isSel&&trained?"#f1f5f9":"#64748b",fontWeight:700}}>{dayLbls[i]}</div>
+              <div key={i} onClick={()=>handleDayClick(ds)} style={{borderRadius:10,padding:"8px 6px",minHeight:100,background:heatBg(intensity),border:dayCellBorder(isToday,isSel,trained),boxSizing:"border-box",cursor:"pointer",transition:"all 0.12s",position:"relative",outline:"none",WebkitTapHighlightColor:"transparent"}}>
+                <div style={{fontSize:9,color:isToday?"#4ade80":"#64748b",fontWeight:700}}>{dayLbls[i]}</div>
                 <div style={{fontSize:18,fontWeight:700,color:isToday?"#4ade80":"#f1f5f9",margin:"3px 0 5px"}}>{d.getDate()}</div>
-                {trained?(
-                  <>
-                    {sessions.slice(0,2).map((s,j)=>(
-                      <div key={j} style={{fontSize:8,background:"rgba(0,0,0,0.25)",color:"#fde68a",borderRadius:3,padding:"2px 4px",marginBottom:2,fontWeight:600,overflow:"hidden",whiteSpace:"nowrap",textOverflow:"ellipsis"}}>
-                        {s.name.length>16?s.name.slice(0,16)+"…":s.name}
-                      </div>
-                    ))}
-                    {sessions.length>2&&<div style={{fontSize:7,color:"rgba(253,230,138,0.7)"}}>+{sessions.length-2} more</div>}
-                    {vol>0&&<div style={{position:"absolute",bottom:6,right:6,fontSize:8,color:"rgba(253,230,138,0.7)",fontWeight:700}}>{vol>=1000?(vol/1000).toFixed(1)+"k":vol}kg</div>}
-                  </>
-                ):(
-                  <div style={{fontSize:9,color:"#475569",marginTop:4}}>Rest</div>
-                )}
+                {trained?(<>{sessions.slice(0,2).map((s,j)=><div key={j} style={{fontSize:8,background:"rgba(0,0,0,0.25)",color:"#fde68a",borderRadius:3,padding:"2px 4px",marginBottom:2,fontWeight:600,overflow:"hidden",whiteSpace:"nowrap",textOverflow:"ellipsis"}}>{s.name.length>16?s.name.slice(0,16)+"…":s.name}</div>)}{sessions.length>2&&<div style={{fontSize:7,color:"rgba(253,230,138,0.7)"}}>+{sessions.length-2} more</div>}{vol>0&&<div style={{position:"absolute",bottom:6,right:6,fontSize:8,color:"rgba(253,230,138,0.7)",fontWeight:700}}>{vol>=1000?(vol/1000).toFixed(1)+"k":vol}kg</div>}</>):(<div style={{fontSize:9,color:"#475569",marginTop:4}}>Rest</div>)}
               </div>
             );
           })}
         </div>
       </div>
-
-      {/* Inline expand panel */}
       <div style={{overflow:"hidden",maxHeight:selectedDay&&selSessions.length?1200:0,opacity:selectedDay&&selSessions.length?1:0,transition:"max-height 0.35s cubic-bezier(0.4,0,0.2,1),opacity 0.25s ease",marginBottom:selectedDay&&selSessions.length?10:0}}>
         <div style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(255,255,255,0.08)",borderRadius:12,borderLeft:"3px solid #f59e0b",overflow:"hidden"}}>
           <div style={{padding:"12px 14px 4px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-            <span style={{fontWeight:700,fontSize:13,color:"#f1f5f9"}}>
-              {selectedDay&&new Date(selectedDay+"T12:00:00").toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric"})}
-            </span>
+            <span style={{fontWeight:700,fontSize:13,color:"#f1f5f9"}}>{selectedDay&&new Date(selectedDay+"T12:00:00").toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric"})}</span>
             <button onClick={()=>{setSelectedDay(null);setExpSession(null);}} style={{background:"transparent",border:"none",color:"#475569",cursor:"pointer",fontSize:18,fontFamily:"inherit",outline:"none",WebkitTapHighlightColor:"transparent"}}>×</button>
           </div>
           {selSessions.map((s,i)=>{
             const sv=(()=>{let v=0;s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{v+=(parseFloat(set.w)||0)*(parseFloat(set.r)||0);}));return v;})();
             const isExp=expSession===s.id;
             return(
-              <div key={i} style={{margin:"0 14px",marginBottom:8,background:"rgba(255,255,255,0.02)",border:`1px solid ${isExp?"rgba(245,158,11,0.3)":"rgba(255,255,255,0.06)"}`,borderRadius:10,overflow:"hidden",transition:"border-color 0.15s"}}>
-                <div onClick={()=>setExpSession(isExp?null:s.id)}
-                  style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 12px",cursor:"pointer",WebkitTapHighlightColor:"transparent"}}>
-                  <div>
-                    <div style={{fontWeight:700,color:"#f1f5f9",fontSize:13}}>{s.name}</div>
-                    <div style={{color:"#64748b",fontSize:11,marginTop:2}}>{s.exercises?.length||0} exercises{sv>0?` · ${sv.toLocaleString()} kg`:""}</div>
-                  </div>
+              <div key={i} style={{margin:"0 14px",marginBottom:8,background:"rgba(255,255,255,0.02)",border:`1px solid ${isExp?"rgba(245,158,11,0.3)":"rgba(255,255,255,0.06)"}`,borderRadius:10,overflow:"hidden"}}>
+                <div onClick={()=>setExpSession(isExp?null:s.id)} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 12px",cursor:"pointer",WebkitTapHighlightColor:"transparent"}}>
+                  <div><div style={{fontWeight:700,color:"#f1f5f9",fontSize:13}}>{s.name}</div><div style={{color:"#64748b",fontSize:11,marginTop:2}}>{s.exercises?.length||0} exercises{sv>0?` · ${sv.toLocaleString()} kg`:""}</div></div>
                   <span style={{color:"#475569",fontSize:13,transition:"transform 0.2s",display:"inline-block",transform:isExp?"rotate(180deg)":"rotate(0deg)"}}>▼</span>
                 </div>
                 <div style={{maxHeight:isExp?800:0,overflow:"hidden",transition:"max-height 0.3s cubic-bezier(0.4,0,0.2,1)"}}>
@@ -1650,44 +1913,31 @@ function CalMonthView({currentDate,setCurrentDate,selectedDay,setSelectedDay,sbd
   const month=currentDate.getMonth(),year=currentDate.getFullYear();
   const firstDay=new Date(year,month,1).getDay();
   const daysInMonth=new Date(year,month+1,0).getDate();
-  const cells=[];
-  for(let i=0;i<firstDay;i++) cells.push(null);
-  for(let d=1;d<=daysInMonth;d++) cells.push(d);
+  const cells=[];for(let i=0;i<firstDay;i++)cells.push(null);for(let d=1;d<=daysInMonth;d++)cells.push(d);
   const ds=(d)=>d?`${year}-${String(month+1).padStart(2,"0")}-${String(d).padStart(2,"0")}`:null;
   const shiftMonth=(n)=>{const d=new Date(currentDate);d.setMonth(d.getMonth()+n);setCurrentDate(d);setSelectedDay(null);};
   const totalVol=cells.reduce((a,d)=>a+calVolForDate(sbd,ds(d)||""),0);
   const trainedDays=cells.filter(d=>ds(d)&&(sbd[ds(d)]||[]).length>0).length;
   const nbtn={background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.1)",color:"#94a3b8",borderRadius:8,padding:"6px 12px",cursor:"pointer",fontSize:12,fontFamily:"inherit",fontWeight:600,outline:"none",WebkitTapHighlightColor:"transparent"};
-
-  // Popover state
-  const [popover,setPopover]=useState(null); // {ds, pos:{left,top,arrowLeft,flipped}, expSession}
-  const [cardExpSession,setCardExpSession]=useState(null);
+  const [popover,setPopover]=useState(null);
+  const [cardExp,setCardExp]=useState(null);
   const containerRef=useRef(null);
-  const CARD_W=240, CARD_H_EST=220;
-
+  const CARD_W=240,CARD_H_EST=220;
   const handleCellClick=(dStr,e)=>{
-    if(!dStr||(sbd[dStr]||[]).length===0){setPopover(null);setCardExpSession(null);return;}
-    if(popover?.ds===dStr){setPopover(null);setCardExpSession(null);return;}
+    if(!dStr||(sbd[dStr]||[]).length===0){setPopover(null);setCardExp(null);return;}
+    if(popover?.ds===dStr){setPopover(null);setCardExp(null);return;}
     const cellRect=e.currentTarget.getBoundingClientRect();
     const containerRect=containerRef.current.getBoundingClientRect();
     const pos=calcPopoverPos(cellRect,containerRect,CARD_W,CARD_H_EST);
-    setPopover({ds:dStr,pos});
-    setCardExpSession(null);
-    setSelectedDay(dStr);
+    setPopover({ds:dStr,pos});setCardExp(null);setSelectedDay(dStr);
   };
-
-  // close popover when day changes externally
-  useEffect(()=>{if(!selectedDay){setPopover(null);setCardExpSession(null);}},[selectedDay]);
-
+  useEffect(()=>{if(!selectedDay){setPopover(null);setCardExp(null);}},[selectedDay]);
   return(
     <div>
       <div ref={containerRef} style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(255,255,255,0.06)",borderRadius:14,padding:"14px 14px",marginBottom:10,position:"relative"}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
           <button onClick={()=>shiftMonth(-1)} style={nbtn}>←</button>
-          <div style={{textAlign:"center"}}>
-            <div style={{fontWeight:700,fontSize:14}}>{CAL_MONTHS_FULL[month]} {year}</div>
-            <div style={{color:"#64748b",fontSize:11,marginTop:1}}>{trainedDays} sessions{totalVol>0?` · ${totalVol.toLocaleString()} kg`:""}</div>
-          </div>
+          <div style={{textAlign:"center"}}><div style={{fontWeight:700,fontSize:14}}>{CAL_MONTHS_FULL[month]} {year}</div><div style={{color:"#64748b",fontSize:11,marginTop:1}}>{trainedDays} sessions{totalVol>0?` · ${totalVol.toLocaleString()} kg`:""}</div></div>
           <button onClick={()=>shiftMonth(1)} style={nbtn}>→</button>
         </div>
         <HeatLegend/>
@@ -1696,93 +1946,38 @@ function CalMonthView({currentDate,setCurrentDate,selectedDay,setSelectedDay,sbd
         </div>
         <div style={{display:"grid",gridTemplateColumns:"repeat(7,1fr)",gap:3}}>
           {cells.map((d,i)=>{
-            const dStr=ds(d);
-            const sessions=dStr?(sbd[dStr]||[]):[];
-            const trained=sessions.length>0;
-            const isToday=dStr===TODAY;
-            const isSel=dStr===selectedDay;
-            const intensity=dStr?calIntensity(sbd,dStr,maxV):0;
+            const dStr=ds(d);const sessions=dStr?(sbd[dStr]||[]):[];const trained=sessions.length>0;const isToday=dStr===TODAY;const isSel=dStr===selectedDay;const intensity=dStr?calIntensity(sbd,dStr,maxV):0;
             return(
-              <div key={i} onClick={(e)=>{if(d&&dStr)handleCellClick(dStr,e);}}
-                style={{aspectRatio:"1",borderRadius:6,display:"flex",flexDirection:"column",
-                  alignItems:"center",justifyContent:"center",position:"relative",
-                  background:d?heatBg(intensity):"transparent",
-                  border:d?dayCellBorder(isToday,isSel,trained):"1px solid transparent",
-                  boxSizing:"border-box",cursor:d?"pointer":"default",transition:"all 0.1s",outline:"none",WebkitTapHighlightColor:"transparent"}}>
-                {d&&<>
-                  <span style={{fontSize:11,fontWeight:trained||isToday?700:400,color:dayCellNumColor(isToday,isSel,trained,intensity)}}>{d}</span>
-                  {trained&&<div style={{width:3,height:3,borderRadius:"50%",background:intensity>0.55?"rgba(0,0,0,0.4)":"#f59e0b",marginTop:1}}/>}
-                  {sessions.length>1&&<span style={{fontSize:7,color:intensity>0.55?"rgba(0,0,0,0.5)":"#f59e0b",fontWeight:700}}>×{sessions.length}</span>}
-                </>}
+              <div key={i} onClick={(e)=>{if(d&&dStr)handleCellClick(dStr,e);}} style={{aspectRatio:"1",borderRadius:6,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",position:"relative",background:d?heatBg(intensity):"transparent",border:d?dayCellBorder(isToday,isSel,trained):"1px solid transparent",boxSizing:"border-box",cursor:d?"pointer":"default",transition:"all 0.1s",outline:"none",WebkitTapHighlightColor:"transparent"}}>
+                {d&&<><span style={{fontSize:11,fontWeight:trained||isToday?700:400,color:dayCellNumColor(isToday,isSel,trained,intensity)}}>{d}</span>{trained&&<div style={{width:3,height:3,borderRadius:"50%",background:intensity>0.55?"rgba(0,0,0,0.4)":"#f59e0b",marginTop:1}}/>}{sessions.length>1&&<span style={{fontSize:7,color:intensity>0.55?"rgba(0,0,0,0.5)":"#f59e0b",fontWeight:700}}>×{sessions.length}</span>}</>}
               </div>
             );
           })}
         </div>
-
-        {/* Floating card popover */}
         {popover&&sbd[popover.ds]&&(
-          <div onClick={e=>e.stopPropagation()} style={{
-            position:"absolute",
-            left:popover.pos.left,
-            top:popover.pos.top,
-            width:CARD_W,
-            background:"#0d1627",
-            border:"1px solid rgba(245,158,11,0.3)",
-            borderRadius:12,
-            zIndex:50,
-            boxShadow:"0 12px 40px rgba(0,0,0,0.7)",
-            animation:"popIn 0.18s cubic-bezier(0.34,1.56,0.64,1)",
-          }}>
+          <div onClick={e=>e.stopPropagation()} style={{position:"absolute",left:popover.pos.left,top:popover.pos.top,width:CARD_W,background:"#0d1627",border:"1px solid rgba(245,158,11,0.3)",borderRadius:12,zIndex:50,boxShadow:"0 12px 40px rgba(0,0,0,0.7)",animation:"popIn 0.18s cubic-bezier(0.34,1.56,0.64,1)"}}>
             <style>{`@keyframes popIn{from{opacity:0;transform:scale(0.92)}to{opacity:1;transform:scale(1)}}`}</style>
-            {/* Arrow */}
-            <div style={{
-              position:"absolute",
-              ...(popover.pos.flipped
-                ?{bottom:-6,top:"auto"}
-                :{top:-6}),
-              left:popover.pos.arrowLeft,
-              width:12,height:12,
-              background:"#0d1627",
-              border:"1px solid rgba(245,158,11,0.3)",
-              transform:popover.pos.flipped?"rotate(225deg)":"rotate(45deg)",
-              ...(popover.pos.flipped?{borderTop:"none",borderLeft:"none"}:{borderBottom:"none",borderRight:"none"}),
-            }}/>
-            {/* Header */}
+            <div style={{position:"absolute",...(popover.pos.flipped?{bottom:-6}:{top:-6}),left:popover.pos.arrowLeft,width:12,height:12,background:"#0d1627",border:"1px solid rgba(245,158,11,0.3)",transform:popover.pos.flipped?"rotate(225deg)":"rotate(45deg)",...(popover.pos.flipped?{borderTop:"none",borderLeft:"none"}:{borderBottom:"none",borderRight:"none"})}}/>
             <div style={{padding:"12px 14px 10px",borderBottom:"1px solid rgba(255,255,255,0.07)"}}>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
                 <div>
-                  <div style={{color:"#f59e0b",fontSize:9,fontWeight:700,letterSpacing:1,marginBottom:3}}>
-                    {new Date(popover.ds+"T12:00:00").toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"}).toUpperCase()}
-                  </div>
-                  {sbd[popover.ds].map((s,i)=>(
-                    <div key={i} style={{color:"#f1f5f9",fontWeight:700,fontSize:12,lineHeight:1.3}}>{s.name}</div>
-                  ))}
+                  <div style={{color:"#f59e0b",fontSize:9,fontWeight:700,letterSpacing:1,marginBottom:3}}>{new Date(popover.ds+"T12:00:00").toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"}).toUpperCase()}</div>
+                  {sbd[popover.ds].map((s,i)=><div key={i} style={{color:"#f1f5f9",fontWeight:700,fontSize:12,lineHeight:1.3}}>{s.name}</div>)}
                 </div>
-                <button onClick={()=>{setPopover(null);setSelectedDay(null);setCardExpSession(null);}}
-                  style={{background:"transparent",border:"none",color:"#475569",cursor:"pointer",fontSize:16,fontFamily:"inherit",outline:"none",WebkitTapHighlightColor:"transparent",flexShrink:0,marginLeft:8}}>×</button>
+                <button onClick={()=>{setPopover(null);setSelectedDay(null);setCardExp(null);}} style={{background:"transparent",border:"none",color:"#475569",cursor:"pointer",fontSize:16,fontFamily:"inherit",outline:"none",WebkitTapHighlightColor:"transparent",flexShrink:0,marginLeft:8}}>×</button>
               </div>
               <div style={{display:"flex",gap:12,marginTop:8}}>
-                {(()=>{
-                  const sessions=sbd[popover.ds];
-                  const vol=sessions.reduce((a,s)=>{let v=0;s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{v+=(parseFloat(set.w)||0)*(parseFloat(set.r)||0);}));return a+v;},0);
-                  const exCount=sessions.reduce((a,s)=>a+(s.exercises?.length||0),0);
-                  return[
-                    {v:vol>0?(vol>=1000?(vol/1000).toFixed(1)+"k":vol)+"kg":"—",c:"#f59e0b"},
-                    {v:exCount+" ex",c:"#a78bfa"},
-                  ].map((st,i)=><span key={i} style={{color:st.c,fontWeight:700,fontSize:12}}>{st.v}</span>);
-                })()}
+                {(()=>{const ss=sbd[popover.ds];const vol=ss.reduce((a,s)=>{let v=0;s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{v+=(parseFloat(set.w)||0)*(parseFloat(set.r)||0);}));return a+v;},0);const ex=ss.reduce((a,s)=>a+(s.exercises?.length||0),0);return[{v:vol>0?(vol>=1000?(vol/1000).toFixed(1)+"k":vol)+"kg":"—",c:"#f59e0b"},{v:ex+" ex",c:"#a78bfa"}].map((st,i)=><span key={i} style={{color:st.c,fontWeight:700,fontSize:12}}>{st.v}</span>);})()}
               </div>
             </div>
-            {/* Exercise list with expand */}
             <div style={{padding:"8px 14px 4px",maxHeight:280,overflowY:"auto"}}>
               {sbd[popover.ds].map((s,si)=>(
-                <div key={si} style={{marginBottom:6,background:"rgba(255,255,255,0.02)",border:`1px solid ${cardExpSession===s.id?"rgba(245,158,11,0.25)":"rgba(255,255,255,0.06)"}`,borderRadius:8,overflow:"hidden",transition:"border-color 0.15s"}}>
-                  <div onClick={()=>setCardExpSession(cardExpSession===s.id?null:s.id)}
-                    style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 10px",cursor:"pointer",WebkitTapHighlightColor:"transparent"}}>
+                <div key={si} style={{marginBottom:6,background:"rgba(255,255,255,0.02)",border:`1px solid ${cardExp===s.id?"rgba(245,158,11,0.25)":"rgba(255,255,255,0.06)"}`,borderRadius:8,overflow:"hidden"}}>
+                  <div onClick={()=>setCardExp(cardExp===s.id?null:s.id)} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 10px",cursor:"pointer",WebkitTapHighlightColor:"transparent"}}>
                     <span style={{color:"#f1f5f9",fontSize:11,fontWeight:600}}>{s.name.length>24?s.name.slice(0,24)+"…":s.name}</span>
-                    <span style={{color:"#475569",fontSize:11,transition:"transform 0.2s",display:"inline-block",transform:cardExpSession===s.id?"rotate(180deg)":"rotate(0deg)"}}>▼</span>
+                    <span style={{color:"#475569",fontSize:11,transition:"transform 0.2s",display:"inline-block",transform:cardExp===s.id?"rotate(180deg)":"rotate(0deg)"}}>▼</span>
                   </div>
-                  <div style={{maxHeight:cardExpSession===s.id?600:0,overflow:"hidden",transition:"max-height 0.3s cubic-bezier(0.4,0,0.2,1)"}}>
+                  <div style={{maxHeight:cardExp===s.id?600:0,overflow:"hidden",transition:"max-height 0.3s cubic-bezier(0.4,0,0.2,1)"}}>
                     <div style={{padding:"0 10px 10px"}}><SessionDetail session={s}/></div>
                   </div>
                 </div>
@@ -1792,8 +1987,7 @@ function CalMonthView({currentDate,setCurrentDate,selectedDay,setSelectedDay,sbd
           </div>
         )}
       </div>
-      {/* Backdrop to dismiss popover */}
-      {popover&&<div onClick={()=>{setPopover(null);setSelectedDay(null);setCardExpSession(null);}} style={{position:"fixed",inset:0,zIndex:49}}/>}
+      {popover&&<div onClick={()=>{setPopover(null);setSelectedDay(null);setCardExp(null);}} style={{position:"fixed",inset:0,zIndex:49}}/>}
     </div>
   );
 }
@@ -1805,32 +1999,15 @@ function CalYearView({currentDate,setCurrentDate,selectedDay,setSelectedDay,sbd,
   const [sheetOpen,setSheetOpen]=useState(false);
   const [sheetVisible,setSheetVisible]=useState(false);
   const [expSession,setExpSession]=useState(null);
-
   const yearSessions=sessions.filter(s=>s.date.slice(0,4)===String(year));
   const yearVol=yearSessions.reduce((a,s)=>{let v=0;s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{v+=(parseFloat(set.w)||0)*(parseFloat(set.r)||0);}));return a+v;},0);
   const yearDays=new Set(yearSessions.map(s=>s.date.slice(0,10))).size;
-  const bestMonth=(()=>{
-    const byM={};
-    yearSessions.forEach(s=>{const m=s.date.slice(0,7);let v=0;s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{v+=(parseFloat(set.w)||0)*(parseFloat(set.r)||0);}));byM[m]=(byM[m]||0)+v;});
-    const best=Object.entries(byM).sort((a,b)=>b[1]-a[1])[0];
-    return best?CAL_MONTHS_SHORT[parseInt(best[0].slice(5,7))-1]:"—";
-  })();
+  const bestMonth=(()=>{const byM={};yearSessions.forEach(s=>{const m=s.date.slice(0,7);let v=0;s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{v+=(parseFloat(set.w)||0)*(parseFloat(set.r)||0);}));byM[m]=(byM[m]||0)+v;});const best=Object.entries(byM).sort((a,b)=>b[1]-a[1])[0];return best?CAL_MONTHS_SHORT[parseInt(best[0].slice(5,7))-1]:"—";})();
   const shiftYear=(n)=>{const d=new Date(currentDate);d.setFullYear(d.getFullYear()+n);setCurrentDate(d);};
   const nbtn={background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.1)",color:"#94a3b8",borderRadius:8,padding:"6px 12px",cursor:"pointer",fontSize:12,fontFamily:"inherit",fontWeight:600,outline:"none",WebkitTapHighlightColor:"transparent"};
-
-  const openSheet=(ds)=>{
-    setSelectedDay(ds);
-    setExpSession(null);
-    setSheetOpen(true);
-    setTimeout(()=>setSheetVisible(true),10);
-  };
-  const closeSheet=()=>{
-    setSheetVisible(false);
-    setTimeout(()=>{setSheetOpen(false);setSelectedDay(null);setExpSession(null);},320);
-  };
-
+  const openSheet=(ds)=>{setSelectedDay(ds);setExpSession(null);setSheetOpen(true);setTimeout(()=>setSheetVisible(true),10);};
+  const closeSheet=()=>{setSheetVisible(false);setTimeout(()=>{setSheetOpen(false);setSelectedDay(null);setExpSession(null);},320);};
   const sheetSessions=selectedDay?(sbd[selectedDay]||[]):[];
-
   return(
     <div>
       <div style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(255,255,255,0.06)",borderRadius:14,padding:"14px 14px",marginBottom:10}}>
@@ -1840,11 +2017,7 @@ function CalYearView({currentDate,setCurrentDate,selectedDay,setSelectedDay,sbd,
           <button onClick={()=>shiftYear(1)} style={nbtn}>{year+1} →</button>
         </div>
         <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:8,marginBottom:14}}>
-          {[
-            {v:yearDays,l:"Training days",c:"#f59e0b"},
-            {v:yearVol>0?(yearVol/1000).toFixed(1)+"k kg":"—",l:"Total volume",c:"#4ade80"},
-            {v:bestMonth,l:"Best month",c:"#a78bfa"},
-          ].map((st,i)=>(
+          {[{v:yearDays,l:"Training days",c:"#f59e0b"},{v:yearVol>0?(yearVol/1000).toFixed(1)+"k kg":"—",l:"Total volume",c:"#4ade80"},{v:bestMonth,l:"Best month",c:"#a78bfa"}].map((st,i)=>(
             <div key={i} style={{background:"rgba(255,255,255,0.02)",border:"1px solid rgba(255,255,255,0.06)",borderRadius:10,padding:"10px 12px"}}>
               <div style={{color:st.c,fontWeight:700,fontSize:20}}>{st.v}</div>
               <div style={{color:"#64748b",fontSize:11,marginTop:2}}>{st.l}</div>
@@ -1854,46 +2027,29 @@ function CalYearView({currentDate,setCurrentDate,selectedDay,setSelectedDay,sbd,
         <HeatLegend/>
         <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:8,marginTop:14}}>
           {Array.from({length:12},(_,m)=>{
-            const firstDay=new Date(year,m,1).getDay();
-            const daysInMonth=new Date(year,m+1,0).getDate();
-            const cells=[];
-            for(let i=0;i<firstDay;i++) cells.push(null);
-            for(let d=1;d<=daysInMonth;d++) cells.push(d);
+            const firstDay=new Date(year,m,1).getDay(),daysInMonth=new Date(year,m+1,0).getDate();
+            const cells=[];for(let i=0;i<firstDay;i++)cells.push(null);for(let d=1;d<=daysInMonth;d++)cells.push(d);
             const monthStr=`${year}-${String(m+1).padStart(2,"0")}`;
             const mSessions=yearSessions.filter(s=>s.date.startsWith(monthStr));
             const trainedDays=new Set(mSessions.map(s=>s.date.slice(0,10))).size;
             const monthVol=mSessions.reduce((a,s)=>{let v=0;s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{v+=(parseFloat(set.w)||0)*(parseFloat(set.r)||0);}));return a+v;},0);
             const todayMonth=TODAY.slice(0,7)===monthStr;
             return(
-              <div key={m} style={{background:"rgba(255,255,255,0.015)",border:todayMonth?"1px solid rgba(74,222,128,0.2)":`1px solid rgba(255,255,255,0.06)`,borderRadius:10,padding:"8px 8px 6px"}}>
+              <div key={m} style={{background:"rgba(255,255,255,0.015)",border:todayMonth?"1px solid rgba(74,222,128,0.2)":"1px solid rgba(255,255,255,0.06)",borderRadius:10,padding:"8px 8px 6px"}}>
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:5}}>
                   <span style={{fontWeight:700,fontSize:12,color:todayMonth?"#4ade80":"#f1f5f9"}}>{CAL_MONTHS_SHORT[m]}</span>
-                  {trainedDays>0
-                    ?<span style={{fontSize:8,color:"#475569"}}>{trainedDays}d{monthVol>0?` · ${monthVol>=1000?(monthVol/1000).toFixed(1)+"k":monthVol}kg`:""}</span>
-                    :<span style={{fontSize:8,color:"#475569"}}>—</span>
-                  }
+                  {trainedDays>0?<span style={{fontSize:8,color:"#475569"}}>{trainedDays}d{monthVol>0?` · ${monthVol>=1000?(monthVol/1000).toFixed(1)+"k":monthVol}kg`:""}</span>:<span style={{fontSize:8,color:"#475569"}}>—</span>}
                 </div>
                 <div style={{display:"grid",gridTemplateColumns:"repeat(7,1fr)",gap:1,marginBottom:1}}>
-                  {["S","M","T","W","T","F","S"].map((d,i)=>(
-                    <div key={i} style={{textAlign:"center",fontSize:6,color:"#475569",lineHeight:"12px"}}>{d}</div>
-                  ))}
+                  {["S","M","T","W","T","F","S"].map((d,i)=><div key={i} style={{textAlign:"center",fontSize:6,color:"#475569",lineHeight:"12px"}}>{d}</div>)}
                 </div>
                 <div style={{display:"grid",gridTemplateColumns:"repeat(7,1fr)",gap:2}}>
                   {cells.map((d,i)=>{
                     const dStr=d?`${year}-${String(m+1).padStart(2,"0")}-${String(d).padStart(2,"0")}`:null;
-                    const intensity=dStr?calIntensity(sbd,dStr,maxV):0;
-                    const trained=intensity>0;
-                    const isToday=dStr===TODAY;
-                    const isSel=dStr===selectedDay;
+                    const intensity=dStr?calIntensity(sbd,dStr,maxV):0;const trained=intensity>0;const isToday=dStr===TODAY;const isSel=dStr===selectedDay;
                     const numColor=dayCellNumColor(isToday,isSel&&trained,trained,intensity);
                     return(
-                      <div key={i}
-                        onClick={()=>{if(dStr&&trained){if(isSel&&sheetOpen){closeSheet();}else{openSheet(dStr);}}}}
-                        style={{aspectRatio:"1",borderRadius:3,
-                          background:dStr?(isToday&&!trained?"rgba(74,222,128,0.08)":heatBg(intensity)):"transparent",
-                          border:dStr?dayCellBorder(isToday,isSel&&trained,trained):"none",
-                          boxSizing:"border-box",display:"flex",alignItems:"center",justifyContent:"center",
-                          cursor:trained?"pointer":"default",transition:"all 0.1s",outline:"none",WebkitTapHighlightColor:"transparent"}}>
+                      <div key={i} onClick={()=>{if(dStr&&trained){if(isSel&&sheetOpen){closeSheet();}else{openSheet(dStr);}}}} style={{aspectRatio:"1",borderRadius:3,background:dStr?(isToday&&!trained?"rgba(74,222,128,0.08)":heatBg(intensity)):"transparent",border:dStr?dayCellBorder(isToday,isSel&&trained,trained):"none",boxSizing:"border-box",display:"flex",alignItems:"center",justifyContent:"center",cursor:trained?"pointer":"default",transition:"all 0.1s",outline:"none",WebkitTapHighlightColor:"transparent"}}>
                         {d&&<span style={{fontSize:7,fontWeight:trained||isToday?700:400,color:numColor,lineHeight:1,userSelect:"none"}}>{d}</span>}
                       </div>
                     );
@@ -1907,53 +2063,25 @@ function CalYearView({currentDate,setCurrentDate,selectedDay,setSelectedDay,sbd,
       <div style={{background:"rgba(100,116,139,0.06)",border:"1px solid rgba(255,255,255,0.06)",borderRadius:10,padding:"10px 14px"}}>
         <span style={{color:"#64748b",fontSize:12}}>💡 Tap any trained day to see full workout detail. Today outlined in green.</span>
       </div>
-
-      {/* Backdrop */}
+      {sheetOpen&&<div onClick={closeSheet} style={{position:"fixed",inset:0,background:`rgba(0,0,0,${sheetVisible?0.6:0})`,zIndex:40,transition:"background 0.3s"}}/>}
       {sheetOpen&&(
-        <div onClick={closeSheet} style={{position:"fixed",inset:0,background:`rgba(0,0,0,${sheetVisible?0.6:0})`,zIndex:40,transition:"background 0.3s"}}/>
-      )}
-
-      {/* Bottom sheet */}
-      {sheetOpen&&(
-        <div style={{
-          position:"fixed",left:0,right:0,bottom:0,
-          background:"#0d1627",
-          borderTop:"1px solid rgba(245,158,11,0.2)",
-          borderRadius:"20px 20px 0 0",
-          zIndex:50,
-          transform:sheetVisible?"translateY(0)":"translateY(100%)",
-          transition:"transform 0.32s cubic-bezier(0.32,0.72,0,1)",
-          maxHeight:"75vh",
-          display:"flex",flexDirection:"column",
-          boxShadow:"0 -20px 60px rgba(0,0,0,0.6)",
-        }}>
-          {/* Drag handle */}
-          <div style={{display:"flex",justifyContent:"center",padding:"12px 0 4px"}}>
-            <div style={{width:36,height:4,borderRadius:2,background:"rgba(255,255,255,0.15)"}}/>
-          </div>
-          {/* Sheet header */}
+        <div style={{position:"fixed",left:0,right:0,bottom:0,background:"#0d1627",borderTop:"1px solid rgba(245,158,11,0.2)",borderRadius:"20px 20px 0 0",zIndex:50,transform:sheetVisible?"translateY(0)":"translateY(100%)",transition:"transform 0.32s cubic-bezier(0.32,0.72,0,1)",maxHeight:"75vh",display:"flex",flexDirection:"column",boxShadow:"0 -20px 60px rgba(0,0,0,0.6)"}}>
+          <div style={{display:"flex",justifyContent:"center",padding:"12px 0 4px"}}><div style={{width:36,height:4,borderRadius:2,background:"rgba(255,255,255,0.15)"}}/></div>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 20px 12px",borderBottom:"1px solid rgba(255,255,255,0.07)"}}>
             <div>
               <div style={{color:"#f59e0b",fontSize:10,fontWeight:700,letterSpacing:1}}>WORKOUT DETAIL</div>
-              <div style={{color:"#f1f5f9",fontWeight:700,fontSize:15,marginTop:2}}>
-                {selectedDay&&new Date(selectedDay+"T12:00:00").toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric",year:"numeric"})}
-              </div>
+              <div style={{color:"#f1f5f9",fontWeight:700,fontSize:15,marginTop:2}}>{selectedDay&&new Date(selectedDay+"T12:00:00").toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric",year:"numeric"})}</div>
             </div>
             <button onClick={closeSheet} style={{background:"rgba(255,255,255,0.06)",border:"none",color:"#94a3b8",cursor:"pointer",fontSize:16,width:32,height:32,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"inherit",outline:"none",WebkitTapHighlightColor:"transparent"}}>×</button>
           </div>
-          {/* Scrollable content */}
           <div style={{overflowY:"auto",padding:"12px 20px 40px",flex:1}}>
             {sheetSessions.map((s,i)=>{
               const sv=(()=>{let v=0;s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{v+=(parseFloat(set.w)||0)*(parseFloat(set.r)||0);}));return v;})();
               const isExp=expSession===s.id;
               return(
-                <div key={i} style={{background:"rgba(255,255,255,0.02)",border:`1px solid ${isExp?"rgba(245,158,11,0.3)":"rgba(255,255,255,0.07)"}`,borderRadius:12,marginBottom:10,overflow:"hidden",transition:"border-color 0.15s"}}>
-                  <div onClick={()=>setExpSession(isExp?null:s.id)}
-                    style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"14px 16px",cursor:"pointer",WebkitTapHighlightColor:"transparent"}}>
-                    <div>
-                      <div style={{fontWeight:700,color:"#f1f5f9",fontSize:14}}>{s.name}</div>
-                      <div style={{color:"#64748b",fontSize:12,marginTop:3}}>{s.exercises?.length||0} exercises{sv>0?` · ${sv.toLocaleString()} kg`:""}</div>
-                    </div>
+                <div key={i} style={{background:"rgba(255,255,255,0.02)",border:`1px solid ${isExp?"rgba(245,158,11,0.3)":"rgba(255,255,255,0.07)"}`,borderRadius:12,marginBottom:10,overflow:"hidden"}}>
+                  <div onClick={()=>setExpSession(isExp?null:s.id)} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"14px 16px",cursor:"pointer",WebkitTapHighlightColor:"transparent"}}>
+                    <div><div style={{fontWeight:700,color:"#f1f5f9",fontSize:14}}>{s.name}</div><div style={{color:"#64748b",fontSize:12,marginTop:3}}>{s.exercises?.length||0} exercises{sv>0?` · ${sv.toLocaleString()} kg`:""}</div></div>
                     <span style={{color:"#475569",fontSize:14,transition:"transform 0.2s",display:"inline-block",transform:isExp?"rotate(180deg)":"rotate(0deg)"}}>▼</span>
                   </div>
                   <div style={{maxHeight:isExp?1000:0,overflow:"hidden",transition:"max-height 0.35s cubic-bezier(0.4,0,0.2,1)"}}>
@@ -1972,8 +2100,7 @@ function CalYearView({currentDate,setCurrentDate,selectedDay,setSelectedDay,sbd,
 // ── EXPORT HELPERS ────────────────────────────────────────
 function exportJSON(sessions){
   const blob=new Blob([JSON.stringify({exported:new Date().toISOString(),sessions},null,2)],{type:"application/json"});
-  const a=document.createElement("a"); a.href=URL.createObjectURL(blob);
-  a.download=`ironlog-backup-${new Date().toISOString().slice(0,10)}.json`; a.click();
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`ironlog-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();
 }
 function exportCSV(sessions){
   const rows=[["date","session_name","program_id","exercise","set_number","weight_kg","reps","rir","rpe"]];
@@ -1988,8 +2115,7 @@ function exportCSV(sessions){
   });
   const csv=rows.map(r=>r.join(",")).join("\n");
   const blob=new Blob([csv],{type:"text/csv"});
-  const a=document.createElement("a"); a.href=URL.createObjectURL(blob);
-  a.download=`ironlog-sessions-${new Date().toISOString().slice(0,10)}.csv`; a.click();
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`ironlog-sessions-${new Date().toISOString().slice(0,10)}.csv`;a.click();
 }
 
 function Nutrition() {
@@ -2169,229 +2295,6 @@ function Nutrition() {
           </div>
         ))}
       </div>
-    </div>
-  );
-}
-
-// ── QR CODE (pure JS, no library) ────────────────────────
-// Lightweight QR via free CDN — loaded lazily
-function QRModal({data, onClose}){
-  const canvasRef=useRef(null);
-  const [err,setErr]=useState(null);
-  useEffect(()=>{
-    if(!canvasRef.current) return;
-    // Use qrcode library from CDN
-    const script=document.createElement("script");
-    script.src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js";
-    script.onload=()=>{
-      try{
-        canvasRef.current.innerHTML="";
-        new window.QRCode(canvasRef.current,{
-          text:data, width:256, height:256,
-          colorDark:"#000000", colorLight:"#ffffff",
-          correctLevel:window.QRCode.CorrectLevel.M
-        });
-      }catch(e){ setErr("Data too large for QR. Use file export instead."); }
-    };
-    script.onerror=()=>setErr("Could not load QR library. Check your connection.");
-    document.head.appendChild(script);
-    return()=>{ try{document.head.removeChild(script);}catch{} };
-  },[data]);
-  return(
-    <div onClick={onClose} style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.75)",zIndex:200,display:"flex",alignItems:"center",justifyContent:"center"}}>
-      <div onClick={e=>e.stopPropagation()} style={{background:"#0d1627",border:"1px solid rgba(245,158,11,0.3)",borderRadius:20,padding:"28px 24px",textAlign:"center",maxWidth:320,width:"90%"}}>
-        <div style={{color:"#f59e0b",fontWeight:700,fontSize:14,marginBottom:4}}>📱 QR Export</div>
-        <div style={{color:"#64748b",fontSize:12,marginBottom:16}}>Last 30 days · Scan to import on another device</div>
-        {err
-          ?<div style={{color:"#ef4444",fontSize:13,padding:"20px 0"}}>{err}</div>
-          :<div ref={canvasRef} style={{background:"#fff",padding:12,borderRadius:10,display:"inline-block",minWidth:256,minHeight:256}}/>
-        }
-        <div style={{marginTop:16}}>
-          <button onClick={onClose} style={{...S.bs,width:"100%"}}>Close</button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ── HISTORY ──────────────────────────────────────────────
-function History({sessions,softDelete,deletedSessions,restoreSession,permanentDelete,importSessions,onEdit}){
-  const [mode,setMode]=useState("list");
-  const [calView,setCalView]=useState("month");
-  const [exp,setExp]=useState(null);
-  const [flt,setFlt]=useState("all");
-  const [currentDate,setCurrentDate]=useState(new Date());
-  const [selectedDay,setSelectedDay]=useState(calToday());
-  const [showDeleted,setShowDeleted]=useState(false);
-  const [confirmPerm,setConfirmPerm]=useState(null);
-  const [showQR,setShowQR]=useState(false);
-  const importRef=useRef(null);
-
-  const sbd=calSessionsByDate(sessions);
-  const maxV=calMaxVol(sessions);
-  const filtered=sessions.filter(s=>flt==="all"||(flt==="program"&&s.progId)||(flt==="free"&&!s.progId));
-  const vol=(s)=>{let v=0;s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{v+=(parseFloat(set.w)||0)*(parseFloat(set.r)||0);}));return v;};
-
-  const qrSessions=sessions.filter(s=>(Date.now()-new Date(s.date))/86400000<=30);
-  const qrData=JSON.stringify({exported:new Date().toISOString(),sessions:qrSessions});
-
-  const handleImport=(e)=>{
-    const file=e.target.files?.[0]; if(!file) return;
-    const reader=new FileReader();
-    reader.onload=(ev)=>{
-      try{
-        const json=JSON.parse(ev.target.result);
-        const incoming=json.sessions||json;
-        if(Array.isArray(incoming)) importSessions(incoming);
-      }catch{ alert("Invalid backup file — expected JSON"); }
-    };
-    reader.readAsText(file);
-    e.target.value="";
-  };
-
-  return(
-    <div style={S.pg}>
-      <div style={S.pgH}>
-        <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
-          <div><h1 style={S.pgT}>History</h1><p style={S.pgS}>{sessions.length} sessions logged</p></div>
-          <div style={{display:"flex",gap:6,flexWrap:"wrap",justifyContent:"flex-end",marginTop:2}}>
-            {sessions.length>0&&<>
-              <button onClick={()=>exportJSON(sessions)} style={{background:"rgba(139,92,246,0.12)",border:"1px solid rgba(139,92,246,0.3)",color:"#a78bfa",borderRadius:8,padding:"7px 10px",cursor:"pointer",fontSize:12,fontWeight:700,fontFamily:"inherit"}}>⬇ JSON</button>
-              <button onClick={()=>exportCSV(sessions)} style={{background:"rgba(74,222,128,0.1)",border:"1px solid rgba(74,222,128,0.3)",color:"#4ade80",borderRadius:8,padding:"7px 10px",cursor:"pointer",fontSize:12,fontWeight:700,fontFamily:"inherit"}}>⬇ CSV</button>
-              <button onClick={()=>setShowQR(true)} style={{background:"rgba(6,182,212,0.1)",border:"1px solid rgba(6,182,212,0.3)",color:"#06b6d4",borderRadius:8,padding:"7px 10px",cursor:"pointer",fontSize:12,fontWeight:700,fontFamily:"inherit"}}>⬡ QR</button>
-            </>}
-            <button onClick={()=>importRef.current?.click()} style={{background:"rgba(245,158,11,0.1)",border:"1px solid rgba(245,158,11,0.3)",color:"#f59e0b",borderRadius:8,padding:"7px 10px",cursor:"pointer",fontSize:12,fontWeight:700,fontFamily:"inherit"}}>⬆ Import</button>
-            <input ref={importRef} type="file" accept=".json" onChange={handleImport} style={{display:"none"}}/>
-          </div>
-        </div>
-      </div>
-
-      {sessions.length===0?(
-        <div style={{...S.card,textAlign:"center",padding:"48px 24px"}}>
-          <div style={{fontSize:48,marginBottom:16}}>📊</div>
-          <div style={{color:"#f1f5f9",fontWeight:600,marginBottom:8}}>No sessions yet</div>
-          <div style={{color:"#64748b",fontSize:14}}>Log your first workout to see it here</div>
-        </div>
-      ):(
-        <>
-          <div style={{display:"flex",background:"rgba(255,255,255,0.04)",borderRadius:10,padding:3,marginBottom:14,border:"1px solid rgba(255,255,255,0.07)"}}>
-            {[{id:"list",l:"📋 List"},{id:"calendar",l:"📅 Calendar"}].map(m=>(
-              <button key={m.id} onClick={()=>setMode(m.id)} style={{flex:1,background:mode===m.id?"#f59e0b":"transparent",color:mode===m.id?"#000":"#64748b",border:"none",borderRadius:8,padding:"8px 0",fontFamily:"inherit",fontWeight:700,fontSize:13,cursor:"pointer",transition:"all 0.15s"}}>{m.l}</button>
-            ))}
-          </div>
-
-          {mode==="list"&&(
-            <>
-              <div style={{display:"flex",gap:8,marginBottom:14,flexWrap:"wrap"}}>
-                {[{id:"all",l:"All"},{id:"program",l:"Program"},{id:"free",l:"Free"}].map(f=>(
-                  <button key={f.id} onClick={()=>setFlt(f.id)} style={{...S.chip,...(flt===f.id?S.chipA:{})}}>{f.l}</button>
-                ))}
-              </div>
-              {filtered.map(s=>{
-                const sv=vol(s); const isExp=exp===s.id;
-                return(
-                  <div key={s.id} style={{...S.card,padding:0,overflow:"hidden",border:`1px solid ${isExp?"rgba(245,158,11,0.25)":"rgba(255,255,255,0.06)"}`,transition:"border-color 0.15s"}}>
-                    <div onClick={()=>setExp(isExp?null:s.id)} style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",padding:"14px 16px",cursor:"pointer",WebkitTapHighlightColor:"transparent"}}>
-                      <div style={{flex:1,minWidth:0}}>
-                        <div style={{color:"#f1f5f9",fontWeight:700,fontSize:15}}>{s.name}</div>
-                        <div style={{color:"#64748b",fontSize:12,marginTop:4}}>
-                          {new Date(s.date).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric"})}
-                          {" · "}{s.exercises?.length||0} exercises{sv>0&&` · ${sv.toLocaleString()} kg`}
-                        </div>
-                        {s.sessionNotes&&<div style={{color:"#475569",fontSize:11,marginTop:4,fontStyle:"italic",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{s.sessionNotes}</div>}
-                      </div>
-                      <div style={{display:"flex",alignItems:"center",gap:6,marginLeft:10,flexShrink:0}}>
-                        <span style={{color:"#475569",fontSize:12,transform:isExp?"rotate(180deg)":"none",display:"inline-block",transition:"transform 0.2s"}}>▼</span>
-                        <button onClick={e=>{e.stopPropagation();onEdit(s);}} title="Edit session"
-                          style={{background:"transparent",border:"1px solid rgba(100,116,139,0.3)",color:"#64748b",borderRadius:6,padding:"5px 8px",cursor:"pointer",fontSize:12,outline:"none",WebkitTapHighlightColor:"transparent"}}>✏️</button>
-                        <button onClick={e=>{e.stopPropagation();softDelete(s.id);}}
-                          style={{background:"transparent",border:"1px solid rgba(239,68,68,0.3)",color:"rgba(239,68,68,0.6)",borderRadius:6,padding:"5px 9px",cursor:"pointer",fontSize:13,outline:"none",WebkitTapHighlightColor:"transparent"}}>×</button>
-                      </div>
-                    </div>
-                    <div style={{maxHeight:isExp?2000:0,overflow:"hidden",transition:"max-height 0.35s cubic-bezier(0.4,0,0.2,1)"}}>
-                      <div style={{padding:"0 16px 16px",borderTop:"1px solid rgba(255,255,255,0.05)"}}>
-                        {s.sessionNotes&&<div style={{color:"#94a3b8",fontSize:12,fontStyle:"italic",paddingTop:10,paddingBottom:4,lineHeight:1.5}}>{s.sessionNotes}</div>}
-                        <SessionDetail session={s}/>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </>
-          )}
-
-          {mode==="calendar"&&(
-            <>
-              <div style={{display:"flex",background:"rgba(255,255,255,0.03)",borderRadius:8,padding:2,marginBottom:12,gap:2}}>
-                {["day","week","month","year"].map(v=>(
-                  <button key={v} onClick={()=>setCalView(v)} style={{flex:1,background:calView===v?"#f59e0b":"transparent",color:calView===v?"#000":"#64748b",border:"none",borderRadius:6,padding:"6px 0",fontFamily:"inherit",fontWeight:700,fontSize:11,cursor:"pointer",textTransform:"uppercase",letterSpacing:0.4,transition:"all 0.15s"}}>{v}</button>
-                ))}
-              </div>
-              {calView==="day"   &&<CalDayView   selectedDay={selectedDay} setSelectedDay={setSelectedDay} sbd={sbd}/>}
-              {calView==="week"  &&<CalWeekView  currentDate={currentDate} setCurrentDate={setCurrentDate} selectedDay={selectedDay} setSelectedDay={setSelectedDay} sbd={sbd} maxV={maxV}/>}
-              {calView==="month" &&<CalMonthView currentDate={currentDate} setCurrentDate={setCurrentDate} selectedDay={selectedDay} setSelectedDay={setSelectedDay} sbd={sbd} maxV={maxV}/>}
-              {calView==="year"  &&<CalYearView  currentDate={currentDate} setCurrentDate={setCurrentDate} selectedDay={selectedDay} setSelectedDay={setSelectedDay} sbd={sbd} maxV={maxV} sessions={sessions}/>}
-            </>
-          )}
-        </>
-      )}
-
-      {/* ── DELETED SESSIONS ──────────────────────────────── */}
-      {deletedSessions.length>0&&(
-        <div style={{marginTop:20}}>
-          <button onClick={()=>setShowDeleted(v=>!v)}
-            style={{display:"flex",alignItems:"center",gap:8,background:"rgba(239,68,68,0.04)",border:"1px solid rgba(239,68,68,0.15)",borderRadius:10,padding:"11px 14px",cursor:"pointer",width:"100%",color:"#94a3b8",fontSize:13,fontWeight:600,fontFamily:"inherit",WebkitTapHighlightColor:"transparent",boxSizing:"border-box"}}>
-            <span style={{color:"#ef4444"}}>🗑</span>
-            <span>Deleted Sessions</span>
-            <span style={{background:"rgba(239,68,68,0.15)",border:"1px solid rgba(239,68,68,0.3)",color:"#ef4444",borderRadius:10,padding:"1px 8px",fontSize:11,fontWeight:700}}>{deletedSessions.length}</span>
-            <span style={{marginLeft:"auto",fontSize:11,color:"#475569"}}>30-day hold {showDeleted?"▲":"▼"}</span>
-          </button>
-
-          {showDeleted&&(
-            <div style={{marginTop:8}}>
-              <div style={{color:"#475569",fontSize:11,marginBottom:8,paddingLeft:2}}>Sessions here are kept for 30 days before being permanently deleted. You can restore them to History or delete forever.</div>
-              {deletedSessions.map(s=>{
-                const daysLeft=Math.max(0,30-Math.round((Date.now()-new Date(s.deletedAt).getTime())/86400000));
-                const isPerm=confirmPerm===s.id;
-                const sv=vol(s);
-                return(
-                  <div key={s.id} style={{background:"rgba(239,68,68,0.03)",border:"1px solid rgba(239,68,68,0.1)",borderRadius:10,padding:"12px 14px",marginBottom:8}}>
-                    <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:10}}>
-                      <div>
-                        <div style={{color:"#cbd5e1",fontWeight:600,fontSize:13}}>{s.name}</div>
-                        <div style={{color:"#64748b",fontSize:11,marginTop:3}}>
-                          {new Date(s.date).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric"})}
-                          {" · "}{s.exercises?.length||0} exercises{sv>0&&` · ${sv.toLocaleString()} kg`}
-                        </div>
-                        <div style={{color:daysLeft<=3?"#ef4444":"#64748b",fontSize:10,marginTop:4,fontWeight:daysLeft<=3?700:400}}>
-                          {daysLeft===0?"Deletes today":daysLeft===1?"Deletes tomorrow":`${daysLeft} days until permanent deletion`}
-                        </div>
-                      </div>
-                    </div>
-                    {!isPerm?(
-                      <div style={{display:"flex",gap:8}}>
-                        <button onClick={()=>restoreSession(s.id)} style={{...S.bs,flex:1,padding:"7px 0",fontSize:12}}>↩ Restore</button>
-                        <button onClick={()=>setConfirmPerm(s.id)} style={{background:"transparent",border:"1px solid rgba(239,68,68,0.35)",color:"#ef4444",borderRadius:8,padding:"7px 14px",cursor:"pointer",fontSize:12,fontWeight:600,fontFamily:"inherit",opacity:0.8}}>Delete Forever</button>
-                      </div>
-                    ):(
-                      <div style={{background:"rgba(239,68,68,0.08)",border:"1px solid rgba(239,68,68,0.25)",borderRadius:8,padding:"10px 12px"}}>
-                        <div style={{color:"#ef4444",fontSize:12,fontWeight:600,marginBottom:8}}>Permanently delete this session? This cannot be undone.</div>
-                        <div style={{display:"flex",gap:8}}>
-                          <button onClick={()=>{permanentDelete(s.id);setConfirmPerm(null);}} style={{background:"rgba(239,68,68,0.2)",border:"1px solid rgba(239,68,68,0.5)",color:"#ef4444",borderRadius:6,padding:"6px 18px",cursor:"pointer",fontSize:12,fontWeight:700,fontFamily:"inherit"}}>Yes, delete forever</button>
-                          <button onClick={()=>setConfirmPerm(null)} style={{...S.bs,padding:"6px 14px",fontSize:12}}>Cancel</button>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* ── QR MODAL ──────────────────────────────────────── */}
-      {showQR&&<QRModal data={qrData} onClose={()=>setShowQR(false)}/>}
     </div>
   );
 }
