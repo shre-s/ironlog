@@ -1198,6 +1198,9 @@ function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCusto
   const [customCat,setCustomCat]=useState("chest");
   const [showCustomCatPicker,setShowCustomCatPicker]=useState(false);
   const [dismissedSuggestions,setDismissedSuggestions]=useState(new Set());
+  const [editingExName,setEditingExName]=useState(null); // uid of exercise being renamed
+  const [exNameError,setExNameError]=useState(false);    // validation error flag
+  const origExName=useRef(null);                         // original name before edit
   const timerRef=useRef(null);
 
   const prog=activeProg?PROGRAMS.find(p=>p.id===activeProg.id):null;
@@ -1428,8 +1431,49 @@ function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCusto
           return(
             <div key={ex.uid} style={S.card}>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:showSuggestion?8:10}}>
-                <div style={{flex:1}}>
-                  <div style={{color:"#f1f5f9",fontWeight:700,fontSize:15}}>{ex.name}</div>
+                <div style={{flex:1,marginRight:8}}>
+                  {editingExName===ex.uid?(
+                    <div>
+                      <input
+                        autoFocus
+                        value={ex.name}
+                        onChange={e=>{
+                          setExNameError(false);
+                          setExercises(p=>p.map((x,i)=>i!==ei?x:{...x,name:e.target.value}));
+                        }}
+                        onBlur={()=>{
+                          if(!ex.name.trim()){
+                            setExNameError(true);
+                          } else {
+                            setEditingExName(null);
+                            setExNameError(false);
+                          }
+                        }}
+                        onKeyDown={e=>{
+                          if(e.key==="Enter"){
+                            if(!ex.name.trim()){ setExNameError(true); return; }
+                            setEditingExName(null); setExNameError(false);
+                          }
+                          if(e.key==="Escape"){
+                            setExercises(p=>p.map((x,i)=>i!==ei?x:{...x,name:origExName.current}));
+                            setEditingExName(null); setExNameError(false);
+                          }
+                        }}
+                        style={{...S.inp,fontSize:15,fontWeight:700,padding:"6px 10px",
+                          borderColor:exNameError?"rgba(239,68,68,0.6)":"rgba(245,158,11,0.4)",
+                          background:"rgba(245,158,11,0.05)"}}
+                      />
+                      {exNameError&&<div style={{color:"#ef4444",fontSize:11,marginTop:4}}>Exercise name can't be empty</div>}
+                      <div style={{color:"#475569",fontSize:10,marginTop:3}}>Press Enter to save · Esc to cancel</div>
+                    </div>
+                  ):(
+                    <div style={{display:"flex",alignItems:"center",gap:6}}>
+                      <div style={{color:"#f1f5f9",fontWeight:700,fontSize:15}}>{ex.name}</div>
+                      <button onClick={()=>{origExName.current=ex.name;setEditingExName(ex.uid);setExNameError(false);}}
+                        title="Rename exercise"
+                        style={{background:"transparent",border:"none",color:"#475569",cursor:"pointer",fontSize:12,padding:"2px 4px",lineHeight:1,WebkitTapHighlightColor:"transparent",flexShrink:0}}>✏️</button>
+                    </div>
+                  )}
                   <div style={{color:"#64748b",fontSize:12,marginTop:3}}>
                     Target: {ex.tSets} sets × {ex.tReps}
                     {ex.tRir&&<span style={{color:"#f59e0b",fontWeight:600}}> · RIR {ex.tRir}</span>}
@@ -1437,7 +1481,7 @@ function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCusto
                     {" · "}{ex.tRest} rest
                   </div>
                 </div>
-                <button onClick={()=>remEx(ei)} style={{background:"transparent",border:"1px solid rgba(239,68,68,0.2)",color:"rgba(239,68,68,0.5)",borderRadius:6,padding:"4px 8px",cursor:"pointer",fontSize:12,WebkitTapHighlightColor:"transparent"}}>✕</button>
+                <button onClick={()=>remEx(ei)} style={{background:"transparent",border:"1px solid rgba(239,68,68,0.2)",color:"rgba(239,68,68,0.5)",borderRadius:6,padding:"4px 8px",cursor:"pointer",fontSize:12,WebkitTapHighlightColor:"transparent",flexShrink:0}}>✕</button>
               </div>
 
               {/* Progressive overload suggestion */}
@@ -1502,7 +1546,9 @@ function History({sessions,delSession,importSessions,deletedSessions,restoreSess
   const [selectedDay,setSelectedDay]=useState(calToday());
   const [showQR,setShowQR]=useState(false);
   const [showDeleted,setShowDeleted]=useState(false);
-  const [confirmPermDel,setConfirmPermDel]=useState(null); // session id
+  const [confirmPermDel,setConfirmPermDel]=useState(null);
+  const [confirmDelete,setConfirmDelete]=useState(null); // Change 1: session to confirm delete
+  const [expandedDel,setExpandedDel]=useState(null);    // Change 3: expanded deleted session id
 
   const sbd=calSessionsByDate(sessions);
   const maxV=calMaxVol(sessions);
@@ -1596,7 +1642,7 @@ function History({sessions,delSession,importSessions,deletedSessions,restoreSess
                         <span style={{color:"#475569",fontSize:13,transition:"transform 0.2s",display:"inline-block",transform:isExp?"rotate(180deg)":"rotate(0deg)"}}>▼</span>
                         <button onClick={(e)=>{e.stopPropagation();setEditSession(s);}} title="Edit session"
                           style={{background:"transparent",border:"1px solid rgba(245,158,11,0.3)",color:"#f59e0b",borderRadius:6,padding:"5px 8px",cursor:"pointer",fontSize:12,outline:"none",WebkitTapHighlightColor:"transparent"}}>✏️</button>
-                        <button onClick={(e)=>{e.stopPropagation();delSession(s.id);}}
+                        <button onClick={(e)=>{e.stopPropagation();setConfirmDelete(s);}}
                           style={{background:"transparent",border:"1px solid rgba(239,68,68,0.3)",color:"rgba(239,68,68,0.6)",borderRadius:6,padding:"5px 9px",cursor:"pointer",fontSize:13,outline:"none",WebkitTapHighlightColor:"transparent"}}>×</button>
                       </div>
                     </div>
@@ -1628,6 +1674,22 @@ function History({sessions,delSession,importSessions,deletedSessions,restoreSess
         </>
       )}
 
+      {/* ── CHANGE 1: DELETE CONFIRMATION MODAL ── */}
+      {confirmDelete&&(
+        <div onClick={()=>setConfirmDelete(null)} style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.75)",zIndex:300,display:"flex",alignItems:"center",justifyContent:"center",padding:"0 24px"}}>
+          <div onClick={e=>e.stopPropagation()} style={{background:"#0d1627",border:"1px solid rgba(239,68,68,0.3)",borderRadius:20,padding:"24px",width:"100%",maxWidth:340}}>
+            <div style={{fontSize:28,textAlign:"center",marginBottom:12}}>🗑</div>
+            <div style={{color:"#f1f5f9",fontWeight:700,fontSize:16,textAlign:"center",marginBottom:8}}>Delete Session?</div>
+            <div style={{color:"#94a3b8",fontSize:13,textAlign:"center",marginBottom:4}}>"{confirmDelete.name}"</div>
+            <div style={{color:"#475569",fontSize:12,textAlign:"center",marginBottom:20}}>This will move it to Deleted Sessions where it's kept for 30 days before permanent removal. You can undo within 5 seconds.</div>
+            <div style={{display:"flex",gap:10}}>
+              <button onClick={()=>setConfirmDelete(null)} style={{...S.bs,flex:1,padding:"11px 0",fontSize:14}}>Cancel</button>
+              <button onClick={()=>{delSession(confirmDelete.id);setConfirmDelete(null);}} style={{...S.bd,flex:1,padding:"11px 0",fontSize:14}}>Yes, Delete</button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* ── DELETED SESSIONS ── */}
       <div style={{marginTop:20}}>
         <button onClick={()=>setShowDeleted(v=>!v)}
@@ -1638,7 +1700,7 @@ function History({sessions,delSession,importSessions,deletedSessions,restoreSess
             <span style={{color:"#64748b",fontSize:13,transition:"transform 0.2s",display:"inline-block",transform:showDeleted?"rotate(180deg)":"rotate(0deg)"}}>▼</span>
           </div>
         </button>
-        <div style={{maxHeight:showDeleted?2000:0,overflow:"hidden",transition:"max-height 0.4s cubic-bezier(0.4,0,0.2,1)"}}>
+        <div style={{maxHeight:showDeleted?6000:0,overflow:"hidden",transition:"max-height 0.4s cubic-bezier(0.4,0,0.2,1)"}}>
           <div style={{paddingTop:8}}>
             {deletedSessions.length===0?(
               <div style={{...S.card,textAlign:"center",padding:"24px",color:"#475569",fontSize:13}}>No deleted sessions</div>
@@ -1646,34 +1708,49 @@ function History({sessions,delSession,importSessions,deletedSessions,restoreSess
               deletedSessions.map(({session:s,deletedAt})=>{
                 const daysLeft=30-Math.floor((Date.now()-deletedAt)/86400000);
                 const isConfirming=confirmPermDel===s.id;
+                const isExpDel=expandedDel===s.id;
                 return(
-                  <div key={s.id} style={{...S.card,borderColor:"rgba(239,68,68,0.15)",marginBottom:8}}>
-                    <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
+                  <div key={s.id} style={{...S.card,borderColor:"rgba(239,68,68,0.15)",marginBottom:8,padding:0,overflow:"hidden"}}>
+                    {/* Card header — tappable to expand */}
+                    <div onClick={()=>setExpandedDel(isExpDel?null:s.id)}
+                      style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",padding:"14px 16px",cursor:"pointer",WebkitTapHighlightColor:"transparent"}}>
                       <div style={{flex:1}}>
                         <div style={{color:"#94a3b8",fontWeight:600,fontSize:14}}>{s.name}</div>
                         <div style={{color:"#475569",fontSize:12,marginTop:3}}>
                           {new Date(s.date).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric"})}
                           {" · "}{s.exercises?.length||0} exercises
                         </div>
-                        <div style={{color:"#ef4444",fontSize:11,marginTop:4}}>
+                        <div style={{color:daysLeft<=3?"#ef4444":"#64748b",fontSize:11,marginTop:4,fontWeight:daysLeft<=3?700:400}}>
                           Deleted {new Date(deletedAt).toLocaleDateString("en-US",{month:"short",day:"numeric"})} · {daysLeft} day{daysLeft!==1?"s":""} until permanent deletion
                         </div>
                       </div>
+                      <span style={{color:"#475569",fontSize:13,transition:"transform 0.2s",display:"inline-block",transform:isExpDel?"rotate(180deg)":"rotate(0deg)",marginLeft:8,flexShrink:0}}>▼</span>
                     </div>
-                    {isConfirming?(
-                      <div style={{marginTop:10,background:"rgba(239,68,68,0.08)",border:"1px solid rgba(239,68,68,0.2)",borderRadius:8,padding:"10px 12px"}}>
-                        <div style={{color:"#ef4444",fontSize:12,fontWeight:600,marginBottom:8}}>Permanently delete "{s.name}"? This cannot be undone.</div>
-                        <div style={{display:"flex",gap:8}}>
-                          <button onClick={()=>{permDeleteSession(s.id);setConfirmPermDel(null);}} style={{...S.bd,padding:"7px 14px",fontSize:12,flex:1}}>Delete Forever</button>
-                          <button onClick={()=>setConfirmPermDel(null)} style={{...S.bs,padding:"7px 14px",fontSize:12}}>Cancel</button>
+
+                    {/* Change 3: Expandable full session detail */}
+                    <div style={{maxHeight:isExpDel?3000:0,overflow:"hidden",transition:"max-height 0.4s cubic-bezier(0.4,0,0.2,1)"}}>
+                      <div style={{padding:"0 16px 4px",borderTop:"1px solid rgba(255,255,255,0.05)"}}>
+                        <SessionDetail session={s}/>
+                      </div>
+                    </div>
+
+                    {/* Actions */}
+                    <div style={{padding:"0 16px 14px"}}>
+                      {isConfirming?(
+                        <div style={{background:"rgba(239,68,68,0.08)",border:"1px solid rgba(239,68,68,0.2)",borderRadius:8,padding:"10px 12px"}}>
+                          <div style={{color:"#ef4444",fontSize:12,fontWeight:600,marginBottom:8}}>Permanently delete "{s.name}"? This cannot be undone.</div>
+                          <div style={{display:"flex",gap:8}}>
+                            <button onClick={()=>{permDeleteSession(s.id);setConfirmPermDel(null);}} style={{...S.bd,padding:"7px 14px",fontSize:12,flex:1}}>Delete Forever</button>
+                            <button onClick={()=>setConfirmPermDel(null)} style={{...S.bs,padding:"7px 14px",fontSize:12}}>Cancel</button>
+                          </div>
                         </div>
-                      </div>
-                    ):(
-                      <div style={{display:"flex",gap:8,marginTop:10}}>
-                        <button onClick={()=>restoreSession(s.id)} style={{...S.bs,padding:"7px 14px",fontSize:12,borderColor:"rgba(74,222,128,0.3)",color:"#4ade80",flex:1}}>↩ Restore</button>
-                        <button onClick={()=>setConfirmPermDel(s.id)} style={{...S.bd,padding:"7px 14px",fontSize:12}}>Delete Forever</button>
-                      </div>
-                    )}
+                      ):(
+                        <div style={{display:"flex",gap:8}}>
+                          <button onClick={()=>restoreSession(s.id)} style={{...S.bs,padding:"7px 14px",fontSize:12,borderColor:"rgba(74,222,128,0.3)",color:"#4ade80",flex:1}}>↩ Restore</button>
+                          <button onClick={()=>setConfirmPermDel(s.id)} style={{...S.bd,padding:"7px 14px",fontSize:12}}>Delete Forever</button>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 );
               })
