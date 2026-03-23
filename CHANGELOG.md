@@ -5,6 +5,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [4.6.1] — 2026-03-16
+
+### Fixed
+- **Exercise remove confirmation missing from logger:** The ✕ button on individual exercise cards in the logger was calling `remEx` directly without any confirmation, inconsistent with the session-level delete modal added in v4.6.0. Tapping ✕ now shows an inline confirmation inside the exercise card — "Remove [exercise name] from this session?" with Cancel and Yes, Remove buttons. Implemented as inline UI rather than a full-screen overlay to keep the interaction local to the card.
+
+---
+
 ## [4.6.0] — 2026-03-14
 
 ### Added
@@ -123,3 +130,23 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **Dashboard:** Total sessions, this week count, active program indicator, recent sessions list, quick action buttons.
 - **localStorage persistence:** All session data stored locally under `il_sessions`. No account or server required.
 - **Responsive layout:** Mobile-first design, works in browser and as installed PWA.
+
+---
+
+## [4.7.0] — 2026-03-23
+
+### Added
+- **Exercise library expanded to 1,022 exercises (Change 7):** Merged a hand-curated list of 372 exercises with the full yuhonas/free-exercise-db public domain dataset (873 exercises). After deduplication, the library covers 9 muscle group categories (chest, back, shoulders, legs, glutes, arms, core, athletic, calisthenics) with consistent equipment and category tagging.
+- **Exercise instructions (Change 7):** 731 exercises now include step-by-step how-to instructions sourced from the free-exercise-db dataset. Instructions include exercise level (beginner/intermediate/expert).
+- **ⓘ instruction modal in exercise picker (Change 7A):** A circular ⓘ button appears next to any exercise in the search/category picker that has instructions. Tapping it opens a bottom-sheet modal showing numbered steps and the exercise level. Tapping the backdrop or Close dismisses it.
+- **Inline instruction expand in active session (Change 7B):** Each exercise card in the active logger shows a "how to ▾" link if instructions exist. Tapping expands an inline panel below the exercise name with numbered steps. Tap "hide how-to" to collapse. Stays in context while logging sets.
+- **lb/kg unit toggle (Change 3):** A pill button in the app header switches between lb and kg. Preference is persisted to `il_unit` in localStorage. All weight displays throughout the app (logger, history, dashboard, PRs, calendar, session detail) update instantly. Canonical storage unit is lb — conversion to kg applies at display time only with no data mutation.
+- **Previous session sets modal (Change 4):** The progressive overload suggestion chip now includes a "see all sets" link. Tapping it opens a bottom-sheet modal showing every set from the last time that exercise was logged, including weight, reps, RIR, and RPE. Respects the current lb/kg unit setting.
+- **Cancel session button + confirmation (Change 6):** A "✕ Cancel Session" button appears below the Save Session button once exercises have been added. Tapping shows a confirmation modal ("Your progress will not be saved") with Keep Going / Yes Cancel options. Confirming clears the draft, resets logger state, and navigates to the Dashboard.
+
+### Fixed
+- **Blank white screen after discarding draft (Change 5):** When a user tapped "Discard" on the unsaved session banner, the app rendered a blank screen. Root cause: the auto-save effect immediately wrote a new blank draft, which triggered a re-render loop leaving the logger in an invalid state. Fixed by (a) guarding the auto-save effect to not write when mode is null and session is empty, and (b) explicitly resetting all logger state (mode, exercises, name, sessionNotes, selW) on discard.
+
+### Changed
+- All "kg" unit labels throughout the app now respect the selected unit preference.
+- CSV export column header remains `weight_kg` for data integrity (values are stored in lb, header preserved for schema compatibility).
