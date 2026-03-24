@@ -1764,12 +1764,1016 @@ const getN = (id) => ALL_EX.find(e=>e.id===id)?.name || id;
 const CATS = [...new Set(ALL_EX.map(e=>e.cat))];
 
 const PROGRAMS = [
+
+// ══════════════════════════════════════════════════════════════
+// BEGINNER STRENGTH (3 programs)
+// ══════════════════════════════════════════════════════════════
+{
+  id:"stronglifts_5x5", name:"StrongLifts 5×5", cat:"beginner_strength", emoji:"🏋️",
+  days:3, weeks:12, level:"Beginner", source:"Mehdi / StrongLifts",
+  tagline:"The gold-standard beginner barbell program. Add weight every session.",
+  desc:"Alternate Workout A and B, three times per week with a rest day between. Add 5 lb to upper body lifts and 10 lb to lower body lifts every session. When you fail to complete 5×5, retry twice, then deload 10%.",
+  goals:["Fast strength gains","Master the big 5 lifts","Build a foundation","Add weight every session"],
+  progression:"Linear — +5 lb upper / +10 lb lower per session. Deload 10% after 3 consecutive failures.",
+  equipment:"Barbell, squat rack, bench",
+  sched:["Workout A","Rest","Workout B","Rest","Workout A","Rest","Rest"],
+  workouts:{
+    "Workout A":{focus:"Squat · Bench · Barbell Row",exs:[
+      {id:"squat",sets:5,reps:"5",rest:"3-5 min",notes:"5×5 every session. Core lift."},
+      {id:"bench_press",sets:5,reps:"5",rest:"3-5 min",notes:"Alternate with OHP each session"},
+      {id:"barbell_row",sets:5,reps:"5",rest:"3-5 min",notes:"Pendlay or Yates style"},
+    ]},
+    "Workout B":{focus:"Squat · Overhead Press · Deadlift",exs:[
+      {id:"squat",sets:5,reps:"5",rest:"3-5 min",notes:"Same weight as last session"},
+      {id:"overhead_press",sets:5,reps:"5",rest:"3-5 min",notes:"Alternate with bench each session"},
+      {id:"deadlift",sets:1,reps:"5",rest:"5 min",notes:"1×5 — heavy single top set"},
+    ]},
+  }
+},
+{
+  id:"gzclp_3day", name:"GZCLP", cat:"beginner_strength", emoji:"⚙️",
+  days:3, weeks:12, level:"Beginner", source:"Cody LeFever (u/gzcl)",
+  tagline:"Higher volume than StrongLifts. Teaches the T1/T2/T3 tier system.",
+  desc:"Three tiers: T1 = heavy compound (5×3 AMRAP), T2 = secondary compound (3×10 AMRAP), T3 = isolation (2-3×15+). Rotate 4 workouts (A1→A2→B1→B2) across 3 training days. Add weight after completing target reps; if you fail 3 stages, reset to 85% of last successful T1 weight.",
+  goals:["Strength + muscle","Learn tier-based training","Compound lift mastery","Higher volume than SS/SL"],
+  progression:"T1: +5 lb after completing all reps (Stage 1: 5×3, Stage 2: 6×2, Stage 3: 10×1). T2: +5-10 lb after completing AMRAP at top rep range.",
+  equipment:"Barbell, squat rack, bench",
+  sched:["A1","Rest","A2","Rest","B1","Rest","Rest"],
+  workouts:{
+    "Workout A1":{focus:"Squat T1 · OHP T2 · Lat Pulldown T3",exs:[
+      {id:"squat",sets:"5",reps:"3 (last set AMRAP)",rest:"3-5 min",notes:"T1 — 85% of 5RM. Last set max reps."},
+      {id:"overhead_press",sets:"3",reps:"10 (last set AMRAP)",rest:"2-3 min",notes:"T2 — moderate weight, high reps"},
+      {id:"lat_pulldown",sets:"3",reps:"15+",rest:"90 sec",notes:"T3 — pump work, 3 sets"},
+    ]},
+    "Workout A2":{focus:"Squat T1 · OHP T2 · Lat Pulldown T3",exs:[
+      {id:"squat",sets:"6",reps:"2 (if failed A1 stage)",rest:"3-5 min",notes:"T1 — progress to Stage 2 if needed"},
+      {id:"overhead_press",sets:"3",reps:"10 (last AMRAP)",rest:"2-3 min",notes:"T2 — add weight if hit top reps"},
+      {id:"lat_pulldown",sets:"3",reps:"15+",rest:"90 sec",notes:"T3"},
+    ]},
+    "Workout B1":{focus:"Bench T1 · Deadlift T2 · Leg Press T3",exs:[
+      {id:"bench_press",sets:"5",reps:"3 (last set AMRAP)",rest:"3-5 min",notes:"T1 — same progression as squat"},
+      {id:"deadlift",sets:"3",reps:"10 (last AMRAP)",rest:"3 min",notes:"T2 — 60% of 1RM start"},
+      {id:"leg_press",sets:"3",reps:"15+",rest:"90 sec",notes:"T3 — quad pump"},
+    ]},
+    "Workout B2":{focus:"Bench T1 · Deadlift T2 · Leg Press T3",exs:[
+      {id:"bench_press",sets:"6",reps:"2 (if failed B1 stage)",rest:"3-5 min",notes:"T1 — progress if needed"},
+      {id:"deadlift",sets:"3",reps:"10 (last AMRAP)",rest:"3 min",notes:"T2"},
+      {id:"leg_press",sets:"3",reps:"15+",rest:"90 sec",notes:"T3"},
+    ]},
+  }
+},
+{
+  id:"reddit_bbr", name:"Reddit Basic Beginner", cat:"beginner_strength", emoji:"🔰",
+  days:3, weeks:12, level:"Beginner", source:"r/Fitness Wiki",
+  tagline:"r/Fitness recommended first program. Simpler than SS, more balanced than SL.",
+  desc:"3-day full-body A/B rotation. Squats every session, bench/OHP and row/pull alternating. AMRAP last sets for progress monitoring. Accessory work included for shoulder health and arm balance. Add 5 lb per session to compounds.",
+  goals:["Beginner-friendly","Balanced full body","AMRAP-guided progress","Faster than SS to intermediate"],
+  progression:"+5 lb per session upper, +10 lb lower. If AMRAP last set < 5 reps for 3 sessions, deload 10%.",
+  equipment:"Barbell, squat rack, bench, pull-up bar",
+  sched:["Workout A","Rest","Workout B","Rest","Workout A","Rest","Rest"],
+  workouts:{
+    "Workout A":{focus:"Squat · Bench · Row",exs:[
+      {id:"squat",sets:3,reps:"5+",rest:"3-5 min",notes:"Last set AMRAP — track your reps"},
+      {id:"bench_press",sets:3,reps:"5+",rest:"3 min",notes:"Last set AMRAP"},
+      {id:"barbell_row",sets:3,reps:"5+",rest:"3 min",notes:"Pendlay Row preferred"},
+      {id:"pull_up_chinup",sets:3,reps:"max",rest:"2 min",notes:"Or lat pulldown if can't do pull-ups yet"},
+      {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:"Shoulder health — every session"},
+    ]},
+    "Workout B":{focus:"Squat · OHP · Deadlift",exs:[
+      {id:"squat",sets:3,reps:"5+",rest:"3-5 min",notes:"Last set AMRAP"},
+      {id:"overhead_press",sets:3,reps:"5+",rest:"3 min",notes:"Last set AMRAP"},
+      {id:"deadlift",sets:1,reps:"5+",rest:"5 min",notes:"1 heavy set — AMRAP your last"},
+      {id:"pull_up_chinup",sets:3,reps:"max",rest:"2 min",notes:""},
+      {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:"Every session"},
+    ]},
+  }
+},
+
+// ══════════════════════════════════════════════════════════════
+// PUSH / PULL / LEGS (3 programs)
+// ══════════════════════════════════════════════════════════════
+{
+  id:"reddit_ppl_6day", name:"Reddit PPL (6-Day)", cat:"ppl", emoji:"🔄",
+  days:6, weeks:12, level:"Beginner–Intermediate", source:"u/Metallicadpa (r/Fitness)",
+  tagline:"The most popular free PPL program ever. Compounds + isolation, 6 days.",
+  desc:"Combines heavy linear progression on compounds (like SS) with bodybuilding-style isolation work. Run Push/Pull/Legs twice per week. Add 2.5–5 lb to upper compounds and 5–10 lb to squats/deadlifts each session. When you stall, deload 10% and continue.",
+  goals:["Strength + size","High frequency","Fun variety","Proven for beginners"],
+  progression:"Linear: +2.5-5 lb upper compounds per session, +5-10 lb lower per session. Accessories: add weight when you can complete all sets at 12 reps.",
+  equipment:"Barbell, dumbbells, cables, pull-up bar",
+  sched:["Push","Pull","Legs","Push","Pull","Legs","Rest"],
+  workouts:{
+    "Push":{focus:"Chest · Shoulders · Triceps",exs:[
+      {id:"bench_press",sets:4,reps:"5 / 5 / 5 / 5+",rest:"3-5 min",notes:"Last set AMRAP — linear progression"},
+      {id:"overhead_press",sets:3,reps:"8-12",rest:"3 min",notes:"Alternate as main lift on 2nd push day"},
+      {id:"incline_dumbbell_press",sets:3,reps:"8-12",rest:"2 min",notes:""},
+      {id:"cable_fly",sets:3,reps:"8-12",rest:"90 sec",notes:"Stretch at bottom"},
+      {id:"lateral_raise",sets:3,reps:"15-20",rest:"60 sec",notes:"Rear and side delt"},
+      {id:"overhead_tricep_ext",sets:3,reps:"8-12",rest:"90 sec",notes:""},
+      {id:"tricep_pushdown",sets:3,reps:"8-12",rest:"60 sec",notes:""},
+    ]},
+    "Pull":{focus:"Back · Biceps · Rear Delts",exs:[
+      {id:"deadlift",sets:1,reps:"5+",rest:"5 min",notes:"Linear progression — AMRAP last set"},
+      {id:"barbell_row",sets:3,reps:"5 / 5 / 5+",rest:"3 min",notes:"Linear progression"},
+      {id:"lat_pulldown",sets:3,reps:"8-12",rest:"2 min",notes:"Or pull-ups"},
+      {id:"seated_cable_row",sets:3,reps:"8-12",rest:"2 min",notes:""},
+      {id:"face_pull",sets:5,reps:"15-20",rest:"60 sec",notes:"Critical for shoulder health"},
+      {id:"hammer_curl",sets:4,reps:"8-12",rest:"75 sec",notes:""},
+      {id:"dumbbell_curl",sets:4,reps:"8-12",rest:"75 sec",notes:""},
+    ]},
+    "Legs":{focus:"Quads · Hamstrings · Glutes · Calves",exs:[
+      {id:"squat",sets:4,reps:"5 / 5 / 5 / 5+",rest:"3-5 min",notes:"Last set AMRAP — linear progression"},
+      {id:"romanian_deadlift",sets:3,reps:"8-12",rest:"2 min",notes:""},
+      {id:"leg_press",sets:3,reps:"8-12",rest:"2 min",notes:""},
+      {id:"leg_curl",sets:3,reps:"8-12",rest:"90 sec",notes:""},
+      {id:"calf_raise",sets:5,reps:"8-12",rest:"60 sec",notes:"Full stretch at bottom"},
+    ]},
+  }
+},
+{
+  id:"coolcicada_ppl_3day", name:"Coolcicada PPL (3-Day)", cat:"ppl", emoji:"🔄",
+  days:3, weeks:12, level:"Beginner–Intermediate", source:"u/Coolcicada (Bodybuilding Forums)",
+  tagline:"Classic 3-day PPL for those who can't train 6 days a week.",
+  desc:"The original 3-day PPL from Bodybuilding.com forums. Each muscle group trained once per week with full session focus. Good for beginners transitioning out of full-body routines who want more volume per muscle group.",
+  goals:["Muscle building","Classic bodybuilding split","Lower frequency than 6-day","Manageable volume"],
+  progression:"Progressive overload via reps then weight: complete all sets at top rep range, then add weight.",
+  equipment:"Barbell, dumbbells, cables, machine",
+  sched:["Push","Rest","Pull","Rest","Legs","Rest","Rest"],
+  workouts:{
+    "Push":{focus:"Chest · Shoulders · Triceps",exs:[
+      {id:"bench_press",sets:4,reps:"6-10",rest:"3 min",notes:"Primary chest compound"},
+      {id:"incline_dumbbell_press",sets:3,reps:"8-12",rest:"2 min",notes:""},
+      {id:"cable_fly",sets:3,reps:"12-15",rest:"90 sec",notes:"Isolation chest"},
+      {id:"overhead_press",sets:3,reps:"8-12",rest:"2 min",notes:"Primary shoulder"},
+      {id:"lateral_raise",sets:3,reps:"12-15",rest:"60 sec",notes:""},
+      {id:"tricep_pushdown",sets:3,reps:"10-15",rest:"90 sec",notes:""},
+      {id:"skull_crusher",sets:3,reps:"8-12",rest:"90 sec",notes:""},
+    ]},
+    "Pull":{focus:"Back · Biceps · Rear Delts",exs:[
+      {id:"barbell_row",sets:4,reps:"6-10",rest:"3 min",notes:"Primary back compound"},
+      {id:"lat_pulldown",sets:3,reps:"8-12",rest:"2 min",notes:"Vertical pull"},
+      {id:"seated_cable_row",sets:3,reps:"8-12",rest:"2 min",notes:"Horizontal pull"},
+      {id:"face_pull",sets:4,reps:"15-20",rest:"60 sec",notes:"Rear delts + rotator cuff"},
+      {id:"barbell_curl",sets:3,reps:"8-12",rest:"90 sec",notes:""},
+      {id:"hammer_curl",sets:3,reps:"10-12",rest:"75 sec",notes:"Brachialis"},
+    ]},
+    "Legs":{focus:"Quads · Hamstrings · Glutes · Calves",exs:[
+      {id:"squat",sets:4,reps:"6-10",rest:"3-5 min",notes:"Primary lower compound"},
+      {id:"romanian_deadlift",sets:3,reps:"8-12",rest:"2 min",notes:"Hamstrings focus"},
+      {id:"leg_press",sets:3,reps:"10-15",rest:"2 min",notes:"Quad volume"},
+      {id:"leg_curl",sets:3,reps:"10-15",rest:"90 sec",notes:""},
+      {id:"leg_extension",sets:3,reps:"10-15",rest:"90 sec",notes:""},
+      {id:"calf_raise",sets:4,reps:"12-15",rest:"60 sec",notes:"Full stretch"},
+    ]},
+  }
+},
+{
+  id:"dr_swole_pplul", name:"Dr. Swole PPLUL (5-Day)", cat:"ppl", emoji:"🔄",
+  days:5, weeks:12, level:"Intermediate–Advanced", source:"Dr. Swole",
+  tagline:"Push Pull Legs + Upper Lower hybrid. Hits upper body twice, lower body twice.",
+  desc:"Solves the weakness of standard PPL (upper body bias) and UL (lower body bias) by combining both. Upper body gets push + pull + upper sessions; lower body gets legs + lower sessions. Requires 2+ years of consistent training. Science-based hypertrophy focus with progressive overload.",
+  goals:["Maximum hypertrophy","Balanced upper/lower emphasis","High frequency","Advanced programming"],
+  progression:"Add weight or reps each session. RPE 8-9 on all working sets.",
+  equipment:"Full gym — barbell, dumbbells, cables, machines",
+  sched:["Push","Pull","Legs","Upper","Lower","Rest","Rest"],
+  workouts:{
+    "Push":{focus:"Chest · Shoulders · Triceps — Heavy",exs:[
+      {id:"bench_press",sets:4,reps:"4-6",rpe:"8-9",rest:"3-5 min",notes:"Heavy compound focus"},
+      {id:"incline_dumbbell_press",sets:3,reps:"8-12",rpe:"8",rest:"2 min",notes:""},
+      {id:"cable_fly",sets:3,reps:"12-15",rpe:"9",rest:"90 sec",notes:"Stretch focused"},
+      {id:"overhead_press",sets:3,reps:"6-10",rpe:"8",rest:"2 min",notes:""},
+      {id:"lateral_raise",sets:4,reps:"12-20",rpe:"9",rest:"60 sec",notes:""},
+      {id:"tricep_pushdown",sets:3,reps:"10-15",rpe:"9",rest:"75 sec",notes:""},
+    ]},
+    "Pull":{focus:"Back · Biceps — Heavy",exs:[
+      {id:"deadlift",sets:3,reps:"4-6",rpe:"8",rest:"4-5 min",notes:""},
+      {id:"barbell_row",sets:3,reps:"6-8",rpe:"8-9",rest:"3 min",notes:""},
+      {id:"lat_pulldown",sets:3,reps:"8-12",rpe:"9",rest:"2 min",notes:""},
+      {id:"face_pull",sets:4,reps:"15-20",rpe:"8",rest:"60 sec",notes:"Shoulder health"},
+      {id:"barbell_curl",sets:3,reps:"8-12",rpe:"9",rest:"90 sec",notes:""},
+    ]},
+    "Legs":{focus:"Quads · Hamstrings · Glutes",exs:[
+      {id:"squat",sets:4,reps:"4-6",rpe:"8",rest:"4-5 min",notes:"Heavy compound"},
+      {id:"romanian_deadlift",sets:3,reps:"8-12",rpe:"8",rest:"3 min",notes:""},
+      {id:"leg_press",sets:3,reps:"10-15",rpe:"9",rest:"2 min",notes:""},
+      {id:"leg_curl",sets:3,reps:"10-15",rpe:"9",rest:"90 sec",notes:""},
+      {id:"calf_raise",sets:4,reps:"12-15",rpe:"9",rest:"60 sec",notes:""},
+    ]},
+    "Upper":{focus:"Chest + Back — Hypertrophy",exs:[
+      {id:"incline_dumbbell_press",sets:3,reps:"10-15",rpe:"9",rest:"2 min",notes:""},
+      {id:"chest_flye",sets:3,reps:"12-15",rpe:"9",rest:"90 sec",notes:""},
+      {id:"seated_cable_row",sets:3,reps:"10-15",rpe:"9",rest:"2 min",notes:""},
+      {id:"lat_pulldown",sets:3,reps:"10-15",rpe:"9",rest:"2 min",notes:""},
+      {id:"overhead_press",sets:3,reps:"10-12",rpe:"9",rest:"2 min",notes:""},
+      {id:"lateral_raise",sets:3,reps:"15-20",rpe:"9",rest:"60 sec",notes:""},
+      {id:"hammer_curl",sets:3,reps:"10-15",rpe:"9",rest:"75 sec",notes:""},
+      {id:"skull_crusher",sets:3,reps:"10-15",rpe:"9",rest:"75 sec",notes:""},
+    ]},
+    "Lower":{focus:"Quads + Hamstrings — Hypertrophy",exs:[
+      {id:"bulgarian_split_squat",sets:3,reps:"10-15",rpe:"9",rest:"2 min",notes:""},
+      {id:"leg_press",sets:3,reps:"15-20",rpe:"9",rest:"2 min",notes:"High rep pump"},
+      {id:"romanian_deadlift",sets:3,reps:"10-15",rpe:"9",rest:"2 min",notes:""},
+      {id:"leg_curl",sets:3,reps:"12-15",rpe:"9",rest:"90 sec",notes:""},
+      {id:"hip_thrust",sets:3,reps:"12-15",rpe:"9",rest:"2 min",notes:""},
+      {id:"calf_raise",sets:4,reps:"15-20",rpe:"9",rest:"60 sec",notes:""},
+    ]},
+  }
+},
+
+// ══════════════════════════════════════════════════════════════
+// UPPER / LOWER SPLITS (3 programs)
+// ══════════════════════════════════════════════════════════════
+{
+  id:"phul_4day", name:"PHUL (Power Hypertrophy Upper Lower)", cat:"upper_lower", emoji:"⚡",
+  days:4, weeks:12, level:"Intermediate", source:"Brandon Campbell / PHUL",
+  tagline:"The definitive powerbuilding program. 2 power days + 2 hypertrophy days.",
+  desc:"Monday/Tuesday/Thursday/Friday split: Upper Power, Lower Power, Upper Hypertrophy, Lower Hypertrophy. Power days focus on heavy compounds (3-5 reps, build strength). Hypertrophy days use moderate weight (8-12 reps, build size). Research-backed twice-weekly frequency per muscle group.",
+  goals:["Strength AND size","Twice-weekly frequency","Powerbuilding","Intermediate progression"],
+  progression:"Power days: add weight when all sets are completed. Hypertrophy days: add weight when top rep range is reached across all sets.",
+  equipment:"Barbell, dumbbells, cables, machines",
+  sched:["Upper Power","Lower Power","Rest","Upper Hypertrophy","Lower Hypertrophy","Rest","Rest"],
+  workouts:{
+    "Upper Power":{focus:"Heavy Chest · Back · Shoulders — 3-5 reps",exs:[
+      {id:"bench_press",sets:3,reps:"3-5",rpe:"8-9",rest:"3-5 min",notes:"Primary chest compound — heavy"},
+      {id:"overhead_press",sets:3,reps:"3-5",rpe:"8-9",rest:"3-5 min",notes:""},
+      {id:"barbell_row",sets:3,reps:"3-5",rpe:"8-9",rest:"3-5 min",notes:""},
+      {id:"lat_pulldown",sets:3,reps:"6-10",rpe:"8",rest:"2 min",notes:""},
+      {id:"dumbbell_curl",sets:3,reps:"6-10",rest:"90 sec",notes:""},
+      {id:"skull_crusher",sets:3,reps:"6-10",rest:"90 sec",notes:""},
+    ]},
+    "Lower Power":{focus:"Heavy Squat · Deadlift — 3-5 reps",exs:[
+      {id:"squat",sets:3,reps:"3-5",rpe:"8-9",rest:"4-5 min",notes:"Heavy squat focus"},
+      {id:"deadlift",sets:3,reps:"3-5",rpe:"8-9",rest:"4-5 min",notes:"Conventional"},
+      {id:"leg_press",sets:3,reps:"10-15",rpe:"8",rest:"2 min",notes:"Volume after heavy lifts"},
+      {id:"leg_curl",sets:3,reps:"10-15",rpe:"8",rest:"2 min",notes:""},
+      {id:"calf_raise",sets:3,reps:"12-15",rest:"60 sec",notes:""},
+    ]},
+    "Upper Hypertrophy":{focus:"Moderate Chest · Back · Shoulders — 8-12 reps",exs:[
+      {id:"incline_dumbbell_press",sets:3,reps:"8-12",rpe:"9",rest:"2 min",notes:""},
+      {id:"flat_dumbbell_press",sets:3,reps:"8-12",rpe:"9",rest:"2 min",notes:""},
+      {id:"cable_fly",sets:3,reps:"12-15",rpe:"9",rest:"90 sec",notes:"Stretch focus"},
+      {id:"seated_cable_row",sets:3,reps:"8-12",rpe:"9",rest:"2 min",notes:""},
+      {id:"lat_pulldown",sets:3,reps:"8-12",rpe:"9",rest:"2 min",notes:""},
+      {id:"lateral_raise",sets:3,reps:"12-20",rpe:"9",rest:"60 sec",notes:""},
+      {id:"face_pull",sets:3,reps:"15-20",rpe:"8",rest:"60 sec",notes:"Shoulder health"},
+      {id:"barbell_curl",sets:3,reps:"8-12",rpe:"9",rest:"90 sec",notes:""},
+      {id:"overhead_tricep_ext",sets:3,reps:"8-12",rpe:"9",rest:"90 sec",notes:""},
+    ]},
+    "Lower Hypertrophy":{focus:"Moderate Lower Body — 8-15 reps",exs:[
+      {id:"front_squat",sets:3,reps:"8-12",rpe:"9",rest:"3 min",notes:"Quad dominant"},
+      {id:"hack_squat",sets:3,reps:"8-12",rpe:"9",rest:"2 min",notes:""},
+      {id:"leg_extension",sets:3,reps:"10-15",rpe:"9",rest:"90 sec",notes:""},
+      {id:"romanian_deadlift",sets:3,reps:"8-12",rpe:"9",rest:"2 min",notes:""},
+      {id:"leg_curl",sets:3,reps:"10-15",rpe:"9",rest:"90 sec",notes:""},
+      {id:"hip_thrust",sets:3,reps:"12-15",rpe:"9",rest:"2 min",notes:"Glute focus"},
+      {id:"calf_raise",sets:5,reps:"12-15",rpe:"9",rest:"60 sec",notes:""},
+    ]},
+  }
+},
+{
+  id:"nuckols_beginner", name:"Greg Nuckols Beginner", cat:"upper_lower", emoji:"📊",
+  days:3, weeks:12, level:"Beginner", source:"Greg Nuckols – Stronger By Science (Free)",
+  tagline:"Science-based full body. Rep-range progression. Choose strength or hypertrophy goal.",
+  desc:"12-week free program from Stronger By Science. Full body 3x/week: squat and bench every session, deadlift on day 1. Rep-range progression: use the same weight until you exceed the top of the range, then add weight. Accessories included for balance.",
+  goals:["Beginner strength","Science-based","Flexible goal (strength or hypertrophy)","3 days/week"],
+  progression:"Rep-range: keep weight the same until you exceed the top rep of the range across all sets, then add 5 lb.",
+  equipment:"Barbell, dumbbells, machines",
+  sched:["Day 1","Rest","Day 2","Rest","Day 3","Rest","Rest"],
+  workouts:{
+    "Day 1":{focus:"Squat · Bench · Deadlift",exs:[
+      {id:"squat",sets:3,reps:"5-8",rest:"3 min",notes:"If you complete all sets at 8 reps, add weight next session"},
+      {id:"bench_press",sets:3,reps:"5-8",rest:"3 min",notes:"Same rep-range progression"},
+      {id:"deadlift",sets:3,reps:"5-8",rest:"4 min",notes:""},
+      {id:"lat_pulldown",sets:3,reps:"8-15",rest:"90 sec",notes:"Accessory — choose based on goal"},
+      {id:"dumbbell_curl",sets:2,reps:"8-15",rest:"75 sec",notes:""},
+    ]},
+    "Day 2":{focus:"Squat · Bench · Accessories",exs:[
+      {id:"squat",sets:3,reps:"5-8",rest:"3 min",notes:"Same weight as Day 1"},
+      {id:"bench_press",sets:3,reps:"5-8",rest:"3 min",notes:""},
+      {id:"barbell_row",sets:3,reps:"8-15",rest:"2 min",notes:"Horizontal pull"},
+      {id:"overhead_press",sets:3,reps:"8-15",rest:"2 min",notes:"Shoulder accessory"},
+      {id:"tricep_pushdown",sets:2,reps:"8-15",rest:"75 sec",notes:""},
+    ]},
+    "Day 3":{focus:"Squat · Bench · Full Accessories",exs:[
+      {id:"squat",sets:3,reps:"5-8",rest:"3 min",notes:"Progress if hit all 8s since Day 1"},
+      {id:"bench_press",sets:3,reps:"5-8",rest:"3 min",notes:"Progress if hit all 8s"},
+      {id:"deadlift",sets:3,reps:"5-8",rest:"4 min",notes:""},
+      {id:"lat_pulldown",sets:3,reps:"8-15",rest:"90 sec",notes:""},
+      {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:"Shoulder health"},
+    ]},
+  }
+},
+{
+  id:"nsuns_531_lp", name:"nSuns 5/3/1 LP", cat:"upper_lower", emoji:"📈",
+  days:5, weeks:12, level:"Intermediate", source:"u/nSuns (r/Fitness)",
+  tagline:"Inspired by 5/3/1. Weekly linear progression. Very high volume. 5 or 6 day variants.",
+  desc:"Created by anonymous Reddit user u/nSuns, this program takes heavy inspiration from 5/3/1 but uses weekly linear progression (add weight each week, not monthly). Very high volume with daily main lift + secondary lift. Popular with intermediate lifters who stalled on linear programs. 4-, 5-, and 6-day variants available.",
+  goals:["Intermediate strength","Weekly progression","High volume","Multiple lifts per day"],
+  progression:"Add 5 lb to upper body TM and 10 lb to lower body TM each week. Based on rep performance, not fixed schedule.",
+  equipment:"Barbell, dumbbells, pull-up bar",
+  sched:["Bench + Row","Squat + OHP","Deadlift + Bench","OHP + Deadlift","Back Squat","Rest","Rest"],
+  workouts:{
+    "Bench + Barbell Row":{focus:"Bench Press Main · Row Secondary",exs:[
+      {id:"bench_press",sets:"9",reps:"6/5/3/5/5/5/5/5/AMRAP (varied %)",rest:"3-5 min",notes:"Week 1: 65/75/85%. nSuns ladders with AMRAP last sets."},
+      {id:"barbell_row",sets:"8",reps:"6/5/3/5/5/5/5/AMRAP",rest:"2-3 min",notes:"Secondary — same nSuns ladder"},
+      {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:"Shoulder health"},
+    ]},
+    "Squat + OHP":{focus:"Squat Main · OHP Secondary",exs:[
+      {id:"squat",sets:"9",reps:"6/5/3/5/5/5/5/5/AMRAP",rest:"4-5 min",notes:"nSuns squat ladder"},
+      {id:"overhead_press",sets:"8",reps:"6/5/3/5/5/5/5/AMRAP",rest:"3 min",notes:"Secondary OHP"},
+      {id:"lat_pulldown",sets:3,reps:"8-12",rest:"2 min",notes:""},
+    ]},
+    "Deadlift + Bench":{focus:"Deadlift Main · Bench Secondary",exs:[
+      {id:"deadlift",sets:"9",reps:"6/5/3/5/5/5/5/5/AMRAP",rest:"5 min",notes:"Full nSuns deadlift protocol"},
+      {id:"bench_press",sets:"8",reps:"6/5/3/5/5/5/5/AMRAP",rest:"3 min",notes:"Secondary bench"},
+      {id:"dumbbell_curl",sets:3,reps:"8-12",rest:"75 sec",notes:""},
+    ]},
+    "OHP + Deadlift":{focus:"OHP Main · Deadlift Secondary",exs:[
+      {id:"overhead_press",sets:"9",reps:"6/5/3/5/5/5/5/5/AMRAP",rest:"3-4 min",notes:""},
+      {id:"deadlift",sets:"6",reps:"5/5/3/3/3/AMRAP",rest:"4 min",notes:"Lighter secondary deadlift"},
+      {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:""},
+    ]},
+    "Back Squat":{focus:"Squat Accessory Day",exs:[
+      {id:"squat",sets:5,reps:"5",rest:"3-4 min",notes:"Lighter volume squat day"},
+      {id:"romanian_deadlift",sets:3,reps:"8-12",rest:"2 min",notes:""},
+      {id:"leg_curl",sets:3,reps:"10-15",rest:"90 sec",notes:""},
+      {id:"calf_raise",sets:3,reps:"12-15",rest:"60 sec",notes:""},
+    ]},
+  }
+},
+
+// ══════════════════════════════════════════════════════════════
+// 5/3/1 VARIANTS (3 programs)
+// ══════════════════════════════════════════════════════════════
+{
+  id:"531_beginners", name:"5/3/1 for Beginners", cat:"five_three_one", emoji:"5️⃣",
+  days:3, weeks:12, level:"Beginner–Intermediate", source:"Jim Wendler",
+  tagline:"Wendler's entry point. Full body 3x/week. Monthly linear progression.",
+  desc:"3-day full body program built on 5/3/1 principles. Each session hits all 4 major lifts (squat, bench, deadlift, OHP) with one as the 'main' and others as assistance. Monthly progression: add 5 lb to upper body TM and 10 lb to lower body TM after 4 weeks. AMRAP last set each session.",
+  goals:["Slow steady strength gains","Injury-resistant approach","Long-term sustainability","Simple structure"],
+  progression:"Training Max (TM) = 90% of 1RM. Week 1: 65/75/85%×5/5/5+. Week 2: 70/80/90%×3/3/3+. Week 3: 75/85/95%×5/3/1+. Week 4: Deload 40/50/60%×5/5/5. Add 5 lb upper / 10 lb lower to TM after each 4-week cycle.",
+  equipment:"Barbell, squat rack, bench",
+  sched:["Day 1","Rest","Day 2","Rest","Day 3","Rest","Rest"],
+  workouts:{
+    "Day 1 (Monday)":{focus:"Squat · Bench · Deadlift main / assistance",exs:[
+      {id:"squat",sets:3,reps:"5/5/5+ (or 3/3/3+ or 5/3/1+ depending on week)",rest:"4-5 min",notes:"Main lift at weekly %: Wk1 65/75/85, Wk2 70/80/90, Wk3 75/85/95"},
+      {id:"bench_press",sets:3,reps:"5/5/5+ (weekly %)",rest:"3-4 min",notes:"Main lift"},
+      {id:"deadlift",sets:3,reps:"5/5/5+ (weekly %)",rest:"5 min",notes:"Main lift — AMRAP last set"},
+      {id:"dumbbell_row",sets:5,reps:"10-20",rest:"60 sec",notes:"Assistance — 50-100 reps total"},
+      {id:"pull_up_chinup",sets:5,reps:"max",rest:"60 sec",notes:"Assistance pulling"},
+      {id:"push_up",sets:5,reps:"10-20",rest:"60 sec",notes:"Assistance pushing"},
+      {id:"face_pull",sets:5,reps:"15-20",rest:"60 sec",notes:"Shoulder health"},
+    ]},
+    "Day 2 (Wednesday)":{focus:"OHP main — same assistance template",exs:[
+      {id:"overhead_press",sets:3,reps:"5/5/5+ (weekly %)",rest:"3-4 min",notes:"Main lift — AMRAP last set"},
+      {id:"squat",sets:3,reps:"5/5/5+ (weekly %)",rest:"4 min",notes:"Main lift"},
+      {id:"bench_press",sets:3,reps:"5/5/5+ (weekly %)",rest:"3 min",notes:"Assistance lift"},
+      {id:"dumbbell_row",sets:5,reps:"10-20",rest:"60 sec",notes:"50-100 rep assistance"},
+      {id:"pull_up_chinup",sets:5,reps:"max",rest:"60 sec",notes:""},
+      {id:"push_up",sets:5,reps:"10-20",rest:"60 sec",notes:""},
+    ]},
+    "Day 3 (Friday)":{focus:"Deadlift main — same template",exs:[
+      {id:"deadlift",sets:3,reps:"5/5/5+ (weekly %)",rest:"5 min",notes:"Primary main lift for the day"},
+      {id:"overhead_press",sets:3,reps:"5/5/5+ (weekly %)",rest:"3-4 min",notes:""},
+      {id:"squat",sets:3,reps:"5/5/5+ (weekly %)",rest:"4 min",notes:""},
+      {id:"dumbbell_row",sets:5,reps:"10-20",rest:"60 sec",notes:"Assistance"},
+      {id:"pull_up_chinup",sets:5,reps:"max",rest:"60 sec",notes:""},
+      {id:"push_up",sets:5,reps:"10-20",rest:"60 sec",notes:""},
+      {id:"face_pull",sets:5,reps:"15-20",rest:"60 sec",notes:""},
+    ]},
+  }
+},
+{
+  id:"531_bbb", name:"5/3/1 Boring But Big", cat:"five_three_one", emoji:"5️⃣",
+  days:4, weeks:16, level:"Intermediate", source:"Jim Wendler",
+  tagline:"\"The most popular 5/3/1 template.\" Heavy main work + 5×10 hypertrophy accessory.",
+  desc:"After your heavy 5/3/1 main sets, do 5×10 of the same (or complementary) lift at 50% of TM. This doubles the volume and forces both strength and size adaptations. Wendler calls it brutal, boring, and effective. Run 3-4 cycles (12-16 weeks). Deload every 4th week.",
+  goals:["Strength + significant size","High volume hypertrophy","Simple accessory work","4-day structure"],
+  progression:"TM: same as standard 5/3/1 (5/10 lb monthly). BBB 5×10 stays at 50% of TM throughout. Optionally increase to 55-60% as you adapt.",
+  equipment:"Barbell, pull-up bar, minimal accessories",
+  sched:["OHP + 5×10 Bench","Deadlift + 5×10 Squat","Rest","Bench + 5×10 OHP","Squat + 5×10 Deadlift","Rest","Rest"],
+  workouts:{
+    "OHP Day + 5×10 Bench":{focus:"OHP Main · Bench Volume · Pulling",exs:[
+      {id:"overhead_press",sets:3,reps:"5/3/1+ (week-dependent %)",rest:"3-4 min",notes:"AMRAP last set. TM: 90% of 1RM."},
+      {id:"bench_press",sets:5,reps:"10",rest:"90 sec",notes:"BBB work: 50% of Bench TM. The key volume block."},
+      {id:"pull_up_chinup",sets:5,reps:"max or 10",rest:"2 min",notes:"Lat work — superset with BBB pressing"},
+      {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:"Shoulder health — do not skip"},
+      {id:"dumbbell_curl",sets:2,reps:"10-15",rest:"60 sec",notes:""},
+    ]},
+    "Deadlift Day + 5×10 Squat":{focus:"Deadlift Main · Squat Volume",exs:[
+      {id:"deadlift",sets:3,reps:"5/3/1+ (weekly %)",rest:"5 min",notes:"AMRAP last set"},
+      {id:"squat",sets:5,reps:"10",rest:"2-3 min",notes:"BBB work: 50% of Squat TM"},
+      {id:"leg_curl",sets:3,reps:"10-15",rest:"90 sec",notes:"Hamstring accessory"},
+      {id:"ab_wheel",sets:3,reps:"10-15",rest:"90 sec",notes:"Core work"},
+    ]},
+    "Bench Day + 5×10 OHP":{focus:"Bench Main · OHP Volume · Pulling",exs:[
+      {id:"bench_press",sets:3,reps:"5/3/1+ (weekly %)",rest:"3-4 min",notes:"AMRAP last set"},
+      {id:"overhead_press",sets:5,reps:"10",rest:"90 sec",notes:"BBB work: 50% of OHP TM"},
+      {id:"pull_up_chinup",sets:5,reps:"max or 10",rest:"2 min",notes:""},
+      {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:""},
+      {id:"skull_crusher",sets:2,reps:"10-15",rest:"75 sec",notes:""},
+    ]},
+    "Squat Day + 5×10 Deadlift":{focus:"Squat Main · Deadlift Volume",exs:[
+      {id:"squat",sets:3,reps:"5/3/1+ (weekly %)",rest:"4-5 min",notes:"AMRAP last set"},
+      {id:"deadlift",sets:5,reps:"10",rest:"2-3 min",notes:"BBB work: 50% of Deadlift TM. Remove belt. Control eccentric."},
+      {id:"leg_press",sets:3,reps:"10-15",rest:"2 min",notes:"Optional quad volume"},
+      {id:"ab_wheel",sets:3,reps:"10-15",rest:"90 sec",notes:""},
+    ]},
+  }
+},
+{
+  id:"531_btm", name:"5/3/1 Building the Monolith", cat:"five_three_one", emoji:"5️⃣",
+  days:3, weeks:12, level:"Intermediate–Advanced", source:"Jim Wendler",
+  tagline:"Wendler's \"most brutal\" 3-day template. Built for gaining mass and strength fast.",
+  desc:"3-day program with enormous volume: 5×10 squats, 5×10 bench/OHP, 5×10 deadlift, plus 50+ chins/dips per session. Wendler designed this to put on mass quickly. Requires a caloric surplus. Not for the faint-hearted — mentally and physically demanding.",
+  goals:["Maximum mass gain","Raw strength","Mental toughness","Dense workouts"],
+  progression:"Same 5/3/1 monthly TM progression. BBB sets at 50% TM. Volume is the adaptation driver.",
+  equipment:"Barbell, pull-up bar, dip station",
+  sched:["Day 1","Rest","Day 2","Rest","Day 3","Rest","Rest"],
+  workouts:{
+    "Day 1":{focus:"Squat · Press · Deadlift",exs:[
+      {id:"squat",sets:3,reps:"5/3/1+",rest:"5 min",notes:"Main work — AMRAP last set"},
+      {id:"squat",sets:5,reps:"10",rest:"2-3 min",notes:"5×10 BBB at 50% TM"},
+      {id:"overhead_press",sets:3,reps:"5/3/1+",rest:"3 min",notes:""},
+      {id:"pull_up_chinup",sets:"50 total",reps:"various",rest:"90 sec",notes:"50 total chin-ups across the session — break into sets"},
+      {id:"dips",sets:"50 total",reps:"various",rest:"90 sec",notes:"50 total dips — weighted when easy"},
+    ]},
+    "Day 2":{focus:"Deadlift · Bench",exs:[
+      {id:"deadlift",sets:3,reps:"5/3/1+",rest:"5 min",notes:"AMRAP last set"},
+      {id:"deadlift",sets:5,reps:"10",rest:"3 min",notes:"5×10 BBB at 50% TM"},
+      {id:"bench_press",sets:3,reps:"5/3/1+",rest:"3 min",notes:""},
+      {id:"dumbbell_row",sets:5,reps:"10-20",rest:"60 sec",notes:"DB row — 50-100 reps"},
+      {id:"face_pull",sets:3,reps:"20-25",rest:"60 sec",notes:"Shoulder health"},
+    ]},
+    "Day 3":{focus:"Squat · Press — Volume Day",exs:[
+      {id:"squat",sets:3,reps:"5/3/1+",rest:"5 min",notes:"Same weekly progression as Day 1"},
+      {id:"squat",sets:5,reps:"10",rest:"2-3 min",notes:"5×10 BBB"},
+      {id:"overhead_press",sets:3,reps:"5/3/1+",rest:"3 min",notes:""},
+      {id:"pull_up_chinup",sets:"50 total",reps:"various",rest:"90 sec",notes:"50 total chin-ups"},
+      {id:"dips",sets:"50 total",reps:"various",rest:"90 sec",notes:"50 total dips"},
+    ]},
+  }
+},
+
+// ══════════════════════════════════════════════════════════════
+// POWERBUILDING (3 programs)
+// ══════════════════════════════════════════════════════════════
+{
+  id:"phat_5day", name:"PHAT (Power Hypertrophy Adaptive Training)", cat:"powerbuilding", emoji:"💥",
+  days:5, weeks:12, level:"Intermediate–Advanced", source:"Dr. Layne Norton",
+  tagline:"Layne Norton's 5-day powerbuilding classic. High frequency, high volume.",
+  desc:"Created by natural pro bodybuilder and powerlifter Dr. Layne Norton. 2 power days (Monday/Tuesday) + 3 hypertrophy days (Thursday/Friday/Saturday). Every muscle trained twice per week. More reps than PHUL — 90% more rep volume. Best after completing PHUL or a similar 4-day program.",
+  goals:["Maximize strength AND size","High frequency","Science-backed powerbuilding","Advanced physique"],
+  progression:"Power days: attempt to exceed previous session PRs. Hypertrophy days: add weight when all sets hit the top rep range.",
+  equipment:"Full gym — barbell, dumbbells, cables, machines",
+  sched:["Upper Power","Lower Power","Rest","Back/Shoulders Hyp","Lower Hyp","Chest/Arms Hyp","Rest"],
+  workouts:{
+    "Upper Power":{focus:"Heavy Chest + Back — 3-5 reps",exs:[
+      {id:"bench_press",sets:3,reps:"3-5",rpe:"9",rest:"3-5 min",notes:"Power focus — near max weight"},
+      {id:"barbell_row",sets:3,reps:"3-5",rpe:"9",rest:"3-5 min",notes:""},
+      {id:"incline_dumbbell_press",sets:2,reps:"6-10",rest:"2 min",notes:"Supplemental volume"},
+      {id:"weighted_pullup",sets:2,reps:"6-10",rest:"2 min",notes:""},
+      {id:"dumbbell_curl",sets:2,reps:"6-10",rest:"90 sec",notes:""},
+      {id:"skull_crusher",sets:2,reps:"6-10",rest:"90 sec",notes:""},
+    ]},
+    "Lower Power":{focus:"Heavy Squat + Deadlift — 3-5 reps",exs:[
+      {id:"squat",sets:3,reps:"3-5",rpe:"9",rest:"4-5 min",notes:""},
+      {id:"deadlift",sets:3,reps:"3-5",rpe:"9",rest:"5 min",notes:""},
+      {id:"leg_press",sets:2,reps:"10-15",rest:"2 min",notes:"Volume after power work"},
+      {id:"leg_curl",sets:2,reps:"6-10",rest:"2 min",notes:""},
+      {id:"calf_raise",sets:3,reps:"6-10",rest:"60 sec",notes:""},
+    ]},
+    "Back & Shoulders Hypertrophy":{focus:"Back + Shoulders — 8-15 reps",exs:[
+      {id:"barbell_row",sets:4,reps:"8-12",rpe:"9",rest:"2 min",notes:"Carry-over to power day"},
+      {id:"rack_pull",sets:3,reps:"8-12",rpe:"9",rest:"2-3 min",notes:""},
+      {id:"lat_pulldown",sets:3,reps:"8-12",rpe:"9",rest:"2 min",notes:""},
+      {id:"seated_cable_row",sets:3,reps:"8-12",rpe:"9",rest:"2 min",notes:""},
+      {id:"overhead_press",sets:3,reps:"8-12",rpe:"9",rest:"2 min",notes:""},
+      {id:"lateral_raise",sets:3,reps:"12-20",rpe:"9",rest:"60 sec",notes:""},
+      {id:"face_pull",sets:3,reps:"15-20",rpe:"8",rest:"60 sec",notes:""},
+    ]},
+    "Lower Hypertrophy":{focus:"Quads + Hamstrings + Glutes — 8-20 reps",exs:[
+      {id:"squat",sets:4,reps:"8-12",rpe:"9",rest:"3 min",notes:"Carry-over to power day"},
+      {id:"hack_squat",sets:3,reps:"8-12",rpe:"9",rest:"2 min",notes:""},
+      {id:"leg_extension",sets:3,reps:"10-15",rpe:"9",rest:"90 sec",notes:""},
+      {id:"romanian_deadlift",sets:3,reps:"8-12",rpe:"9",rest:"2 min",notes:""},
+      {id:"leg_curl",sets:3,reps:"10-15",rpe:"9",rest:"90 sec",notes:""},
+      {id:"hip_thrust",sets:3,reps:"12-15",rpe:"9",rest:"2 min",notes:""},
+      {id:"calf_raise",sets:4,reps:"12-15",rpe:"9",rest:"60 sec",notes:""},
+    ]},
+    "Chest & Arms Hypertrophy":{focus:"Chest + Biceps + Triceps — 8-15 reps",exs:[
+      {id:"bench_press",sets:4,reps:"8-12",rpe:"9",rest:"2 min",notes:"Carry-over to power day"},
+      {id:"incline_dumbbell_press",sets:3,reps:"8-12",rpe:"9",rest:"2 min",notes:""},
+      {id:"cable_fly",sets:3,reps:"12-15",rpe:"9",rest:"90 sec",notes:"Stretch focus"},
+      {id:"dip",sets:3,reps:"8-12",rpe:"9",rest:"90 sec",notes:"Weighted when 12+ easy"},
+      {id:"barbell_curl",sets:3,reps:"8-12",rpe:"9",rest:"90 sec",notes:""},
+      {id:"incline_dumbbell_curl",sets:3,reps:"8-12",rpe:"9",rest:"90 sec",notes:"Stretch focus"},
+      {id:"skull_crusher",sets:3,reps:"8-12",rpe:"9",rest:"90 sec",notes:""},
+      {id:"overhead_tricep_ext",sets:3,reps:"8-12",rpe:"9",rest:"90 sec",notes:""},
+    ]},
+  }
+},
+{
+  id:"strong_curves", name:"Strong Curves (Full Program)", cat:"powerbuilding", emoji:"🌟",
+  days:3, weeks:12, level:"Beginner–Intermediate", source:"Bret Contreras (The Glute Guy)",
+  tagline:"The leading evidence-based program for glute development and full body strength.",
+  desc:"Designed by glute specialist Dr. Bret Contreras. Full body with heavy emphasis on glutes and posterior chain. 3-day, 12-week program with progressive overload each week. Suitable for all genders. Has been shown to dramatically improve glute strength, aesthetics, and overall lower body power.",
+  goals:["Glute development","Full body strength","Beginner-friendly","Science-based posterior chain"],
+  progression:"Add weight when you can complete all reps with perfect form. Progression is rep-first, then weight.",
+  equipment:"Barbell, dumbbells, resistance bands, cables, bench",
+  sched:["Workout A","Rest","Workout B","Rest","Workout C","Rest","Rest"],
+  workouts:{
+    "Workout A":{focus:"Glutes · Quads · Upper Body",exs:[
+      {id:"barbell_hip_thrust",sets:3,reps:"10-20",rest:"2 min",notes:"The cornerstone exercise — full ROM, squeeze at top"},
+      {id:"squat",sets:3,reps:"8-12",rest:"3 min",notes:""},
+      {id:"walking_lunge",sets:3,reps:"12/side",rest:"2 min",notes:""},
+      {id:"bench_press",sets:3,reps:"8-12",rest:"2 min",notes:""},
+      {id:"barbell_row",sets:3,reps:"8-12",rest:"2 min",notes:""},
+      {id:"lateral_raise",sets:3,reps:"12-15",rest:"60 sec",notes:""},
+      {id:"plank",sets:3,reps:"30-45 sec",rest:"60 sec",notes:""},
+    ]},
+    "Workout B":{focus:"Hamstrings · Glutes · Pull",exs:[
+      {id:"romanian_deadlift",sets:3,reps:"8-12",rest:"3 min",notes:"Hip hinge pattern — feel hamstrings stretch"},
+      {id:"hip_thrust",sets:3,reps:"12-20",rest:"2 min",notes:"Dumbbell or bodyweight variation"},
+      {id:"bulgarian_split_squat",sets:3,reps:"10-12/leg",rest:"2 min",notes:""},
+      {id:"lat_pulldown",sets:3,reps:"10-15",rest:"2 min",notes:""},
+      {id:"overhead_press",sets:3,reps:"8-12",rest:"2 min",notes:""},
+      {id:"cable_pull_through",sets:3,reps:"15-20",rest:"90 sec",notes:"Hip extension pattern"},
+      {id:"side_lying_hip_abduction",sets:3,reps:"15-20/side",rest:"60 sec",notes:"Band or cable"},
+    ]},
+    "Workout C":{focus:"Full Body + Glute Emphasis",exs:[
+      {id:"barbell_hip_thrust",sets:4,reps:"10-20",rest:"2 min",notes:"Progress from Workout A"},
+      {id:"deadlift",sets:3,reps:"6-10",rest:"3-4 min",notes:""},
+      {id:"step_up",sets:3,reps:"12/leg",rest:"2 min",notes:"Weighted step-ups"},
+      {id:"incline_dumbbell_press",sets:3,reps:"10-12",rest:"2 min",notes:""},
+      {id:"seated_cable_row",sets:3,reps:"10-12",rest:"2 min",notes:""},
+      {id:"clamshell",sets:3,reps:"20/side",rest:"60 sec",notes:"Band resistance"},
+      {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:""},
+    ]},
+  }
+},
+{
+  id:"deep_water_beginner", name:"Deep Water (Beginner)", cat:"powerbuilding", emoji:"🌊",
+  days:3, weeks:10, level:"Intermediate", source:"Jon Anderson — Free E-book",
+  tagline:"High-volume, brutal squat-dominant program. Free e-book from pro strongman Jon Anderson.",
+  desc:"Written by IFBB pro bodybuilder and former strongman Jon Anderson. Emphasis on high-rep squats (10×10), heavy deadlifts, and building mental toughness. Available as a free e-book. Beginner phase is 10 weeks at 3 days/week with escalating intensity each week. Not for true beginners — intermediate strength required.",
+  goals:["Mental toughness","Squat mastery","High volume adaptation","Dense muscle mass"],
+  progression:"Each week the volume and intensity increases. Week 1 starts conservative, Week 10 is maximum effort. Percentage-based off starting maxes.",
+  equipment:"Barbell, squat rack, all major equipment",
+  sched:["Day 1","Rest","Day 2","Rest","Day 3","Rest","Rest"],
+  workouts:{
+    "Day 1":{focus:"Squat High Volume",exs:[
+      {id:"squat",sets:10,reps:"10",rest:"3-4 min",notes:"10×10 is the core. Start at 50-55% of 1RM. This will feel light — it gets hard."},
+      {id:"romanian_deadlift",sets:4,reps:"10",rest:"3 min",notes:""},
+      {id:"leg_curl",sets:4,reps:"12-15",rest:"2 min",notes:""},
+    ]},
+    "Day 2":{focus:"Upper Pulling + Pressing",exs:[
+      {id:"barbell_row",sets:5,reps:"10",rest:"3 min",notes:""},
+      {id:"lat_pulldown",sets:4,reps:"10-12",rest:"2 min",notes:""},
+      {id:"bench_press",sets:5,reps:"10",rest:"3 min",notes:""},
+      {id:"overhead_press",sets:4,reps:"10",rest:"2 min",notes:""},
+      {id:"dumbbell_curl",sets:4,reps:"12",rest:"90 sec",notes:""},
+      {id:"skull_crusher",sets:4,reps:"12",rest:"90 sec",notes:""},
+    ]},
+    "Day 3":{focus:"Deadlift + Volume Squats",exs:[
+      {id:"deadlift",sets:5,reps:"5",rest:"4-5 min",notes:"Heavy — work up to top set"},
+      {id:"squat",sets:5,reps:"10",rest:"3 min",notes:"Second squat session of the week — lighter than Day 1"},
+      {id:"hip_thrust",sets:4,reps:"10-15",rest:"2 min",notes:""},
+      {id:"face_pull",sets:3,reps:"20",rest:"60 sec",notes:""},
+    ]},
+  }
+},
+
+// ══════════════════════════════════════════════════════════════
+// JEFF NIPPARD (kept + extended)
+// ══════════════════════════════════════════════════════════════
+{
+  id:"nippard_essentials_2x", name:"Nippard Essentials 2x", cat:"nippard", emoji:"💪",
+  days:2, weeks:12, level:"All Levels", source:"Jeff Nippard – Essentials Program",
+  tagline:"Jeff Nippard's minimum effective dose. Science-based 2-day full body.",
+  desc:"Full body A/B alternating, twice per week. Uses Jeff's science-based exercise selection with mechanical tension + metabolic stress principles. MEV (Minimum Effective Volume) — perfect for busy schedules. Progressive overload via reps or weight each session.",
+  goals:["Minimum effective volume","Busy schedule","Full body stimulus","Science-based"],
+  progression:"Add reps within the target rep range each session. When you hit the top of the range across all sets, add 5 lb next session.",
+  equipment:"Barbell, dumbbells, cables, machine",
+  sched:["Full Body A","Rest","Rest","Full Body B","Rest","Rest","Rest"],
+  workouts:{
+    "Full Body A":{focus:"Quad-dominant · Horizontal push/pull",exs:[
+      {id:"squat",sets:3,reps:"6-10",rpe:"8",rest:"3 min",notes:"Primary lower compound"},
+      {id:"bench_press",sets:3,reps:"6-10",rpe:"8",rest:"3 min",notes:"Primary push"},
+      {id:"barbell_row",sets:3,reps:"8-12",rpe:"8",rest:"2 min",notes:"Primary pull"},
+      {id:"lateral_raise",sets:3,reps:"15-20",rpe:"9",rest:"60 sec",notes:"Delt isolation"},
+      {id:"dumbbell_curl",sets:2,reps:"10-15",rpe:"9",rest:"75 sec",notes:""},
+    ]},
+    "Full Body B":{focus:"Hip-dominant · Vertical push/pull",exs:[
+      {id:"romanian_deadlift",sets:3,reps:"8-12",rpe:"8",rest:"3 min",notes:"Hip hinge pattern"},
+      {id:"overhead_press",sets:3,reps:"8-12",rpe:"8",rest:"3 min",notes:"Vertical push"},
+      {id:"lat_pulldown",sets:3,reps:"10-15",rpe:"8",rest:"2 min",notes:"Vertical pull"},
+      {id:"cable_fly",sets:3,reps:"12-15",rpe:"9",rest:"90 sec",notes:"Chest isolation"},
+      {id:"tricep_pushdown",sets:2,reps:"12-15",rpe:"9",rest:"75 sec",notes:""},
+    ]},
+  }
+},
+{
+  id:"nippard_essentials_3x", name:"Nippard Essentials 3x", cat:"nippard", emoji:"💪",
+  days:3, weeks:12, level:"All Levels", source:"Jeff Nippard – Essentials Program",
+  tagline:"Full body 3x/week. Nippard's balanced approach for most trainees.",
+  desc:"A/B alternating across 3 sessions per week (ABA one week, BAB the next). Each session trains the full body with a different emphasis. Science-based exercise selection targeting mechanical tension at long muscle lengths.",
+  goals:["3-day full body","Balanced development","Science-based selection","Beginner to intermediate"],
+  progression:"Same rep-range progression as 2x. Add reps first, then weight.",
+  equipment:"Barbell, dumbbells, cables, machine",
+  sched:["Full Body A","Rest","Full Body B","Rest","Full Body A","Rest","Rest"],
+  workouts:{
+    "Full Body A":{focus:"Quad · Horizontal push/pull · Arms",exs:[
+      {id:"squat",sets:4,reps:"6-10",rpe:"8",rest:"3 min",notes:""},
+      {id:"bench_press",sets:3,reps:"6-10",rpe:"8",rest:"3 min",notes:""},
+      {id:"barbell_row",sets:3,reps:"8-12",rpe:"8",rest:"2 min",notes:""},
+      {id:"lateral_raise",sets:3,reps:"15-20",rpe:"9",rest:"60 sec",notes:""},
+      {id:"dumbbell_curl",sets:2,reps:"10-15",rpe:"9",rest:"75 sec",notes:""},
+      {id:"tricep_pushdown",sets:2,reps:"12-15",rpe:"9",rest:"75 sec",notes:""},
+    ]},
+    "Full Body B":{focus:"Hip-dominant · Vertical push/pull · Isolation",exs:[
+      {id:"romanian_deadlift",sets:4,reps:"8-12",rpe:"8",rest:"3 min",notes:""},
+      {id:"overhead_press",sets:3,reps:"8-12",rpe:"8",rest:"3 min",notes:""},
+      {id:"lat_pulldown",sets:3,reps:"10-15",rpe:"8",rest:"2 min",notes:""},
+      {id:"cable_fly",sets:3,reps:"12-15",rpe:"9",rest:"90 sec",notes:""},
+      {id:"face_pull",sets:3,reps:"15-20",rpe:"8",rest:"60 sec",notes:"Shoulder health"},
+      {id:"hammer_curl",sets:2,reps:"10-15",rpe:"9",rest:"75 sec",notes:""},
+    ]},
+  }
+},
+{
+  id:"nippard_upper_lower_4x", name:"Nippard Upper/Lower", cat:"nippard", emoji:"💪",
+  days:4, weeks:12, level:"Intermediate", source:"Jeff Nippard – Upper/Lower Program",
+  tagline:"4-day Upper/Lower split. Twice-weekly frequency with Nippard's exercise science.",
+  desc:"Two upper body and two lower body sessions per week. Upper A is push-dominant, Upper B is pull-dominant, Lower A is quad-dominant, Lower B is hip-dominant. Exercises selected for maximum mechanical tension at long muscle lengths per Nippard's research.",
+  goals:["Twice-weekly frequency","Push/pull balance","Science-based","Intermediate hypertrophy"],
+  progression:"Add reps within range each session, then add weight. RPE 8-9 on all working sets.",
+  equipment:"Barbell, dumbbells, cables, machines",
+  sched:["Upper A","Lower A","Rest","Upper B","Lower B","Rest","Rest"],
+  workouts:{
+    "Upper A":{focus:"Push-dominant Upper",exs:[
+      {id:"incline_dumbbell_press",sets:4,reps:"8-12",rpe:"8",rest:"2 min",notes:"Stretch-focused incline"},
+      {id:"overhead_press",sets:3,reps:"8-12",rpe:"8",rest:"2 min",notes:""},
+      {id:"cable_fly",sets:3,reps:"12-15",rpe:"9",rest:"90 sec",notes:""},
+      {id:"lat_pulldown",sets:3,reps:"10-15",rpe:"8",rest:"2 min",notes:"Pull to balance push"},
+      {id:"lateral_raise",sets:4,reps:"15-20",rpe:"9",rest:"60 sec",notes:""},
+      {id:"overhead_tricep_ext",sets:3,reps:"10-15",rpe:"9",rest:"75 sec",notes:"Long head stretch"},
+    ]},
+    "Lower A":{focus:"Quad-dominant",exs:[
+      {id:"squat",sets:4,reps:"6-10",rpe:"8",rest:"3 min",notes:""},
+      {id:"leg_press",sets:3,reps:"10-15",rpe:"9",rest:"2 min",notes:""},
+      {id:"leg_extension",sets:3,reps:"12-15",rpe:"9",rest:"90 sec",notes:""},
+      {id:"leg_curl",sets:3,reps:"10-15",rpe:"9",rest:"90 sec",notes:""},
+      {id:"calf_raise",sets:4,reps:"12-15",rpe:"9",rest:"60 sec",notes:""},
+    ]},
+    "Upper B":{focus:"Pull-dominant Upper",exs:[
+      {id:"barbell_row",sets:4,reps:"6-10",rpe:"8",rest:"2-3 min",notes:""},
+      {id:"seated_cable_row",sets:3,reps:"10-15",rpe:"9",rest:"2 min",notes:""},
+      {id:"face_pull",sets:4,reps:"15-20",rpe:"8",rest:"60 sec",notes:""},
+      {id:"bench_press",sets:3,reps:"8-12",rpe:"8",rest:"2 min",notes:"Push to balance pull"},
+      {id:"barbell_curl",sets:3,reps:"8-12",rpe:"9",rest:"90 sec",notes:""},
+      {id:"hammer_curl",sets:3,reps:"10-15",rpe:"9",rest:"75 sec",notes:""},
+    ]},
+    "Lower B":{focus:"Hip-dominant",exs:[
+      {id:"romanian_deadlift",sets:4,reps:"8-12",rpe:"8",rest:"3 min",notes:""},
+      {id:"hip_thrust",sets:4,reps:"10-15",rpe:"9",rest:"2 min",notes:"Glute emphasis"},
+      {id:"bulgarian_split_squat",sets:3,reps:"10-12",rpe:"9",rest:"2 min",notes:""},
+      {id:"leg_curl",sets:4,reps:"10-15",rpe:"9",rest:"90 sec",notes:"Hamstring isolation"},
+      {id:"calf_raise",sets:4,reps:"12-15",rpe:"9",rest:"60 sec",notes:""},
+    ]},
+  }
+},
+{
+  id:"nippard_pbl_phase2", name:"Pure Bodybuilding Ph.2", cat:"nippard", emoji:"💪",
+  days:5, weeks:16, level:"Advanced", source:"Jeff Nippard – Pure Bodybuilding Phase 2",
+  tagline:"Nippard's advanced 5-day PPL+Arms. RP-style mesocycle periodization.",
+  desc:"Push/Pull/Legs/Upper/Lower split with dedicated arm day integration. MEV→MRV progression across the mesocycle: start at minimum effective volume, add one set per exercise per week, deload at MRV. Uses RIR-based intensity regulation. Best for those with 2+ years of consistent training.",
+  goals:["Advanced hypertrophy","Mesocycle periodization","Full physique development","RIR-based intensity"],
+  progression:"MEV→MRV: start at minimum sets, add 1 set/week, deload when hitting MRV (usually week 4-6).",
+  equipment:"Full gym — barbell, dumbbells, cables, machines",
+  sched:["Push","Pull","Legs","Upper","Lower","Rest","Rest"],
+  workouts:{
+    "Push":{focus:"Chest · Shoulders · Triceps",exs:[
+      {id:"low_incline_press",sets:"3-5",reps:"8-12",rir:"3-1",rest:"2-3 min",notes:"MEV→MRV: add 1 set/week"},
+      {id:"overhead_press",sets:"2-4",reps:"10-15",rir:"3-1",rest:"2 min",notes:""},
+      {id:"cable_fly",sets:"2-4",reps:"12-15",rir:"2-0",rest:"90 sec",notes:"Stretch at full extension"},
+      {id:"lateral_raise",sets:"3-5",reps:"15-20",rir:"2-0",rest:"60 sec",notes:"Last set close to failure"},
+      {id:"overhead_tricep_ext",sets:"2-3",reps:"12-15",rir:"2-1",rest:"90 sec",notes:""},
+    ]},
+    "Pull":{focus:"Back · Biceps · Rear Delts",exs:[
+      {id:"barbell_row",sets:"3-5",reps:"6-10",rir:"3-1",rest:"2-3 min",notes:""},
+      {id:"lat_pulldown",sets:"2-4",reps:"10-15",rir:"2-1",rest:"2 min",notes:""},
+      {id:"seated_cable_row",sets:"2-3",reps:"10-15",rir:"2-1",rest:"2 min",notes:""},
+      {id:"face_pull",sets:"3-4",reps:"15-20",rir:"2-1",rest:"60 sec",notes:""},
+      {id:"incline_dumbbell_curl",sets:"2-4",reps:"10-15",rir:"2-0",rest:"75 sec",notes:"Stretch focus"},
+    ]},
+    "Legs":{focus:"Quads · Hamstrings · Glutes · Calves",exs:[
+      {id:"squat",sets:"3-5",reps:"6-10",rir:"3-1",rest:"3-5 min",notes:""},
+      {id:"romanian_deadlift",sets:"3-4",reps:"8-12",rir:"3-1",rest:"3 min",notes:""},
+      {id:"leg_press",sets:"2-3",reps:"10-15",rir:"2-0",rest:"2 min",notes:""},
+      {id:"leg_curl",sets:"3-4",reps:"10-15",rir:"2-0",rest:"90 sec",notes:""},
+      {id:"calf_raise",sets:"3-5",reps:"12-15",rir:"2-0",rest:"60 sec",notes:""},
+    ]},
+    "Upper":{focus:"Full Upper Hypertrophy",exs:[
+      {id:"incline_dumbbell_press",sets:3,reps:"10-15",rir:"2-1",rest:"2 min",notes:""},
+      {id:"pull_up_chinup",sets:3,reps:"8-15",rir:"2-1",rest:"2 min",notes:"Weighted when easy"},
+      {id:"lateral_raise",sets:3,reps:"15-20",rir:"1-0",rest:"60 sec",notes:""},
+      {id:"face_pull",sets:3,reps:"15-20",rir:"2-1",rest:"60 sec",notes:""},
+      {id:"hammer_curl",sets:2,reps:"10-15",rir:"1-0",rest:"75 sec",notes:""},
+      {id:"skull_crusher",sets:2,reps:"10-15",rir:"1-0",rest:"75 sec",notes:""},
+    ]},
+    "Lower":{focus:"Hip-dominant Lower",exs:[
+      {id:"hip_thrust",sets:"3-5",reps:"10-15",rir:"2-0",rest:"2 min",notes:""},
+      {id:"bulgarian_split_squat",sets:3,reps:"10-12",rir:"2-1",rest:"2 min",notes:""},
+      {id:"leg_press",sets:3,reps:"15-20",rir:"1-0",rest:"2 min",notes:""},
+      {id:"nordic_curl",sets:3,reps:"5-8",rir:"2-1",rest:"2 min",notes:"Hamstring injury prevention"},
+      {id:"calf_raise",sets:4,reps:"12-15",rir:"1-0",rest:"60 sec",notes:""},
+    ]},
+  }
+},
+
+// ══════════════════════════════════════════════════════════════
+// ATHLEAN-X (kept)
+// ══════════════════════════════════════════════════════════════
+{
+  id:"athlean_athletic_5x", name:"Athlean Athletic", cat:"athlean", emoji:"⚡",
+  days:5, weeks:12, level:"Intermediate", source:"Jeff Cavaliere / Athlean-X",
+  tagline:"Athletic performance + aesthetics. Built for real-world strength and injury prevention.",
+  desc:"Based on Athlean-X principles: every exercise has athletic carry-over, no wasted movements, joint-safe progression. Focus on scapular health, rotator cuff integrity, and functional muscle. 5-day push/pull/legs with athletic conditioning emphasis.",
+  goals:["Athletic performance","Injury prevention","Functional strength","Aesthetics + athleticism"],
+  progression:"Add weight when all sets are completed at target reps with full control. Never sacrifice form.",
+  equipment:"Full gym — barbell, dumbbells, cables, machines",
+  sched:["Push A","Pull A","Legs","Push B","Pull B","Rest","Rest"],
+  workouts:{
+    "Push A":{focus:"Chest · Shoulders · Triceps — Strength",exs:[
+      {id:"bench_press",sets:4,reps:"6-8",rpe:"8",rest:"3 min",notes:"Control the eccentric — 2 sec down"},
+      {id:"incline_dumbbell_press",sets:3,reps:"10-12",rpe:"8",rest:"2 min",notes:""},
+      {id:"overhead_press",sets:3,reps:"8-10",rpe:"8",rest:"2 min",notes:"Strict form — no leg drive"},
+      {id:"cable_lateral_raise",sets:4,reps:"12-15",rpe:"9",rest:"60 sec",notes:"Cable for constant tension"},
+      {id:"skull_crusher",sets:3,reps:"10-12",rpe:"9",rest:"90 sec",notes:""},
+      {id:"face_pull",sets:4,reps:"15-20",rpe:"8",rest:"60 sec",notes:"Every push day — shoulder health"},
+    ]},
+    "Pull A":{focus:"Back · Biceps — Strength",exs:[
+      {id:"weighted_pullup",sets:4,reps:"6-8",rpe:"9",rest:"3 min",notes:"Dead hang each rep"},
+      {id:"barbell_row",sets:4,reps:"8-10",rpe:"8",rest:"2 min",notes:""},
+      {id:"seated_cable_row",sets:3,reps:"10-12",rpe:"8",rest:"2 min",notes:""},
+      {id:"face_pull",sets:3,reps:"15-20",rpe:"8",rest:"60 sec",notes:""},
+      {id:"barbell_curl",sets:3,reps:"8-12",rpe:"9",rest:"90 sec",notes:"Full supination at top"},
+      {id:"hammer_curl",sets:3,reps:"10-12",rpe:"9",rest:"75 sec",notes:""},
+    ]},
+    "Legs":{focus:"Full Legs — Athletic",exs:[
+      {id:"squat",sets:4,reps:"6-8",rpe:"8",rest:"3-4 min",notes:"Controlled descent"},
+      {id:"romanian_deadlift",sets:3,reps:"8-12",rpe:"8",rest:"3 min",notes:""},
+      {id:"bulgarian_split_squat",sets:3,reps:"10/leg",rpe:"9",rest:"2 min",notes:"Unilateral stability"},
+      {id:"leg_curl",sets:3,reps:"10-15",rpe:"9",rest:"90 sec",notes:""},
+      {id:"calf_raise",sets:4,reps:"15-20",rpe:"9",rest:"60 sec",notes:""},
+      {id:"lateral_band_walk",sets:3,reps:"15/side",rpe:"8",rest:"60 sec",notes:"Hip abductor health"},
+    ]},
+    "Push B":{focus:"Chest · Shoulders — Volume",exs:[
+      {id:"incline_dumbbell_press",sets:4,reps:"10-15",rpe:"9",rest:"2 min",notes:""},
+      {id:"cable_fly",sets:3,reps:"12-15",rpe:"9",rest:"90 sec",notes:""},
+      {id:"arnold_press",sets:3,reps:"10-12",rpe:"9",rest:"2 min",notes:"Full rotation"},
+      {id:"lateral_raise",sets:4,reps:"12-20",rpe:"9",rest:"60 sec",notes:""},
+      {id:"overhead_tricep_ext",sets:3,reps:"12-15",rpe:"9",rest:"75 sec",notes:""},
+      {id:"face_pull",sets:3,reps:"15-20",rpe:"8",rest:"60 sec",notes:""},
+    ]},
+    "Pull B":{focus:"Back · Rear Delts — Volume",exs:[
+      {id:"lat_pulldown",sets:4,reps:"10-15",rpe:"9",rest:"2 min",notes:""},
+      {id:"chest_supported_row",sets:4,reps:"10-15",rpe:"9",rest:"2 min",notes:"Chest supported for strict form"},
+      {id:"cable_rear_delt_fly",sets:4,reps:"15-20",rpe:"9",rest:"60 sec",notes:""},
+      {id:"face_pull",sets:4,reps:"15-20",rpe:"8",rest:"60 sec",notes:""},
+      {id:"incline_dumbbell_curl",sets:3,reps:"10-15",rpe:"9",rest:"75 sec",notes:""},
+    ]},
+  }
+},
+
+// ══════════════════════════════════════════════════════════════
+// RP STRENGTH (kept + extended)
+// ══════════════════════════════════════════════════════════════
+{
+  id:"rp_hypertrophy_4x", name:"RP Hypertrophy 4x", cat:"rp_strength", emoji:"📈",
+  days:4, weeks:16, level:"Intermediate", source:"Dr. Mike Israetel / Renaissance Periodization",
+  tagline:"MEV→MRV mesocycle science. Add sets weekly, deload, rebuild. Proven hypertrophy.",
+  desc:"Built on Renaissance Periodization's Volume Landmarks model: Minimum Effective Volume (MEV) → Maximum Adaptive Volume (MAV) → Maximum Recoverable Volume (MRV). Add 1 set per exercise per week. Deload when performance degrades at MRV. Repeat. Each new mesocycle starts slightly above previous MEV.",
+  goals:["Science-based hypertrophy","Long-term progression","Mesocycle planning","Systematic volume management"],
+  progression:"MEV: start. Add 1 set/exercise/week. Deload at MRV (usually week 4-6). New meso: start at MEV+1 set.",
+  equipment:"Full gym",
+  sched:["Upper A","Lower A","Rest","Upper B","Lower B","Rest","Rest"],
+  workouts:{
+    "Upper A":{focus:"Chest + Back MEV→MRV",exs:[
+      {id:"incline_dumbbell_press",sets:"3-5",reps:"10-15",rir:"3→0",rest:"2 min",notes:"MEV=3 sets. Add 1 set/week. MRV≈5 sets."},
+      {id:"cable_fly",sets:"2-4",reps:"12-15",rir:"2→0",rest:"90 sec",notes:"Stretch focus. MEV=2."},
+      {id:"barbell_row",sets:"3-5",reps:"8-12",rir:"3→1",rest:"2 min",notes:""},
+      {id:"lat_pulldown",sets:"2-4",reps:"10-15",rir:"2→0",rest:"2 min",notes:""},
+      {id:"lateral_raise",sets:"3-5",reps:"15-20",rir:"2→0",rest:"60 sec",notes:""},
+      {id:"overhead_tricep_ext",sets:"2-3",reps:"12-15",rir:"2→0",rest:"75 sec",notes:""},
+    ]},
+    "Lower A":{focus:"Quads MEV→MRV",exs:[
+      {id:"squat",sets:"3-5",reps:"8-12",rir:"3→1",rest:"3-4 min",notes:"MEV=3. Progressively add 1 set."},
+      {id:"hack_squat",sets:"2-4",reps:"10-15",rir:"2→0",rest:"2 min",notes:""},
+      {id:"leg_extension",sets:"2-4",reps:"15-20",rir:"2→0",rest:"90 sec",notes:""},
+      {id:"leg_curl",sets:"3-4",reps:"10-15",rir:"2→0",rest:"90 sec",notes:""},
+      {id:"calf_raise",sets:"3-5",reps:"12-15",rir:"2→0",rest:"60 sec",notes:""},
+    ]},
+    "Upper B":{focus:"Shoulders + Arms MEV→MRV",exs:[
+      {id:"overhead_press",sets:"3-5",reps:"8-12",rir:"3→1",rest:"2-3 min",notes:""},
+      {id:"face_pull",sets:"3-5",reps:"15-20",rir:"2→0",rest:"60 sec",notes:"Rear delt + rotator cuff"},
+      {id:"lateral_raise",sets:"3-5",reps:"15-20",rir:"2→0",rest:"60 sec",notes:""},
+      {id:"barbell_curl",sets:"2-4",reps:"8-12",rir:"2→0",rest:"90 sec",notes:""},
+      {id:"hammer_curl",sets:"2-3",reps:"10-15",rir:"2→0",rest:"75 sec",notes:""},
+      {id:"skull_crusher",sets:"2-4",reps:"10-15",rir:"2→0",rest:"90 sec",notes:""},
+    ]},
+    "Lower B":{focus:"Hamstrings + Glutes MEV→MRV",exs:[
+      {id:"romanian_deadlift",sets:"3-5",reps:"8-12",rir:"3→1",rest:"3 min",notes:""},
+      {id:"hip_thrust",sets:"3-5",reps:"10-15",rir:"2→0",rest:"2 min",notes:""},
+      {id:"bulgarian_split_squat",sets:"2-4",reps:"10-12",rir:"2→0",rest:"2 min",notes:""},
+      {id:"leg_curl",sets:"3-5",reps:"10-15",rir:"2→0",rest:"90 sec",notes:""},
+      {id:"calf_raise",sets:"3-5",reps:"12-15",rir:"2→0",rest:"60 sec",notes:""},
+    ]},
+  }
+},
+{
+  id:"rp_strength_3day", name:"RP Strength 3x", cat:"rp_strength", emoji:"📈",
+  days:3, weeks:16, level:"Beginner–Intermediate", source:"Dr. Mike Israetel / Renaissance Periodization",
+  tagline:"RP principles in a 3-day full body format. MEV→MRV periodization.",
+  desc:"Renaissance Periodization's volume-landmark approach applied to a 3-day full body schedule. Each muscle trained 3x/week. MEV starts low and builds across the mesocycle. Deload at week 4-5, rebuild the next meso.",
+  goals:["3-day schedule","MEV→MRV periodization","Full body frequency","Beginner-intermediate hypertrophy"],
+  progression:"MEV→MRV: add 1 set/exercise/week. Deload when SFR (stimulus-to-fatigue ratio) drops. Start next meso 1 set above last meso's MEV.",
+  equipment:"Barbell, dumbbells, cables, machines",
+  sched:["Full Body A","Rest","Full Body B","Rest","Full Body C","Rest","Rest"],
+  workouts:{
+    "Full Body A":{focus:"Quad + Push emphasis",exs:[
+      {id:"squat",sets:"3-5",reps:"8-12",rir:"3→1",rest:"3 min",notes:"MEV=3 sets, MRV≈5"},
+      {id:"bench_press",sets:"3-5",reps:"8-12",rir:"3→1",rest:"2-3 min",notes:""},
+      {id:"lat_pulldown",sets:"2-4",reps:"10-15",rir:"2→0",rest:"2 min",notes:""},
+      {id:"lateral_raise",sets:"2-4",reps:"15-20",rir:"2→0",rest:"60 sec",notes:""},
+      {id:"dumbbell_curl",sets:"2-3",reps:"10-15",rir:"2→0",rest:"75 sec",notes:""},
+    ]},
+    "Full Body B":{focus:"Hip + Pull emphasis",exs:[
+      {id:"romanian_deadlift",sets:"3-5",reps:"8-12",rir:"3→1",rest:"3 min",notes:""},
+      {id:"overhead_press",sets:"3-4",reps:"8-12",rir:"3→1",rest:"2 min",notes:""},
+      {id:"barbell_row",sets:"3-5",reps:"8-12",rir:"3→1",rest:"2 min",notes:""},
+      {id:"cable_fly",sets:"2-4",reps:"12-15",rir:"2→0",rest:"90 sec",notes:""},
+      {id:"tricep_pushdown",sets:"2-3",reps:"12-15",rir:"2→0",rest:"75 sec",notes:""},
+    ]},
+    "Full Body C":{focus:"Full body + weak points",exs:[
+      {id:"leg_press",sets:"3-5",reps:"10-15",rir:"2→0",rest:"2 min",notes:""},
+      {id:"incline_dumbbell_press",sets:"2-4",reps:"10-15",rir:"2→0",rest:"2 min",notes:""},
+      {id:"seated_cable_row",sets:"3-4",reps:"10-15",rir:"2→0",rest:"2 min",notes:""},
+      {id:"hip_thrust",sets:"3-4",reps:"12-15",rir:"2→0",rest:"2 min",notes:""},
+      {id:"face_pull",sets:"3-4",reps:"15-20",rir:"2→0",rest:"60 sec",notes:""},
+      {id:"hammer_curl",sets:"2-3",reps:"10-15",rir:"2→0",rest:"75 sec",notes:""},
+    ]},
+  }
+},
+
+// ══════════════════════════════════════════════════════════════
+// CALISTHENICS (kept + extended)
+// ══════════════════════════════════════════════════════════════
+{
+  id:"cali_foundation_3x", name:"Calisthenics Foundation", cat:"calisthenics", emoji:"🤸",
+  days:3, weeks:12, level:"Beginner", source:"r/bodyweightfitness Recommended Routine",
+  tagline:"The r/bodyweightfitness gold standard. Build full bodyweight strength with zero equipment.",
+  desc:"Based on the r/bodyweightfitness Recommended Routine. Progressive calisthenics: each exercise has an easier and harder variation to keep you progressing. Push progressions: push-up → pike push-up → handstand push-up. Pull progressions: row → pull-up → weighted pull-up. Leg progressions: squat → pistol squat.",
+  goals:["No equipment needed","Bodyweight mastery","Progressive skill development","Foundation strength"],
+  progression:"When you can complete all sets at the top rep range with perfect form, move to the next harder variation.",
+  equipment:"Pull-up bar, dip bars (or two chairs), floor",
+  sched:["Full Body A","Rest","Full Body B","Rest","Full Body A","Rest","Rest"],
+  workouts:{
+    "Full Body A":{focus:"Push · Pull · Core · Legs",exs:[
+      {id:"push_up_progression",sets:3,reps:"5-8",rest:"90 sec",notes:"Use hardest variation you can complete: push-up → diamond → archer → pike"},
+      {id:"row_progression",sets:3,reps:"5-8",rest:"90 sec",notes:"Ring/bar row → feet elevated row → pull-up"},
+      {id:"squat_progression",sets:3,reps:"8-12",rest:"90 sec",notes:"Squat → Bulgarian split → pistol squat"},
+      {id:"dip_progression",sets:3,reps:"5-8",rest:"90 sec",notes:"Bench dip → parallel bar dip → weighted dip"},
+      {id:"hinge_progression",sets:3,reps:"8-12",rest:"90 sec",notes:"Good morning → hip hinge → single-leg hip hinge → Nordic curl"},
+      {id:"plank",sets:3,reps:"30-60 sec",rest:"60 sec",notes:"Progress to RKC plank → Copenhagen plank"},
+    ]},
+    "Full Body B":{focus:"Push · Pull · Core · Legs — Variation",exs:[
+      {id:"pike_pushup_progression",sets:3,reps:"5-8",rest:"90 sec",notes:"Pike push-up → elevated pike → wall handstand push-up"},
+      {id:"pullup_progression",sets:3,reps:"3-8",rest:"2 min",notes:"Assisted → negatives → pull-up → weighted"},
+      {id:"lunge_progression",sets:3,reps:"8/side",rest:"90 sec",notes:"Lunge → walking lunge → Bulgarian split → pistol"},
+      {id:"pushup_variation",sets:3,reps:"8-12",rest:"90 sec",notes:"Incline or decline to vary angle"},
+      {id:"row_variation",sets:3,reps:"8-12",rest:"90 sec",notes:"Supinated row → one-arm row progression"},
+      {id:"hollow_body_hold",sets:3,reps:"20-40 sec",rest:"60 sec",notes:"Tuck → arch → full hollow → L-sit progression"},
+    ]},
+  }
+},
+{
+  id:"cali_intermediate", name:"Calisthenics Intermediate", cat:"calisthenics", emoji:"🤸",
+  days:4, weeks:12, level:"Intermediate", source:"r/bodyweightfitness + Greasing the Groove",
+  tagline:"Progress to muscle-up, handstand, and planche foundations. 4-day skill + strength.",
+  desc:"For those who can do 10+ clean pull-ups and 20+ push-ups. Adds skill work (handstand, muscle-up, L-sit) alongside continued strength progression. 4 days: Push, Pull, Legs, Skills. Based on r/bodyweightfitness intermediate recommendations and Pavel Tsatsouline's Greasing the Groove principle for skills.",
+  goals:["Advanced skills","Muscle-up progression","Handstand development","Full bodyweight mastery"],
+  progression:"Skill work: daily practice (Greasing the Groove). Strength: add reps or harder variation when completing all sets.",
+  equipment:"Pull-up bar, dip bars, rings (optional), wall space",
+  sched:["Push","Pull","Legs","Skills","Rest","Rest","Rest"],
+  workouts:{
+    "Push":{focus:"Pushing Strength + Handstand",exs:[
+      {id:"push_up_progression",sets:4,reps:"8-12",rest:"2 min",notes:"Use hardest variation — archer or pike"},
+      {id:"dip",sets:4,reps:"8-12",rest:"2 min",notes:"Weighted with belt when 12 is easy"},
+      {id:"pike_pushup_progression",sets:3,reps:"5-10",rest:"2 min",notes:"Pike → elevated pike → wall HSPU"},
+      {id:"wall_handstand",sets:5,reps:"20-40 sec hold",rest:"90 sec",notes:"Face wall → freestanding progression"},
+      {id:"l_sit",sets:5,reps:"5-15 sec",rest:"60 sec",notes:"Tuck → straddle → full L-sit"},
+    ]},
+    "Pull":{focus:"Pulling Strength + Muscle-Up Progression",exs:[
+      {id:"pull_up_chinup",sets:4,reps:"5-10",rest:"2 min",notes:"Weighted with belt when 10 is easy"},
+      {id:"row_progression",sets:3,reps:"8-12",rest:"90 sec",notes:"Chest-to-bar focus — high pull"},
+      {id:"muscle_up_progression",sets:4,reps:"3-5",rest:"3 min",notes:"Bar dip → high pull → transition drill → full muscle-up"},
+      {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:"External rotation — shoulder health"},
+      {id:"bicep_curl_progression",sets:3,reps:"8-12",rest:"90 sec",notes:"Towel curl or chin-up curl"},
+    ]},
+    "Legs":{focus:"Lower Body Strength + Pistol Progression",exs:[
+      {id:"squat_progression",sets:4,reps:"8-15",rest:"2 min",notes:"Squat → Bulgarian → shrimp → pistol"},
+      {id:"single_leg_progression",sets:3,reps:"6-10/side",rest:"2 min",notes:"Lunge → Bulgarian → pistol progression"},
+      {id:"hip_hinge",sets:3,reps:"8-12",rest:"2 min",notes:"Single-leg or Nordic curl"},
+      {id:"calf_raise",sets:4,reps:"15-25",rest:"60 sec",notes:"Single-leg calf raise"},
+      {id:"plank_progression",sets:3,reps:"30-60 sec",rest:"60 sec",notes:"Plank → RKC → Copenhagen"},
+    ]},
+    "Skills":{focus:"Skill Practice + Mobility",exs:[
+      {id:"handstand_practice",sets:8,reps:"15-30 sec",rest:"90 sec",notes:"Freestanding or wall — quality over time"},
+      {id:"l_sit",sets:5,reps:"5-15 sec",rest:"60 sec",notes:"Aim for 15 sec full L-sit"},
+      {id:"planche_lean",sets:5,reps:"10-20 sec",rest:"2 min",notes:"Planche progression: lean → tuck → straddle"},
+      {id:"mobility_work",sets:1,reps:"15-20 min",rest:"—",notes:"Shoulder, hip, wrist mobility for skill prerequisites"},
+    ]},
+  }
+},
+
+// ══════════════════════════════════════════════════════════════
+// HOME / MINIMAL EQUIPMENT (2 programs)
+// ══════════════════════════════════════════════════════════════
+{
+  id:"dumbbell_only_3day", name:"Dumbbell-Only Full Body", cat:"home_gym", emoji:"🏠",
+  days:3, weeks:12, level:"Beginner–Intermediate", source:"r/homegym / Evidence-Based Principles",
+  tagline:"Full gym results with just dumbbells. Effective, no barbell required.",
+  desc:"Complete full-body program using only dumbbells. Each major movement pattern (squat, hinge, push, pull, carry) covered. Progression via reps then weight. Can be run with a set of adjustable dumbbells or a fixed-weight range of 10-50 lb. Good for home gym or travel.",
+  goals:["No barbell needed","Home gym friendly","Full body coverage","Travel-ready"],
+  progression:"Complete all sets at top rep range → add weight. For bodyweight exercises, add reps.",
+  equipment:"Dumbbells (adjustable preferred), floor, optional bench",
+  sched:["Full Body A","Rest","Full Body B","Rest","Full Body C","Rest","Rest"],
+  workouts:{
+    "Full Body A":{focus:"Squat · Horizontal Push/Pull · Arms",exs:[
+      {id:"goblet_squat",sets:4,reps:"10-15",rest:"2 min",notes:"Hold at chest. Progress to single-leg."},
+      {id:"dumbbell_bench_press",sets:3,reps:"8-15",rest:"2 min",notes:"Floor press if no bench"},
+      {id:"dumbbell_row",sets:3,reps:"10-15",rest:"2 min",notes:"Brace against knee or bench"},
+      {id:"lateral_raise",sets:3,reps:"12-20",rest:"60 sec",notes:""},
+      {id:"dumbbell_curl",sets:3,reps:"10-15",rest:"75 sec",notes:""},
+      {id:"skull_crusher",sets:3,reps:"10-15",rest:"75 sec",notes:""},
+    ]},
+    "Full Body B":{focus:"Hinge · Vertical Push/Pull · Core",exs:[
+      {id:"romanian_deadlift",sets:4,reps:"10-15",rest:"2 min",notes:"Single-leg for more challenge"},
+      {id:"dumbbell_shoulder_press",sets:3,reps:"8-12",rest:"2 min",notes:"Seated or standing"},
+      {id:"dumbbell_pullover",sets:3,reps:"10-15",rest:"90 sec",notes:"Lat stretch and activation"},
+      {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:"Band or cable equivalent"},
+      {id:"hammer_curl",sets:3,reps:"10-15",rest:"75 sec",notes:""},
+      {id:"plank",sets:3,reps:"30-60 sec",rest:"60 sec",notes:""},
+    ]},
+    "Full Body C":{focus:"Unilateral + Full Body",exs:[
+      {id:"bulgarian_split_squat",sets:3,reps:"10-12/leg",rest:"2 min",notes:"Dumbbells in each hand"},
+      {id:"incline_dumbbell_press",sets:3,reps:"10-15",rest:"2 min",notes:"Incline bench or raised surface"},
+      {id:"single_arm_row",sets:3,reps:"10-15/arm",rest:"90 sec",notes:"Brace core hard"},
+      {id:"hip_thrust",sets:3,reps:"12-20",rest:"2 min",notes:"Dumbbell or bodyweight"},
+      {id:"lateral_raise",sets:3,reps:"15-20",rest:"60 sec",notes:""},
+      {id:"ab_circuit",sets:3,reps:"varies",rest:"60 sec",notes:"Leg raise + plank + crunch"},
+    ]},
+  }
+},
+{
+  id:"barbell_home_3day", name:"Barbell Home Gym 3-Day", cat:"home_gym", emoji:"🏠",
+  days:3, weeks:12, level:"Beginner–Intermediate", source:"r/homegym — Evidence-Based",
+  tagline:"Barbell at home? This is all you need. Squats, bench, deadlifts, OHP.",
+  desc:"Optimized for a power rack + barbell + plates setup. Full body 3x/week with the big 4 barbell lifts. Accessory work uses dumbbells or the barbell. Minimal space required. Based on proven full-body frequency principles. Can start as a beginner and run for 12+ months.",
+  goals:["Home gym barbell setup","Full body compound focus","Long-term progression","Minimal equipment"],
+  progression:"Linear progression: add 5 lb upper / 10 lb lower per session while form allows. Switch to weekly progression when daily fails.",
+  equipment:"Barbell, squat rack/power cage, plates, bench (optional)",
+  sched:["Full Body A","Rest","Full Body B","Rest","Full Body A","Rest","Rest"],
+  workouts:{
+    "Full Body A":{focus:"Squat · Bench · Row",exs:[
+      {id:"squat",sets:3,reps:"5+",rest:"3-5 min",notes:"Linear progression. AMRAP last set."},
+      {id:"bench_press",sets:3,reps:"5+",rest:"3 min",notes:"Linear progression"},
+      {id:"barbell_row",sets:3,reps:"5+",rest:"3 min",notes:"Barbell row"},
+      {id:"barbell_curl",sets:3,reps:"8-12",rest:"90 sec",notes:""},
+      {id:"tricep_pushdown",sets:3,reps:"8-12",rest:"90 sec",notes:"Band or barbell overhead ext"},
+    ]},
+    "Full Body B":{focus:"Squat · OHP · Deadlift",exs:[
+      {id:"squat",sets:3,reps:"5+",rest:"3-5 min",notes:"Same as A"},
+      {id:"overhead_press",sets:3,reps:"5+",rest:"3 min",notes:"Linear progression"},
+      {id:"deadlift",sets:1,reps:"5+",rest:"5 min",notes:"Heavy single top set"},
+      {id:"barbell_curl",sets:3,reps:"8-12",rest:"90 sec",notes:""},
+      {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:"Band or cable"},
+    ]},
+  }
+},
+
+// ══════════════════════════════════════════════════════════════
+// TENNIS (kept)
+// ══════════════════════════════════════════════════════════════
 {
   id:"tennis_2x", name:"Tennis Foundation", cat:"tennis", emoji:"🎾",
   days:2, weeks:8, level:"Beginner", source:"Tennis Fitness Science",
   tagline:"Build the athletic base every tennis player needs",
   desc:"Bilateral strength, rotational power, shoulder health, injury prevention. Perfect for players starting strength training.",
   goals:["Court movement","Injury prevention","Serve power","Foundation strength"],
+  progression:"Add reps within range each session, then weight. Focus on quality of movement over load.",
+  equipment:"Dumbbells, resistance bands, medicine ball, bodyweight",
   sched:["Full Body A","Rest","Rest","Full Body B","Rest","Rest","Rest"],
   workouts:{
     "Full Body A":{focus:"Power & Bilateral Strength",exs:[
@@ -1798,6 +2802,8 @@ const PROGRAMS = [
   tagline:"Upper/Lower targeting all 9 tennis physical threads",
   desc:"Bilateral strength, rotational control, force absorption, explosive power, unilateral stability, repeated power, multi-directional speed.",
   goals:["Serve mph","Court coverage","Rotational power","Shoulder health"],
+  progression:"Progress compounds by weight when all reps hit. Accessories by reps then weight.",
+  equipment:"Full gym + medicine ball",
   sched:["Upper A","Lower A","Rest","Upper B","Lower B","Rest","Rest"],
   workouts:{
     "Upper A":{focus:"Push + Rotational Power",exs:[
@@ -1841,6 +2847,8 @@ const PROGRAMS = [
   tagline:"Six-day PPL with dedicated athletic conditioning day",
   desc:"PPL with tennis athletic conditioning. RP Strength mesocycle progression (MEV→MRV). Three 4-week mesocycles over 12 weeks.",
   goals:["Peak athletic performance","All-around tennis fitness","High-volume adaptation"],
+  progression:"MEV→MRV: add sets each week, deload at week 4. Each meso starts at MEV.",
+  equipment:"Full gym + medicine ball, agility ladder",
   sched:["Push","Pull","Legs","Tennis Athletic","Upper","Lower","Rest"],
   workouts:{
     "Push":{focus:"Chest, Shoulders, Triceps",exs:[
@@ -1895,283 +2903,20 @@ const PROGRAMS = [
     ]},
   }
 },
-{
-  id:"nippard_essentials_2x", name:"Nippard Essentials 2x", cat:"nippard", emoji:"💪",
-  days:2, weeks:12, level:"All Levels", source:"Jeff Nippard – Essentials Program",
-  tagline:"45-minute full body workouts. No fluff, only essentials.",
-  desc:"Low volume, high intensity. Beat the logbook each session. Dropsets on isolation exercises. RPE-based autoregulation.",
-  goals:["Build muscle efficiently","Strength progression","45-min sessions"],
-  sched:["Full Body","Rest","Rest","Full Body","Rest","Rest","Rest"],
-  workouts:{
-    "Full Body":{focus:"Compound-first, 45 minutes",exs:[
-      {id:"leg_press",sets:2,reps:"4-6",rpe:"8-9",rir:"2-1",rest:"3 min",notes:"Heavy — beat the logbook"},
-      {id:"db_bench",sets:2,reps:"8-10",rpe:"9",rir:"1",rest:"3 min",notes:"Last set: dropset ×10-12 reps"},
-      {id:"db_rdl",sets:2,reps:"10-12",rpe:"9",rir:"1",rest:"2 min",notes:"Control negative, hip hinge"},
-      {id:"db_row",sets:2,reps:"10-12",rpe:"9-10",rir:"1-0",rest:"2 min",notes:"45° elbow, strict form"},
-      {id:"db_shoulder_press",sets:2,reps:"8-10",rpe:"9-10",rir:"1-0",rest:"2 min",notes:"Last set: dropset"},
-      {id:"db_curl",sets:1,reps:"10-12",rpe:"9-10",rir:"1-0",rest:"90 sec",notes:"Dropset: -50% × 10-12"},
-      {id:"skull_crusher",sets:1,reps:"10-12",rpe:"9-10",rir:"1-0",rest:"90 sec",notes:"Feel stretch in triceps"},
-    ]},
-  }
-},
-{
-  id:"nippard_essentials_3x", name:"Nippard Essentials 3x", cat:"nippard", emoji:"💪",
-  days:3, weeks:12, level:"All Levels", source:"Jeff Nippard – Essentials Program (3x/week)",
-  tagline:"Full Body / Upper / Lower. 45-min sessions, science-based.",
-  desc:"Three 4-week blocks. Full Body / Upper / Lower split. Beat the logbook emphasis. DB and machine focus for time efficiency. Dropsets weeks 9–12.",
-  goals:["Time-efficient hypertrophy","Strength progression","Balanced 3-day split"],
-  sched:["Full Body","Rest","Upper","Rest","Lower","Rest","Rest"],
-  workouts:{
-    "Full Body":{focus:"Compound-first, under 45 min",exs:[
-      {id:"leg_press",sets:2,reps:"4-6",rpe:"8-9",rir:"2-1",rest:"3 min",notes:"Heavy set + back-off. Beat the logbook every session."},
-      {id:"db_shoulder_press",sets:2,reps:"8-10",rpe:"9",rir:"1",rest:"2 min",notes:"Full ROM, control at bottom"},
-      {id:"glute_ham_raise",sets:1,reps:"8-10",rpe:"10",rir:"0",rest:"90 sec",notes:"Slow negative. Weeks 9-12: dropset"},
-      {id:"pendlay_row",sets:2,reps:"10-12",rpe:"9-10",rir:"1-0",rest:"2 min",notes:"Explosive concentric"},
-      {id:"db_curl",sets:1,reps:"10-12",rpe:"10",rir:"0",rest:"90 sec",notes:"Weeks 9-12: dropset (-50% weight)"},
-      {id:"cable_lateral_raise",sets:1,reps:"10-12",rpe:"10",rir:"0",rest:"90 sec",notes:"Weeks 9-12: dropset"},
-      {id:"cable_flye",sets:1,reps:"10-12",rpe:"10",rir:"0",rest:"90 sec",notes:"Weeks 9-12: dropset"},
-    ]},
-    "Upper":{focus:"Push + Pull, 45 min",exs:[
-      {id:"dip_chest",sets:2,reps:"4-6",rpe:"8-9",rir:"2-1",rest:"3 min",notes:"Heavy set + back-off (8-10 reps)"},
-      {id:"pullup",sets:2,reps:"10-12",rpe:"9-10",rir:"1-0",rest:"2 min",notes:"Last set weeks 9-12: dropset"},
-      {id:"db_shoulder_press",sets:2,reps:"12-15",rpe:"9-10",rir:"1-0",rest:"2 min",notes:"Seated. Last set dropset weeks 9-12"},
-      {id:"cable_row",sets:2,reps:"10-12",rpe:"9-10",rir:"1-0",rest:"2 min",notes:"Squeeze at top. Machine row."},
-      {id:"skull_crusher",sets:2,reps:"12-15",rpe:"10",rir:"0",rest:"90 sec",notes:"Superset A1 (no rest to curls)"},
-      {id:"db_curl",sets:2,reps:"12-15",rpe:"10",rir:"0",rest:"90 sec",notes:"Superset A2 — 0 rest between A1/A2"},
-    ]},
-    "Lower":{focus:"Posterior + Anterior Chain, 45 min",exs:[
-      {id:"glute_ham_raise",sets:2,reps:"10-12",rpe:"8-9",rir:"2-1",rest:"2 min",notes:"2-3 sec negative"},
-      {id:"bulgarian_split",sets:3,reps:"8-10/leg",rpe:"8-9",rir:"2-1",rest:"2 min",notes:"Minimize rear leg contribution"},
-      {id:"calf_raise",sets:2,reps:"15-20",rpe:"10",rir:"0",rest:"90 sec",notes:"Superset B1 (no rest to crunches)"},
-      {id:"cable_crunch",sets:2,reps:"12-15",rpe:"10",rir:"0",rest:"90 sec",notes:"Superset B2 — 0 rest between B1/B2"},
-      {id:"leg_press",sets:1,reps:"12-15",rpe:"10",rir:"0",rest:"90 sec",notes:"Weeks 9-12: dropset toe press variation"},
-    ]},
-  }
-},
-{
-  id:"nippard_upper_lower_4x", name:"Nippard Upper/Lower", cat:"nippard", emoji:"💪",
-  days:4, weeks:12, level:"Intermediate", source:"Jeff Nippard – The Muscle Ladder",
-  tagline:"3-week intensity waves. Science-based hypertrophy.",
-  desc:"Classic Upper/Lower with 3-week intensity waves (RPE 7→8→9) then reset. Double progression. 10-20 sets per muscle per week. Lengthened partials and dropsets.",
-  goals:["Muscle hypertrophy","Strength progression","Balanced development"],
-  sched:["Upper A","Lower A","Rest","Upper B","Lower B","Rest","Rest"],
-  workouts:{
-    "Upper A":{focus:"Strength Emphasis (Heavy)",exs:[
-      {id:"lat_pulldown",sets:3,reps:"8-10",rpe:"8-9",rir:"2-1",rest:"2-3 min",notes:"Elbows down & in. Last set: lengthened partials"},
-      {id:"db_bench",sets:3,reps:"8-10",rpe:"8-9",rir:"2-1",rest:"2-3 min",notes:"1 sec pause on chest. Last set: lengthened partials"},
-      {id:"db_row",sets:3,reps:"10-12",rpe:"8-9",rir:"2-1",rest:"2-3 min",notes:"Deficit row for stretch"},
-      {id:"db_shoulder_press",sets:3,reps:"10-12",rpe:"8-9",rir:"2-1",rest:"2 min",notes:"Keep tension at bottom"},
-      {id:"cable_lateral_raise",sets:3,reps:"12-15",rpe:"9",rir:"1",rest:"60 sec",notes:"Squeeze delt. Failure + partials"},
-      {id:"face_pull",sets:2,reps:"15-20",rpe:"8",rir:"2",rest:"60 sec",notes:"Shoulder health"},
-    ]},
-    "Lower A":{focus:"Quad Dominant",exs:[
-      {id:"squat",sets:3,reps:"6-8",rpe:"7-8",rir:"3-2",rest:"3-5 min",notes:"Low RPE - high muscle damage"},
-      {id:"rdl",sets:3,reps:"8-10",rpe:"8",rir:"2",rest:"2-3 min",notes:"Bottom 3/4 ROM only"},
-      {id:"hack_squat",sets:2,reps:"10-12",rpe:"9",rir:"1",rest:"2 min",notes:"Knees forward, quad focus. Last set: partials"},
-      {id:"leg_curl",sets:3,reps:"10-12",rpe:"9",rir:"1",rest:"90 sec",notes:"Lean forward for stretch"},
-      {id:"calf_raise",sets:3,reps:"12-15",rpe:"9",rir:"1",rest:"60 sec",notes:"2 sec pause at bottom"},
-    ]},
-    "Upper B":{focus:"Volume/Hypertrophy",exs:[
-      {id:"pullup",sets:3,reps:"6-10",rpe:"9",rir:"1",rest:"2-3 min",notes:"Full ROM. Last set: partials"},
-      {id:"low_incline_press",sets:3,reps:"8-10",rpe:"9",rir:"1",rest:"2-3 min",notes:"Bottom half ROM only. 1 sec pause"},
-      {id:"helms_row",sets:3,reps:"8-10",rpe:"9",rir:"1",rest:"2-3 min",notes:"Touch chest on each rep"},
-      {id:"cable_reverse_flye",sets:3,reps:"12-15",rpe:"9",rir:"1",rest:"75 sec",notes:"Pre-stretch rear delt, 1 arm"},
-      {id:"db_curl",sets:2,reps:"10-12",rpe:"9-10",rir:"1-0",rest:"75 sec",notes:"Dropset last set"},
-      {id:"overhead_tricep_ext",sets:2,reps:"10-12",rpe:"9-10",rir:"1-0",rest:"75 sec",notes:"Pause in stretch. Dropset last set"},
-    ]},
-    "Lower B":{focus:"Hip Dominant + Unilateral",exs:[
-      {id:"deadlift",sets:3,reps:"5-6",rpe:"7",rir:"3",rest:"4-5 min",notes:"Low RPE - big muscle damage"},
-      {id:"bulgarian_split",sets:3,reps:"8-10/leg",rpe:"9",rir:"1",rest:"2 min",notes:"Minimize rear leg. Quad stretch after"},
-      {id:"leg_extension",sets:2,reps:"12-15",rpe:"9-10",rir:"1-0",rest:"90 sec",notes:"Lengthened partials last set"},
-      {id:"nordic_curl",sets:2,reps:"6-8",rpe:"8-9",rir:"2-1",rest:"2 min",notes:"Max hamstring stretch"},
-      {id:"calf_raise",sets:3,reps:"12-15",rpe:"9",rir:"1",rest:"60 sec",notes:""},
-      {id:"cable_woodchop",sets:2,reps:"10/side",rpe:"8",rir:"2",rest:"60 sec",notes:"Rotational core"},
-    ]},
-  }
-},
-{
-  id:"nippard_pbl_phase2", name:"Pure Bodybuilding Ph.2", cat:"nippard", emoji:"💪",
-  days:5, weeks:10, level:"Advanced", source:"Jeff Nippard – Pure Bodybuilding Phase 2",
-  tagline:"Two 5-week blocks. Climb phase then Grind phase.",
-  desc:"5-day: 4 Full Body sessions + Arms & Weak Points. Two 5-week blocks (Climb: RPE builds 7→9-10; Grind: deload then 4 weeks high volume). Lengthened partials, dropsets, integrated partials.",
-  goals:["Maximum hypertrophy","Advanced techniques","Weak point targeting"],
-  sched:["Full Body #1","Full Body #2","Rest","Full Body #3","Full Body #4","Arms & Weak Points","Rest"],
-  workouts:{
-    "Full Body #1":{focus:"Back Width + Chest + Glutes + Quads + Delts + Calves",exs:[
-      {id:"lat_pulldown",sets:"2-3",reps:"8-10",rpe:"7→9-10",rir:"3→1-0",rest:"2-3 min",notes:"Week 1: RPE7. Week 5: RPE9-10 + lengthened partials"},
-      {id:"db_bench",sets:"2-3",reps:"8-10",rpe:"7→9-10",rir:"3→1-0",rest:"3-5 min",notes:"1 sec pause. Last set: lengthened partials"},
-      {id:"glute_ham_raise",sets:"2-3",reps:"8-10",rpe:"7→8-9",rir:"3→2-1",rest:"2-3 min",notes:"Slow 2-3 sec negative"},
-      {id:"hack_squat",sets:"2-3",reps:"8-10",rpe:"7-8→9-10",rir:"3-2→1-0",rest:"1-2 min",notes:"Knees forward, lengthened partials last set"},
-      {id:"cable_lateral_raise",sets:3,reps:"10-12",rpe:"9",rir:"1",rest:"1-2 min",notes:"Failure + lengthened partials"},
-      {id:"calf_raise",sets:3,reps:"12-15",rpe:"9",rir:"1",rest:"1-2 min",notes:"2 sec pause bottom, roll ankle"},
-    ]},
-    "Full Body #2":{focus:"Hamstrings + Quads + Back Thickness + Pecs + Hip Abduction + Triceps",exs:[
-      {id:"nordic_curl",sets:"2-3",reps:"8-10",rpe:"7→8-9",rir:"3→2-1",rest:"1-2 min",notes:"Lean forward for max stretch"},
-      {id:"squat",sets:"2-3",reps:"6-8",rpe:"7→7-8",rir:"3→3-2",rest:"3-5 min",notes:"Bottom half ROM, feet forward"},
-      {id:"db_row",sets:"2-3",reps:"8-10",rpe:"7→8-9",rir:"3→2-1",rest:"2-3 min",notes:"Arm-out, elbows flared 45°"},
-      {id:"cable_flye",sets:2,reps:"8-10",rpe:"7-8→8-9",rir:"3-2→2-1",rest:"2-3 min",notes:"Bottom half ROM only"},
-      {id:"cable_hip_abduction",sets:"2-3",reps:"10-12",rpe:"9",rir:"1",rest:"1-2 min",notes:"Failure - inner thigh"},
-      {id:"overhead_tricep_ext",sets:2,reps:"10-12",rpe:"7-8→8-9",rir:"3-2→2-1",rest:"1-2 min",notes:"1 sec pause in stretch. Dropset last set"},
-    ]},
-    "Full Body #3":{focus:"Back Thickness + Incline Chest + Quads + Delts + Calves + Biceps",exs:[
-      {id:"helms_row",sets:"2-3",reps:"8-10",rpe:"7→9-10",rir:"3→1-0",rest:"3-4 min",notes:"Touch chest each rep. Lengthened partials"},
-      {id:"low_incline_press",sets:"2-3",reps:"8-10",rpe:"7→9-10",rir:"3→1-0",rest:"2-3 min",notes:"Bottom half ROM. 1 sec pause"},
-      {id:"bulgarian_split",sets:"2-3",reps:"8-10/leg",rpe:"7→9-10",rir:"3→1-0",rest:"2-3 min",notes:"Minimize rear leg. Quad static stretch"},
-      {id:"db_lateral_raise",sets:3,reps:"10-12",rpe:"9",rir:"1",rest:"1-2 min",notes:"Lengthened partials last set"},
-      {id:"calf_raise",sets:3,reps:"12-15",rpe:"9",rir:"1",rest:"1-2 min",notes:""},
-      {id:"preacher_curl",sets:"2-3",reps:"10-12",rpe:"9",rir:"1",rest:"1-2 min",notes:"Bottom half ROM, constant tension"},
-    ]},
-    "Full Body #4":{focus:"Deadlift + Squat + Lats + Shoulders + Hip Adduction + Rear Delts",exs:[
-      {id:"deadlift",sets:"2-3",reps:"8-10",rpe:"5-6→6-7",rir:"5-4→4-3",rest:"3-5 min",notes:"Low RPE - lots of muscle damage"},
-      {id:"front_squat",sets:"2-3",reps:"6-8",rpe:"7→7-8",rir:"3→3-2",rest:"3-5 min",notes:"Pause at bottom, knees forward"},
-      {id:"cross_body_lat",sets:"2-3",reps:"8-10",rpe:"8→9-10",rir:"2→1-0",rest:"2-3 min",notes:"Integrated partials all sets"},
-      {id:"db_shoulder_press",sets:"2-3",reps:"8-10",rpe:"7→8-9",rir:"3→2-1",rest:"2-3 min",notes:"Slight elbow flare"},
-      {id:"copenhagen_adduction",sets:"2-3",reps:"8-10/side",rpe:"9",rir:"1",rest:"1-2 min",notes:"Inner thigh - failure"},
-      {id:"cable_reverse_flye",sets:"2-3",reps:"10-12",rpe:"9",rir:"1",rest:"1-2 min",notes:"Pre-stretch rear delt. 1 arm at time"},
-    ]},
-    "Arms & Weak Points":{focus:"Biceps + Triceps + Weak Point",exs:[
-      {id:"db_curl",sets:"2-3",reps:"8-12",rpe:"7-8→9-10",rir:"3-2→1-0",rest:"1-3 min",notes:"Slow eccentric"},
-      {id:"overhead_tricep_ext",sets:"2-3",reps:"8-12",rpe:"7-8→9-10",rir:"3-2→1-0",rest:"1-3 min",notes:"1 sec pause in stretch"},
-      {id:"bayesian_curl",sets:"2-3",reps:"10-12",rpe:"9",rir:"1",rest:"1-2 min",notes:"Bottom half ROM, constant tension"},
-      {id:"skull_crusher",sets:2,reps:"10-12",rpe:"9",rir:"1",rest:"1-2 min",notes:"Feel nasty stretch, 1 sec pause"},
-      {id:"cable_crunch",sets:"2-3",reps:"10-20",rpe:"9-10",rir:"1-0",rest:"1-2 min",notes:"Weak Point Option: Abs"},
-      {id:"db_lateral_raise",sets:"2-3",reps:"10-12",rpe:"9",rir:"1",rest:"1-2 min",notes:"Weak Point Option: Delts"},
-    ]},
-  }
-},
-{
-  id:"athlean_athletic_5x", name:"Athlean Athletic", cat:"athlean", emoji:"⚡",
-  days:5, weeks:12, level:"Intermediate", source:"Athlean-X AX1 Methodology",
-  tagline:"Train like an athlete. Every movement has carryover.",
-  desc:"Push/Pull/Legs + Conditioning + Full Body Athletic. Signature YTW raises every upper session. Athlean Burst HIIT conditioning.",
-  goals:["Athletic performance","Functional strength","Conditioning","Shoulder health"],
-  sched:["Push","Pull","Legs","Conditioning","Full Body Athletic","Rest","Rest"],
-  workouts:{
-    "Push":{focus:"Chest + Shoulders + Triceps",exs:[
-      {id:"db_bench",sets:3,reps:"8-10",rpe:"8-9",rir:"2-1",rest:"2 min",notes:""},
-      {id:"db_shoulder_press",sets:3,reps:"8-10",rpe:"8-9",rir:"2-1",rest:"2 min",notes:"Slight forward lean"},
-      {id:"low_incline_press",sets:3,reps:"10-12",rpe:"9",rir:"1",rest:"90 sec",notes:"Bottom half ROM"},
-      {id:"cable_lateral_raise",sets:3,reps:"12-15",rpe:"9-10",rir:"1-0",rest:"60 sec",notes:""},
-      {id:"overhead_tricep_ext",sets:2,reps:"12-15",rpe:"9",rir:"1",rest:"75 sec",notes:""},
-      {id:"ytw_raise",sets:3,reps:"12-15",rpe:"8",rir:"2",rest:"60 sec",notes:"⚡ AX1 staple — never skip"},
-      {id:"external_rotation",sets:2,reps:"15/arm",rpe:"7",rir:"3",rest:"45 sec",notes:""},
-    ]},
-    "Pull":{focus:"Back + Biceps + Rear Delts",exs:[
-      {id:"pullup",sets:3,reps:"AMRAP",rpe:"9-10",rir:"1-0",rest:"2-3 min",notes:"Dead hang, full ROM"},
-      {id:"pendlay_row",sets:3,reps:"6-8",rpe:"9",rir:"1",rest:"2-3 min",notes:"Explosive concentric"},
-      {id:"lat_pulldown",sets:3,reps:"10-12",rpe:"9",rir:"1",rest:"90 sec",notes:"Vary grips each session"},
-      {id:"face_pull",sets:3,reps:"15-20",rpe:"8",rir:"2",rest:"60 sec",notes:"Rear delt health essential"},
-      {id:"db_curl",sets:2,reps:"10-12",rpe:"9",rir:"1",rest:"75 sec",notes:""},
-      {id:"hammer_curl",sets:2,reps:"10-12",rpe:"9",rir:"1",rest:"75 sec",notes:""},
-      {id:"ytw_raise",sets:3,reps:"12-15",rpe:"8",rir:"2",rest:"60 sec",notes:"⚡ YTW every upper session"},
-    ]},
-    "Legs":{focus:"Athletic Lower Body",exs:[
-      {id:"squat",sets:3,reps:"6-8",rpe:"8",rir:"2",rest:"3 min",notes:""},
-      {id:"rdl",sets:3,reps:"8-10",rpe:"8",rir:"2",rest:"2 min",notes:""},
-      {id:"box_jump",sets:4,reps:"5",rpe:"9",rir:"1",rest:"2 min",notes:"Athletic power development"},
-      {id:"bulgarian_split",sets:3,reps:"8-10/leg",rpe:"9",rir:"1",rest:"2 min",notes:""},
-      {id:"nordic_curl",sets:2,reps:"5-8",rpe:"8-9",rir:"2-1",rest:"2 min",notes:"Hamstring injury prevention"},
-      {id:"calf_raise",sets:3,reps:"15-20",rpe:"9",rir:"1",rest:"60 sec",notes:""},
-      {id:"lateral_band_walk",sets:3,reps:"15/side",rpe:"8",rir:"2",rest:"60 sec",notes:""},
-    ]},
-    "Conditioning":{focus:"Athlean Burst HIIT",exs:[
-      {id:"sprint_lateral",sets:8,reps:"30s ON/30s OFF",rpe:"9-10",rir:"1-0",rest:"30 sec",notes:"⚡ Athlean Burst protocol"},
-      {id:"box_jump",sets:3,reps:"8",rpe:"9",rir:"1",rest:"90 sec",notes:""},
-      {id:"lateral_bound",sets:4,reps:"5/side",rpe:"9",rir:"1",rest:"90 sec",notes:""},
-      {id:"agility_ladder",sets:5,reps:"30 sec",rpe:"9",rir:"1",rest:"60 sec",notes:"Various footwork patterns"},
-      {id:"plank",sets:3,reps:"45-60 sec",rpe:"8-9",rir:"2-1",rest:"60 sec",notes:""},
-      {id:"pallof_press",sets:3,reps:"10/side",rpe:"8",rir:"2",rest:"60 sec",notes:""},
-    ]},
-    "Full Body Athletic":{focus:"Total Athletic Performance",exs:[
-      {id:"deadlift",sets:3,reps:"3-5",rpe:"8",rir:"2",rest:"3 min",notes:"Power movement"},
-      {id:"db_bench",sets:3,reps:"8-10",rpe:"8",rir:"2",rest:"2 min",notes:""},
-      {id:"pullup",sets:3,reps:"6-10",rpe:"8-9",rir:"2-1",rest:"2 min",notes:""},
-      {id:"depth_jump",sets:3,reps:"5",rpe:"9",rir:"1",rest:"2 min",notes:""},
-      {id:"med_ball_rotational",sets:3,reps:"8/side",rpe:"9",rir:"1",rest:"90 sec",notes:""},
-      {id:"ytw_raise",sets:3,reps:"12-15",rpe:"8",rir:"2",rest:"60 sec",notes:"⚡ Athletic shoulder armor"},
-    ]},
-  }
-},
-{
-  id:"rp_hypertrophy_4x", name:"RP Hypertrophy", cat:"rp_strength", emoji:"📈",
-  days:4, weeks:8, level:"Intermediate", source:"RP Strength Hypertrophy App Principles",
-  tagline:"MEV→MRV progression. Start minimal, build volume systematically.",
-  desc:"Start at MEV (2 sets), add 1 set/week until MRV (~4-5 sets), deload week 4. Rate workouts (-2 to +2) to autoregulate. W1=3RIR, W2=2RIR, W3=1RIR, W4=deload.",
-  goals:["Hypertrophy via progressive volume","Autoregulation","Sustainable progression"],
-  sched:["Upper A","Lower A","Rest","Upper B","Lower B","Rest","Rest"],
-  workouts:{
-    "Upper A":{focus:"Back + Chest — MEV→MRV",exs:[
-      {id:"lat_pulldown",sets:"2→4",reps:"10-12",rpe:"7→9",rir:"3→1",rest:"2-3 min",notes:"Start 2 sets. Add 1/week."},
-      {id:"db_bench",sets:"2→4",reps:"8-10",rpe:"7→9",rir:"3→1",rest:"2-3 min",notes:"MEV=2 sets. Week 4 deload: 1 set"},
-      {id:"face_pull",sets:"2→3",reps:"15-20",rpe:"7→8",rir:"3→2",rest:"60 sec",notes:"Shoulder health"},
-      {id:"db_shoulder_press",sets:"2→3",reps:"10-12",rpe:"7→9",rir:"3→1",rest:"90 sec",notes:""},
-      {id:"cable_lateral_raise",sets:"2→4",reps:"12-15",rpe:"7→9",rir:"3→1",rest:"60 sec",notes:"Rate session to autoregulate"},
-    ]},
-    "Lower A":{focus:"Quad Dominant — MEV→MRV",exs:[
-      {id:"squat",sets:"2→4",reps:"6-8",rpe:"7→9",rir:"3→1",rest:"3-5 min",notes:"W1=3RIR, W2=2RIR, W3=1RIR, W4=deload"},
-      {id:"leg_extension",sets:"2→4",reps:"12-15",rpe:"7→9",rir:"3→1",rest:"90 sec",notes:"Quad isolation volume"},
-      {id:"rdl",sets:"2→3",reps:"8-10",rpe:"7→8",rir:"3→2",rest:"2-3 min",notes:""},
-      {id:"calf_raise",sets:"3→5",reps:"12-15",rpe:"7→9",rir:"3→1",rest:"60 sec",notes:"Calves tolerate high volume"},
-      {id:"cable_hip_abduction",sets:"2→3",reps:"12-15/side",rpe:"8→9",rir:"2→1",rest:"60 sec",notes:""},
-    ]},
-    "Upper B":{focus:"Shoulders + Arms — MEV→MRV",exs:[
-      {id:"pullup",sets:"2→4",reps:"6-10",rpe:"7→9",rir:"3→1",rest:"2-3 min",notes:"Add weight when 10 reps easy"},
-      {id:"low_incline_press",sets:"2→4",reps:"8-10",rpe:"7→9",rir:"3→1",rest:"2-3 min",notes:"Bottom half ROM"},
-      {id:"db_curl",sets:"2→4",reps:"10-12",rpe:"7→9",rir:"3→1",rest:"75 sec",notes:"RP: prioritize sets over weight first"},
-      {id:"skull_crusher",sets:"2→4",reps:"10-12",rpe:"7→9",rir:"3→1",rest:"75 sec",notes:""},
-      {id:"ytw_raise",sets:"2→3",reps:"12-15",rpe:"7→8",rir:"3→2",rest:"60 sec",notes:""},
-    ]},
-    "Lower B":{focus:"Hip Dominant — MEV→MRV",exs:[
-      {id:"deadlift",sets:"2→3",reps:"4-6",rpe:"7→8",rir:"3→2",rest:"4-5 min",notes:"Low RPE - high muscle damage"},
-      {id:"bulgarian_split",sets:"2→4",reps:"8-10/leg",rpe:"7→9",rir:"3→1",rest:"2 min",notes:"RP: sets before weight"},
-      {id:"leg_curl",sets:"2→4",reps:"10-12",rpe:"7→9",rir:"3→1",rest:"90 sec",notes:"Lean forward for stretch"},
-      {id:"db_hip_thrust",sets:"2→3",reps:"12-15",rpe:"8→9",rir:"2→1",rest:"90 sec",notes:""},
-      {id:"calf_raise",sets:"3→5",reps:"12-15",rpe:"7→9",rir:"3→1",rest:"60 sec",notes:""},
-    ]},
-  }
-},
-{
-  id:"cali_foundation_3x", name:"Calisthenics Foundation", cat:"calisthenics", emoji:"🤸",
-  days:3, weeks:8, level:"Beginner", source:"Cali Move – Complete Calisthenics",
-  tagline:"Master your bodyweight. Skills, strength, no equipment needed.",
-  desc:"Bodyweight-only skill progressions: rows → pull-ups → front lever; incline push-ups → dips → planche. Full body 3x/week. Only need a pull-up bar.",
-  goals:["Bodyweight mastery","Skill development","Relative strength"],
-  sched:["Full Body A","Rest","Full Body B","Rest","Full Body C","Rest","Rest"],
-  workouts:{
-    "Full Body A":{focus:"Push + Core",exs:[
-      {id:"pushup_bw",sets:4,reps:"8-15",rpe:"8",rir:"2",rest:"2 min",notes:"Progress: incline → standard → archer → diamond"},
-      {id:"pike_pushup",sets:3,reps:"8-12",rpe:"8",rir:"2",rest:"90 sec",notes:"Shoulder strength for handstand"},
-      {id:"dip_bw",sets:3,reps:"8-12",rpe:"8-9",rir:"2-1",rest:"2 min",notes:"Full ROM, lean forward for pecs"},
-      {id:"plank",sets:3,reps:"30-60 sec",rpe:"8",rir:"2",rest:"60 sec",notes:"Long lever, squeeze glutes"},
-      {id:"l_sit",sets:3,reps:"10-20 sec",rpe:"8-9",rir:"2-1",rest:"60 sec",notes:"Tuck → one-leg → full"},
-      {id:"ab_wheel",sets:3,reps:"8-12",rpe:"9",rir:"1",rest:"90 sec",notes:"Kneel first, then standing"},
-    ]},
-    "Full Body B":{focus:"Pull + Legs",exs:[
-      {id:"inverted_row",sets:4,reps:"8-15",rpe:"8",rir:"2",rest:"2 min",notes:"Progress: incline → horizontal → feet elevated"},
-      {id:"pullup_bw",sets:3,reps:"3-8",rpe:"8-9",rir:"2-1",rest:"2-3 min",notes:"Negatives only if can't do full"},
-      {id:"goblet_squat",sets:3,reps:"10-15",rpe:"7-8",rir:"3-2",rest:"90 sec",notes:"Work toward pistol squat"},
-      {id:"pistol_squat",sets:3,reps:"3-8/leg",rpe:"8-9",rir:"2-1",rest:"2 min",notes:"Assisted → free. Ultimate leg test"},
-      {id:"calf_raise",sets:4,reps:"15-25",rpe:"9",rir:"1",rest:"60 sec",notes:"Single-leg progression"},
-      {id:"hanging_leg_raise",sets:3,reps:"8-15",rpe:"8-9",rir:"2-1",rest:"90 sec",notes:"Tucked → straight → toes to bar"},
-    ]},
-    "Full Body C":{focus:"Skill Work + Full Body",exs:[
-      {id:"handstand",sets:5,reps:"10-30 sec",rpe:"8-9",rir:"2-1",rest:"2 min",notes:"Wall → freestanding, 10 min total"},
-      {id:"muscle_up",sets:4,reps:"3-6",rpe:"9",rir:"1",rest:"3 min",notes:"Kipping → strict. Master pull-up first"},
-      {id:"dip_bw",sets:3,reps:"10-15",rpe:"8",rir:"2",rest:"90 sec",notes:""},
-      {id:"pullup_bw",sets:3,reps:"5-10",rpe:"8-9",rir:"2-1",rest:"2 min",notes:""},
-      {id:"pushup_bw",sets:3,reps:"15-20",rpe:"8",rir:"2",rest:"90 sec",notes:"Higher reps for endurance"},
-      {id:"pallof_press",sets:3,reps:"10/side",rpe:"8",rir:"2",rest:"60 sec",notes:"Anti-rotation stability"},
-    ]},
-  }
-},
 ];
 
 const CAT_META = {
-  tennis:       { label:"Tennis",        color:"#4ade80", bg:"rgba(74,222,128,0.12)" },
-  nippard:      { label:"Jeff Nippard",  color:"#f59e0b", bg:"rgba(245,158,11,0.12)" },
-  athlean:      { label:"Athlean-X",     color:"#ef4444", bg:"rgba(239,68,68,0.12)" },
-  rp_strength:  { label:"RP Strength",   color:"#8b5cf6", bg:"rgba(139,92,246,0.12)" },
-  calisthenics: { label:"Calisthenics",  color:"#06b6d4", bg:"rgba(6,182,212,0.12)" },
+  beginner_strength: { label:"Beginner Strength", color:"#4ade80", bg:"rgba(74,222,128,0.12)" },
+  ppl:               { label:"Push/Pull/Legs",     color:"#f97316", bg:"rgba(249,115,22,0.12)" },
+  upper_lower:       { label:"Upper/Lower",        color:"#06b6d4", bg:"rgba(6,182,212,0.12)" },
+  five_three_one:    { label:"5/3/1",              color:"#ef4444", bg:"rgba(239,68,68,0.12)" },
+  powerbuilding:     { label:"Powerbuilding",      color:"#ec4899", bg:"rgba(236,72,153,0.12)" },
+  nippard:           { label:"Jeff Nippard",       color:"#f59e0b", bg:"rgba(245,158,11,0.12)" },
+  athlean:           { label:"Athlean-X",          color:"#ef4444", bg:"rgba(239,68,68,0.12)" },
+  rp_strength:       { label:"RP Strength",        color:"#8b5cf6", bg:"rgba(139,92,246,0.12)" },
+  calisthenics:      { label:"Calisthenics",       color:"#a78bfa", bg:"rgba(167,139,250,0.12)" },
+  home_gym:          { label:"Home Gym",           color:"#34d399", bg:"rgba(52,211,153,0.12)" },
+  tennis:            { label:"Tennis",             color:"#4ade80", bg:"rgba(74,222,128,0.12)" },
 };
 
 // localStorage store for deployed PWA
@@ -2703,12 +3448,20 @@ function ProgramBrowser({activeProg,saveProg,setView}){
   const [rec,setRec]=useState(null);
   const [showRec,setShowRec]=useState(false);
   const [recDays,setRecDays]=useState(3);
-  const [recGoal,setRecGoal]=useState("tennis");
+  const [recGoal,setRecGoal]=useState("strength");
 
   const getRecommendation=()=>{
     let c=PROGRAMS;
     c=c.filter(p=>Math.abs(p.days-recDays)<=1);
-    const goalMap={tennis:"tennis",muscle:["nippard","rp_strength"],athletic:["athlean","tennis"],bodyweight:"calisthenics"};
+    const goalMap={
+      tennis:"tennis",
+      muscle:["nippard","rp_strength","powerbuilding"],
+      strength:["beginner_strength","five_three_one","upper_lower"],
+      athletic:["athlean","tennis","ppl"],
+      bodyweight:"calisthenics",
+      home:"home_gym",
+      ppl:"ppl",
+    };
     const gCats=goalMap[recGoal];
     const filtered=c.filter(p=>Array.isArray(gCats)?gCats.includes(p.cat):p.cat===gCats);
     setRec(filtered[0]||c[0]||PROGRAMS[0]);
@@ -2719,7 +3472,7 @@ function ProgramBrowser({activeProg,saveProg,setView}){
 
   return (
     <div style={S.pg}>
-      <div style={S.pgH}><h1 style={S.pgT}>Programs</h1><p style={S.pgS}>{PROGRAMS.length} science-based programs</p></div>
+      <div style={S.pgH}><h1 style={S.pgT}>Programs</h1><p style={S.pgS}>{PROGRAMS.length} programs across {Object.keys(CAT_META).length} categories</p></div>
       <div style={S.card}>
         <div style={S.cHdr}>
           <h2 style={S.cT}>🎯 Get a Recommendation</h2>
@@ -2736,7 +3489,7 @@ function ProgramBrowser({activeProg,saveProg,setView}){
             <div style={{marginBottom:16}}>
               <div style={S.lbl}>Primary goal?</div>
               <div style={{display:"flex",gap:8,marginTop:6,flexWrap:"wrap"}}>
-                {[{id:"tennis",label:"🎾 Tennis"},{id:"muscle",label:"💪 Muscle"},{id:"athletic",label:"⚡ Athletic"},{id:"bodyweight",label:"🤸 Bodyweight"}].map(g=>(
+                {[{id:"strength",label:"🏋️ Strength"},{id:"muscle",label:"💪 Muscle"},{id:"ppl",label:"🔄 PPL"},{id:"athletic",label:"⚡ Athletic"},{id:"bodyweight",label:"🤸 Bodyweight"},{id:"home",label:"🏠 Home Gym"},{id:"tennis",label:"🎾 Tennis"}].map(g=>(
                   <button key={g.id} onClick={()=>setRecGoal(g.id)} style={{...S.chip,...(recGoal===g.id?S.chipA:{})}}>{g.label}</button>
                 ))}
               </div>
@@ -4033,182 +4786,371 @@ function exportCSV(sessions){
 }
 
 function Nutrition() {
+  const [unit, setUnit] = useState("lb");
+  const [sex, setSex] = useState("male");
+  const [age, setAge] = useState(28);
+  const [height, setHeight] = useState(70); // inches
+  const [weight, setWeight] = useState(175); // lb
+  const [activity, setActivity] = useState("moderate");
   const [goal, setGoal] = useState("muscle");
-  const [weight, setWeight] = useState(80);
-  const [unit, setUnit] = useState("kg");
+  const [section, setSection] = useState("calculator");
 
-  const wKg = unit === "kg" ? parseFloat(weight)||80 : (parseFloat(weight)||176) * 0.453592;
-  const wLb = wKg * 2.20462;
+  // ── Unit helpers ──────────────────────────────────────────
+  const wKg = unit==="lb" ? (parseFloat(weight)||175)*0.453592 : (parseFloat(weight)||80);
+  const wLb = wKg*2.20462;
+  const hCm = unit==="lb" ? (parseFloat(height)||70)*2.54 : (parseFloat(height)||178);
 
-  const phases = {
+  // ── Mifflin-St Jeor BMR ───────────────────────────────────
+  const bmr = sex==="male"
+    ? Math.round(10*wKg + 6.25*hCm - 5*(parseFloat(age)||28) + 5)
+    : Math.round(10*wKg + 6.25*hCm - 5*(parseFloat(age)||28) - 161);
+
+  // Activity multipliers (slightly conservative — avoids overestimating)
+  const actMap = {
+    sedentary:{label:"Sedentary",sub:"Desk job, little exercise",mult:1.2},
+    light:{label:"Lightly Active",sub:"1-3 days/week training",mult:1.375},
+    moderate:{label:"Moderately Active",sub:"3-5 days/week training",mult:1.55},
+    very:{label:"Very Active",sub:"6-7 days/week hard training",mult:1.725},
+    extra:{label:"Extra Active",sub:"2x/day or physical job",mult:1.9},
+  };
+  const tdee = Math.round(bmr * actMap[activity].mult);
+
+  // ── Goal configurations ───────────────────────────────────
+  const goals = {
     muscle: {
       label:"Lean Bulk",icon:"💪",color:"#4ade80",
-      surplus:"5–15%",calories:Math.round(wKg*35+300),
-      protein:`${(wLb*0.85).toFixed(0)}–${(wLb*1.0).toFixed(0)}g`,
-      proteinNote:"0.85–1.0g per lb bodyweight",
-      fat:`${Math.round(wKg*35*0.25/9)}–${Math.round(wKg*35*0.30/9)}g`,
-      fatNote:"20–30% of total calories",
-      timing:"~100–300 kcal surplus above TDEE",
-      rate:"0.25–0.5 kg gained per week",
+      calories: tdee+200,
+      surplusNote:"~200–300 kcal surplus (0.25–0.5 lb/week gain)",
+      proteinMin: Math.round(wLb*0.8), proteinMax: Math.round(wLb*1.0),
+      proteinNote:"0.8–1.0g per lb · Supports muscle protein synthesis",
+      fatMin: Math.round(tdee*0.25/9), fatMax: Math.round(tdee*0.30/9),
+      fatNote:"25–30% of calories · Hormonal health",
+      rateNote:"Target: 0.25–0.5 lb gained per week. More than 1 lb/week means too much fat gain.",
+      sources:["Greg Nuckols / Stronger By Science","Eric Helms – Muscle & Strength Pyramid","RP Strength (Dr. Mike Israetel)"],
     },
     cut: {
       label:"Cut / Fat Loss",icon:"🔥",color:"#f59e0b",
-      surplus:"–15 to –25%",calories:Math.round(wKg*35-500),
-      protein:`${(wLb*0.9).toFixed(0)}–${(wLb*1.2).toFixed(0)}g`,
-      proteinNote:"0.9–1.2g per lb — higher to preserve muscle",
-      fat:`${Math.round(wKg*35*0.20/9)}–${Math.round(wKg*35*0.25/9)}g`,
-      fatNote:"20–25% of total calories minimum",
-      timing:"~300–500 kcal deficit below TDEE",
-      rate:"0.5–1.0 kg lost per week (max)",
+      calories: tdee-500,
+      surplusNote:"~500 kcal deficit (≈1 lb fat loss/week)",
+      proteinMin: Math.round(wLb*0.9), proteinMax: Math.round(wLb*1.2),
+      proteinNote:"0.9–1.2g per lb · Higher during cut to preserve muscle (Helms et al. 2014)",
+      fatMin: Math.round(tdee*0.20/9), fatMax: Math.round(tdee*0.25/9),
+      fatNote:"20–25% of calories minimum · Below 15% risks hormonal issues",
+      rateNote:"Target: 0.5–1% bodyweight/week. Slower = more muscle retained. Cut cycles max 12 weeks.",
+      sources:["Eric Helms – Evidence-Based Recommendations (J Sports Nutr. 2014)","Dr. Mike Israetel – Renaissance Diet 2.0","r/Fitness Wiki – Improving Your Diet"],
     },
     maintain: {
       label:"Maintenance / Recomp",icon:"⚖️",color:"#8b5cf6",
-      surplus:"±0–5%",calories:Math.round(wKg*35),
-      protein:`${(wLb*0.85).toFixed(0)}–${(wLb*1.0).toFixed(0)}g`,
-      proteinNote:"0.85–1.0g per lb bodyweight",
-      fat:`${Math.round(wKg*35*0.25/9)}–${Math.round(wKg*35*0.30/9)}g`,
-      fatNote:"25–30% of total calories",
-      timing:"TDEE ± 100 kcal",
-      rate:"Slow recomp — weeks to months",
+      calories: tdee,
+      surplusNote:"At TDEE · Prioritize protein to improve body comp over time",
+      proteinMin: Math.round(wLb*0.75), proteinMax: Math.round(wLb*1.0),
+      proteinNote:"0.75–1.0g per lb · Recomp requires adequate protein even without surplus",
+      fatMin: Math.round(tdee*0.25/9), fatMax: Math.round(tdee*0.30/9),
+      fatNote:"25–30% of calories",
+      rateNote:"Body recomp (lose fat, gain muscle simultaneously) works best for beginners and those returning after a break.",
+      sources:["r/Fitness Wiki","Greg Nuckols / Stronger By Science"],
+    },
+    aggressive_cut: {
+      label:"Aggressive Cut",icon:"⚡",color:"#ef4444",
+      calories: Math.round(tdee*0.75),
+      surplusNote:"~25% deficit · Higher fat loss, more muscle risk. Use sparingly.",
+      proteinMin: Math.round(wLb*1.0), proteinMax: Math.round(wLb*1.2),
+      proteinNote:"1.0–1.2g per lb · Maximum protein to spare muscle during aggressive cut",
+      fatMin: Math.round(tdee*0.15/9), fatMax: Math.round(tdee*0.20/9),
+      fatNote:"15–20% of calories minimum · Do not go lower",
+      rateNote:"Not recommended for more than 6-8 weeks. Best used if BF% is high (>25% M / >35% F) before switching to moderate deficit.",
+      sources:["Eric Helms et al. 2014","Dr. Layne Norton – Research-Based Approach"],
     },
   };
 
-  const p = phases[goal];
-  const proteinG = parseFloat(p.protein.split("–")[0])||0;
-  const fatG = parseFloat(p.fat.split("–")[0])||0;
-  const carbsG = Math.max(0, Math.round((p.calories - proteinG*4 - fatG*9) / 4));
+  const g = goals[goal];
+  const proteinCals = g.proteinMin * 4;
+  const fatCals = g.fatMin * 9;
+  const carbCals = Math.max(0, g.calories - proteinCals - fatCals);
+  const carbsG = Math.round(carbCals / 4);
 
+  // Supplement tiers
   const supps = [
-    {name:"Creatine Monohydrate",dose:"5g/day",timing:"Anytime, daily",icon:"⚗️",note:"Most evidence-backed supplement. No loading needed."},
-    {name:"Caffeine",dose:"150–250mg",timing:"30–60 min pre-workout",icon:"☕",note:"Improves strength, endurance, focus. Avoid after 2pm."},
-    {name:"Protein Powder",dose:"As needed",timing:"Anytime to hit daily target",icon:"🥤",note:"Whey, casein, or plant-based. Food first always."},
-    {name:"Vitamin D3",dose:"1000–4000 IU/day",timing:"With a meal",icon:"☀️",note:"Most people are deficient. Improves hormones + immune function."},
-    {name:"Omega-3 Fish Oil",dose:"1–2g EPA+DHA",timing:"With meals",icon:"🐟",note:"Anti-inflammatory. Supports muscle protein synthesis."},
-    {name:"Magnesium",dose:"200–400mg",timing:"Before bed",icon:"🌙",note:"Improves sleep quality. Often depleted in athletes."},
+    {tier:1, name:"Creatine Monohydrate", dose:"3–5g daily",timing:"Any time — consistency matters",icon:"⚡",
+     evidence:"🔬 Strongest evidence of any supplement. Increases power output 5-15%, improves body composition. No loading phase needed.",color:"#4ade80"},
+    {tier:1, name:"Protein Powder (Whey/Plant)", dose:"1–2 scoops (25–50g protein)",timing:"Any time — used to hit daily protein target",icon:"🥛",
+     evidence:"🔬 Effective for reaching daily protein targets. Whey has highest leucine content — best for muscle protein synthesis.",color:"#4ade80"},
+    {tier:1, name:"Caffeine", dose:"3–6mg per kg bodyweight",timing:"30–60 min pre-workout",icon:"☕",
+     evidence:"🔬 Reliably improves strength, endurance, and focus. Tolerance builds — cycle off for 1-2 weeks monthly.",color:"#4ade80"},
+    {tier:2, name:"Vitamin D3", dose:"2,000–4,000 IU daily",timing:"With fat-containing meal",icon:"☀️",
+     evidence:"📊 Most people are deficient. Supports testosterone, immune function, bone density. Test levels before supplementing.",color:"#f59e0b"},
+    {tier:2, name:"Omega-3 Fish Oil", dose:"1–2g EPA+DHA daily",timing:"With meals",icon:"🐟",
+     evidence:"📊 Anti-inflammatory. May support muscle protein synthesis and reduce DOMS. Eat 2+ servings fatty fish/week instead if possible.",color:"#f59e0b"},
+    {tier:2, name:"Magnesium Glycinate", dose:"200–400mg",timing:"Before bed",icon:"💤",
+     evidence:"📊 Most athletes are deficient. Supports sleep quality, muscle recovery, testosterone production.",color:"#f59e0b"},
+    {tier:3, name:"Beta-Alanine", dose:"3.2–6.4g daily",timing:"Any time (split doses to avoid tingling)",icon:"🌡️",
+     evidence:"⚠️ Modest benefits for endurance >60 sec. Causes harmless skin tingling. Less relevant for strength training.",color:"#94a3b8"},
+    {tier:3, name:"Citrulline Malate", dose:"6–8g",timing:"45–60 min pre-workout",icon:"🍋",
+     evidence:"⚠️ Mild pump enhancement, minor endurance benefit. Not transformative for most lifters.",color:"#94a3b8"},
+    {tier:3, name:"BCAA/EAA", dose:"5–10g",timing:"During or after workout",icon:"🧪",
+     evidence:"⚠️ Redundant if you hit 0.8–1g/lb protein daily. Complete protein sources already contain all BCAAs. Save your money.",color:"#94a3b8"},
   ];
 
-  const tips = [
-    "Eat mostly whole, minimally processed foods — track macros if needed",
-    "Prioritize dietary protein at every meal (aim for 30–50g per sitting)",
-    "Don't fear carbs — they fuel performance and glycogen replenishment",
-    "Fats are essential for hormones — never go below 0.3g per lb bodyweight",
-    "Meal timing matters less than total daily intake — eat when works for you",
-    "Eating in a slight surplus is required to build meaningful muscle",
-    "Tracking body weight daily and averaging weekly reveals true trends",
-    "Adjust calories by 10% if weight isn't trending right after 2 weeks",
+  // Key principles from Helms, Nuckols, Israetel
+  const principles = [
+    {icon:"🏆", title:"Calories are king", body:"Your total daily caloric intake is the #1 nutrition variable. Macros matter, meal timing matters less. Get the calories right first."},
+    {icon:"🥩", title:"Protein is #2", body:"After calories, protein is the most important variable. Hit 0.8–1g per lb bodyweight consistently. Distribute across 3–5 meals of 30–50g each for best muscle protein synthesis (Jorn Trommelen, PhD)."},
+    {icon:"🍚", title:"Carbs fuel performance", body:"Don't fear carbs. They replenish glycogen and directly fuel lifting performance. Higher carbs = better sessions = more muscle over time. Prioritize carbs around training."},
+    {icon:"🧈", title:"Fat supports hormones", body:"Never drop fat below 15–20% of total calories. Dietary fat supports testosterone production, joint health, and vitamin absorption. Prioritize omega-3s and unsaturated sources."},
+    {icon:"📉", title:"Slow cut = more muscle retained", body:"The faster you cut, the more muscle you lose. Target 0.5–1% bodyweight per week maximum. Eric Helms' research shows ~0.5%/week preserves nearly all muscle during a cut."},
+    {icon:"📈", title:"Small surplus for lean bulking", body:"A 200–300 kcal surplus is sufficient for most trained individuals to build muscle while minimizing fat gain. 'Dirty bulking' primarily adds fat, not muscle. Beginners can gain muscle at maintenance."},
+    {icon:"⏰", title:"Meal timing is overrated (mostly)", body:"Pre- and post-workout nutrition matters less than getting total daily protein/calories right. A protein-rich meal within ~3 hours either side of training is sufficient. Eat when it fits your schedule."},
+    {icon:"🔁", title:"Track, adjust, repeat", body:"No formula is perfectly accurate. Weigh yourself daily (use 7-day average), track food for 2–4 weeks, then adjust ±10% calories based on real weight trend. The scale doesn't lie."},
+    {icon:"🍽️", title:"Diet breaks on long cuts", body:"On cuts lasting >12 weeks, a 1–2 week diet break at maintenance every 6–8 weeks reduces metabolic adaptation and adherence fatigue, making the rest of the cut more effective."},
+    {icon:"😴", title:"Sleep is a nutrition variable", body:"Sleep deprivation suppresses muscle protein synthesis, increases cortisol, and dramatically increases hunger hormones. 7–9 hours is a performance nutrition tool."},
   ];
+
+  const tabStyle = (active) => ({
+    flex:1, padding:"10px 6px", background:active?"rgba(245,158,11,0.12)":"transparent",
+    border:active?"1px solid rgba(245,158,11,0.3)":"1px solid rgba(255,255,255,0.08)",
+    borderRadius:8, color:active?"#f59e0b":"#64748b", fontSize:12, fontWeight:active?700:400,
+    cursor:"pointer", WebkitTapHighlightColor:"transparent",
+  });
+
+  const inputStyle = {
+    background:"rgba(255,255,255,0.05)", border:"1px solid rgba(255,255,255,0.12)",
+    borderRadius:8, color:"#f1f5f9", padding:"9px 12px", fontSize:14, width:"100%",
+    outline:"none", boxSizing:"border-box",
+  };
+
+  const tierBadge = (tier) => ({
+    1:{label:"Tier 1",bg:"rgba(74,222,128,0.15)",color:"#4ade80",note:"Strong evidence"},
+    2:{label:"Tier 2",bg:"rgba(245,158,11,0.15)",color:"#f59e0b",note:"Moderate evidence"},
+    3:{label:"Tier 3",bg:"rgba(148,163,184,0.15)",color:"#94a3b8",note:"Weak / situational"},
+  }[tier]);
 
   return (
     <div style={S.pg}>
       <div style={S.pgH}>
-        <h1 style={S.pgT}>🥗 Nutrition</h1>
-        <p style={S.pgS}>Based on Jeff Nippard — Pure Bodybuilding Nutrition Booklet</p>
+        <h1 style={S.pgT}>Nutrition</h1>
+        <p style={S.pgS}>Evidence-based · Helms · Nuckols · RP Strength</p>
       </div>
-      <div style={S.card}>
-        <h2 style={S.cT}>Your Goal</h2>
-        <div style={{display:"flex",gap:8,flexWrap:"wrap",marginTop:10}}>
-          {Object.entries(phases).map(([k,v])=>(
-            <button key={k} onClick={()=>setGoal(k)}
-              style={{...S.chip,...(goal===k?{...S.chipA,borderColor:v.color,color:v.color,background:v.color+"18"}:{}),padding:"10px 16px"}}>
-              {v.icon} {v.label}
+
+      {/* Tab nav */}
+      <div style={{display:"flex",gap:6,marginBottom:16}}>
+        {[{id:"calculator",label:"🧮 Calculator"},{id:"supplements",label:"💊 Supplements"},{id:"principles",label:"📖 Principles"}].map(t=>(
+          <button key={t.id} onClick={()=>setSection(t.id)} style={tabStyle(section===t.id)}>{t.label}</button>
+        ))}
+      </div>
+
+      {section==="calculator"&&(<>
+        {/* Inputs card */}
+        <div style={S.card}>
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
+            <h2 style={{...S.cT,marginBottom:0}}>Your Stats</h2>
+            <button onClick={()=>setUnit(u=>u==="lb"?"kg":"lb")} style={{...S.chip,fontSize:11}}>
+              {unit==="lb"?"Switch to kg":"Switch to lb"}
             </button>
-          ))}
-        </div>
-        <div style={{marginTop:16,display:"flex",gap:12,alignItems:"center",flexWrap:"wrap"}}>
-          <div>
-            <div style={S.lbl}>Bodyweight</div>
-            <div style={{display:"flex",gap:6,marginTop:6,alignItems:"center"}}>
-              <input type="number" value={weight} onChange={e=>setWeight(e.target.value)}
-                style={{...S.sinp,width:70}} />
-              <button onClick={()=>setUnit(u=>u==="kg"?"lb":"kg")}
-                style={{...S.chip,padding:"7px 14px"}}>{unit}</button>
+          </div>
+
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,marginBottom:12}}>
+            <div>
+              <div style={S.lbl}>Biological Sex</div>
+              <div style={{display:"flex",gap:6,marginTop:6}}>
+                {["male","female"].map(s=>(
+                  <button key={s} onClick={()=>setSex(s)} style={{...S.chip,flex:1,textAlign:"center",...(sex===s?S.chipA:{})}}>{s==="male"?"♂ Male":"♀ Female"}</button>
+                ))}
+              </div>
+            </div>
+            <div>
+              <div style={S.lbl}>Age</div>
+              <input type="number" value={age} onChange={e=>setAge(e.target.value)} style={{...inputStyle,marginTop:6}} placeholder="28"/>
             </div>
           </div>
-          <div style={{color:"#64748b",fontSize:12,marginTop:20}}>
-            {wKg.toFixed(1)} kg / {wLb.toFixed(1)} lb
-          </div>
-        </div>
-      </div>
 
-      <div style={{...S.card,borderColor:p.color+"40"}}>
-        <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14}}>
-          <span style={{fontSize:28}}>{p.icon}</span>
-          <div>
-            <h2 style={{...S.cT,color:p.color}}>{p.label} Targets</h2>
-            <div style={{color:"#64748b",fontSize:13}}>{p.timing}</div>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,marginBottom:12}}>
+            <div>
+              <div style={S.lbl}>Weight ({unit==="lb"?"lb":"kg"})</div>
+              <input type="number" value={weight} onChange={e=>setWeight(e.target.value)} style={{...inputStyle,marginTop:6}} placeholder={unit==="lb"?"175":"80"}/>
+            </div>
+            <div>
+              <div style={S.lbl}>Height ({unit==="lb"?"inches":"cm"})</div>
+              <input type="number" value={height} onChange={e=>setHeight(e.target.value)} style={{...inputStyle,marginTop:6}} placeholder={unit==="lb"?"70":"178"}/>
+            </div>
+          </div>
+
+          {/* Activity level */}
+          <div style={{marginBottom:12}}>
+            <div style={S.lbl}>Activity Level</div>
+            <div style={{display:"flex",flexDirection:"column",gap:6,marginTop:8}}>
+              {Object.entries(actMap).map(([k,a])=>(
+                <button key={k} onClick={()=>setActivity(k)} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 14px",background:activity===k?"rgba(245,158,11,0.1)":"rgba(255,255,255,0.03)",border:activity===k?"1px solid rgba(245,158,11,0.4)":"1px solid rgba(255,255,255,0.08)",borderRadius:8,cursor:"pointer",WebkitTapHighlightColor:"transparent"}}>
+                  <div style={{textAlign:"left"}}>
+                    <div style={{color:activity===k?"#f59e0b":"#e2e8f0",fontSize:13,fontWeight:activity===k?700:400}}>{a.label}</div>
+                    <div style={{color:"#64748b",fontSize:11}}>{a.sub}</div>
+                  </div>
+                  <div style={{color:activity===k?"#f59e0b":"#475569",fontSize:12,fontWeight:700}}>×{a.mult}</div>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* BMR + TDEE display */}
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginTop:4}}>
+            <div style={{background:"rgba(255,255,255,0.04)",borderRadius:10,padding:"12px",textAlign:"center"}}>
+              <div style={{color:"#64748b",fontSize:11,marginBottom:4}}>BMR (Mifflin-St Jeor)</div>
+              <div style={{color:"#f1f5f9",fontSize:22,fontWeight:700}}>{bmr.toLocaleString()}</div>
+              <div style={{color:"#475569",fontSize:11}}>kcal/day at rest</div>
+            </div>
+            <div style={{background:"rgba(245,158,11,0.08)",border:"1px solid rgba(245,158,11,0.2)",borderRadius:10,padding:"12px",textAlign:"center"}}>
+              <div style={{color:"#f59e0b",fontSize:11,marginBottom:4,fontWeight:700}}>TDEE</div>
+              <div style={{color:"#f1f5f9",fontSize:22,fontWeight:700}}>{tdee.toLocaleString()}</div>
+              <div style={{color:"#94a3b8",fontSize:11}}>kcal/day maintenance</div>
+            </div>
           </div>
         </div>
-        <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:10,marginBottom:14}}>
+
+        {/* Goal selector */}
+        <div style={S.card}>
+          <h2 style={{...S.cT,marginBottom:12}}>Goal</h2>
+          <div style={{display:"flex",flexDirection:"column",gap:8}}>
+            {Object.entries(goals).map(([k,gd])=>(
+              <button key={k} onClick={()=>setGoal(k)} style={{display:"flex",alignItems:"center",gap:12,padding:"12px 14px",background:goal===k?`rgba(${gd.color.slice(1).match(/../g).map(x=>parseInt(x,16)).join(',')},0.1)`:"rgba(255,255,255,0.03)",border:goal===k?`1px solid ${gd.color}50`:"1px solid rgba(255,255,255,0.08)",borderRadius:10,cursor:"pointer",WebkitTapHighlightColor:"transparent",textAlign:"left"}}>
+                <span style={{fontSize:22}}>{gd.icon}</span>
+                <div>
+                  <div style={{color:goal===k?gd.color:"#e2e8f0",fontWeight:goal===k?700:400,fontSize:14}}>{gd.label}</div>
+                  <div style={{color:"#64748b",fontSize:11,marginTop:2}}>{gd.surplusNote}</div>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Macro breakdown */}
+        <div style={S.card}>
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
+            <h2 style={{...S.cT,marginBottom:0}}>Daily Targets</h2>
+            <span style={{background:`${g.color}20`,color:g.color,padding:"3px 10px",borderRadius:20,fontSize:12,fontWeight:700}}>{g.label}</span>
+          </div>
+
+          {/* Calorie target */}
+          <div style={{background:`${g.color}10`,border:`1px solid ${g.color}30`,borderRadius:12,padding:"16px",marginBottom:14,textAlign:"center"}}>
+            <div style={{color:g.color,fontSize:11,fontWeight:700,marginBottom:4}}>TARGET CALORIES</div>
+            <div style={{color:"#f1f5f9",fontSize:36,fontWeight:800}}>{g.calories.toLocaleString()}</div>
+            <div style={{color:"#64748b",fontSize:12,marginTop:4}}>{g.surplusNote}</div>
+          </div>
+
+          {/* Macro rows */}
           {[
-            {label:"Daily Calories",value:`~${p.calories.toLocaleString()}`,unit:"kcal",color:p.color},
-            {label:"Caloric Offset",value:p.surplus,unit:"vs TDEE",color:"#94a3b8"},
-            {label:"Protein",value:p.protein,unit:"/ day",color:"#4ade80"},
-            {label:"Fat",value:p.fat,unit:"/ day",color:"#f59e0b"},
-          ].map((m,i)=>(
-            <div key={i} style={{background:"rgba(255,255,255,0.03)",border:`1px solid ${m.color}30`,borderRadius:10,padding:"12px 14px"}}>
-              <div style={{color:"#64748b",fontSize:11,marginBottom:4}}>{m.label}</div>
-              <div style={{color:m.color,fontWeight:800,fontSize:18}}>{m.value}</div>
-              <div style={{color:"#475569",fontSize:11}}>{m.unit}</div>
+            {name:"Protein",icon:"🥩",min:g.proteinMin,max:g.proteinMax,unit:"g",cal:g.proteinMin*4,pct:Math.round(g.proteinMin*4/g.calories*100),color:"#4ade80",note:g.proteinNote},
+            {name:"Fat",icon:"🧈",min:g.fatMin,max:g.fatMax,unit:"g",cal:g.fatMin*9,pct:Math.round(g.fatMin*9/g.calories*100),color:"#f59e0b",note:g.fatNote},
+            {name:"Carbs",icon:"🍚",min:carbsG,max:null,unit:"g",cal:carbCals,pct:Math.round(carbCals/g.calories*100),color:"#60a5fa",note:"Fill remaining calories after protein + fat"},
+          ].map(macro=>(
+            <div key={macro.name} style={{background:"rgba(255,255,255,0.03)",borderRadius:10,padding:"12px 14px",marginBottom:8,border:"1px solid rgba(255,255,255,0.06)"}}>
+              <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:6}}>
+                <div style={{display:"flex",alignItems:"center",gap:8}}>
+                  <span style={{fontSize:18}}>{macro.icon}</span>
+                  <span style={{color:"#e2e8f0",fontWeight:700,fontSize:14}}>{macro.name}</span>
+                </div>
+                <div style={{textAlign:"right"}}>
+                  <div style={{color:macro.color,fontWeight:800,fontSize:18}}>
+                    {macro.max?`${macro.min}–${macro.max}`:macro.min}{macro.unit}
+                  </div>
+                  <div style={{color:"#64748b",fontSize:10}}>{macro.pct}% · ~{macro.cal.toLocaleString()} kcal</div>
+                </div>
+              </div>
+              {/* Progress bar */}
+              <div style={{height:4,background:"rgba(255,255,255,0.06)",borderRadius:2,overflow:"hidden"}}>
+                <div style={{height:"100%",width:`${macro.pct}%`,background:macro.color,borderRadius:2,transition:"width 0.4s"}}/>
+              </div>
+              <div style={{color:"#475569",fontSize:11,marginTop:6,fontStyle:"italic"}}>{macro.note}</div>
             </div>
           ))}
-        </div>
-        <div style={{background:"rgba(255,255,255,0.03)",borderRadius:10,padding:"12px 14px",border:"1px solid rgba(255,255,255,0.07)"}}>
-          <div style={{display:"flex",justifyContent:"space-between",marginBottom:8}}>
-            <span style={S.lbl}>Macro Breakdown</span>
-            <span style={{color:"#475569",fontSize:11}}>{p.calories} kcal</span>
+
+          <div style={{background:"rgba(255,255,255,0.03)",borderRadius:8,padding:"10px 12px",marginTop:4,border:"1px solid rgba(255,255,255,0.06)"}}>
+            <div style={{color:"#94a3b8",fontSize:12,lineHeight:1.6}}>{g.rateNote}</div>
           </div>
+
+          <div style={{marginTop:12,padding:"8px 12px",background:"rgba(255,255,255,0.03)",borderRadius:8}}>
+            <div style={{color:"#475569",fontSize:10,marginBottom:4}}>Sources</div>
+            {g.sources.map((s,i)=><div key={i} style={{color:"#475569",fontSize:11}}>· {s}</div>)}
+          </div>
+        </div>
+
+        {/* Meal timing */}
+        <div style={S.card}>
+          <h2 style={{...S.cT,marginBottom:14}}>⏰ Meal Timing & Frequency</h2>
           {[
-            {name:"Protein",g:proteinG,color:"#4ade80",pct:Math.round(proteinG*4/p.calories*100)},
-            {name:"Fat",g:fatG,color:"#f59e0b",pct:Math.round(fatG*9/p.calories*100)},
-            {name:"Carbs",g:carbsG,color:"#06b6d4",pct:Math.round(carbsG*4/p.calories*100)},
-          ].map((m,i)=>(
-            <div key={i} style={{marginBottom:8}}>
-              <div style={{display:"flex",justifyContent:"space-between",marginBottom:3}}>
-                <span style={{color:"#94a3b8",fontSize:12}}>{m.name}</span>
-                <span style={{color:m.color,fontSize:12,fontWeight:600}}>~{Math.round(m.g)}g ({m.pct}%)</span>
+            {label:"Total meals/day",val:"3–5",note:"Research shows protein distribution across meals matters more than total count. Aim for 30–50g protein per meal."},
+            {label:"Pre-workout meal",val:"1–3 hrs before",note:"A protein + carb meal 1-3 hours before training is sufficient. No need for special timing if you train early."},
+            {label:"Post-workout",val:"Within 3 hours",note:"The 'anabolic window' is 3+ hours wide, not 30 minutes. Hit your total daily protein first."},
+            {label:"Protein per meal",val:"30–50g",note:"~0.4g/kg per meal is the threshold to maximally stimulate muscle protein synthesis (Jorn Trommelen, PhD)."},
+            {label:"Before bed",val:"Casein 40g optional",note:"Slow-digesting casein (cottage cheese, Greek yogurt) before sleep may support overnight MPS — moderate evidence."},
+          ].map((row,i)=>(
+            <div key={i} style={{padding:"10px 0",borderTop:i>0?"1px solid rgba(255,255,255,0.04)":"none"}}>
+              <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
+                <div style={{color:"#94a3b8",fontSize:13}}>{row.label}</div>
+                <div style={{color:"#f59e0b",fontWeight:700,fontSize:13,textAlign:"right",marginLeft:12}}>{row.val}</div>
               </div>
-              <div style={{height:4,background:"rgba(255,255,255,0.06)",borderRadius:2}}>
-                <div style={{height:"100%",width:`${Math.min(m.pct,100)}%`,background:m.color,borderRadius:2}}/>
+              <div style={{color:"#475569",fontSize:11,marginTop:3,lineHeight:1.5}}>{row.note}</div>
+            </div>
+          ))}
+        </div>
+      </>)}
+
+      {section==="supplements"&&(
+        <div>
+          <div style={{...S.card,marginBottom:12}}>
+            <p style={{color:"#94a3b8",fontSize:13,lineHeight:1.6,margin:0}}>
+              Supplements are additive, not foundational. Fix sleep, diet, and training first.
+              At best, supplements add 2–5% to results (Dr. Mike Israetel, Renaissance Diet 2.0).
+              Tier 1 = strong evidence from multiple studies. Tier 2 = moderate benefit, context-dependent. Tier 3 = weak or situational.
+            </p>
+          </div>
+          {[1,2,3].map(tier=>{
+            const tb=tierBadge(tier);
+            return (
+              <div key={tier} style={{...S.card,marginBottom:12}}>
+                <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14}}>
+                  <span style={{background:tb.bg,color:tb.color,padding:"4px 10px",borderRadius:8,fontSize:11,fontWeight:700}}>{tb.label}</span>
+                  <span style={{color:"#475569",fontSize:11}}>{tb.note}</span>
+                </div>
+                {supps.filter(s=>s.tier===tier).map((s,i)=>(
+                  <div key={i} style={{padding:"12px 0",borderTop:i>0?"1px solid rgba(255,255,255,0.04)":"none"}}>
+                    <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:4}}>
+                      <div style={{display:"flex",alignItems:"center",gap:8}}>
+                        <span style={{fontSize:18}}>{s.icon}</span>
+                        <span style={{color:"#e2e8f0",fontWeight:600,fontSize:14}}>{s.name}</span>
+                      </div>
+                      <span style={{background:`${s.color}15`,color:s.color,padding:"2px 8px",borderRadius:6,fontSize:10,fontWeight:700,flexShrink:0,marginLeft:8}}>{s.dose}</span>
+                    </div>
+                    <div style={{color:"#64748b",fontSize:11,marginBottom:4}}>⏱ {s.timing}</div>
+                    <div style={{color:"#94a3b8",fontSize:12,lineHeight:1.5}}>{s.evidence}</div>
+                  </div>
+                ))}
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {section==="principles"&&(
+        <div>
+          <div style={{...S.card,marginBottom:12}}>
+            <p style={{color:"#94a3b8",fontSize:13,lineHeight:1.6,margin:0}}>
+              Based on Eric Helms' Muscle & Strength Pyramid, Greg Nuckols' Stronger By Science, and Dr. Mike Israetel's Renaissance Diet 2.0. These are the principles that actually move the needle, ranked by impact.
+            </p>
+          </div>
+          {principles.map((p,i)=>(
+            <div key={i} style={{...S.card,marginBottom:10}}>
+              <div style={{display:"flex",gap:12,alignItems:"flex-start"}}>
+                <span style={{fontSize:22,lineHeight:1,flexShrink:0}}>{p.icon}</span>
+                <div>
+                  <div style={{color:"#f1f5f9",fontWeight:700,fontSize:14,marginBottom:6}}>
+                    <span style={{color:"#f59e0b",marginRight:6}}>#{i+1}</span>{p.title}
+                  </div>
+                  <div style={{color:"#94a3b8",fontSize:13,lineHeight:1.65}}>{p.body}</div>
+                </div>
               </div>
             </div>
           ))}
         </div>
-        <div style={{marginTop:12,padding:10,background:"rgba(255,255,255,0.02)",borderRadius:8,border:"1px solid rgba(255,255,255,0.06)"}}>
-          <div style={{color:"#64748b",fontSize:11,lineHeight:1.8}}>
-            <div>📌 <strong style={{color:"#94a3b8"}}>Protein:</strong> {p.proteinNote}</div>
-            <div>📌 <strong style={{color:"#94a3b8"}}>Fat:</strong> {p.fatNote}</div>
-            <div>📌 <strong style={{color:"#94a3b8"}}>Rate:</strong> {p.rate}</div>
-          </div>
-        </div>
-      </div>
-
-      <div style={S.card}>
-        <h2 style={{...S.cT,marginBottom:4}}>Supplements</h2>
-        <p style={{color:"#64748b",fontSize:13,marginBottom:14}}>Evidence-based only. Food first, always.</p>
-        {supps.map((s,i)=>(
-          <div key={i} style={{display:"flex",gap:12,padding:"12px 0",borderTop:"1px solid rgba(255,255,255,0.05)",alignItems:"flex-start"}}>
-            <span style={{fontSize:22,lineHeight:1.2}}>{s.icon}</span>
-            <div style={{flex:1}}>
-              <div style={{color:"#e2e8f0",fontWeight:600,fontSize:14}}>{s.name}</div>
-              <div style={{display:"flex",gap:12,marginTop:3}}>
-                <span style={{color:"#f59e0b",fontSize:12,fontWeight:600}}>{s.dose}</span>
-                <span style={{color:"#64748b",fontSize:12}}>· {s.timing}</span>
-              </div>
-              <div style={{color:"#475569",fontSize:12,marginTop:4,fontStyle:"italic"}}>{s.note}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div style={S.card}>
-        <h2 style={{...S.cT,marginBottom:14}}>📖 Nippard's Key Principles</h2>
-        {tips.map((t,i)=>(
-          <div key={i} style={{display:"flex",gap:10,padding:"8px 0",borderTop:"1px solid rgba(255,255,255,0.04)"}}>
-            <span style={{color:"#f59e0b",fontWeight:700,minWidth:20,fontSize:12,paddingTop:1}}>{i+1}.</span>
-            <span style={{color:"#94a3b8",fontSize:13,lineHeight:1.6}}>{t}</span>
-          </div>
-        ))}
-      </div>
+      )}
     </div>
   );
 }
