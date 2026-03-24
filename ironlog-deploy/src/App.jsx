@@ -3277,16 +3277,16 @@ export default function IronLog() {
           <div style={{display:"flex",alignItems:"center",gap:8}}>
             <button onClick={async()=>{const u=unit==="lb"?"kg":"lb";setUnit(u);await store.set("il_unit",u);}} style={{background:"rgba(245,158,11,0.1)",border:"1px solid rgba(245,158,11,0.3)",color:"#f59e0b",borderRadius:8,padding:"5px 10px",cursor:"pointer",fontSize:11,fontWeight:700,fontFamily:"inherit",outline:"none",WebkitTapHighlightColor:"transparent"}}>{unit}</button>
             <nav style={S.nav}>
-            {tabs.map(t=>(
-              <button key={t.id} onClick={()=>{
-                // Collapse any expanded session when navigating away from history
-                if(view==="history" && t.id!=="history") setHistoryExp(null);
-                setView(t.id);
-              }} style={{...S.navB,...(view===t.id?S.navBA:{})}}>
-                <span style={S.navI}>{t.icon}</span><span style={S.navL}>{t.label}</span>
-              </button>
-            ))}
-          </nav>
+              {tabs.map(t=>(
+                <button key={t.id} onClick={()=>{
+                  if(view==="history" && t.id!=="history") setHistoryExp(null);
+                  setView(t.id);
+                }} style={{...S.navB,...(view===t.id?S.navBA:{})}}>
+                  <span style={S.navI}>{t.icon}</span><span style={S.navL}>{t.label}</span>
+                </button>
+              ))}
+            </nav>
+          </div>
         </div>
       </header>
       <main style={S.main}>
