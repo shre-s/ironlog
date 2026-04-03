@@ -1078,7 +1078,7 @@ const EX_INSTRUCTIONS = {
   "m_reverse_crunch":{level:"beginner",instructions:["Lie down on the floor with your legs fully extended and arms to the side of your torso with the palms on the floor. Your arms should be stationary for the entire exercise.","Move your legs up so that your thighs are perpendicular to the floor and feet are together and parallel to the floor. This is the starting position.","While inhaling, move your legs towards the torso as you roll your pelvis backwards and you raise your hips off the floor. At the end of this movement your knees will be touching your chest.","Hold the contraction for a second and move your legs back to the starting position while exhaling.","Repeat for the recommended amount of repetitions."]},
   "m_hanging_leg_raise":{level:"expert",instructions:["Hang from a chin-up bar with both arms extended at arms length in top of you using either a wide grip or a medium grip. The legs should be straight down with the pelvis rolled slightly backwards. This will be your starting position.","Raise your legs until the torso makes a 90-degree angle with the legs. Exhale as you perform this movement and hold the contraction for a second or so.","Go back slowly to the starting position as you breathe in.","Repeat for the recommended amount of repetitions."]},
   "m_situp":{level:"beginner",instructions:["Lie down on the floor placing your feet either under something that will not move or by having a partner hold them. Your legs should be bent at the knees.","Place your hands behind your head and lock them together by clasping your fingers. This is the starting position.","Elevate your upper body so that it creates an imaginary V-shape with your thighs. Breathe out when performing this part of the exercise.","Once you feel the contraction for a second, lower your upper body back down to the starting position while inhaling.","Repeat for the recommended amount of repetitions."]},
-  "m_pallof_press":{level:"beginner",instructions:["Connect a standard handle to a tower, andâ€”if possibleâ€”position the cable to shoulder height. If not, a low pulley will suffice.","With your side to the cable, grab the handle with both hands and step away from the tower. You should be approximately arm's length away from the pulley, with the tension of the weight on the cable.","With your feet positioned hip-width apart and knees slightly bent, hold the cable to the middle of your chest. This will be your starting position.","Press the cable away from your chest, fully extending both arms. You core should be tight and engaged.","Hold the repetition for several seconds before returning to the starting position.","At the conclusion of the set, repeat facing the other direction."]},
+  "m_pallof_press":{level:"beginner",instructions:["Connect a standard handle to a tower, and—if possible—position the cable to shoulder height. If not, a low pulley will suffice.","With your side to the cable, grab the handle with both hands and step away from the tower. You should be approximately arm's length away from the pulley, with the tension of the weight on the cable.","With your feet positioned hip-width apart and knees slightly bent, hold the cable to the middle of your chest. This will be your starting position.","Press the cable away from your chest, fully extending both arms. You core should be tight and engaged.","Hold the repetition for several seconds before returning to the starting position.","At the conclusion of the set, repeat facing the other direction."]},
   "m_russian_twist":{level:"intermediate",instructions:["Lie down on the floor placing your feet either under something that will not move or by having a partner hold them. Your legs should be bent at the knees.","Elevate your upper body so that it creates an imaginary V-shape with your thighs. Your arms should be fully extended in front of you perpendicular to your torso and with the hands clasped. This is the starting position.","Twist your torso to the right side until your arms are parallel with the floor while breathing out.","Hold the contraction for a second and move back to the starting position while breathing out. Now move to the opposite side performing the same techniques you applied to the right side.","Repeat for the recommended amount of repetitions."]},
   "m_dead_bug":{level:"beginner",instructions:["Begin lying on your back with your hands extended above you toward the ceiling.","Bring your feet, knees, and hips up to 90 degrees.","Exhale hard to bring your ribcage down and flatten your back onto the floor, rotating your pelvis up and squeezing your glutes. Hold this position throughout the movement. This will be your starting position.","Initiate the exercise by extending one leg, straightening the knee and hip to bring the leg just above the ground.","Maintain the position of your lumbar and pelvis as you perform the movement, as your back is going to want to arch.","Stay tight and return the working leg to the starting position."]},
   "m_farmers_walk":{level:"intermediate",instructions:["There are various implements that can be used for the farmers walk. These can also be performed with heavy dumbbells or short bars if these implements aren't available. Begin by standing between the implements.","After gripping the handles, lift them up by driving through your heels, keeping your back straight and your head up.","Walk taking short, quick steps, and don't forget to breathe. Move for a given distance, typically 50-100 feet, as fast as possible."]},
@@ -1090,7 +1090,7 @@ const EX_INSTRUCTIONS = {
   "m_tire_flip":{level:"intermediate",instructions:["Begin by gripping the bottom of the tire on the tread, and position your feet back a bit. Your chest should be driving into the tire.","To lift the tire, extend through the hips, knees, and ankles, driving into the tire and up.","As the tire reaches a 45 degree angle, step forward and drive a knee into the tire. As you do so adjust your grip to the upper portion of the tire and push it forward as hard as possible to complete the turn. Repeat as necessary."]},
   "m_lateral_bound":{level:"beginner",instructions:["Assume a half squat position facing 90 degrees from your direction of travel. This will be your starting position.","Allow your lead leg to do a countermovement inward as you shift your weight to the outside leg.","Immediately push off and extend, attempting to bound to the side as far as possible.","Upon landing, immediately push off in the opposite direction, returning to your original start position.","Continue back and forth for several repetitions."]},
   "m_split_jerk":{level:"intermediate",instructions:["Standing with the weight racked on the front of the shoulders, begin with the dip. With your feet directly under your hips, flex the knees without moving the hips backward.","Go down only slightly, and reverse direction as powerfully as possible. Drive through the heels create as much speed and force as possible, and be sure to move your head out of the way as the bar leaves the shoulders. At this moment as the feet leave the floor, the feet must be placed into the receiving position as quickly as possible.","In the brief moment the feet are not actively driving against the platform, the athlete's effort to push the bar up will drive them down. The feet should be moved to a split stance, one foot forward, one foot back, with the knees partially bent. Receive the bar with the arms locked out overhead.","Return to a standing position, bringing the feet together."]},
-  "db_3_4_Sit-Up":{level:"beginner",instructions:["Lie down on the floor and secure your feet. Your legs should be bent at the knees.","Place your hands behind or to the side of your head. You will begin with your back on the ground. This will be your starting position.","Flex your hips and spine to raise your torso toward your knees.","At the top of the contraction your torso should be perpendicular to the ground. Reverse the motion, going only Â¾ of the way down.","Repeat for the recommended amount of repetitions."]},
+  "db_3_4_Sit-Up":{level:"beginner",instructions:["Lie down on the floor and secure your feet. Your legs should be bent at the knees.","Place your hands behind or to the side of your head. You will begin with your back on the ground. This will be your starting position.","Flex your hips and spine to raise your torso toward your knees.","At the top of the contraction your torso should be perpendicular to the ground. Reverse the motion, going only ¾ of the way down.","Repeat for the recommended amount of repetitions."]},
   "db_Ab_Crunch_Machine":{level:"intermediate",instructions:["Select a light resistance and sit down on the ab machine placing your feet under the pads provided and grabbing the top handles. Your arms should be bent at a 90 degree angle as you rest the triceps on the pads provided. This will be your starting position.","At the same time, begin to lift the legs up as you crunch your upper torso. Breathe out as you perform this movement. Tip: Be sure to use a slow and controlled motion. Concentrate on using your abs to move the weight while relaxing your legs and feet.","After a second pause, slowly return to the starting position as you breathe in.","Repeat the movement for the prescribed amount of repetitions."]},
   "db_Ab_Roller":{level:"intermediate",instructions:["Hold the Ab Roller with both hands and kneel on the floor.","Now place the ab roller on the floor in front of you so that you are on all your hands and knees (as in a kneeling push up position). This will be your starting position.","Slowly roll the ab roller straight forward, stretching your body into a straight position. Tip: Go down as far as you can without touching the floor with your body. Breathe in during this portion of the movement.","After a pause at the stretched position, start pulling yourself back to the starting position as you breathe out. Tip: Go slowly and keep your abs tight at all times."]},
   "db_Advanced_Kettlebell_Windmill":{level:"intermediate",instructions:["Clean and press a kettlebell overhead with one arm.","Keeping the kettlebell locked out at all times, push your butt out in the direction of the locked out kettlebell. Keep the non-working arm behind your back and turn your feet out at a forty-five degree angle from the arm with the kettlebell.","Lower yourself as far as possible.","Pause for a second and reverse the motion back to the starting position."]},
@@ -1181,7 +1181,7 @@ const EX_INSTRUCTIONS = {
   "db_Cable_Hammer_Curls_-_Rope_Attachment":{level:"beginner",instructions:["Attach a rope attachment to a low pulley and stand facing the machine about 12 inches away from it.","Grasp the rope with a neutral (palms-in) grip and stand straight up keeping the natural arch of the back and your torso stationary.","Put your elbows in by your side and keep them there stationary during the entire movement. Tip: Only the forearms should move; not your upper arms. This will be your starting position.","Using your biceps, pull your arms up as you exhale until your biceps touch your forearms. Tip: Remember to keep the elbows in and your upper arms stationary.","After a 1 second contraction where you squeeze your biceps, slowly start to bring the weight back to the original position.","Repeat for the recommended amount of repetitions."]},
   "db_Cable_Incline_Pushdown":{level:"beginner",instructions:["Lie on incline an bench facing away from a high pulley machine that has a straight bar attachment on it.","Grasp the straight bar attachment overhead with a pronated (overhand; palms down) shoulder width grip and extend your arms in front of you. The bar should be around 2 inches away from your upper thighs. This will be your starting position.","Keeping the upper arms stationary, lift your arms back in a semi circle until the bar is straight over your head. Breathe in during this portion of the movement.","Slowly go back to the starting position using your lats and hold the contraction once you reach the starting position. Breathe out during the execution of this movement.","Repeat for the recommended amount of repetitions."]},
   "db_Cable_Incline_Triceps_Extension":{level:"beginner",instructions:["Lie on incline an bench facing away from a high pulley machine that has a straight bar attachment on it.","Grasp the straight bar attachment overhead with a pronated (overhand; palms down) narrow grip (less than shoulder width) and keep your elbows tucked in to your sides. Your upper arms should create around a 25 degree angle when measured from the floor.","Keeping the upper arms stationary, extend the arms as you flex the triceps. Breathe out during this portion of the movement and hold the contraction for a second.","Slowly go back to the starting position.","Repeat for the recommended amount of repetitions."]},
-  "db_Cable_Internal_Rotation":{level:"beginner",instructions:["Sit next to a low pulley sideways (with legs stretched in front of you or crossed) and grasp the single hand cable attachment with the arm nearest to the cable. Tip: If you can adjust the pulley's height, you can use a flat bench to sit on instead.","Position the elbow against your side with the elbow bent at 90Â° and the arm pointing towards the pulley. This will be your starting position.","Pull the single hand cable attachment toward your body by internally rotating your shoulder until your forearm is across your abs. You will be creating an imaginary semi-circle. Tip: The forearm should be perpendicular to your torso at all times.","Slowly go back to the initial position.","Repeat for the recommended amount of repetitions and then repeat the movement with the next arm."]},
+  "db_Cable_Internal_Rotation":{level:"beginner",instructions:["Sit next to a low pulley sideways (with legs stretched in front of you or crossed) and grasp the single hand cable attachment with the arm nearest to the cable. Tip: If you can adjust the pulley's height, you can use a flat bench to sit on instead.","Position the elbow against your side with the elbow bent at 90° and the arm pointing towards the pulley. This will be your starting position.","Pull the single hand cable attachment toward your body by internally rotating your shoulder until your forearm is across your abs. You will be creating an imaginary semi-circle. Tip: The forearm should be perpendicular to your torso at all times.","Slowly go back to the initial position.","Repeat for the recommended amount of repetitions and then repeat the movement with the next arm."]},
   "db_Cable_Iron_Cross":{level:"beginner",instructions:["Begin by moving the pulleys to the high position, select the resistance to be used, and take a handle in each hand.","Stand directly between both pulleys with your arms extended out to your sides. Your head and chest should be up while your arms form a \"T\". This will be your starting position.","Keeping the elbows extended, pull your arms straight to your sides.","Return your arms back to the starting position after a pause at the peak contraction.","Continue the movement for the prescribed number of repetitions."]},
   "db_Cable_Judo_Flip":{level:"beginner",instructions:["Connect a rope attachment to a tower, and move the cable to the lowest pulley position. Stand with your side to the cable with a wide stance, and grab the rope with both hands.","Twist your body away from the pulley as you bring the rope over your shoulder like you're performing a judo flip.","Shift your weight between your feet as you twist and crunch forward, pulling the cable downward.","Return to the starting position and repeat until failure.","Then, reposition and repeat the same series of movements on the opposite side."]},
   "db_Cable_Lying_Triceps_Extension":{level:"beginner",instructions:["Lie on a flat bench and grasp the straight bar attachment of a low pulley with a narrow overhand grip. Tip: The easiest way to do this is to have someone hand you the bar as you lay down.","With your arms extended, position the bar over your torso. Your arms and your torso should create a 90-degree angle. This will be your starting position.","Lower the bar by bending at the elbow while keeping the upper arms stationary and elbows in. Go down until the bar lightly touches your forehead. Breathe in as you perform this portion of the movement.","Flex the triceps as you lift the bar back to its starting position. Exhale as you perform this portion of the movement.","Hold for a second at the contracted position and repeat for the recommended amount of repetitions."]},
@@ -1765,65 +1765,65 @@ const CATS = [...new Set(ALL_EX.map(e=>e.cat))];
 
 const PROGRAMS = [
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 // BEGINNER STRENGTH (3 programs)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 {
-  id:"stronglifts_5x5", name:"StrongLifts 5Ã—5", cat:"beginner_strength", emoji:"ðŸ‹ï¸",
+  id:"stronglifts_5x5", name:"StrongLifts 5×5", cat:"beginner_strength", emoji:"🏋️",
   days:3, weeks:12, level:"Beginner", source:"Mehdi / StrongLifts",
   tagline:"The gold-standard beginner barbell program. Add weight every session.",
-  desc:"Alternate Workout A and B, three times per week with a rest day between. Add 5 lb to upper body lifts and 10 lb to lower body lifts every session. When you fail to complete 5Ã—5, retry twice, then deload 10%.",
+  desc:"Alternate Workout A and B, three times per week with a rest day between. Add 5 lb to upper body lifts and 10 lb to lower body lifts every session. When you fail to complete 5×5, retry twice, then deload 10%.",
   goals:["Fast strength gains","Master the big 5 lifts","Build a foundation","Add weight every session"],
-  progression:"Linear â€” +5 lb upper / +10 lb lower per session. Deload 10% after 3 consecutive failures.",
+  progression:"Linear — +5 lb upper / +10 lb lower per session. Deload 10% after 3 consecutive failures.",
   equipment:"Barbell, squat rack, bench",
   sched:["Workout A","Rest","Workout B","Rest","Workout A","Rest","Rest"],
   workouts:{
-    "Workout A":{focus:"Squat Â· Bench Â· Barbell Row",exs:[
-      {id:"squat",sets:5,reps:"5",rest:"3-5 min",notes:"5Ã—5 every session. Core lift."},
+    "Workout A":{focus:"Squat · Bench · Barbell Row",exs:[
+      {id:"squat",sets:5,reps:"5",rest:"3-5 min",notes:"5×5 every session. Core lift."},
       {id:"bench_press",sets:5,reps:"5",rest:"3-5 min",notes:"Alternate with OHP each session"},
       {id:"barbell_row",sets:5,reps:"5",rest:"3-5 min",notes:"Pendlay or Yates style"},
     ]},
-    "Workout B":{focus:"Squat Â· Overhead Press Â· Deadlift",exs:[
+    "Workout B":{focus:"Squat · Overhead Press · Deadlift",exs:[
       {id:"squat",sets:5,reps:"5",rest:"3-5 min",notes:"Same weight as last session"},
       {id:"overhead_press",sets:5,reps:"5",rest:"3-5 min",notes:"Alternate with bench each session"},
-      {id:"deadlift",sets:1,reps:"5",rest:"5 min",notes:"1Ã—5 â€” heavy single top set"},
+      {id:"deadlift",sets:1,reps:"5",rest:"5 min",notes:"1×5 — heavy single top set"},
     ]},
   }
 },
 {
-  id:"gzclp_3day", name:"GZCLP", cat:"beginner_strength", emoji:"âš™ï¸",
+  id:"gzclp_3day", name:"GZCLP", cat:"beginner_strength", emoji:"⚙️",
   days:3, weeks:12, level:"Beginner", source:"Cody LeFever (u/gzcl)",
   tagline:"Higher volume than StrongLifts. Teaches the T1/T2/T3 tier system.",
-  desc:"Three tiers: T1 = heavy compound (5Ã—3 AMRAP), T2 = secondary compound (3Ã—10 AMRAP), T3 = isolation (2-3Ã—15+). Rotate 4 workouts (A1â†’A2â†’B1â†’B2) across 3 training days. Add weight after completing target reps; if you fail 3 stages, reset to 85% of last successful T1 weight.",
+  desc:"Three tiers: T1 = heavy compound (5×3 AMRAP), T2 = secondary compound (3×10 AMRAP), T3 = isolation (2-3×15+). Rotate 4 workouts (A1→A2→B1→B2) across 3 training days. Add weight after completing target reps; if you fail 3 stages, reset to 85% of last successful T1 weight.",
   goals:["Strength + muscle","Learn tier-based training","Compound lift mastery","Higher volume than SS/SL"],
-  progression:"T1: +5 lb after completing all reps (Stage 1: 5Ã—3, Stage 2: 6Ã—2, Stage 3: 10Ã—1). T2: +5-10 lb after completing AMRAP at top rep range.",
+  progression:"T1: +5 lb after completing all reps (Stage 1: 5×3, Stage 2: 6×2, Stage 3: 10×1). T2: +5-10 lb after completing AMRAP at top rep range.",
   equipment:"Barbell, squat rack, bench",
   sched:["A1","Rest","A2","Rest","B1","Rest","Rest"],
   workouts:{
-    "Workout A1":{focus:"Squat T1 Â· OHP T2 Â· Lat Pulldown T3",exs:[
-      {id:"squat",sets:"5",reps:"3 (last set AMRAP)",rest:"3-5 min",notes:"T1 â€” 85% of 5RM. Last set max reps."},
-      {id:"overhead_press",sets:"3",reps:"10 (last set AMRAP)",rest:"2-3 min",notes:"T2 â€” moderate weight, high reps"},
-      {id:"lat_pulldown",sets:"3",reps:"15+",rest:"90 sec",notes:"T3 â€” pump work, 3 sets"},
+    "Workout A1":{focus:"Squat T1 · OHP T2 · Lat Pulldown T3",exs:[
+      {id:"squat",sets:"5",reps:"3 (last set AMRAP)",rest:"3-5 min",notes:"T1 — 85% of 5RM. Last set max reps."},
+      {id:"overhead_press",sets:"3",reps:"10 (last set AMRAP)",rest:"2-3 min",notes:"T2 — moderate weight, high reps"},
+      {id:"lat_pulldown",sets:"3",reps:"15+",rest:"90 sec",notes:"T3 — pump work, 3 sets"},
     ]},
-    "Workout A2":{focus:"Squat T1 Â· OHP T2 Â· Lat Pulldown T3",exs:[
-      {id:"squat",sets:"6",reps:"2 (if failed A1 stage)",rest:"3-5 min",notes:"T1 â€” progress to Stage 2 if needed"},
-      {id:"overhead_press",sets:"3",reps:"10 (last AMRAP)",rest:"2-3 min",notes:"T2 â€” add weight if hit top reps"},
+    "Workout A2":{focus:"Squat T1 · OHP T2 · Lat Pulldown T3",exs:[
+      {id:"squat",sets:"6",reps:"2 (if failed A1 stage)",rest:"3-5 min",notes:"T1 — progress to Stage 2 if needed"},
+      {id:"overhead_press",sets:"3",reps:"10 (last AMRAP)",rest:"2-3 min",notes:"T2 — add weight if hit top reps"},
       {id:"lat_pulldown",sets:"3",reps:"15+",rest:"90 sec",notes:"T3"},
     ]},
-    "Workout B1":{focus:"Bench T1 Â· Deadlift T2 Â· Leg Press T3",exs:[
-      {id:"bench_press",sets:"5",reps:"3 (last set AMRAP)",rest:"3-5 min",notes:"T1 â€” same progression as squat"},
-      {id:"deadlift",sets:"3",reps:"10 (last AMRAP)",rest:"3 min",notes:"T2 â€” 60% of 1RM start"},
-      {id:"leg_press",sets:"3",reps:"15+",rest:"90 sec",notes:"T3 â€” quad pump"},
+    "Workout B1":{focus:"Bench T1 · Deadlift T2 · Leg Press T3",exs:[
+      {id:"bench_press",sets:"5",reps:"3 (last set AMRAP)",rest:"3-5 min",notes:"T1 — same progression as squat"},
+      {id:"deadlift",sets:"3",reps:"10 (last AMRAP)",rest:"3 min",notes:"T2 — 60% of 1RM start"},
+      {id:"leg_press",sets:"3",reps:"15+",rest:"90 sec",notes:"T3 — quad pump"},
     ]},
-    "Workout B2":{focus:"Bench T1 Â· Deadlift T2 Â· Leg Press T3",exs:[
-      {id:"bench_press",sets:"6",reps:"2 (if failed B1 stage)",rest:"3-5 min",notes:"T1 â€” progress if needed"},
+    "Workout B2":{focus:"Bench T1 · Deadlift T2 · Leg Press T3",exs:[
+      {id:"bench_press",sets:"6",reps:"2 (if failed B1 stage)",rest:"3-5 min",notes:"T1 — progress if needed"},
       {id:"deadlift",sets:"3",reps:"10 (last AMRAP)",rest:"3 min",notes:"T2"},
       {id:"leg_press",sets:"3",reps:"15+",rest:"90 sec",notes:"T3"},
     ]},
   }
 },
 {
-  id:"reddit_bbr", name:"Reddit Basic Beginner", cat:"beginner_strength", emoji:"ðŸ”°",
+  id:"reddit_bbr", name:"Reddit Basic Beginner", cat:"beginner_strength", emoji:"🔰",
   days:3, weeks:12, level:"Beginner", source:"r/Fitness Wiki",
   tagline:"r/Fitness recommended first program. Simpler than SS, more balanced than SL.",
   desc:"3-day full-body A/B rotation. Squats every session, bench/OHP and row/pull alternating. AMRAP last sets for progress monitoring. Accessory work included for shoulder health and arm balance. Add 5 lb per session to compounds.",
@@ -1832,38 +1832,38 @@ const PROGRAMS = [
   equipment:"Barbell, squat rack, bench, pull-up bar",
   sched:["Workout A","Rest","Workout B","Rest","Workout A","Rest","Rest"],
   workouts:{
-    "Workout A":{focus:"Squat Â· Bench Â· Row",exs:[
-      {id:"squat",sets:3,reps:"5+",rest:"3-5 min",notes:"Last set AMRAP â€” track your reps"},
+    "Workout A":{focus:"Squat · Bench · Row",exs:[
+      {id:"squat",sets:3,reps:"5+",rest:"3-5 min",notes:"Last set AMRAP — track your reps"},
       {id:"bench_press",sets:3,reps:"5+",rest:"3 min",notes:"Last set AMRAP"},
       {id:"barbell_row",sets:3,reps:"5+",rest:"3 min",notes:"Pendlay Row preferred"},
       {id:"pull_up_chinup",sets:3,reps:"max",rest:"2 min",notes:"Or lat pulldown if can't do pull-ups yet"},
-      {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:"Shoulder health â€” every session"},
+      {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:"Shoulder health — every session"},
     ]},
-    "Workout B":{focus:"Squat Â· OHP Â· Deadlift",exs:[
+    "Workout B":{focus:"Squat · OHP · Deadlift",exs:[
       {id:"squat",sets:3,reps:"5+",rest:"3-5 min",notes:"Last set AMRAP"},
       {id:"overhead_press",sets:3,reps:"5+",rest:"3 min",notes:"Last set AMRAP"},
-      {id:"deadlift",sets:1,reps:"5+",rest:"5 min",notes:"1 heavy set â€” AMRAP your last"},
+      {id:"deadlift",sets:1,reps:"5+",rest:"5 min",notes:"1 heavy set — AMRAP your last"},
       {id:"pull_up_chinup",sets:3,reps:"max",rest:"2 min",notes:""},
       {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:"Every session"},
     ]},
   }
 },
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 // PUSH / PULL / LEGS (3 programs)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 {
-  id:"reddit_ppl_6day", name:"Reddit PPL (6-Day)", cat:"ppl", emoji:"ðŸ”„",
-  days:6, weeks:12, level:"Beginnerâ€“Intermediate", source:"u/Metallicadpa (r/Fitness)",
+  id:"reddit_ppl_6day", name:"Reddit PPL (6-Day)", cat:"ppl", emoji:"🔄",
+  days:6, weeks:12, level:"Beginner–Intermediate", source:"u/Metallicadpa (r/Fitness)",
   tagline:"The most popular free PPL program ever. Compounds + isolation, 6 days.",
-  desc:"Combines heavy linear progression on compounds (like SS) with bodybuilding-style isolation work. Run Push/Pull/Legs twice per week. Add 2.5â€“5 lb to upper compounds and 5â€“10 lb to squats/deadlifts each session. When you stall, deload 10% and continue.",
+  desc:"Combines heavy linear progression on compounds (like SS) with bodybuilding-style isolation work. Run Push/Pull/Legs twice per week. Add 2.5–5 lb to upper compounds and 5–10 lb to squats/deadlifts each session. When you stall, deload 10% and continue.",
   goals:["Strength + size","High frequency","Fun variety","Proven for beginners"],
   progression:"Linear: +2.5-5 lb upper compounds per session, +5-10 lb lower per session. Accessories: add weight when you can complete all sets at 12 reps.",
   equipment:"Barbell, dumbbells, cables, pull-up bar",
   sched:["Push","Pull","Legs","Push","Pull","Legs","Rest"],
   workouts:{
-    "Push":{focus:"Chest Â· Shoulders Â· Triceps",exs:[
-      {id:"bench_press",sets:4,reps:"5 / 5 / 5 / 5+",rest:"3-5 min",notes:"Last set AMRAP â€” linear progression"},
+    "Push":{focus:"Chest · Shoulders · Triceps",exs:[
+      {id:"bench_press",sets:4,reps:"5 / 5 / 5 / 5+",rest:"3-5 min",notes:"Last set AMRAP — linear progression"},
       {id:"overhead_press",sets:3,reps:"8-12",rest:"3 min",notes:"Alternate as main lift on 2nd push day"},
       {id:"incline_dumbbell_press",sets:3,reps:"8-12",rest:"2 min",notes:""},
       {id:"cable_fly",sets:3,reps:"8-12",rest:"90 sec",notes:"Stretch at bottom"},
@@ -1871,8 +1871,8 @@ const PROGRAMS = [
       {id:"overhead_tricep_ext",sets:3,reps:"8-12",rest:"90 sec",notes:""},
       {id:"tricep_pushdown",sets:3,reps:"8-12",rest:"60 sec",notes:""},
     ]},
-    "Pull":{focus:"Back Â· Biceps Â· Rear Delts",exs:[
-      {id:"deadlift",sets:1,reps:"5+",rest:"5 min",notes:"Linear progression â€” AMRAP last set"},
+    "Pull":{focus:"Back · Biceps · Rear Delts",exs:[
+      {id:"deadlift",sets:1,reps:"5+",rest:"5 min",notes:"Linear progression — AMRAP last set"},
       {id:"barbell_row",sets:3,reps:"5 / 5 / 5+",rest:"3 min",notes:"Linear progression"},
       {id:"lat_pulldown",sets:3,reps:"8-12",rest:"2 min",notes:"Or pull-ups"},
       {id:"seated_cable_row",sets:3,reps:"8-12",rest:"2 min",notes:""},
@@ -1880,8 +1880,8 @@ const PROGRAMS = [
       {id:"hammer_curl",sets:4,reps:"8-12",rest:"75 sec",notes:""},
       {id:"dumbbell_curl",sets:4,reps:"8-12",rest:"75 sec",notes:""},
     ]},
-    "Legs":{focus:"Quads Â· Hamstrings Â· Glutes Â· Calves",exs:[
-      {id:"squat",sets:4,reps:"5 / 5 / 5 / 5+",rest:"3-5 min",notes:"Last set AMRAP â€” linear progression"},
+    "Legs":{focus:"Quads · Hamstrings · Glutes · Calves",exs:[
+      {id:"squat",sets:4,reps:"5 / 5 / 5 / 5+",rest:"3-5 min",notes:"Last set AMRAP — linear progression"},
       {id:"romanian_deadlift",sets:3,reps:"8-12",rest:"2 min",notes:""},
       {id:"leg_press",sets:3,reps:"8-12",rest:"2 min",notes:""},
       {id:"leg_curl",sets:3,reps:"8-12",rest:"90 sec",notes:""},
@@ -1890,8 +1890,8 @@ const PROGRAMS = [
   }
 },
 {
-  id:"coolcicada_ppl_3day", name:"Coolcicada PPL (3-Day)", cat:"ppl", emoji:"ðŸ”„",
-  days:3, weeks:12, level:"Beginnerâ€“Intermediate", source:"u/Coolcicada (Bodybuilding Forums)",
+  id:"coolcicada_ppl_3day", name:"Coolcicada PPL (3-Day)", cat:"ppl", emoji:"🔄",
+  days:3, weeks:12, level:"Beginner–Intermediate", source:"u/Coolcicada (Bodybuilding Forums)",
   tagline:"Classic 3-day PPL for those who can't train 6 days a week.",
   desc:"The original 3-day PPL from Bodybuilding.com forums. Each muscle group trained once per week with full session focus. Good for beginners transitioning out of full-body routines who want more volume per muscle group.",
   goals:["Muscle building","Classic bodybuilding split","Lower frequency than 6-day","Manageable volume"],
@@ -1899,7 +1899,7 @@ const PROGRAMS = [
   equipment:"Barbell, dumbbells, cables, machine",
   sched:["Push","Rest","Pull","Rest","Legs","Rest","Rest"],
   workouts:{
-    "Push":{focus:"Chest Â· Shoulders Â· Triceps",exs:[
+    "Push":{focus:"Chest · Shoulders · Triceps",exs:[
       {id:"bench_press",sets:4,reps:"6-10",rest:"3 min",notes:"Primary chest compound"},
       {id:"incline_dumbbell_press",sets:3,reps:"8-12",rest:"2 min",notes:""},
       {id:"cable_fly",sets:3,reps:"12-15",rest:"90 sec",notes:"Isolation chest"},
@@ -1908,7 +1908,7 @@ const PROGRAMS = [
       {id:"tricep_pushdown",sets:3,reps:"10-15",rest:"90 sec",notes:""},
       {id:"skull_crusher",sets:3,reps:"8-12",rest:"90 sec",notes:""},
     ]},
-    "Pull":{focus:"Back Â· Biceps Â· Rear Delts",exs:[
+    "Pull":{focus:"Back · Biceps · Rear Delts",exs:[
       {id:"barbell_row",sets:4,reps:"6-10",rest:"3 min",notes:"Primary back compound"},
       {id:"lat_pulldown",sets:3,reps:"8-12",rest:"2 min",notes:"Vertical pull"},
       {id:"seated_cable_row",sets:3,reps:"8-12",rest:"2 min",notes:"Horizontal pull"},
@@ -1916,7 +1916,7 @@ const PROGRAMS = [
       {id:"barbell_curl",sets:3,reps:"8-12",rest:"90 sec",notes:""},
       {id:"hammer_curl",sets:3,reps:"10-12",rest:"75 sec",notes:"Brachialis"},
     ]},
-    "Legs":{focus:"Quads Â· Hamstrings Â· Glutes Â· Calves",exs:[
+    "Legs":{focus:"Quads · Hamstrings · Glutes · Calves",exs:[
       {id:"squat",sets:4,reps:"6-10",rest:"3-5 min",notes:"Primary lower compound"},
       {id:"romanian_deadlift",sets:3,reps:"8-12",rest:"2 min",notes:"Hamstrings focus"},
       {id:"leg_press",sets:3,reps:"10-15",rest:"2 min",notes:"Quad volume"},
@@ -1927,16 +1927,16 @@ const PROGRAMS = [
   }
 },
 {
-  id:"dr_swole_pplul", name:"Dr. Swole PPLUL (5-Day)", cat:"ppl", emoji:"ðŸ”„",
-  days:5, weeks:12, level:"Intermediateâ€“Advanced", source:"Dr. Swole",
+  id:"dr_swole_pplul", name:"Dr. Swole PPLUL (5-Day)", cat:"ppl", emoji:"🔄",
+  days:5, weeks:12, level:"Intermediate–Advanced", source:"Dr. Swole",
   tagline:"Push Pull Legs + Upper Lower hybrid. Hits upper body twice, lower body twice.",
   desc:"Solves the weakness of standard PPL (upper body bias) and UL (lower body bias) by combining both. Upper body gets push + pull + upper sessions; lower body gets legs + lower sessions. Requires 2+ years of consistent training. Science-based hypertrophy focus with progressive overload.",
   goals:["Maximum hypertrophy","Balanced upper/lower emphasis","High frequency","Advanced programming"],
   progression:"Add weight or reps each session. RPE 8-9 on all working sets.",
-  equipment:"Full gym â€” barbell, dumbbells, cables, machines",
+  equipment:"Full gym — barbell, dumbbells, cables, machines",
   sched:["Push","Pull","Legs","Upper","Lower","Rest","Rest"],
   workouts:{
-    "Push":{focus:"Chest Â· Shoulders Â· Triceps â€” Heavy",exs:[
+    "Push":{focus:"Chest · Shoulders · Triceps — Heavy",exs:[
       {id:"bench_press",sets:4,reps:"4-6",rpe:"8-9",rest:"3-5 min",notes:"Heavy compound focus"},
       {id:"incline_dumbbell_press",sets:3,reps:"8-12",rpe:"8",rest:"2 min",notes:""},
       {id:"cable_fly",sets:3,reps:"12-15",rpe:"9",rest:"90 sec",notes:"Stretch focused"},
@@ -1944,21 +1944,21 @@ const PROGRAMS = [
       {id:"lateral_raise",sets:4,reps:"12-20",rpe:"9",rest:"60 sec",notes:""},
       {id:"tricep_pushdown",sets:3,reps:"10-15",rpe:"9",rest:"75 sec",notes:""},
     ]},
-    "Pull":{focus:"Back Â· Biceps â€” Heavy",exs:[
+    "Pull":{focus:"Back · Biceps — Heavy",exs:[
       {id:"deadlift",sets:3,reps:"4-6",rpe:"8",rest:"4-5 min",notes:""},
       {id:"barbell_row",sets:3,reps:"6-8",rpe:"8-9",rest:"3 min",notes:""},
       {id:"lat_pulldown",sets:3,reps:"8-12",rpe:"9",rest:"2 min",notes:""},
       {id:"face_pull",sets:4,reps:"15-20",rpe:"8",rest:"60 sec",notes:"Shoulder health"},
       {id:"barbell_curl",sets:3,reps:"8-12",rpe:"9",rest:"90 sec",notes:""},
     ]},
-    "Legs":{focus:"Quads Â· Hamstrings Â· Glutes",exs:[
+    "Legs":{focus:"Quads · Hamstrings · Glutes",exs:[
       {id:"squat",sets:4,reps:"4-6",rpe:"8",rest:"4-5 min",notes:"Heavy compound"},
       {id:"romanian_deadlift",sets:3,reps:"8-12",rpe:"8",rest:"3 min",notes:""},
       {id:"leg_press",sets:3,reps:"10-15",rpe:"9",rest:"2 min",notes:""},
       {id:"leg_curl",sets:3,reps:"10-15",rpe:"9",rest:"90 sec",notes:""},
       {id:"calf_raise",sets:4,reps:"12-15",rpe:"9",rest:"60 sec",notes:""},
     ]},
-    "Upper":{focus:"Chest + Back â€” Hypertrophy",exs:[
+    "Upper":{focus:"Chest + Back — Hypertrophy",exs:[
       {id:"incline_dumbbell_press",sets:3,reps:"10-15",rpe:"9",rest:"2 min",notes:""},
       {id:"chest_flye",sets:3,reps:"12-15",rpe:"9",rest:"90 sec",notes:""},
       {id:"seated_cable_row",sets:3,reps:"10-15",rpe:"9",rest:"2 min",notes:""},
@@ -1968,7 +1968,7 @@ const PROGRAMS = [
       {id:"hammer_curl",sets:3,reps:"10-15",rpe:"9",rest:"75 sec",notes:""},
       {id:"skull_crusher",sets:3,reps:"10-15",rpe:"9",rest:"75 sec",notes:""},
     ]},
-    "Lower":{focus:"Quads + Hamstrings â€” Hypertrophy",exs:[
+    "Lower":{focus:"Quads + Hamstrings — Hypertrophy",exs:[
       {id:"bulgarian_split_squat",sets:3,reps:"10-15",rpe:"9",rest:"2 min",notes:""},
       {id:"leg_press",sets:3,reps:"15-20",rpe:"9",rest:"2 min",notes:"High rep pump"},
       {id:"romanian_deadlift",sets:3,reps:"10-15",rpe:"9",rest:"2 min",notes:""},
@@ -1979,11 +1979,11 @@ const PROGRAMS = [
   }
 },
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 // UPPER / LOWER SPLITS (3 programs)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 {
-  id:"phul_4day", name:"PHUL (Power Hypertrophy Upper Lower)", cat:"upper_lower", emoji:"âš¡",
+  id:"phul_4day", name:"PHUL (Power Hypertrophy Upper Lower)", cat:"upper_lower", emoji:"⚡",
   days:4, weeks:12, level:"Intermediate", source:"Brandon Campbell / PHUL",
   tagline:"The definitive powerbuilding program. 2 power days + 2 hypertrophy days.",
   desc:"Monday/Tuesday/Thursday/Friday split: Upper Power, Lower Power, Upper Hypertrophy, Lower Hypertrophy. Power days focus on heavy compounds (3-5 reps, build strength). Hypertrophy days use moderate weight (8-12 reps, build size). Research-backed twice-weekly frequency per muscle group.",
@@ -1992,22 +1992,22 @@ const PROGRAMS = [
   equipment:"Barbell, dumbbells, cables, machines",
   sched:["Upper Power","Lower Power","Rest","Upper Hypertrophy","Lower Hypertrophy","Rest","Rest"],
   workouts:{
-    "Upper Power":{focus:"Heavy Chest Â· Back Â· Shoulders â€” 3-5 reps",exs:[
-      {id:"bench_press",sets:3,reps:"3-5",rpe:"8-9",rest:"3-5 min",notes:"Primary chest compound â€” heavy"},
+    "Upper Power":{focus:"Heavy Chest · Back · Shoulders — 3-5 reps",exs:[
+      {id:"bench_press",sets:3,reps:"3-5",rpe:"8-9",rest:"3-5 min",notes:"Primary chest compound — heavy"},
       {id:"overhead_press",sets:3,reps:"3-5",rpe:"8-9",rest:"3-5 min",notes:""},
       {id:"barbell_row",sets:3,reps:"3-5",rpe:"8-9",rest:"3-5 min",notes:""},
       {id:"lat_pulldown",sets:3,reps:"6-10",rpe:"8",rest:"2 min",notes:""},
       {id:"dumbbell_curl",sets:3,reps:"6-10",rest:"90 sec",notes:""},
       {id:"skull_crusher",sets:3,reps:"6-10",rest:"90 sec",notes:""},
     ]},
-    "Lower Power":{focus:"Heavy Squat Â· Deadlift â€” 3-5 reps",exs:[
+    "Lower Power":{focus:"Heavy Squat · Deadlift — 3-5 reps",exs:[
       {id:"squat",sets:3,reps:"3-5",rpe:"8-9",rest:"4-5 min",notes:"Heavy squat focus"},
       {id:"deadlift",sets:3,reps:"3-5",rpe:"8-9",rest:"4-5 min",notes:"Conventional"},
       {id:"leg_press",sets:3,reps:"10-15",rpe:"8",rest:"2 min",notes:"Volume after heavy lifts"},
       {id:"leg_curl",sets:3,reps:"10-15",rpe:"8",rest:"2 min",notes:""},
       {id:"calf_raise",sets:3,reps:"12-15",rest:"60 sec",notes:""},
     ]},
-    "Upper Hypertrophy":{focus:"Moderate Chest Â· Back Â· Shoulders â€” 8-12 reps",exs:[
+    "Upper Hypertrophy":{focus:"Moderate Chest · Back · Shoulders — 8-12 reps",exs:[
       {id:"incline_dumbbell_press",sets:3,reps:"8-12",rpe:"9",rest:"2 min",notes:""},
       {id:"flat_dumbbell_press",sets:3,reps:"8-12",rpe:"9",rest:"2 min",notes:""},
       {id:"cable_fly",sets:3,reps:"12-15",rpe:"9",rest:"90 sec",notes:"Stretch focus"},
@@ -2018,7 +2018,7 @@ const PROGRAMS = [
       {id:"barbell_curl",sets:3,reps:"8-12",rpe:"9",rest:"90 sec",notes:""},
       {id:"overhead_tricep_ext",sets:3,reps:"8-12",rpe:"9",rest:"90 sec",notes:""},
     ]},
-    "Lower Hypertrophy":{focus:"Moderate Lower Body â€” 8-15 reps",exs:[
+    "Lower Hypertrophy":{focus:"Moderate Lower Body — 8-15 reps",exs:[
       {id:"front_squat",sets:3,reps:"8-12",rpe:"9",rest:"3 min",notes:"Quad dominant"},
       {id:"hack_squat",sets:3,reps:"8-12",rpe:"9",rest:"2 min",notes:""},
       {id:"leg_extension",sets:3,reps:"10-15",rpe:"9",rest:"90 sec",notes:""},
@@ -2030,8 +2030,8 @@ const PROGRAMS = [
   }
 },
 {
-  id:"nuckols_beginner", name:"Greg Nuckols Beginner", cat:"upper_lower", emoji:"ðŸ“Š",
-  days:3, weeks:12, level:"Beginner", source:"Greg Nuckols â€“ Stronger By Science (Free)",
+  id:"nuckols_beginner", name:"Greg Nuckols Beginner", cat:"upper_lower", emoji:"📊",
+  days:3, weeks:12, level:"Beginner", source:"Greg Nuckols – Stronger By Science (Free)",
   tagline:"Science-based full body. Rep-range progression. Choose strength or hypertrophy goal.",
   desc:"12-week free program from Stronger By Science. Full body 3x/week: squat and bench every session, deadlift on day 1. Rep-range progression: use the same weight until you exceed the top of the range, then add weight. Accessories included for balance.",
   goals:["Beginner strength","Science-based","Flexible goal (strength or hypertrophy)","3 days/week"],
@@ -2039,21 +2039,21 @@ const PROGRAMS = [
   equipment:"Barbell, dumbbells, machines",
   sched:["Day 1","Rest","Day 2","Rest","Day 3","Rest","Rest"],
   workouts:{
-    "Day 1":{focus:"Squat Â· Bench Â· Deadlift",exs:[
+    "Day 1":{focus:"Squat · Bench · Deadlift",exs:[
       {id:"squat",sets:3,reps:"5-8",rest:"3 min",notes:"If you complete all sets at 8 reps, add weight next session"},
       {id:"bench_press",sets:3,reps:"5-8",rest:"3 min",notes:"Same rep-range progression"},
       {id:"deadlift",sets:3,reps:"5-8",rest:"4 min",notes:""},
-      {id:"lat_pulldown",sets:3,reps:"8-15",rest:"90 sec",notes:"Accessory â€” choose based on goal"},
+      {id:"lat_pulldown",sets:3,reps:"8-15",rest:"90 sec",notes:"Accessory — choose based on goal"},
       {id:"dumbbell_curl",sets:2,reps:"8-15",rest:"75 sec",notes:""},
     ]},
-    "Day 2":{focus:"Squat Â· Bench Â· Accessories",exs:[
+    "Day 2":{focus:"Squat · Bench · Accessories",exs:[
       {id:"squat",sets:3,reps:"5-8",rest:"3 min",notes:"Same weight as Day 1"},
       {id:"bench_press",sets:3,reps:"5-8",rest:"3 min",notes:""},
       {id:"barbell_row",sets:3,reps:"8-15",rest:"2 min",notes:"Horizontal pull"},
       {id:"overhead_press",sets:3,reps:"8-15",rest:"2 min",notes:"Shoulder accessory"},
       {id:"tricep_pushdown",sets:2,reps:"8-15",rest:"75 sec",notes:""},
     ]},
-    "Day 3":{focus:"Squat Â· Bench Â· Full Accessories",exs:[
+    "Day 3":{focus:"Squat · Bench · Full Accessories",exs:[
       {id:"squat",sets:3,reps:"5-8",rest:"3 min",notes:"Progress if hit all 8s since Day 1"},
       {id:"bench_press",sets:3,reps:"5-8",rest:"3 min",notes:"Progress if hit all 8s"},
       {id:"deadlift",sets:3,reps:"5-8",rest:"4 min",notes:""},
@@ -2063,7 +2063,7 @@ const PROGRAMS = [
   }
 },
 {
-  id:"nsuns_531_lp", name:"nSuns 5/3/1 LP", cat:"upper_lower", emoji:"ðŸ“ˆ",
+  id:"nsuns_531_lp", name:"nSuns 5/3/1 LP", cat:"upper_lower", emoji:"📈",
   days:5, weeks:12, level:"Intermediate", source:"u/nSuns (r/Fitness)",
   tagline:"Inspired by 5/3/1. Weekly linear progression. Very high volume. 5 or 6 day variants.",
   desc:"Created by anonymous Reddit user u/nSuns, this program takes heavy inspiration from 5/3/1 but uses weekly linear progression (add weight each week, not monthly). Very high volume with daily main lift + secondary lift. Popular with intermediate lifters who stalled on linear programs. 4-, 5-, and 6-day variants available.",
@@ -2072,22 +2072,22 @@ const PROGRAMS = [
   equipment:"Barbell, dumbbells, pull-up bar",
   sched:["Bench + Row","Squat + OHP","Deadlift + Bench","OHP + Deadlift","Back Squat","Rest","Rest"],
   workouts:{
-    "Bench + Barbell Row":{focus:"Bench Press Main Â· Row Secondary",exs:[
+    "Bench + Barbell Row":{focus:"Bench Press Main · Row Secondary",exs:[
       {id:"bench_press",sets:"9",reps:"6/5/3/5/5/5/5/5/AMRAP (varied %)",rest:"3-5 min",notes:"Week 1: 65/75/85%. nSuns ladders with AMRAP last sets."},
-      {id:"barbell_row",sets:"8",reps:"6/5/3/5/5/5/5/AMRAP",rest:"2-3 min",notes:"Secondary â€” same nSuns ladder"},
+      {id:"barbell_row",sets:"8",reps:"6/5/3/5/5/5/5/AMRAP",rest:"2-3 min",notes:"Secondary — same nSuns ladder"},
       {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:"Shoulder health"},
     ]},
-    "Squat + OHP":{focus:"Squat Main Â· OHP Secondary",exs:[
+    "Squat + OHP":{focus:"Squat Main · OHP Secondary",exs:[
       {id:"squat",sets:"9",reps:"6/5/3/5/5/5/5/5/AMRAP",rest:"4-5 min",notes:"nSuns squat ladder"},
       {id:"overhead_press",sets:"8",reps:"6/5/3/5/5/5/5/AMRAP",rest:"3 min",notes:"Secondary OHP"},
       {id:"lat_pulldown",sets:3,reps:"8-12",rest:"2 min",notes:""},
     ]},
-    "Deadlift + Bench":{focus:"Deadlift Main Â· Bench Secondary",exs:[
+    "Deadlift + Bench":{focus:"Deadlift Main · Bench Secondary",exs:[
       {id:"deadlift",sets:"9",reps:"6/5/3/5/5/5/5/5/AMRAP",rest:"5 min",notes:"Full nSuns deadlift protocol"},
       {id:"bench_press",sets:"8",reps:"6/5/3/5/5/5/5/AMRAP",rest:"3 min",notes:"Secondary bench"},
       {id:"dumbbell_curl",sets:3,reps:"8-12",rest:"75 sec",notes:""},
     ]},
-    "OHP + Deadlift":{focus:"OHP Main Â· Deadlift Secondary",exs:[
+    "OHP + Deadlift":{focus:"OHP Main · Deadlift Secondary",exs:[
       {id:"overhead_press",sets:"9",reps:"6/5/3/5/5/5/5/5/AMRAP",rest:"3-4 min",notes:""},
       {id:"deadlift",sets:"6",reps:"5/5/3/3/3/AMRAP",rest:"4 min",notes:"Lighter secondary deadlift"},
       {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:""},
@@ -2101,37 +2101,37 @@ const PROGRAMS = [
   }
 },
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 // 5/3/1 VARIANTS (3 programs)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 {
-  id:"531_beginners", name:"5/3/1 for Beginners", cat:"five_three_one", emoji:"5ï¸âƒ£",
-  days:3, weeks:12, level:"Beginnerâ€“Intermediate", source:"Jim Wendler",
+  id:"531_beginners", name:"5/3/1 for Beginners", cat:"five_three_one", emoji:"5️⃣",
+  days:3, weeks:12, level:"Beginner–Intermediate", source:"Jim Wendler",
   tagline:"Wendler's entry point. Full body 3x/week. Monthly linear progression.",
   desc:"3-day full body program built on 5/3/1 principles. Each session hits all 4 major lifts (squat, bench, deadlift, OHP) with one as the 'main' and others as assistance. Monthly progression: add 5 lb to upper body TM and 10 lb to lower body TM after 4 weeks. AMRAP last set each session.",
   goals:["Slow steady strength gains","Injury-resistant approach","Long-term sustainability","Simple structure"],
-  progression:"Training Max (TM) = 90% of 1RM. Week 1: 65/75/85%Ã—5/5/5+. Week 2: 70/80/90%Ã—3/3/3+. Week 3: 75/85/95%Ã—5/3/1+. Week 4: Deload 40/50/60%Ã—5/5/5. Add 5 lb upper / 10 lb lower to TM after each 4-week cycle.",
+  progression:"Training Max (TM) = 90% of 1RM. Week 1: 65/75/85%×5/5/5+. Week 2: 70/80/90%×3/3/3+. Week 3: 75/85/95%×5/3/1+. Week 4: Deload 40/50/60%×5/5/5. Add 5 lb upper / 10 lb lower to TM after each 4-week cycle.",
   equipment:"Barbell, squat rack, bench",
   sched:["Day 1","Rest","Day 2","Rest","Day 3","Rest","Rest"],
   workouts:{
-    "Day 1 (Monday)":{focus:"Squat Â· Bench Â· Deadlift main / assistance",exs:[
+    "Day 1 (Monday)":{focus:"Squat · Bench · Deadlift main / assistance",exs:[
       {id:"squat",sets:3,reps:"5/5/5+ (or 3/3/3+ or 5/3/1+ depending on week)",rest:"4-5 min",notes:"Main lift at weekly %: Wk1 65/75/85, Wk2 70/80/90, Wk3 75/85/95"},
       {id:"bench_press",sets:3,reps:"5/5/5+ (weekly %)",rest:"3-4 min",notes:"Main lift"},
-      {id:"deadlift",sets:3,reps:"5/5/5+ (weekly %)",rest:"5 min",notes:"Main lift â€” AMRAP last set"},
-      {id:"dumbbell_row",sets:5,reps:"10-20",rest:"60 sec",notes:"Assistance â€” 50-100 reps total"},
+      {id:"deadlift",sets:3,reps:"5/5/5+ (weekly %)",rest:"5 min",notes:"Main lift — AMRAP last set"},
+      {id:"dumbbell_row",sets:5,reps:"10-20",rest:"60 sec",notes:"Assistance — 50-100 reps total"},
       {id:"pull_up_chinup",sets:5,reps:"max",rest:"60 sec",notes:"Assistance pulling"},
       {id:"push_up",sets:5,reps:"10-20",rest:"60 sec",notes:"Assistance pushing"},
       {id:"face_pull",sets:5,reps:"15-20",rest:"60 sec",notes:"Shoulder health"},
     ]},
-    "Day 2 (Wednesday)":{focus:"OHP main â€” same assistance template",exs:[
-      {id:"overhead_press",sets:3,reps:"5/5/5+ (weekly %)",rest:"3-4 min",notes:"Main lift â€” AMRAP last set"},
+    "Day 2 (Wednesday)":{focus:"OHP main — same assistance template",exs:[
+      {id:"overhead_press",sets:3,reps:"5/5/5+ (weekly %)",rest:"3-4 min",notes:"Main lift — AMRAP last set"},
       {id:"squat",sets:3,reps:"5/5/5+ (weekly %)",rest:"4 min",notes:"Main lift"},
       {id:"bench_press",sets:3,reps:"5/5/5+ (weekly %)",rest:"3 min",notes:"Assistance lift"},
       {id:"dumbbell_row",sets:5,reps:"10-20",rest:"60 sec",notes:"50-100 rep assistance"},
       {id:"pull_up_chinup",sets:5,reps:"max",rest:"60 sec",notes:""},
       {id:"push_up",sets:5,reps:"10-20",rest:"60 sec",notes:""},
     ]},
-    "Day 3 (Friday)":{focus:"Deadlift main â€” same template",exs:[
+    "Day 3 (Friday)":{focus:"Deadlift main — same template",exs:[
       {id:"deadlift",sets:3,reps:"5/5/5+ (weekly %)",rest:"5 min",notes:"Primary main lift for the day"},
       {id:"overhead_press",sets:3,reps:"5/5/5+ (weekly %)",rest:"3-4 min",notes:""},
       {id:"squat",sets:3,reps:"5/5/5+ (weekly %)",rest:"4 min",notes:""},
@@ -2143,36 +2143,36 @@ const PROGRAMS = [
   }
 },
 {
-  id:"531_bbb", name:"5/3/1 Boring But Big", cat:"five_three_one", emoji:"5ï¸âƒ£",
+  id:"531_bbb", name:"5/3/1 Boring But Big", cat:"five_three_one", emoji:"5️⃣",
   days:4, weeks:16, level:"Intermediate", source:"Jim Wendler",
-  tagline:"\"The most popular 5/3/1 template.\" Heavy main work + 5Ã—10 hypertrophy accessory.",
-  desc:"After your heavy 5/3/1 main sets, do 5Ã—10 of the same (or complementary) lift at 50% of TM. This doubles the volume and forces both strength and size adaptations. Wendler calls it brutal, boring, and effective. Run 3-4 cycles (12-16 weeks). Deload every 4th week.",
+  tagline:"\"The most popular 5/3/1 template.\" Heavy main work + 5×10 hypertrophy accessory.",
+  desc:"After your heavy 5/3/1 main sets, do 5×10 of the same (or complementary) lift at 50% of TM. This doubles the volume and forces both strength and size adaptations. Wendler calls it brutal, boring, and effective. Run 3-4 cycles (12-16 weeks). Deload every 4th week.",
   goals:["Strength + significant size","High volume hypertrophy","Simple accessory work","4-day structure"],
-  progression:"TM: same as standard 5/3/1 (5/10 lb monthly). BBB 5Ã—10 stays at 50% of TM throughout. Optionally increase to 55-60% as you adapt.",
+  progression:"TM: same as standard 5/3/1 (5/10 lb monthly). BBB 5×10 stays at 50% of TM throughout. Optionally increase to 55-60% as you adapt.",
   equipment:"Barbell, pull-up bar, minimal accessories",
-  sched:["OHP + 5Ã—10 Bench","Deadlift + 5Ã—10 Squat","Rest","Bench + 5Ã—10 OHP","Squat + 5Ã—10 Deadlift","Rest","Rest"],
+  sched:["OHP + 5×10 Bench","Deadlift + 5×10 Squat","Rest","Bench + 5×10 OHP","Squat + 5×10 Deadlift","Rest","Rest"],
   workouts:{
-    "OHP Day + 5Ã—10 Bench":{focus:"OHP Main Â· Bench Volume Â· Pulling",exs:[
+    "OHP Day + 5×10 Bench":{focus:"OHP Main · Bench Volume · Pulling",exs:[
       {id:"overhead_press",sets:3,reps:"5/3/1+ (week-dependent %)",rest:"3-4 min",notes:"AMRAP last set. TM: 90% of 1RM."},
       {id:"bench_press",sets:5,reps:"10",rest:"90 sec",notes:"BBB work: 50% of Bench TM. The key volume block."},
-      {id:"pull_up_chinup",sets:5,reps:"max or 10",rest:"2 min",notes:"Lat work â€” superset with BBB pressing"},
-      {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:"Shoulder health â€” do not skip"},
+      {id:"pull_up_chinup",sets:5,reps:"max or 10",rest:"2 min",notes:"Lat work — superset with BBB pressing"},
+      {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:"Shoulder health — do not skip"},
       {id:"dumbbell_curl",sets:2,reps:"10-15",rest:"60 sec",notes:""},
     ]},
-    "Deadlift Day + 5Ã—10 Squat":{focus:"Deadlift Main Â· Squat Volume",exs:[
+    "Deadlift Day + 5×10 Squat":{focus:"Deadlift Main · Squat Volume",exs:[
       {id:"deadlift",sets:3,reps:"5/3/1+ (weekly %)",rest:"5 min",notes:"AMRAP last set"},
       {id:"squat",sets:5,reps:"10",rest:"2-3 min",notes:"BBB work: 50% of Squat TM"},
       {id:"leg_curl",sets:3,reps:"10-15",rest:"90 sec",notes:"Hamstring accessory"},
       {id:"ab_wheel",sets:3,reps:"10-15",rest:"90 sec",notes:"Core work"},
     ]},
-    "Bench Day + 5Ã—10 OHP":{focus:"Bench Main Â· OHP Volume Â· Pulling",exs:[
+    "Bench Day + 5×10 OHP":{focus:"Bench Main · OHP Volume · Pulling",exs:[
       {id:"bench_press",sets:3,reps:"5/3/1+ (weekly %)",rest:"3-4 min",notes:"AMRAP last set"},
       {id:"overhead_press",sets:5,reps:"10",rest:"90 sec",notes:"BBB work: 50% of OHP TM"},
       {id:"pull_up_chinup",sets:5,reps:"max or 10",rest:"2 min",notes:""},
       {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:""},
       {id:"skull_crusher",sets:2,reps:"10-15",rest:"75 sec",notes:""},
     ]},
-    "Squat Day + 5Ã—10 Deadlift":{focus:"Squat Main Â· Deadlift Volume",exs:[
+    "Squat Day + 5×10 Deadlift":{focus:"Squat Main · Deadlift Volume",exs:[
       {id:"squat",sets:3,reps:"5/3/1+ (weekly %)",rest:"4-5 min",notes:"AMRAP last set"},
       {id:"deadlift",sets:5,reps:"10",rest:"2-3 min",notes:"BBB work: 50% of Deadlift TM. Remove belt. Control eccentric."},
       {id:"leg_press",sets:3,reps:"10-15",rest:"2 min",notes:"Optional quad volume"},
@@ -2181,32 +2181,32 @@ const PROGRAMS = [
   }
 },
 {
-  id:"531_btm", name:"5/3/1 Building the Monolith", cat:"five_three_one", emoji:"5ï¸âƒ£",
-  days:3, weeks:12, level:"Intermediateâ€“Advanced", source:"Jim Wendler",
+  id:"531_btm", name:"5/3/1 Building the Monolith", cat:"five_three_one", emoji:"5️⃣",
+  days:3, weeks:12, level:"Intermediate–Advanced", source:"Jim Wendler",
   tagline:"Wendler's \"most brutal\" 3-day template. Built for gaining mass and strength fast.",
-  desc:"3-day program with enormous volume: 5Ã—10 squats, 5Ã—10 bench/OHP, 5Ã—10 deadlift, plus 50+ chins/dips per session. Wendler designed this to put on mass quickly. Requires a caloric surplus. Not for the faint-hearted â€” mentally and physically demanding.",
+  desc:"3-day program with enormous volume: 5×10 squats, 5×10 bench/OHP, 5×10 deadlift, plus 50+ chins/dips per session. Wendler designed this to put on mass quickly. Requires a caloric surplus. Not for the faint-hearted — mentally and physically demanding.",
   goals:["Maximum mass gain","Raw strength","Mental toughness","Dense workouts"],
   progression:"Same 5/3/1 monthly TM progression. BBB sets at 50% TM. Volume is the adaptation driver.",
   equipment:"Barbell, pull-up bar, dip station",
   sched:["Day 1","Rest","Day 2","Rest","Day 3","Rest","Rest"],
   workouts:{
-    "Day 1":{focus:"Squat Â· Press Â· Deadlift",exs:[
-      {id:"squat",sets:3,reps:"5/3/1+",rest:"5 min",notes:"Main work â€” AMRAP last set"},
-      {id:"squat",sets:5,reps:"10",rest:"2-3 min",notes:"5Ã—10 BBB at 50% TM"},
+    "Day 1":{focus:"Squat · Press · Deadlift",exs:[
+      {id:"squat",sets:3,reps:"5/3/1+",rest:"5 min",notes:"Main work — AMRAP last set"},
+      {id:"squat",sets:5,reps:"10",rest:"2-3 min",notes:"5×10 BBB at 50% TM"},
       {id:"overhead_press",sets:3,reps:"5/3/1+",rest:"3 min",notes:""},
-      {id:"pull_up_chinup",sets:"50 total",reps:"various",rest:"90 sec",notes:"50 total chin-ups across the session â€” break into sets"},
-      {id:"dips",sets:"50 total",reps:"various",rest:"90 sec",notes:"50 total dips â€” weighted when easy"},
+      {id:"pull_up_chinup",sets:"50 total",reps:"various",rest:"90 sec",notes:"50 total chin-ups across the session — break into sets"},
+      {id:"dips",sets:"50 total",reps:"various",rest:"90 sec",notes:"50 total dips — weighted when easy"},
     ]},
-    "Day 2":{focus:"Deadlift Â· Bench",exs:[
+    "Day 2":{focus:"Deadlift · Bench",exs:[
       {id:"deadlift",sets:3,reps:"5/3/1+",rest:"5 min",notes:"AMRAP last set"},
-      {id:"deadlift",sets:5,reps:"10",rest:"3 min",notes:"5Ã—10 BBB at 50% TM"},
+      {id:"deadlift",sets:5,reps:"10",rest:"3 min",notes:"5×10 BBB at 50% TM"},
       {id:"bench_press",sets:3,reps:"5/3/1+",rest:"3 min",notes:""},
-      {id:"dumbbell_row",sets:5,reps:"10-20",rest:"60 sec",notes:"DB row â€” 50-100 reps"},
+      {id:"dumbbell_row",sets:5,reps:"10-20",rest:"60 sec",notes:"DB row — 50-100 reps"},
       {id:"face_pull",sets:3,reps:"20-25",rest:"60 sec",notes:"Shoulder health"},
     ]},
-    "Day 3":{focus:"Squat Â· Press â€” Volume Day",exs:[
+    "Day 3":{focus:"Squat · Press — Volume Day",exs:[
       {id:"squat",sets:3,reps:"5/3/1+",rest:"5 min",notes:"Same weekly progression as Day 1"},
-      {id:"squat",sets:5,reps:"10",rest:"2-3 min",notes:"5Ã—10 BBB"},
+      {id:"squat",sets:5,reps:"10",rest:"2-3 min",notes:"5×10 BBB"},
       {id:"overhead_press",sets:3,reps:"5/3/1+",rest:"3 min",notes:""},
       {id:"pull_up_chinup",sets:"50 total",reps:"various",rest:"90 sec",notes:"50 total chin-ups"},
       {id:"dips",sets:"50 total",reps:"various",rest:"90 sec",notes:"50 total dips"},
@@ -2214,35 +2214,35 @@ const PROGRAMS = [
   }
 },
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 // POWERBUILDING (3 programs)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 {
-  id:"phat_5day", name:"PHAT (Power Hypertrophy Adaptive Training)", cat:"powerbuilding", emoji:"ðŸ’¥",
-  days:5, weeks:12, level:"Intermediateâ€“Advanced", source:"Dr. Layne Norton",
+  id:"phat_5day", name:"PHAT (Power Hypertrophy Adaptive Training)", cat:"powerbuilding", emoji:"💥",
+  days:5, weeks:12, level:"Intermediate–Advanced", source:"Dr. Layne Norton",
   tagline:"Layne Norton's 5-day powerbuilding classic. High frequency, high volume.",
-  desc:"Created by natural pro bodybuilder and powerlifter Dr. Layne Norton. 2 power days (Monday/Tuesday) + 3 hypertrophy days (Thursday/Friday/Saturday). Every muscle trained twice per week. More reps than PHUL â€” 90% more rep volume. Best after completing PHUL or a similar 4-day program.",
+  desc:"Created by natural pro bodybuilder and powerlifter Dr. Layne Norton. 2 power days (Monday/Tuesday) + 3 hypertrophy days (Thursday/Friday/Saturday). Every muscle trained twice per week. More reps than PHUL — 90% more rep volume. Best after completing PHUL or a similar 4-day program.",
   goals:["Maximize strength AND size","High frequency","Science-backed powerbuilding","Advanced physique"],
   progression:"Power days: attempt to exceed previous session PRs. Hypertrophy days: add weight when all sets hit the top rep range.",
-  equipment:"Full gym â€” barbell, dumbbells, cables, machines",
+  equipment:"Full gym — barbell, dumbbells, cables, machines",
   sched:["Upper Power","Lower Power","Rest","Back/Shoulders Hyp","Lower Hyp","Chest/Arms Hyp","Rest"],
   workouts:{
-    "Upper Power":{focus:"Heavy Chest + Back â€” 3-5 reps",exs:[
-      {id:"bench_press",sets:3,reps:"3-5",rpe:"9",rest:"3-5 min",notes:"Power focus â€” near max weight"},
+    "Upper Power":{focus:"Heavy Chest + Back — 3-5 reps",exs:[
+      {id:"bench_press",sets:3,reps:"3-5",rpe:"9",rest:"3-5 min",notes:"Power focus — near max weight"},
       {id:"barbell_row",sets:3,reps:"3-5",rpe:"9",rest:"3-5 min",notes:""},
       {id:"incline_dumbbell_press",sets:2,reps:"6-10",rest:"2 min",notes:"Supplemental volume"},
       {id:"weighted_pullup",sets:2,reps:"6-10",rest:"2 min",notes:""},
       {id:"dumbbell_curl",sets:2,reps:"6-10",rest:"90 sec",notes:""},
       {id:"skull_crusher",sets:2,reps:"6-10",rest:"90 sec",notes:""},
     ]},
-    "Lower Power":{focus:"Heavy Squat + Deadlift â€” 3-5 reps",exs:[
+    "Lower Power":{focus:"Heavy Squat + Deadlift — 3-5 reps",exs:[
       {id:"squat",sets:3,reps:"3-5",rpe:"9",rest:"4-5 min",notes:""},
       {id:"deadlift",sets:3,reps:"3-5",rpe:"9",rest:"5 min",notes:""},
       {id:"leg_press",sets:2,reps:"10-15",rest:"2 min",notes:"Volume after power work"},
       {id:"leg_curl",sets:2,reps:"6-10",rest:"2 min",notes:""},
       {id:"calf_raise",sets:3,reps:"6-10",rest:"60 sec",notes:""},
     ]},
-    "Back & Shoulders Hypertrophy":{focus:"Back + Shoulders â€” 8-15 reps",exs:[
+    "Back & Shoulders Hypertrophy":{focus:"Back + Shoulders — 8-15 reps",exs:[
       {id:"barbell_row",sets:4,reps:"8-12",rpe:"9",rest:"2 min",notes:"Carry-over to power day"},
       {id:"rack_pull",sets:3,reps:"8-12",rpe:"9",rest:"2-3 min",notes:""},
       {id:"lat_pulldown",sets:3,reps:"8-12",rpe:"9",rest:"2 min",notes:""},
@@ -2251,7 +2251,7 @@ const PROGRAMS = [
       {id:"lateral_raise",sets:3,reps:"12-20",rpe:"9",rest:"60 sec",notes:""},
       {id:"face_pull",sets:3,reps:"15-20",rpe:"8",rest:"60 sec",notes:""},
     ]},
-    "Lower Hypertrophy":{focus:"Quads + Hamstrings + Glutes â€” 8-20 reps",exs:[
+    "Lower Hypertrophy":{focus:"Quads + Hamstrings + Glutes — 8-20 reps",exs:[
       {id:"squat",sets:4,reps:"8-12",rpe:"9",rest:"3 min",notes:"Carry-over to power day"},
       {id:"hack_squat",sets:3,reps:"8-12",rpe:"9",rest:"2 min",notes:""},
       {id:"leg_extension",sets:3,reps:"10-15",rpe:"9",rest:"90 sec",notes:""},
@@ -2260,7 +2260,7 @@ const PROGRAMS = [
       {id:"hip_thrust",sets:3,reps:"12-15",rpe:"9",rest:"2 min",notes:""},
       {id:"calf_raise",sets:4,reps:"12-15",rpe:"9",rest:"60 sec",notes:""},
     ]},
-    "Chest & Arms Hypertrophy":{focus:"Chest + Biceps + Triceps â€” 8-15 reps",exs:[
+    "Chest & Arms Hypertrophy":{focus:"Chest + Biceps + Triceps — 8-15 reps",exs:[
       {id:"bench_press",sets:4,reps:"8-12",rpe:"9",rest:"2 min",notes:"Carry-over to power day"},
       {id:"incline_dumbbell_press",sets:3,reps:"8-12",rpe:"9",rest:"2 min",notes:""},
       {id:"cable_fly",sets:3,reps:"12-15",rpe:"9",rest:"90 sec",notes:"Stretch focus"},
@@ -2273,8 +2273,8 @@ const PROGRAMS = [
   }
 },
 {
-  id:"strong_curves", name:"Strong Curves (Full Program)", cat:"powerbuilding", emoji:"ðŸŒŸ",
-  days:3, weeks:12, level:"Beginnerâ€“Intermediate", source:"Bret Contreras (The Glute Guy)",
+  id:"strong_curves", name:"Strong Curves (Full Program)", cat:"powerbuilding", emoji:"🌟",
+  days:3, weeks:12, level:"Beginner–Intermediate", source:"Bret Contreras (The Glute Guy)",
   tagline:"The leading evidence-based program for glute development and full body strength.",
   desc:"Designed by glute specialist Dr. Bret Contreras. Full body with heavy emphasis on glutes and posterior chain. 3-day, 12-week program with progressive overload each week. Suitable for all genders. Has been shown to dramatically improve glute strength, aesthetics, and overall lower body power.",
   goals:["Glute development","Full body strength","Beginner-friendly","Science-based posterior chain"],
@@ -2282,8 +2282,8 @@ const PROGRAMS = [
   equipment:"Barbell, dumbbells, resistance bands, cables, bench",
   sched:["Workout A","Rest","Workout B","Rest","Workout C","Rest","Rest"],
   workouts:{
-    "Workout A":{focus:"Glutes Â· Quads Â· Upper Body",exs:[
-      {id:"barbell_hip_thrust",sets:3,reps:"10-20",rest:"2 min",notes:"The cornerstone exercise â€” full ROM, squeeze at top"},
+    "Workout A":{focus:"Glutes · Quads · Upper Body",exs:[
+      {id:"barbell_hip_thrust",sets:3,reps:"10-20",rest:"2 min",notes:"The cornerstone exercise — full ROM, squeeze at top"},
       {id:"squat",sets:3,reps:"8-12",rest:"3 min",notes:""},
       {id:"walking_lunge",sets:3,reps:"12/side",rest:"2 min",notes:""},
       {id:"bench_press",sets:3,reps:"8-12",rest:"2 min",notes:""},
@@ -2291,8 +2291,8 @@ const PROGRAMS = [
       {id:"lateral_raise",sets:3,reps:"12-15",rest:"60 sec",notes:""},
       {id:"plank",sets:3,reps:"30-45 sec",rest:"60 sec",notes:""},
     ]},
-    "Workout B":{focus:"Hamstrings Â· Glutes Â· Pull",exs:[
-      {id:"romanian_deadlift",sets:3,reps:"8-12",rest:"3 min",notes:"Hip hinge pattern â€” feel hamstrings stretch"},
+    "Workout B":{focus:"Hamstrings · Glutes · Pull",exs:[
+      {id:"romanian_deadlift",sets:3,reps:"8-12",rest:"3 min",notes:"Hip hinge pattern — feel hamstrings stretch"},
       {id:"hip_thrust",sets:3,reps:"12-20",rest:"2 min",notes:"Dumbbell or bodyweight variation"},
       {id:"bulgarian_split_squat",sets:3,reps:"10-12/leg",rest:"2 min",notes:""},
       {id:"lat_pulldown",sets:3,reps:"10-15",rest:"2 min",notes:""},
@@ -2312,17 +2312,17 @@ const PROGRAMS = [
   }
 },
 {
-  id:"deep_water_beginner", name:"Deep Water (Beginner)", cat:"powerbuilding", emoji:"ðŸŒŠ",
-  days:3, weeks:10, level:"Intermediate", source:"Jon Anderson â€” Free E-book",
+  id:"deep_water_beginner", name:"Deep Water (Beginner)", cat:"powerbuilding", emoji:"🌊",
+  days:3, weeks:10, level:"Intermediate", source:"Jon Anderson — Free E-book",
   tagline:"High-volume, brutal squat-dominant program. Free e-book from pro strongman Jon Anderson.",
-  desc:"Written by IFBB pro bodybuilder and former strongman Jon Anderson. Emphasis on high-rep squats (10Ã—10), heavy deadlifts, and building mental toughness. Available as a free e-book. Beginner phase is 10 weeks at 3 days/week with escalating intensity each week. Not for true beginners â€” intermediate strength required.",
+  desc:"Written by IFBB pro bodybuilder and former strongman Jon Anderson. Emphasis on high-rep squats (10×10), heavy deadlifts, and building mental toughness. Available as a free e-book. Beginner phase is 10 weeks at 3 days/week with escalating intensity each week. Not for true beginners — intermediate strength required.",
   goals:["Mental toughness","Squat mastery","High volume adaptation","Dense muscle mass"],
   progression:"Each week the volume and intensity increases. Week 1 starts conservative, Week 10 is maximum effort. Percentage-based off starting maxes.",
   equipment:"Barbell, squat rack, all major equipment",
   sched:["Day 1","Rest","Day 2","Rest","Day 3","Rest","Rest"],
   workouts:{
     "Day 1":{focus:"Squat High Volume",exs:[
-      {id:"squat",sets:10,reps:"10",rest:"3-4 min",notes:"10Ã—10 is the core. Start at 50-55% of 1RM. This will feel light â€” it gets hard."},
+      {id:"squat",sets:10,reps:"10",rest:"3-4 min",notes:"10×10 is the core. Start at 50-55% of 1RM. This will feel light — it gets hard."},
       {id:"romanian_deadlift",sets:4,reps:"10",rest:"3 min",notes:""},
       {id:"leg_curl",sets:4,reps:"12-15",rest:"2 min",notes:""},
     ]},
@@ -2335,35 +2335,35 @@ const PROGRAMS = [
       {id:"skull_crusher",sets:4,reps:"12",rest:"90 sec",notes:""},
     ]},
     "Day 3":{focus:"Deadlift + Volume Squats",exs:[
-      {id:"deadlift",sets:5,reps:"5",rest:"4-5 min",notes:"Heavy â€” work up to top set"},
-      {id:"squat",sets:5,reps:"10",rest:"3 min",notes:"Second squat session of the week â€” lighter than Day 1"},
+      {id:"deadlift",sets:5,reps:"5",rest:"4-5 min",notes:"Heavy — work up to top set"},
+      {id:"squat",sets:5,reps:"10",rest:"3 min",notes:"Second squat session of the week — lighter than Day 1"},
       {id:"hip_thrust",sets:4,reps:"10-15",rest:"2 min",notes:""},
       {id:"face_pull",sets:3,reps:"20",rest:"60 sec",notes:""},
     ]},
   }
 },
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 // JEFF NIPPARD (kept + extended)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 {
-  id:"nippard_essentials_2x", name:"Nippard Essentials 2x", cat:"nippard", emoji:"ðŸ’ª",
-  days:2, weeks:12, level:"All Levels", source:"Jeff Nippard â€“ Essentials Program",
+  id:"nippard_essentials_2x", name:"Nippard Essentials 2x", cat:"nippard", emoji:"💪",
+  days:2, weeks:12, level:"All Levels", source:"Jeff Nippard – Essentials Program",
   tagline:"Jeff Nippard's minimum effective dose. Science-based 2-day full body.",
-  desc:"Full body A/B alternating, twice per week. Uses Jeff's science-based exercise selection with mechanical tension + metabolic stress principles. MEV (Minimum Effective Volume) â€” perfect for busy schedules. Progressive overload via reps or weight each session.",
+  desc:"Full body A/B alternating, twice per week. Uses Jeff's science-based exercise selection with mechanical tension + metabolic stress principles. MEV (Minimum Effective Volume) — perfect for busy schedules. Progressive overload via reps or weight each session.",
   goals:["Minimum effective volume","Busy schedule","Full body stimulus","Science-based"],
   progression:"Add reps within the target rep range each session. When you hit the top of the range across all sets, add 5 lb next session.",
   equipment:"Barbell, dumbbells, cables, machine",
   sched:["Full Body A","Rest","Rest","Full Body B","Rest","Rest","Rest"],
   workouts:{
-    "Full Body A":{focus:"Quad-dominant Â· Horizontal push/pull",exs:[
+    "Full Body A":{focus:"Quad-dominant · Horizontal push/pull",exs:[
       {id:"squat",sets:3,reps:"6-10",rpe:"8",rest:"3 min",notes:"Primary lower compound"},
       {id:"bench_press",sets:3,reps:"6-10",rpe:"8",rest:"3 min",notes:"Primary push"},
       {id:"barbell_row",sets:3,reps:"8-12",rpe:"8",rest:"2 min",notes:"Primary pull"},
       {id:"lateral_raise",sets:3,reps:"15-20",rpe:"9",rest:"60 sec",notes:"Delt isolation"},
       {id:"dumbbell_curl",sets:2,reps:"10-15",rpe:"9",rest:"75 sec",notes:""},
     ]},
-    "Full Body B":{focus:"Hip-dominant Â· Vertical push/pull",exs:[
+    "Full Body B":{focus:"Hip-dominant · Vertical push/pull",exs:[
       {id:"romanian_deadlift",sets:3,reps:"8-12",rpe:"8",rest:"3 min",notes:"Hip hinge pattern"},
       {id:"overhead_press",sets:3,reps:"8-12",rpe:"8",rest:"3 min",notes:"Vertical push"},
       {id:"lat_pulldown",sets:3,reps:"10-15",rpe:"8",rest:"2 min",notes:"Vertical pull"},
@@ -2373,8 +2373,8 @@ const PROGRAMS = [
   }
 },
 {
-  id:"nippard_essentials_3x", name:"Nippard Essentials 3x", cat:"nippard", emoji:"ðŸ’ª",
-  days:3, weeks:12, level:"All Levels", source:"Jeff Nippard â€“ Essentials Program",
+  id:"nippard_essentials_3x", name:"Nippard Essentials 3x", cat:"nippard", emoji:"💪",
+  days:3, weeks:12, level:"All Levels", source:"Jeff Nippard – Essentials Program",
   tagline:"Full body 3x/week. Nippard's balanced approach for most trainees.",
   desc:"A/B alternating across 3 sessions per week (ABA one week, BAB the next). Each session trains the full body with a different emphasis. Science-based exercise selection targeting mechanical tension at long muscle lengths.",
   goals:["3-day full body","Balanced development","Science-based selection","Beginner to intermediate"],
@@ -2382,7 +2382,7 @@ const PROGRAMS = [
   equipment:"Barbell, dumbbells, cables, machine",
   sched:["Full Body A","Rest","Full Body B","Rest","Full Body A","Rest","Rest"],
   workouts:{
-    "Full Body A":{focus:"Quad Â· Horizontal push/pull Â· Arms",exs:[
+    "Full Body A":{focus:"Quad · Horizontal push/pull · Arms",exs:[
       {id:"squat",sets:4,reps:"6-10",rpe:"8",rest:"3 min",notes:""},
       {id:"bench_press",sets:3,reps:"6-10",rpe:"8",rest:"3 min",notes:""},
       {id:"barbell_row",sets:3,reps:"8-12",rpe:"8",rest:"2 min",notes:""},
@@ -2390,7 +2390,7 @@ const PROGRAMS = [
       {id:"dumbbell_curl",sets:2,reps:"10-15",rpe:"9",rest:"75 sec",notes:""},
       {id:"tricep_pushdown",sets:2,reps:"12-15",rpe:"9",rest:"75 sec",notes:""},
     ]},
-    "Full Body B":{focus:"Hip-dominant Â· Vertical push/pull Â· Isolation",exs:[
+    "Full Body B":{focus:"Hip-dominant · Vertical push/pull · Isolation",exs:[
       {id:"romanian_deadlift",sets:4,reps:"8-12",rpe:"8",rest:"3 min",notes:""},
       {id:"overhead_press",sets:3,reps:"8-12",rpe:"8",rest:"3 min",notes:""},
       {id:"lat_pulldown",sets:3,reps:"10-15",rpe:"8",rest:"2 min",notes:""},
@@ -2401,8 +2401,8 @@ const PROGRAMS = [
   }
 },
 {
-  id:"nippard_upper_lower_4x", name:"Nippard Upper/Lower", cat:"nippard", emoji:"ðŸ’ª",
-  days:4, weeks:12, level:"Intermediate", source:"Jeff Nippard â€“ Upper/Lower Program",
+  id:"nippard_upper_lower_4x", name:"Nippard Upper/Lower", cat:"nippard", emoji:"💪",
+  days:4, weeks:12, level:"Intermediate", source:"Jeff Nippard – Upper/Lower Program",
   tagline:"4-day Upper/Lower split. Twice-weekly frequency with Nippard's exercise science.",
   desc:"Two upper body and two lower body sessions per week. Upper A is push-dominant, Upper B is pull-dominant, Lower A is quad-dominant, Lower B is hip-dominant. Exercises selected for maximum mechanical tension at long muscle lengths per Nippard's research.",
   goals:["Twice-weekly frequency","Push/pull balance","Science-based","Intermediate hypertrophy"],
@@ -2443,30 +2443,30 @@ const PROGRAMS = [
   }
 },
 {
-  id:"nippard_pbl_phase2", name:"Pure Bodybuilding Ph.2", cat:"nippard", emoji:"ðŸ’ª",
-  days:5, weeks:16, level:"Advanced", source:"Jeff Nippard â€“ Pure Bodybuilding Phase 2",
+  id:"nippard_pbl_phase2", name:"Pure Bodybuilding Ph.2", cat:"nippard", emoji:"💪",
+  days:5, weeks:16, level:"Advanced", source:"Jeff Nippard – Pure Bodybuilding Phase 2",
   tagline:"Nippard's advanced 5-day PPL+Arms. RP-style mesocycle periodization.",
-  desc:"Push/Pull/Legs/Upper/Lower split with dedicated arm day integration. MEVâ†’MRV progression across the mesocycle: start at minimum effective volume, add one set per exercise per week, deload at MRV. Uses RIR-based intensity regulation. Best for those with 2+ years of consistent training.",
+  desc:"Push/Pull/Legs/Upper/Lower split with dedicated arm day integration. MEV→MRV progression across the mesocycle: start at minimum effective volume, add one set per exercise per week, deload at MRV. Uses RIR-based intensity regulation. Best for those with 2+ years of consistent training.",
   goals:["Advanced hypertrophy","Mesocycle periodization","Full physique development","RIR-based intensity"],
-  progression:"MEVâ†’MRV: start at minimum sets, add 1 set/week, deload when hitting MRV (usually week 4-6).",
-  equipment:"Full gym â€” barbell, dumbbells, cables, machines",
+  progression:"MEV→MRV: start at minimum sets, add 1 set/week, deload when hitting MRV (usually week 4-6).",
+  equipment:"Full gym — barbell, dumbbells, cables, machines",
   sched:["Push","Pull","Legs","Upper","Lower","Rest","Rest"],
   workouts:{
-    "Push":{focus:"Chest Â· Shoulders Â· Triceps",exs:[
-      {id:"low_incline_press",sets:"3-5",reps:"8-12",rir:"3-1",rest:"2-3 min",notes:"MEVâ†’MRV: add 1 set/week"},
+    "Push":{focus:"Chest · Shoulders · Triceps",exs:[
+      {id:"low_incline_press",sets:"3-5",reps:"8-12",rir:"3-1",rest:"2-3 min",notes:"MEV→MRV: add 1 set/week"},
       {id:"overhead_press",sets:"2-4",reps:"10-15",rir:"3-1",rest:"2 min",notes:""},
       {id:"cable_fly",sets:"2-4",reps:"12-15",rir:"2-0",rest:"90 sec",notes:"Stretch at full extension"},
       {id:"lateral_raise",sets:"3-5",reps:"15-20",rir:"2-0",rest:"60 sec",notes:"Last set close to failure"},
       {id:"overhead_tricep_ext",sets:"2-3",reps:"12-15",rir:"2-1",rest:"90 sec",notes:""},
     ]},
-    "Pull":{focus:"Back Â· Biceps Â· Rear Delts",exs:[
+    "Pull":{focus:"Back · Biceps · Rear Delts",exs:[
       {id:"barbell_row",sets:"3-5",reps:"6-10",rir:"3-1",rest:"2-3 min",notes:""},
       {id:"lat_pulldown",sets:"2-4",reps:"10-15",rir:"2-1",rest:"2 min",notes:""},
       {id:"seated_cable_row",sets:"2-3",reps:"10-15",rir:"2-1",rest:"2 min",notes:""},
       {id:"face_pull",sets:"3-4",reps:"15-20",rir:"2-1",rest:"60 sec",notes:""},
       {id:"incline_dumbbell_curl",sets:"2-4",reps:"10-15",rir:"2-0",rest:"75 sec",notes:"Stretch focus"},
     ]},
-    "Legs":{focus:"Quads Â· Hamstrings Â· Glutes Â· Calves",exs:[
+    "Legs":{focus:"Quads · Hamstrings · Glutes · Calves",exs:[
       {id:"squat",sets:"3-5",reps:"6-10",rir:"3-1",rest:"3-5 min",notes:""},
       {id:"romanian_deadlift",sets:"3-4",reps:"8-12",rir:"3-1",rest:"3 min",notes:""},
       {id:"leg_press",sets:"2-3",reps:"10-15",rir:"2-0",rest:"2 min",notes:""},
@@ -2491,28 +2491,28 @@ const PROGRAMS = [
   }
 },
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 // ATHLEAN-X (kept)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 {
-  id:"athlean_athletic_5x", name:"Athlean Athletic", cat:"athlean", emoji:"âš¡",
+  id:"athlean_athletic_5x", name:"Athlean Athletic", cat:"athlean", emoji:"⚡",
   days:5, weeks:12, level:"Intermediate", source:"Jeff Cavaliere / Athlean-X",
   tagline:"Athletic performance + aesthetics. Built for real-world strength and injury prevention.",
   desc:"Based on Athlean-X principles: every exercise has athletic carry-over, no wasted movements, joint-safe progression. Focus on scapular health, rotator cuff integrity, and functional muscle. 5-day push/pull/legs with athletic conditioning emphasis.",
   goals:["Athletic performance","Injury prevention","Functional strength","Aesthetics + athleticism"],
   progression:"Add weight when all sets are completed at target reps with full control. Never sacrifice form.",
-  equipment:"Full gym â€” barbell, dumbbells, cables, machines",
+  equipment:"Full gym — barbell, dumbbells, cables, machines",
   sched:["Push A","Pull A","Legs","Push B","Pull B","Rest","Rest"],
   workouts:{
-    "Push A":{focus:"Chest Â· Shoulders Â· Triceps â€” Strength",exs:[
-      {id:"bench_press",sets:4,reps:"6-8",rpe:"8",rest:"3 min",notes:"Control the eccentric â€” 2 sec down"},
+    "Push A":{focus:"Chest · Shoulders · Triceps — Strength",exs:[
+      {id:"bench_press",sets:4,reps:"6-8",rpe:"8",rest:"3 min",notes:"Control the eccentric — 2 sec down"},
       {id:"incline_dumbbell_press",sets:3,reps:"10-12",rpe:"8",rest:"2 min",notes:""},
-      {id:"overhead_press",sets:3,reps:"8-10",rpe:"8",rest:"2 min",notes:"Strict form â€” no leg drive"},
+      {id:"overhead_press",sets:3,reps:"8-10",rpe:"8",rest:"2 min",notes:"Strict form — no leg drive"},
       {id:"cable_lateral_raise",sets:4,reps:"12-15",rpe:"9",rest:"60 sec",notes:"Cable for constant tension"},
       {id:"skull_crusher",sets:3,reps:"10-12",rpe:"9",rest:"90 sec",notes:""},
-      {id:"face_pull",sets:4,reps:"15-20",rpe:"8",rest:"60 sec",notes:"Every push day â€” shoulder health"},
+      {id:"face_pull",sets:4,reps:"15-20",rpe:"8",rest:"60 sec",notes:"Every push day — shoulder health"},
     ]},
-    "Pull A":{focus:"Back Â· Biceps â€” Strength",exs:[
+    "Pull A":{focus:"Back · Biceps — Strength",exs:[
       {id:"weighted_pullup",sets:4,reps:"6-8",rpe:"9",rest:"3 min",notes:"Dead hang each rep"},
       {id:"barbell_row",sets:4,reps:"8-10",rpe:"8",rest:"2 min",notes:""},
       {id:"seated_cable_row",sets:3,reps:"10-12",rpe:"8",rest:"2 min",notes:""},
@@ -2520,7 +2520,7 @@ const PROGRAMS = [
       {id:"barbell_curl",sets:3,reps:"8-12",rpe:"9",rest:"90 sec",notes:"Full supination at top"},
       {id:"hammer_curl",sets:3,reps:"10-12",rpe:"9",rest:"75 sec",notes:""},
     ]},
-    "Legs":{focus:"Full Legs â€” Athletic",exs:[
+    "Legs":{focus:"Full Legs — Athletic",exs:[
       {id:"squat",sets:4,reps:"6-8",rpe:"8",rest:"3-4 min",notes:"Controlled descent"},
       {id:"romanian_deadlift",sets:3,reps:"8-12",rpe:"8",rest:"3 min",notes:""},
       {id:"bulgarian_split_squat",sets:3,reps:"10/leg",rpe:"9",rest:"2 min",notes:"Unilateral stability"},
@@ -2528,7 +2528,7 @@ const PROGRAMS = [
       {id:"calf_raise",sets:4,reps:"15-20",rpe:"9",rest:"60 sec",notes:""},
       {id:"lateral_band_walk",sets:3,reps:"15/side",rpe:"8",rest:"60 sec",notes:"Hip abductor health"},
     ]},
-    "Push B":{focus:"Chest Â· Shoulders â€” Volume",exs:[
+    "Push B":{focus:"Chest · Shoulders — Volume",exs:[
       {id:"incline_dumbbell_press",sets:4,reps:"10-15",rpe:"9",rest:"2 min",notes:""},
       {id:"cable_fly",sets:3,reps:"12-15",rpe:"9",rest:"90 sec",notes:""},
       {id:"arnold_press",sets:3,reps:"10-12",rpe:"9",rest:"2 min",notes:"Full rotation"},
@@ -2536,7 +2536,7 @@ const PROGRAMS = [
       {id:"overhead_tricep_ext",sets:3,reps:"12-15",rpe:"9",rest:"75 sec",notes:""},
       {id:"face_pull",sets:3,reps:"15-20",rpe:"8",rest:"60 sec",notes:""},
     ]},
-    "Pull B":{focus:"Back Â· Rear Delts â€” Volume",exs:[
+    "Pull B":{focus:"Back · Rear Delts — Volume",exs:[
       {id:"lat_pulldown",sets:4,reps:"10-15",rpe:"9",rest:"2 min",notes:""},
       {id:"chest_supported_row",sets:4,reps:"10-15",rpe:"9",rest:"2 min",notes:"Chest supported for strict form"},
       {id:"cable_rear_delt_fly",sets:4,reps:"15-20",rpe:"9",rest:"60 sec",notes:""},
@@ -2546,119 +2546,119 @@ const PROGRAMS = [
   }
 },
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 // RP STRENGTH (kept + extended)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 {
-  id:"rp_hypertrophy_4x", name:"RP Hypertrophy 4x", cat:"rp_strength", emoji:"ðŸ“ˆ",
+  id:"rp_hypertrophy_4x", name:"RP Hypertrophy 4x", cat:"rp_strength", emoji:"📈",
   days:4, weeks:16, level:"Intermediate", source:"Dr. Mike Israetel / Renaissance Periodization",
-  tagline:"MEVâ†’MRV mesocycle science. Add sets weekly, deload, rebuild. Proven hypertrophy.",
-  desc:"Built on Renaissance Periodization's Volume Landmarks model: Minimum Effective Volume (MEV) â†’ Maximum Adaptive Volume (MAV) â†’ Maximum Recoverable Volume (MRV). Add 1 set per exercise per week. Deload when performance degrades at MRV. Repeat. Each new mesocycle starts slightly above previous MEV.",
+  tagline:"MEV→MRV mesocycle science. Add sets weekly, deload, rebuild. Proven hypertrophy.",
+  desc:"Built on Renaissance Periodization's Volume Landmarks model: Minimum Effective Volume (MEV) → Maximum Adaptive Volume (MAV) → Maximum Recoverable Volume (MRV). Add 1 set per exercise per week. Deload when performance degrades at MRV. Repeat. Each new mesocycle starts slightly above previous MEV.",
   goals:["Science-based hypertrophy","Long-term progression","Mesocycle planning","Systematic volume management"],
   progression:"MEV: start. Add 1 set/exercise/week. Deload at MRV (usually week 4-6). New meso: start at MEV+1 set.",
   equipment:"Full gym",
   sched:["Upper A","Lower A","Rest","Upper B","Lower B","Rest","Rest"],
   workouts:{
-    "Upper A":{focus:"Chest + Back MEVâ†’MRV",exs:[
-      {id:"incline_dumbbell_press",sets:"3-5",reps:"10-15",rir:"3â†’0",rest:"2 min",notes:"MEV=3 sets. Add 1 set/week. MRVâ‰ˆ5 sets."},
-      {id:"cable_fly",sets:"2-4",reps:"12-15",rir:"2â†’0",rest:"90 sec",notes:"Stretch focus. MEV=2."},
-      {id:"barbell_row",sets:"3-5",reps:"8-12",rir:"3â†’1",rest:"2 min",notes:""},
-      {id:"lat_pulldown",sets:"2-4",reps:"10-15",rir:"2â†’0",rest:"2 min",notes:""},
-      {id:"lateral_raise",sets:"3-5",reps:"15-20",rir:"2â†’0",rest:"60 sec",notes:""},
-      {id:"overhead_tricep_ext",sets:"2-3",reps:"12-15",rir:"2â†’0",rest:"75 sec",notes:""},
+    "Upper A":{focus:"Chest + Back MEV→MRV",exs:[
+      {id:"incline_dumbbell_press",sets:"3-5",reps:"10-15",rir:"3→0",rest:"2 min",notes:"MEV=3 sets. Add 1 set/week. MRV≈5 sets."},
+      {id:"cable_fly",sets:"2-4",reps:"12-15",rir:"2→0",rest:"90 sec",notes:"Stretch focus. MEV=2."},
+      {id:"barbell_row",sets:"3-5",reps:"8-12",rir:"3→1",rest:"2 min",notes:""},
+      {id:"lat_pulldown",sets:"2-4",reps:"10-15",rir:"2→0",rest:"2 min",notes:""},
+      {id:"lateral_raise",sets:"3-5",reps:"15-20",rir:"2→0",rest:"60 sec",notes:""},
+      {id:"overhead_tricep_ext",sets:"2-3",reps:"12-15",rir:"2→0",rest:"75 sec",notes:""},
     ]},
-    "Lower A":{focus:"Quads MEVâ†’MRV",exs:[
-      {id:"squat",sets:"3-5",reps:"8-12",rir:"3â†’1",rest:"3-4 min",notes:"MEV=3. Progressively add 1 set."},
-      {id:"hack_squat",sets:"2-4",reps:"10-15",rir:"2â†’0",rest:"2 min",notes:""},
-      {id:"leg_extension",sets:"2-4",reps:"15-20",rir:"2â†’0",rest:"90 sec",notes:""},
-      {id:"leg_curl",sets:"3-4",reps:"10-15",rir:"2â†’0",rest:"90 sec",notes:""},
-      {id:"calf_raise",sets:"3-5",reps:"12-15",rir:"2â†’0",rest:"60 sec",notes:""},
+    "Lower A":{focus:"Quads MEV→MRV",exs:[
+      {id:"squat",sets:"3-5",reps:"8-12",rir:"3→1",rest:"3-4 min",notes:"MEV=3. Progressively add 1 set."},
+      {id:"hack_squat",sets:"2-4",reps:"10-15",rir:"2→0",rest:"2 min",notes:""},
+      {id:"leg_extension",sets:"2-4",reps:"15-20",rir:"2→0",rest:"90 sec",notes:""},
+      {id:"leg_curl",sets:"3-4",reps:"10-15",rir:"2→0",rest:"90 sec",notes:""},
+      {id:"calf_raise",sets:"3-5",reps:"12-15",rir:"2→0",rest:"60 sec",notes:""},
     ]},
-    "Upper B":{focus:"Shoulders + Arms MEVâ†’MRV",exs:[
-      {id:"overhead_press",sets:"3-5",reps:"8-12",rir:"3â†’1",rest:"2-3 min",notes:""},
-      {id:"face_pull",sets:"3-5",reps:"15-20",rir:"2â†’0",rest:"60 sec",notes:"Rear delt + rotator cuff"},
-      {id:"lateral_raise",sets:"3-5",reps:"15-20",rir:"2â†’0",rest:"60 sec",notes:""},
-      {id:"barbell_curl",sets:"2-4",reps:"8-12",rir:"2â†’0",rest:"90 sec",notes:""},
-      {id:"hammer_curl",sets:"2-3",reps:"10-15",rir:"2â†’0",rest:"75 sec",notes:""},
-      {id:"skull_crusher",sets:"2-4",reps:"10-15",rir:"2â†’0",rest:"90 sec",notes:""},
+    "Upper B":{focus:"Shoulders + Arms MEV→MRV",exs:[
+      {id:"overhead_press",sets:"3-5",reps:"8-12",rir:"3→1",rest:"2-3 min",notes:""},
+      {id:"face_pull",sets:"3-5",reps:"15-20",rir:"2→0",rest:"60 sec",notes:"Rear delt + rotator cuff"},
+      {id:"lateral_raise",sets:"3-5",reps:"15-20",rir:"2→0",rest:"60 sec",notes:""},
+      {id:"barbell_curl",sets:"2-4",reps:"8-12",rir:"2→0",rest:"90 sec",notes:""},
+      {id:"hammer_curl",sets:"2-3",reps:"10-15",rir:"2→0",rest:"75 sec",notes:""},
+      {id:"skull_crusher",sets:"2-4",reps:"10-15",rir:"2→0",rest:"90 sec",notes:""},
     ]},
-    "Lower B":{focus:"Hamstrings + Glutes MEVâ†’MRV",exs:[
-      {id:"romanian_deadlift",sets:"3-5",reps:"8-12",rir:"3â†’1",rest:"3 min",notes:""},
-      {id:"hip_thrust",sets:"3-5",reps:"10-15",rir:"2â†’0",rest:"2 min",notes:""},
-      {id:"bulgarian_split_squat",sets:"2-4",reps:"10-12",rir:"2â†’0",rest:"2 min",notes:""},
-      {id:"leg_curl",sets:"3-5",reps:"10-15",rir:"2â†’0",rest:"90 sec",notes:""},
-      {id:"calf_raise",sets:"3-5",reps:"12-15",rir:"2â†’0",rest:"60 sec",notes:""},
+    "Lower B":{focus:"Hamstrings + Glutes MEV→MRV",exs:[
+      {id:"romanian_deadlift",sets:"3-5",reps:"8-12",rir:"3→1",rest:"3 min",notes:""},
+      {id:"hip_thrust",sets:"3-5",reps:"10-15",rir:"2→0",rest:"2 min",notes:""},
+      {id:"bulgarian_split_squat",sets:"2-4",reps:"10-12",rir:"2→0",rest:"2 min",notes:""},
+      {id:"leg_curl",sets:"3-5",reps:"10-15",rir:"2→0",rest:"90 sec",notes:""},
+      {id:"calf_raise",sets:"3-5",reps:"12-15",rir:"2→0",rest:"60 sec",notes:""},
     ]},
   }
 },
 {
-  id:"rp_strength_3day", name:"RP Strength 3x", cat:"rp_strength", emoji:"ðŸ“ˆ",
-  days:3, weeks:16, level:"Beginnerâ€“Intermediate", source:"Dr. Mike Israetel / Renaissance Periodization",
-  tagline:"RP principles in a 3-day full body format. MEVâ†’MRV periodization.",
+  id:"rp_strength_3day", name:"RP Strength 3x", cat:"rp_strength", emoji:"📈",
+  days:3, weeks:16, level:"Beginner–Intermediate", source:"Dr. Mike Israetel / Renaissance Periodization",
+  tagline:"RP principles in a 3-day full body format. MEV→MRV periodization.",
   desc:"Renaissance Periodization's volume-landmark approach applied to a 3-day full body schedule. Each muscle trained 3x/week. MEV starts low and builds across the mesocycle. Deload at week 4-5, rebuild the next meso.",
-  goals:["3-day schedule","MEVâ†’MRV periodization","Full body frequency","Beginner-intermediate hypertrophy"],
-  progression:"MEVâ†’MRV: add 1 set/exercise/week. Deload when SFR (stimulus-to-fatigue ratio) drops. Start next meso 1 set above last meso's MEV.",
+  goals:["3-day schedule","MEV→MRV periodization","Full body frequency","Beginner-intermediate hypertrophy"],
+  progression:"MEV→MRV: add 1 set/exercise/week. Deload when SFR (stimulus-to-fatigue ratio) drops. Start next meso 1 set above last meso's MEV.",
   equipment:"Barbell, dumbbells, cables, machines",
   sched:["Full Body A","Rest","Full Body B","Rest","Full Body C","Rest","Rest"],
   workouts:{
     "Full Body A":{focus:"Quad + Push emphasis",exs:[
-      {id:"squat",sets:"3-5",reps:"8-12",rir:"3â†’1",rest:"3 min",notes:"MEV=3 sets, MRVâ‰ˆ5"},
-      {id:"bench_press",sets:"3-5",reps:"8-12",rir:"3â†’1",rest:"2-3 min",notes:""},
-      {id:"lat_pulldown",sets:"2-4",reps:"10-15",rir:"2â†’0",rest:"2 min",notes:""},
-      {id:"lateral_raise",sets:"2-4",reps:"15-20",rir:"2â†’0",rest:"60 sec",notes:""},
-      {id:"dumbbell_curl",sets:"2-3",reps:"10-15",rir:"2â†’0",rest:"75 sec",notes:""},
+      {id:"squat",sets:"3-5",reps:"8-12",rir:"3→1",rest:"3 min",notes:"MEV=3 sets, MRV≈5"},
+      {id:"bench_press",sets:"3-5",reps:"8-12",rir:"3→1",rest:"2-3 min",notes:""},
+      {id:"lat_pulldown",sets:"2-4",reps:"10-15",rir:"2→0",rest:"2 min",notes:""},
+      {id:"lateral_raise",sets:"2-4",reps:"15-20",rir:"2→0",rest:"60 sec",notes:""},
+      {id:"dumbbell_curl",sets:"2-3",reps:"10-15",rir:"2→0",rest:"75 sec",notes:""},
     ]},
     "Full Body B":{focus:"Hip + Pull emphasis",exs:[
-      {id:"romanian_deadlift",sets:"3-5",reps:"8-12",rir:"3â†’1",rest:"3 min",notes:""},
-      {id:"overhead_press",sets:"3-4",reps:"8-12",rir:"3â†’1",rest:"2 min",notes:""},
-      {id:"barbell_row",sets:"3-5",reps:"8-12",rir:"3â†’1",rest:"2 min",notes:""},
-      {id:"cable_fly",sets:"2-4",reps:"12-15",rir:"2â†’0",rest:"90 sec",notes:""},
-      {id:"tricep_pushdown",sets:"2-3",reps:"12-15",rir:"2â†’0",rest:"75 sec",notes:""},
+      {id:"romanian_deadlift",sets:"3-5",reps:"8-12",rir:"3→1",rest:"3 min",notes:""},
+      {id:"overhead_press",sets:"3-4",reps:"8-12",rir:"3→1",rest:"2 min",notes:""},
+      {id:"barbell_row",sets:"3-5",reps:"8-12",rir:"3→1",rest:"2 min",notes:""},
+      {id:"cable_fly",sets:"2-4",reps:"12-15",rir:"2→0",rest:"90 sec",notes:""},
+      {id:"tricep_pushdown",sets:"2-3",reps:"12-15",rir:"2→0",rest:"75 sec",notes:""},
     ]},
     "Full Body C":{focus:"Full body + weak points",exs:[
-      {id:"leg_press",sets:"3-5",reps:"10-15",rir:"2â†’0",rest:"2 min",notes:""},
-      {id:"incline_dumbbell_press",sets:"2-4",reps:"10-15",rir:"2â†’0",rest:"2 min",notes:""},
-      {id:"seated_cable_row",sets:"3-4",reps:"10-15",rir:"2â†’0",rest:"2 min",notes:""},
-      {id:"hip_thrust",sets:"3-4",reps:"12-15",rir:"2â†’0",rest:"2 min",notes:""},
-      {id:"face_pull",sets:"3-4",reps:"15-20",rir:"2â†’0",rest:"60 sec",notes:""},
-      {id:"hammer_curl",sets:"2-3",reps:"10-15",rir:"2â†’0",rest:"75 sec",notes:""},
+      {id:"leg_press",sets:"3-5",reps:"10-15",rir:"2→0",rest:"2 min",notes:""},
+      {id:"incline_dumbbell_press",sets:"2-4",reps:"10-15",rir:"2→0",rest:"2 min",notes:""},
+      {id:"seated_cable_row",sets:"3-4",reps:"10-15",rir:"2→0",rest:"2 min",notes:""},
+      {id:"hip_thrust",sets:"3-4",reps:"12-15",rir:"2→0",rest:"2 min",notes:""},
+      {id:"face_pull",sets:"3-4",reps:"15-20",rir:"2→0",rest:"60 sec",notes:""},
+      {id:"hammer_curl",sets:"2-3",reps:"10-15",rir:"2→0",rest:"75 sec",notes:""},
     ]},
   }
 },
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 // CALISTHENICS (kept + extended)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 {
-  id:"cali_foundation_3x", name:"Calisthenics Foundation", cat:"calisthenics", emoji:"ðŸ¤¸",
+  id:"cali_foundation_3x", name:"Calisthenics Foundation", cat:"calisthenics", emoji:"🤸",
   days:3, weeks:12, level:"Beginner", source:"r/bodyweightfitness Recommended Routine",
   tagline:"The r/bodyweightfitness gold standard. Build full bodyweight strength with zero equipment.",
-  desc:"Based on the r/bodyweightfitness Recommended Routine. Progressive calisthenics: each exercise has an easier and harder variation to keep you progressing. Push progressions: push-up â†’ pike push-up â†’ handstand push-up. Pull progressions: row â†’ pull-up â†’ weighted pull-up. Leg progressions: squat â†’ pistol squat.",
+  desc:"Based on the r/bodyweightfitness Recommended Routine. Progressive calisthenics: each exercise has an easier and harder variation to keep you progressing. Push progressions: push-up → pike push-up → handstand push-up. Pull progressions: row → pull-up → weighted pull-up. Leg progressions: squat → pistol squat.",
   goals:["No equipment needed","Bodyweight mastery","Progressive skill development","Foundation strength"],
   progression:"When you can complete all sets at the top rep range with perfect form, move to the next harder variation.",
   equipment:"Pull-up bar, dip bars (or two chairs), floor",
   sched:["Full Body A","Rest","Full Body B","Rest","Full Body A","Rest","Rest"],
   workouts:{
-    "Full Body A":{focus:"Push Â· Pull Â· Core Â· Legs",exs:[
-      {id:"push_up_progression",sets:3,reps:"5-8",rest:"90 sec",notes:"Use hardest variation you can complete: push-up â†’ diamond â†’ archer â†’ pike"},
-      {id:"row_progression",sets:3,reps:"5-8",rest:"90 sec",notes:"Ring/bar row â†’ feet elevated row â†’ pull-up"},
-      {id:"squat_progression",sets:3,reps:"8-12",rest:"90 sec",notes:"Squat â†’ Bulgarian split â†’ pistol squat"},
-      {id:"dip_progression",sets:3,reps:"5-8",rest:"90 sec",notes:"Bench dip â†’ parallel bar dip â†’ weighted dip"},
-      {id:"hinge_progression",sets:3,reps:"8-12",rest:"90 sec",notes:"Good morning â†’ hip hinge â†’ single-leg hip hinge â†’ Nordic curl"},
-      {id:"plank",sets:3,reps:"30-60 sec",rest:"60 sec",notes:"Progress to RKC plank â†’ Copenhagen plank"},
+    "Full Body A":{focus:"Push · Pull · Core · Legs",exs:[
+      {id:"push_up_progression",sets:3,reps:"5-8",rest:"90 sec",notes:"Use hardest variation you can complete: push-up → diamond → archer → pike"},
+      {id:"row_progression",sets:3,reps:"5-8",rest:"90 sec",notes:"Ring/bar row → feet elevated row → pull-up"},
+      {id:"squat_progression",sets:3,reps:"8-12",rest:"90 sec",notes:"Squat → Bulgarian split → pistol squat"},
+      {id:"dip_progression",sets:3,reps:"5-8",rest:"90 sec",notes:"Bench dip → parallel bar dip → weighted dip"},
+      {id:"hinge_progression",sets:3,reps:"8-12",rest:"90 sec",notes:"Good morning → hip hinge → single-leg hip hinge → Nordic curl"},
+      {id:"plank",sets:3,reps:"30-60 sec",rest:"60 sec",notes:"Progress to RKC plank → Copenhagen plank"},
     ]},
-    "Full Body B":{focus:"Push Â· Pull Â· Core Â· Legs â€” Variation",exs:[
-      {id:"pike_pushup_progression",sets:3,reps:"5-8",rest:"90 sec",notes:"Pike push-up â†’ elevated pike â†’ wall handstand push-up"},
-      {id:"pullup_progression",sets:3,reps:"3-8",rest:"2 min",notes:"Assisted â†’ negatives â†’ pull-up â†’ weighted"},
-      {id:"lunge_progression",sets:3,reps:"8/side",rest:"90 sec",notes:"Lunge â†’ walking lunge â†’ Bulgarian split â†’ pistol"},
+    "Full Body B":{focus:"Push · Pull · Core · Legs — Variation",exs:[
+      {id:"pike_pushup_progression",sets:3,reps:"5-8",rest:"90 sec",notes:"Pike push-up → elevated pike → wall handstand push-up"},
+      {id:"pullup_progression",sets:3,reps:"3-8",rest:"2 min",notes:"Assisted → negatives → pull-up → weighted"},
+      {id:"lunge_progression",sets:3,reps:"8/side",rest:"90 sec",notes:"Lunge → walking lunge → Bulgarian split → pistol"},
       {id:"pushup_variation",sets:3,reps:"8-12",rest:"90 sec",notes:"Incline or decline to vary angle"},
-      {id:"row_variation",sets:3,reps:"8-12",rest:"90 sec",notes:"Supinated row â†’ one-arm row progression"},
-      {id:"hollow_body_hold",sets:3,reps:"20-40 sec",rest:"60 sec",notes:"Tuck â†’ arch â†’ full hollow â†’ L-sit progression"},
+      {id:"row_variation",sets:3,reps:"8-12",rest:"90 sec",notes:"Supinated row → one-arm row progression"},
+      {id:"hollow_body_hold",sets:3,reps:"20-40 sec",rest:"60 sec",notes:"Tuck → arch → full hollow → L-sit progression"},
     ]},
   }
 },
 {
-  id:"cali_intermediate", name:"Calisthenics Intermediate", cat:"calisthenics", emoji:"ðŸ¤¸",
+  id:"cali_intermediate", name:"Calisthenics Intermediate", cat:"calisthenics", emoji:"🤸",
   days:4, weeks:12, level:"Intermediate", source:"r/bodyweightfitness + Greasing the Groove",
   tagline:"Progress to muscle-up, handstand, and planche foundations. 4-day skill + strength.",
   desc:"For those who can do 10+ clean pull-ups and 20+ push-ups. Adds skill work (handstand, muscle-up, L-sit) alongside continued strength progression. 4 days: Push, Pull, Legs, Skills. Based on r/bodyweightfitness intermediate recommendations and Pavel Tsatsouline's Greasing the Groove principle for skills.",
@@ -2668,49 +2668,49 @@ const PROGRAMS = [
   sched:["Push","Pull","Legs","Skills","Rest","Rest","Rest"],
   workouts:{
     "Push":{focus:"Pushing Strength + Handstand",exs:[
-      {id:"push_up_progression",sets:4,reps:"8-12",rest:"2 min",notes:"Use hardest variation â€” archer or pike"},
+      {id:"push_up_progression",sets:4,reps:"8-12",rest:"2 min",notes:"Use hardest variation — archer or pike"},
       {id:"dip",sets:4,reps:"8-12",rest:"2 min",notes:"Weighted with belt when 12 is easy"},
-      {id:"pike_pushup_progression",sets:3,reps:"5-10",rest:"2 min",notes:"Pike â†’ elevated pike â†’ wall HSPU"},
-      {id:"wall_handstand",sets:5,reps:"20-40 sec hold",rest:"90 sec",notes:"Face wall â†’ freestanding progression"},
-      {id:"l_sit",sets:5,reps:"5-15 sec",rest:"60 sec",notes:"Tuck â†’ straddle â†’ full L-sit"},
+      {id:"pike_pushup_progression",sets:3,reps:"5-10",rest:"2 min",notes:"Pike → elevated pike → wall HSPU"},
+      {id:"wall_handstand",sets:5,reps:"20-40 sec hold",rest:"90 sec",notes:"Face wall → freestanding progression"},
+      {id:"l_sit",sets:5,reps:"5-15 sec",rest:"60 sec",notes:"Tuck → straddle → full L-sit"},
     ]},
     "Pull":{focus:"Pulling Strength + Muscle-Up Progression",exs:[
       {id:"pull_up_chinup",sets:4,reps:"5-10",rest:"2 min",notes:"Weighted with belt when 10 is easy"},
-      {id:"row_progression",sets:3,reps:"8-12",rest:"90 sec",notes:"Chest-to-bar focus â€” high pull"},
-      {id:"muscle_up_progression",sets:4,reps:"3-5",rest:"3 min",notes:"Bar dip â†’ high pull â†’ transition drill â†’ full muscle-up"},
-      {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:"External rotation â€” shoulder health"},
+      {id:"row_progression",sets:3,reps:"8-12",rest:"90 sec",notes:"Chest-to-bar focus — high pull"},
+      {id:"muscle_up_progression",sets:4,reps:"3-5",rest:"3 min",notes:"Bar dip → high pull → transition drill → full muscle-up"},
+      {id:"face_pull",sets:3,reps:"15-20",rest:"60 sec",notes:"External rotation — shoulder health"},
       {id:"bicep_curl_progression",sets:3,reps:"8-12",rest:"90 sec",notes:"Towel curl or chin-up curl"},
     ]},
     "Legs":{focus:"Lower Body Strength + Pistol Progression",exs:[
-      {id:"squat_progression",sets:4,reps:"8-15",rest:"2 min",notes:"Squat â†’ Bulgarian â†’ shrimp â†’ pistol"},
-      {id:"single_leg_progression",sets:3,reps:"6-10/side",rest:"2 min",notes:"Lunge â†’ Bulgarian â†’ pistol progression"},
+      {id:"squat_progression",sets:4,reps:"8-15",rest:"2 min",notes:"Squat → Bulgarian → shrimp → pistol"},
+      {id:"single_leg_progression",sets:3,reps:"6-10/side",rest:"2 min",notes:"Lunge → Bulgarian → pistol progression"},
       {id:"hip_hinge",sets:3,reps:"8-12",rest:"2 min",notes:"Single-leg or Nordic curl"},
       {id:"calf_raise",sets:4,reps:"15-25",rest:"60 sec",notes:"Single-leg calf raise"},
-      {id:"plank_progression",sets:3,reps:"30-60 sec",rest:"60 sec",notes:"Plank â†’ RKC â†’ Copenhagen"},
+      {id:"plank_progression",sets:3,reps:"30-60 sec",rest:"60 sec",notes:"Plank → RKC → Copenhagen"},
     ]},
     "Skills":{focus:"Skill Practice + Mobility",exs:[
-      {id:"handstand_practice",sets:8,reps:"15-30 sec",rest:"90 sec",notes:"Freestanding or wall â€” quality over time"},
+      {id:"handstand_practice",sets:8,reps:"15-30 sec",rest:"90 sec",notes:"Freestanding or wall — quality over time"},
       {id:"l_sit",sets:5,reps:"5-15 sec",rest:"60 sec",notes:"Aim for 15 sec full L-sit"},
-      {id:"planche_lean",sets:5,reps:"10-20 sec",rest:"2 min",notes:"Planche progression: lean â†’ tuck â†’ straddle"},
-      {id:"mobility_work",sets:1,reps:"15-20 min",rest:"â€”",notes:"Shoulder, hip, wrist mobility for skill prerequisites"},
+      {id:"planche_lean",sets:5,reps:"10-20 sec",rest:"2 min",notes:"Planche progression: lean → tuck → straddle"},
+      {id:"mobility_work",sets:1,reps:"15-20 min",rest:"—",notes:"Shoulder, hip, wrist mobility for skill prerequisites"},
     ]},
   }
 },
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 // HOME / MINIMAL EQUIPMENT (2 programs)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 {
-  id:"dumbbell_only_3day", name:"Dumbbell-Only Full Body", cat:"home_gym", emoji:"ðŸ ",
-  days:3, weeks:12, level:"Beginnerâ€“Intermediate", source:"r/homegym / Evidence-Based Principles",
+  id:"dumbbell_only_3day", name:"Dumbbell-Only Full Body", cat:"home_gym", emoji:"🏠",
+  days:3, weeks:12, level:"Beginner–Intermediate", source:"r/homegym / Evidence-Based Principles",
   tagline:"Full gym results with just dumbbells. Effective, no barbell required.",
   desc:"Complete full-body program using only dumbbells. Each major movement pattern (squat, hinge, push, pull, carry) covered. Progression via reps then weight. Can be run with a set of adjustable dumbbells or a fixed-weight range of 10-50 lb. Good for home gym or travel.",
   goals:["No barbell needed","Home gym friendly","Full body coverage","Travel-ready"],
-  progression:"Complete all sets at top rep range â†’ add weight. For bodyweight exercises, add reps.",
+  progression:"Complete all sets at top rep range → add weight. For bodyweight exercises, add reps.",
   equipment:"Dumbbells (adjustable preferred), floor, optional bench",
   sched:["Full Body A","Rest","Full Body B","Rest","Full Body C","Rest","Rest"],
   workouts:{
-    "Full Body A":{focus:"Squat Â· Horizontal Push/Pull Â· Arms",exs:[
+    "Full Body A":{focus:"Squat · Horizontal Push/Pull · Arms",exs:[
       {id:"goblet_squat",sets:4,reps:"10-15",rest:"2 min",notes:"Hold at chest. Progress to single-leg."},
       {id:"dumbbell_bench_press",sets:3,reps:"8-15",rest:"2 min",notes:"Floor press if no bench"},
       {id:"dumbbell_row",sets:3,reps:"10-15",rest:"2 min",notes:"Brace against knee or bench"},
@@ -2718,7 +2718,7 @@ const PROGRAMS = [
       {id:"dumbbell_curl",sets:3,reps:"10-15",rest:"75 sec",notes:""},
       {id:"skull_crusher",sets:3,reps:"10-15",rest:"75 sec",notes:""},
     ]},
-    "Full Body B":{focus:"Hinge Â· Vertical Push/Pull Â· Core",exs:[
+    "Full Body B":{focus:"Hinge · Vertical Push/Pull · Core",exs:[
       {id:"romanian_deadlift",sets:4,reps:"10-15",rest:"2 min",notes:"Single-leg for more challenge"},
       {id:"dumbbell_shoulder_press",sets:3,reps:"8-12",rest:"2 min",notes:"Seated or standing"},
       {id:"dumbbell_pullover",sets:3,reps:"10-15",rest:"90 sec",notes:"Lat stretch and activation"},
@@ -2737,8 +2737,8 @@ const PROGRAMS = [
   }
 },
 {
-  id:"barbell_home_3day", name:"Barbell Home Gym 3-Day", cat:"home_gym", emoji:"ðŸ ",
-  days:3, weeks:12, level:"Beginnerâ€“Intermediate", source:"r/homegym â€” Evidence-Based",
+  id:"barbell_home_3day", name:"Barbell Home Gym 3-Day", cat:"home_gym", emoji:"🏠",
+  days:3, weeks:12, level:"Beginner–Intermediate", source:"r/homegym — Evidence-Based",
   tagline:"Barbell at home? This is all you need. Squats, bench, deadlifts, OHP.",
   desc:"Optimized for a power rack + barbell + plates setup. Full body 3x/week with the big 4 barbell lifts. Accessory work uses dumbbells or the barbell. Minimal space required. Based on proven full-body frequency principles. Can start as a beginner and run for 12+ months.",
   goals:["Home gym barbell setup","Full body compound focus","Long-term progression","Minimal equipment"],
@@ -2746,14 +2746,14 @@ const PROGRAMS = [
   equipment:"Barbell, squat rack/power cage, plates, bench (optional)",
   sched:["Full Body A","Rest","Full Body B","Rest","Full Body A","Rest","Rest"],
   workouts:{
-    "Full Body A":{focus:"Squat Â· Bench Â· Row",exs:[
+    "Full Body A":{focus:"Squat · Bench · Row",exs:[
       {id:"squat",sets:3,reps:"5+",rest:"3-5 min",notes:"Linear progression. AMRAP last set."},
       {id:"bench_press",sets:3,reps:"5+",rest:"3 min",notes:"Linear progression"},
       {id:"barbell_row",sets:3,reps:"5+",rest:"3 min",notes:"Barbell row"},
       {id:"barbell_curl",sets:3,reps:"8-12",rest:"90 sec",notes:""},
       {id:"tricep_pushdown",sets:3,reps:"8-12",rest:"90 sec",notes:"Band or barbell overhead ext"},
     ]},
-    "Full Body B":{focus:"Squat Â· OHP Â· Deadlift",exs:[
+    "Full Body B":{focus:"Squat · OHP · Deadlift",exs:[
       {id:"squat",sets:3,reps:"5+",rest:"3-5 min",notes:"Same as A"},
       {id:"overhead_press",sets:3,reps:"5+",rest:"3 min",notes:"Linear progression"},
       {id:"deadlift",sets:1,reps:"5+",rest:"5 min",notes:"Heavy single top set"},
@@ -2763,11 +2763,11 @@ const PROGRAMS = [
   }
 },
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 // TENNIS (kept)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ══════════════════════════════════════════════════════════════
 {
-  id:"tennis_2x", name:"Tennis Foundation", cat:"tennis", emoji:"ðŸŽ¾",
+  id:"tennis_2x", name:"Tennis Foundation", cat:"tennis", emoji:"🎾",
   days:2, weeks:8, level:"Beginner", source:"Tennis Fitness Science",
   tagline:"Build the athletic base every tennis player needs",
   desc:"Bilateral strength, rotational power, shoulder health, injury prevention. Perfect for players starting strength training.",
@@ -2780,24 +2780,24 @@ const PROGRAMS = [
       {id:"goblet_squat",sets:3,reps:"8-10",rpe:"7-8",rir:"3-2",rest:"2 min",notes:"Knee tracking, proud chest"},
       {id:"rdl",sets:3,reps:"8-10",rpe:"7-8",rir:"3-2",rest:"2 min",notes:"Hip hinge, neutral spine"},
       {id:"db_bench",sets:3,reps:"8-12",rpe:"7-8",rir:"3-2",rest:"90 sec",notes:"Full ROM"},
-      {id:"db_row",sets:3,reps:"10-12",rpe:"7-8",rir:"3-2",rest:"90 sec",notes:"Each arm, 45Â° elbow"},
-      {id:"ytw_raise",sets:3,reps:"12-15",rpe:"8",rir:"2",rest:"60 sec",notes:"ðŸŽ¾ Critical shoulder health"},
+      {id:"db_row",sets:3,reps:"10-12",rpe:"7-8",rir:"3-2",rest:"90 sec",notes:"Each arm, 45° elbow"},
+      {id:"ytw_raise",sets:3,reps:"12-15",rpe:"8",rir:"2",rest:"60 sec",notes:"🎾 Critical shoulder health"},
       {id:"pallof_press",sets:3,reps:"10-12",rpe:"8",rir:"2",rest:"60 sec",notes:"Anti-rotation, slow"},
       {id:"calf_raise",sets:3,reps:"15-20",rpe:"8",rir:"2",rest:"60 sec",notes:"Full stretch at bottom"},
     ]},
     "Full Body B":{focus:"Explosivity & Athletic Movement",exs:[
       {id:"box_jump",sets:4,reps:"4-5",rpe:"8",rir:"2",rest:"2 min",notes:"Land softly, reset each rep"},
-      {id:"lateral_bound",sets:3,reps:"6/side",rpe:"8",rir:"2",rest:"90 sec",notes:"ðŸŽ¾ Stick landing 2 sec"},
-      {id:"med_ball_rotational",sets:3,reps:"8/side",rpe:"8",rir:"2",rest:"90 sec",notes:"ðŸŽ¾ Hip-to-shoulder = serve pattern"},
+      {id:"lateral_bound",sets:3,reps:"6/side",rpe:"8",rir:"2",rest:"90 sec",notes:"🎾 Stick landing 2 sec"},
+      {id:"med_ball_rotational",sets:3,reps:"8/side",rpe:"8",rir:"2",rest:"90 sec",notes:"🎾 Hip-to-shoulder = serve pattern"},
       {id:"bulgarian_split",sets:3,reps:"8-10/leg",rpe:"8",rir:"2",rest:"2 min",notes:"Unilateral stability"},
-      {id:"rotator_cuff_er",sets:3,reps:"15/arm",rpe:"7",rir:"3",rest:"60 sec",notes:"ðŸŽ¾ Rotator cuff health"},
+      {id:"rotator_cuff_er",sets:3,reps:"15/arm",rpe:"7",rir:"3",rest:"60 sec",notes:"🎾 Rotator cuff health"},
       {id:"lat_pulldown",sets:3,reps:"10-12",rpe:"8",rir:"2",rest:"90 sec",notes:"Elbows down and in"},
       {id:"plank",sets:3,reps:"30-45 sec",rpe:"8",rir:"2",rest:"60 sec",notes:"Long lever, brace hard"},
     ]},
   }
 },
 {
-  id:"tennis_4x", name:"Tennis Performance", cat:"tennis", emoji:"ðŸŽ¾",
+  id:"tennis_4x", name:"Tennis Performance", cat:"tennis", emoji:"🎾",
   days:4, weeks:8, level:"Intermediate", source:"Tennis Fitness Science",
   tagline:"Upper/Lower targeting all 9 tennis physical threads",
   desc:"Bilateral strength, rotational control, force absorption, explosive power, unilateral stability, repeated power, multi-directional speed.",
@@ -2809,55 +2809,55 @@ const PROGRAMS = [
     "Upper A":{focus:"Push + Rotational Power",exs:[
       {id:"db_shoulder_press",sets:3,reps:"8-10",rpe:"8",rir:"2",rest:"2 min",notes:"Overhead strength for serve"},
       {id:"low_incline_press",sets:3,reps:"8-10",rpe:"8",rir:"2",rest:"2 min",notes:"Pec stretch, bottom half ROM"},
-      {id:"med_ball_rotational",sets:4,reps:"8/side",rpe:"9",rir:"1",rest:"90 sec",notes:"ðŸŽ¾ Explosive hip-shoulder"},
-      {id:"ytw_raise",sets:3,reps:"12-15",rpe:"8",rir:"2",rest:"60 sec",notes:"ðŸŽ¾ Every upper session"},
+      {id:"med_ball_rotational",sets:4,reps:"8/side",rpe:"9",rir:"1",rest:"90 sec",notes:"🎾 Explosive hip-shoulder"},
+      {id:"ytw_raise",sets:3,reps:"12-15",rpe:"8",rir:"2",rest:"60 sec",notes:"🎾 Every upper session"},
       {id:"cable_lateral_raise",sets:3,reps:"12-15",rpe:"9",rir:"1",rest:"60 sec",notes:"Squeeze lateral delt"},
-      {id:"external_rotation",sets:3,reps:"15/arm",rpe:"7",rir:"3",rest:"60 sec",notes:"ðŸŽ¾ Injury prevention"},
+      {id:"external_rotation",sets:3,reps:"15/arm",rpe:"7",rir:"3",rest:"60 sec",notes:"🎾 Injury prevention"},
     ]},
     "Lower A":{focus:"Power + Explosivity",exs:[
       {id:"squat",sets:3,reps:"5-6",rpe:"8",rir:"2",rest:"3 min",notes:"Court movement power base"},
       {id:"box_jump",sets:4,reps:"4",rpe:"8-9",rir:"2-1",rest:"2 min",notes:"Max height, soft landing"},
-      {id:"lateral_bound",sets:4,reps:"5/side",rpe:"9",rir:"1",rest:"2 min",notes:"ðŸŽ¾ Court lateral power"},
+      {id:"lateral_bound",sets:4,reps:"5/side",rpe:"9",rir:"1",rest:"2 min",notes:"🎾 Court lateral power"},
       {id:"rdl",sets:3,reps:"8-10",rpe:"8",rir:"2",rest:"2 min",notes:"Hamstring deceleration"},
-      {id:"calf_raise",sets:4,reps:"15-20",rpe:"9",rir:"1",rest:"60 sec",notes:"ðŸŽ¾ Split-step demands"},
+      {id:"calf_raise",sets:4,reps:"15-20",rpe:"9",rir:"1",rest:"60 sec",notes:"🎾 Split-step demands"},
       {id:"lateral_band_walk",sets:3,reps:"15/side",rpe:"8",rir:"2",rest:"60 sec",notes:"Hip abductor health"},
     ]},
     "Upper B":{focus:"Pull + Shoulder Health",exs:[
       {id:"pullup",sets:3,reps:"6-10",rpe:"8-9",rir:"2-1",rest:"2 min",notes:"Full ROM dead hang"},
-      {id:"db_row",sets:3,reps:"10-12/arm",rpe:"8",rir:"2",rest:"90 sec",notes:"Drive elbow 45Â° back"},
+      {id:"db_row",sets:3,reps:"10-12/arm",rpe:"8",rir:"2",rest:"90 sec",notes:"Drive elbow 45° back"},
       {id:"face_pull",sets:3,reps:"15-20",rpe:"8",rir:"2",rest:"60 sec",notes:"Rear delt + rotator cuff"},
       {id:"cable_reverse_flye",sets:3,reps:"12-15",rpe:"9",rir:"1",rest:"60 sec",notes:"Rear delt isolation"},
-      {id:"ytw_raise",sets:3,reps:"12-15",rpe:"8",rir:"2",rest:"60 sec",notes:"ðŸŽ¾ Shoulder armor"},
-      {id:"wrist_curl",sets:2,reps:"15-20/arm",rpe:"8",rir:"2",rest:"45 sec",notes:"ðŸŽ¾ Tennis elbow prevention"},
+      {id:"ytw_raise",sets:3,reps:"12-15",rpe:"8",rir:"2",rest:"60 sec",notes:"🎾 Shoulder armor"},
+      {id:"wrist_curl",sets:2,reps:"15-20/arm",rpe:"8",rir:"2",rest:"45 sec",notes:"🎾 Tennis elbow prevention"},
       {id:"reverse_ez_curl",sets:2,reps:"12-15",rpe:"8",rir:"2",rest:"45 sec",notes:"Forearm balance"},
     ]},
     "Lower B":{focus:"Stability + Unilateral",exs:[
-      {id:"bulgarian_split",sets:3,reps:"8-10/leg",rpe:"8-9",rir:"2-1",rest:"2 min",notes:"ðŸŽ¾ Split-step mechanics"},
+      {id:"bulgarian_split",sets:3,reps:"8-10/leg",rpe:"8-9",rir:"2-1",rest:"2 min",notes:"🎾 Split-step mechanics"},
       {id:"depth_jump",sets:3,reps:"5",rpe:"9",rir:"1",rest:"2 min",notes:"Reactive strength"},
       {id:"db_rdl",sets:3,reps:"10-12",rpe:"8",rir:"2",rest:"90 sec",notes:""},
-      {id:"copenhagen_adduction",sets:3,reps:"10-12/side",rpe:"8",rir:"2",rest:"60 sec",notes:"ðŸŽ¾ Groin injury prevention"},
+      {id:"copenhagen_adduction",sets:3,reps:"10-12/side",rpe:"8",rir:"2",rest:"60 sec",notes:"🎾 Groin injury prevention"},
       {id:"single_leg_balance",sets:3,reps:"30 sec/leg",rpe:"7",rir:"3",rest:"45 sec",notes:"Eyes closed progression"},
-      {id:"cable_woodchop",sets:3,reps:"10/side",rpe:"8",rir:"2",rest:"60 sec",notes:"ðŸŽ¾ Rotational core"},
+      {id:"cable_woodchop",sets:3,reps:"10/side",rpe:"8",rir:"2",rest:"60 sec",notes:"🎾 Rotational core"},
     ]},
   }
 },
 {
-  id:"tennis_6x", name:"Tennis Elite", cat:"tennis", emoji:"ðŸŽ¾",
+  id:"tennis_6x", name:"Tennis Elite", cat:"tennis", emoji:"🎾",
   days:6, weeks:12, level:"Advanced", source:"Tennis Fitness Science + RP Strength",
   tagline:"Six-day PPL with dedicated athletic conditioning day",
-  desc:"PPL with tennis athletic conditioning. RP Strength mesocycle progression (MEVâ†’MRV). Three 4-week mesocycles over 12 weeks.",
+  desc:"PPL with tennis athletic conditioning. RP Strength mesocycle progression (MEV→MRV). Three 4-week mesocycles over 12 weeks.",
   goals:["Peak athletic performance","All-around tennis fitness","High-volume adaptation"],
-  progression:"MEVâ†’MRV: add sets each week, deload at week 4. Each meso starts at MEV.",
+  progression:"MEV→MRV: add sets each week, deload at week 4. Each meso starts at MEV.",
   equipment:"Full gym + medicine ball, agility ladder",
   sched:["Push","Pull","Legs","Tennis Athletic","Upper","Lower","Rest"],
   workouts:{
     "Push":{focus:"Chest, Shoulders, Triceps",exs:[
-      {id:"low_incline_press",sets:"3-4",reps:"8-10",rpe:"8-9",rir:"2-1",rest:"2-3 min",notes:"MEVâ†’MRV: add 1 set/week"},
+      {id:"low_incline_press",sets:"3-4",reps:"8-10",rpe:"8-9",rir:"2-1",rest:"2-3 min",notes:"MEV→MRV: add 1 set/week"},
       {id:"db_shoulder_press",sets:"3-4",reps:"10-12",rpe:"8-9",rir:"2-1",rest:"2 min",notes:""},
       {id:"cable_flye",sets:"2-3",reps:"12-15",rpe:"9",rir:"1",rest:"90 sec",notes:"Stretch-focused"},
       {id:"cable_lateral_raise",sets:"3-4",reps:"12-15",rpe:"9-10",rir:"1-0",rest:"60 sec",notes:"Last set to failure"},
       {id:"overhead_tricep_ext",sets:"2-3",reps:"10-12",rpe:"9",rir:"1",rest:"90 sec",notes:"Long head stretch"},
-      {id:"ytw_raise",sets:3,reps:"12-15",rpe:"8",rir:"2",rest:"60 sec",notes:"ðŸŽ¾ Every push session"},
+      {id:"ytw_raise",sets:3,reps:"12-15",rpe:"8",rir:"2",rest:"60 sec",notes:"🎾 Every push session"},
     ]},
     "Pull":{focus:"Back, Biceps, Rear Delts",exs:[
       {id:"pullup",sets:"3-4",reps:"6-10",rpe:"9",rir:"1",rest:"2-3 min",notes:"Weighted when 10 easy"},
@@ -2865,23 +2865,23 @@ const PROGRAMS = [
       {id:"cross_body_lat",sets:"2-3",reps:"10-12",rpe:"9",rir:"1",rest:"90 sec",notes:"Integrated partials all sets"},
       {id:"face_pull",sets:3,reps:"15-20",rpe:"8",rir:"2",rest:"60 sec",notes:"Rear delt health"},
       {id:"db_curl",sets:"2-3",reps:"10-12",rpe:"9",rir:"1",rest:"75 sec",notes:"2-3 sec eccentric"},
-      {id:"external_rotation",sets:2,reps:"15/arm",rpe:"7",rir:"3",rest:"45 sec",notes:"ðŸŽ¾ Rotator cuff"},
+      {id:"external_rotation",sets:2,reps:"15/arm",rpe:"7",rir:"3",rest:"45 sec",notes:"🎾 Rotator cuff"},
     ]},
     "Legs":{focus:"Quads, Hamstrings, Glutes, Calves",exs:[
       {id:"squat",sets:"3-4",reps:"6-8",rpe:"8",rir:"2",rest:"3-5 min",notes:"Low RPE - high muscle damage"},
       {id:"rdl",sets:"3-4",reps:"8-10",rpe:"8",rir:"2",rest:"2-3 min",notes:"Bottom 3/4 ROM for tension"},
       {id:"leg_press",sets:"2-3",reps:"10-12",rpe:"9",rir:"1",rest:"2 min",notes:"Feet low, quad focus"},
-      {id:"nordic_curl",sets:"2-3",reps:"5-8",rpe:"8",rir:"2",rest:"2 min",notes:"ðŸŽ¾ Hamstring injury prevention"},
+      {id:"nordic_curl",sets:"2-3",reps:"5-8",rpe:"8",rir:"2",rest:"2 min",notes:"🎾 Hamstring injury prevention"},
       {id:"calf_raise",sets:"3-4",reps:"12-15",rpe:"9",rir:"1",rest:"60 sec",notes:"1-2 sec pause at bottom"},
       {id:"lateral_band_walk",sets:2,reps:"15/side",rpe:"8",rir:"2",rest:"60 sec",notes:"Hip health"},
     ]},
     "Tennis Athletic":{focus:"Court Conditioning + Explosive Power",exs:[
       {id:"box_jump",sets:4,reps:"4-5",rpe:"9",rir:"1",rest:"2 min",notes:"Max effort each rep"},
-      {id:"lateral_bound",sets:4,reps:"5/side",rpe:"9",rir:"1",rest:"2 min",notes:"ðŸŽ¾ Stick each landing"},
+      {id:"lateral_bound",sets:4,reps:"5/side",rpe:"9",rir:"1",rest:"2 min",notes:"🎾 Stick each landing"},
       {id:"depth_jump",sets:3,reps:"5",rpe:"9",rir:"1",rest:"2 min",notes:"Reactive strength"},
-      {id:"med_ball_rotational",sets:4,reps:"8/side",rpe:"9",rir:"1",rest:"90 sec",notes:"ðŸŽ¾ Serve/groundstroke pattern"},
-      {id:"agility_ladder",sets:4,reps:"30 sec",rpe:"9",rir:"1",rest:"60 sec",notes:"ðŸŽ¾ Footwork patterns"},
-      {id:"sprint_lateral",sets:6,reps:"10m",rpe:"10",rir:"0",rest:"90 sec",notes:"ðŸŽ¾ Court-width speed"},
+      {id:"med_ball_rotational",sets:4,reps:"8/side",rpe:"9",rir:"1",rest:"90 sec",notes:"🎾 Serve/groundstroke pattern"},
+      {id:"agility_ladder",sets:4,reps:"30 sec",rpe:"9",rir:"1",rest:"60 sec",notes:"🎾 Footwork patterns"},
+      {id:"sprint_lateral",sets:6,reps:"10m",rpe:"10",rir:"0",rest:"90 sec",notes:"🎾 Court-width speed"},
       {id:"pallof_press",sets:3,reps:"10/side",rpe:"8",rir:"2",rest:"60 sec",notes:"Anti-rotation core"},
     ]},
     "Upper":{focus:"Full Upper Body",exs:[
@@ -2889,16 +2889,16 @@ const PROGRAMS = [
       {id:"helms_row",sets:3,reps:"10-12",rpe:"8-9",rir:"2-1",rest:"2 min",notes:"Touch chest on each rep"},
       {id:"db_shoulder_press",sets:"2-3",reps:"10-12",rpe:"8-9",rir:"2-1",rest:"90 sec",notes:""},
       {id:"cable_reverse_flye",sets:3,reps:"12-15",rpe:"9",rir:"1",rest:"60 sec",notes:"Pre-stretch rear delt"},
-      {id:"ytw_raise",sets:3,reps:"12-15",rpe:"8",rir:"2",rest:"60 sec",notes:"ðŸŽ¾ Shoulder armor"},
+      {id:"ytw_raise",sets:3,reps:"12-15",rpe:"8",rir:"2",rest:"60 sec",notes:"🎾 Shoulder armor"},
       {id:"skull_crusher",sets:2,reps:"10-12",rpe:"9",rir:"1",rest:"75 sec",notes:""},
       {id:"hammer_curl",sets:2,reps:"10-12",rpe:"9",rir:"1",rest:"75 sec",notes:""},
     ]},
     "Lower":{focus:"Athletic Lower Body",exs:[
-      {id:"bulgarian_split",sets:"3-4",reps:"8-10/leg",rpe:"9",rir:"1",rest:"2 min",notes:"ðŸŽ¾ Split-step strength"},
+      {id:"bulgarian_split",sets:"3-4",reps:"8-10/leg",rpe:"9",rir:"1",rest:"2 min",notes:"🎾 Split-step strength"},
       {id:"hack_squat",sets:"2-3",reps:"10-12",rpe:"9",rir:"1",rest:"2 min",notes:"Bottom half ROM"},
       {id:"leg_curl",sets:3,reps:"10-12",rpe:"9",rir:"1",rest:"90 sec",notes:"Lean forward for stretch"},
       {id:"db_hip_thrust",sets:3,reps:"12-15",rpe:"9",rir:"1",rest:"90 sec",notes:"Squeeze hard at top"},
-      {id:"cable_hip_abduction",sets:3,reps:"12-15/side",rpe:"9",rir:"1",rest:"60 sec",notes:"ðŸŽ¾ Groin health"},
+      {id:"cable_hip_abduction",sets:3,reps:"12-15/side",rpe:"9",rir:"1",rest:"60 sec",notes:"🎾 Groin health"},
       {id:"copenhagen_adduction",sets:3,reps:"10/side",rpe:"8",rir:"2",rest:"60 sec",notes:"Injury prevention"},
     ]},
   }
@@ -2925,10 +2925,10 @@ const store = {
   async set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch{} },
 };
 
-// â”€â”€ Epley estimated 1RM â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Epley estimated 1RM ──────────────────────────────────
 function epley1RM(w,r){ const wn=parseFloat(w),rn=parseInt(r); if(!wn||!rn) return 0; return rn===1?wn:wn*(1+rn/30); }
 
-// â”€â”€ PR detection â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── PR detection ─────────────────────────────────────────
 function detectNewPRs(session, existingPRs){
   const updated={...existingPRs}; const newPRs=[];
   session.exercises?.forEach(ex=>{
@@ -2945,7 +2945,7 @@ function detectNewPRs(session, existingPRs){
   return{updated,newPRs:deduped};
 }
 
-// â”€â”€ Streak computation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Streak computation ───────────────────────────────────
 function computeStreaks(sessions){
   if(!sessions.length) return{current:0,longest:0,lastDate:null};
   const sortedAsc=[...new Set(sessions.map(s=>s.date.slice(0,10)))].sort();
@@ -2968,7 +2968,7 @@ function computeStreaks(sessions){
   return{current:cur,longest:Math.max(longest,cur),lastDate:sortedAsc[sortedAsc.length-1]};
 }
 
-// â”€â”€ Progressive overload â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Progressive overload ─────────────────────────────────
 function getLastExData(exName, allSessions){
   for(const s of [...allSessions].sort((a,b)=>new Date(b.date)-new Date(a.date))){
     const ex=s.exercises?.find(e=>e.name.toLowerCase().trim()===exName.toLowerCase().trim());
@@ -3001,10 +3001,10 @@ function nextWeight(w,exName){
   return big.some(c=>exName.toLowerCase().includes(c))?Math.round((w+2.5)*4)/4:Math.round((w+1)*4)/4;
 }
 
-// â”€â”€ QR helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── QR helpers ───────────────────────────────────────────
 function makeQRUrl(text){ return`https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=${encodeURIComponent(text)}`; }
 
-// Change 2+3: unit display helper â€” canonical storage is lb
+// Change 2+3: unit display helper — canonical storage is lb
 // dispW(w, unit) returns the number for display; wLabel(unit) returns the unit string
 function dispW(w, unit){ const n=parseFloat(w)||0; return unit==='lb'?n:Math.round(n*0.453592*4)/4; }
 function wLabel(unit){ return unit||'lb'; }
@@ -3054,7 +3054,7 @@ const S = {
   modeC:{ flex:1, minWidth:140, padding:"20px 16px", background:"rgba(255,255,255,0.03)", border:"1px solid", borderRadius:12, cursor:"pointer", textAlign:"center" },
 };
 
-// â”€â”€ TOAST SYSTEM â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── TOAST SYSTEM ─────────────────────────────────────────
 function Toast({toasts,removeToast}){
   return(
     <div style={{position:"fixed",bottom:84,left:"50%",transform:"translateX(-50%)",zIndex:200,display:"flex",flexDirection:"column",gap:8,alignItems:"center",pointerEvents:"none",width:"92%",maxWidth:420}}>
@@ -3080,11 +3080,11 @@ export default function IronLog() {
   const [loaded,setLoaded] = useState(false);
   const [toasts,setToasts] = useState([]);
   const [editSession,setEditSession] = useState(null); // session being edited
-  // â”€â”€ Issue 3: Logger draft state lifted to root (Options A + C) â”€â”€
+  // ── Issue 3: Logger draft state lifted to root (Options A + C) ──
   const [loggerDraft,setLoggerDraft] = useState(null); // persists across tab switches
-  // Change 3: lb/kg unit preference â€” canonical storage unit is lb
+  // Change 3: lb/kg unit preference — canonical storage unit is lb
   const [unit,setUnit] = useState('lb');
-  // History navigation state â€” lifted so Dashboard can drive it
+  // History navigation state — lifted so Dashboard can drive it
   const [historyMode,setHistoryMode] = useState("list");
   const [historyCalView,setHistoryCalView] = useState("month");
   const [historyExp,setHistoryExp] = useState(null);
@@ -3127,7 +3127,7 @@ export default function IronLog() {
     })();
   },[]);
 
-  // Option A helpers â€” persist draft to localStorage
+  // Option A helpers — persist draft to localStorage
   const saveDraft=useCallback(async(draft)=>{
     setLoggerDraft(draft);
     await store.set("il_draft",draft);
@@ -3163,7 +3163,7 @@ export default function IronLog() {
       setPrs(updatedPRs);
       await store.set("il_prs",updatedPRs);
       newPRs.slice(0,3).forEach((pr,i)=>{
-        setTimeout(()=>addToast(`ðŸ† New PR: ${pr.name} â€” ${pr.w}lb Ã— ${pr.r}`,{type:"pr",duration:6000}),i*600);
+        setTimeout(()=>addToast(`🏆 New PR: ${pr.name} — ${pr.w}lb × ${pr.r}`,{type:"pr",duration:6000}),i*600);
       });
     }
   },[sessions,prs,addToast]);
@@ -3179,7 +3179,7 @@ export default function IronLog() {
     setActiveProg(p); await store.set("il_prog",p);
   },[]);
 
-  // Soft delete â€” move to deleted bucket, show undo toast
+  // Soft delete — move to deleted bucket, show undo toast
   const delSession = useCallback(async(id)=>{
     const s=sessions.find(x=>x.id===id);
     if(!s) return;
@@ -3241,15 +3241,15 @@ export default function IronLog() {
     const merged=[...newOnes,...sessions];
     setSessions(merged);
     await store.set("il_sessions",merged);
-    addToast(`âœ… Imported ${newOnes.length} session${newOnes.length>1?"s":""}`);
+    addToast(`✅ Imported ${newOnes.length} session${newOnes.length>1?"s":""}`);
   },[sessions,addToast]);
 
   if(!loaded) return <div style={{...S.app,display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{color:"#f59e0b",fontSize:18,letterSpacing:2}}>LOADING...</span></div>;
 
-  // Combined exercise list (built-in + custom) â€” used by Dashboard for muscle group tracking
+  // Combined exercise list (built-in + custom) — used by Dashboard for muscle group tracking
   const allExercises=[...customExercises.map(e=>({...e,isCustom:true})),...ALL_EX];
 
-  const tabs=[{id:"dashboard",icon:"âš¡",label:"Home"},{id:"programs",icon:"ðŸ“‹",label:"Programs"},{id:"log",icon:"âœï¸",label:"Log"},{id:"history",icon:"ðŸ“Š",label:"History"},{id:"nutrition",icon:"ðŸ¥—",label:"Nutrition"}];
+  const tabs=[{id:"dashboard",icon:"⚡",label:"Home"},{id:"programs",icon:"📋",label:"Programs"},{id:"log",icon:"✏️",label:"Log"},{id:"history",icon:"📊",label:"History"},{id:"nutrition",icon:"🥗",label:"Nutrition"}];
 
   // Edit mode: render WorkoutLogger with pre-filled session
   if(editSession){
@@ -3258,7 +3258,7 @@ export default function IronLog() {
         <header style={S.hdr}>
           <div style={S.hdrIn}>
             <div style={S.logo}><span style={S.logoT}>IRON<span style={S.logoA}>LOG</span></span><div style={S.logoLine}/></div>
-            <button onClick={()=>setEditSession(null)} style={{...S.bs,fontSize:12}}>â† Cancel Edit</button>
+            <button onClick={()=>setEditSession(null)} style={{...S.bs,fontSize:12}}>← Cancel Edit</button>
           </div>
         </header>
         <main style={S.main}>
@@ -3302,7 +3302,7 @@ export default function IronLog() {
 }
 
 
-// â”€â”€ DASHBOARD (enhanced with stats, streaks, PRs) â”€â”€â”€â”€â”€â”€â”€â”€
+// ── DASHBOARD (enhanced with stats, streaks, PRs) ────────
 function Dashboard({sessions,activeProg,setView,prs,customExercises,goToHistory,unit}){
   const prog = activeProg ? PROGRAMS.find(p=>p.id===activeProg.id) : null;
 
@@ -3330,21 +3330,21 @@ function Dashboard({sessions,activeProg,setView,prs,customExercises,goToHistory,
   // Top 5 PRs by e1rm
   const topPRs=Object.entries(prs).sort((a,b)=>b[1].e1rm-a[1].e1rm).slice(0,5);
 
-  const nudge=daysSinceLast===null?null:daysSinceLast===0?"You trained today ðŸ”¥":daysSinceLast===1?"You trained yesterday. Keep it up!":daysSinceLast>=3?`${daysSinceLast} days since your last workout. Time to train!`:null;
+  const nudge=daysSinceLast===null?null:daysSinceLast===0?"You trained today 🔥":daysSinceLast===1?"You trained yesterday. Keep it up!":daysSinceLast>=3?`${daysSinceLast} days since your last workout. Time to train!`:null;
 
   return (
     <div style={S.pg}>
-      <div style={S.pgH}><h1 style={S.pgT}>âš¡ Dashboard</h1><p style={S.pgS}>Your training at a glance</p></div>
+      <div style={S.pgH}><h1 style={S.pgT}>⚡ Dashboard</h1><p style={S.pgS}>Your training at a glance</p></div>
 
       {nudge&&<div style={{background:daysSinceLast>=3?"rgba(245,158,11,0.08)":"rgba(74,222,128,0.06)",border:`1px solid ${daysSinceLast>=3?"rgba(245,158,11,0.25)":"rgba(74,222,128,0.2)"}`,borderRadius:12,padding:"12px 16px",marginBottom:12,color:daysSinceLast>=3?"#f59e0b":"#4ade80",fontSize:13,fontWeight:600}}>{nudge}</div>}
 
       {/* Stats grid */}
       <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:10,marginBottom:12}}>
         {[
-          {label:"Total Sessions",value:sessions.length,icon:"ðŸ‹ï¸",color:"#f59e0b",onClick:()=>goToHistory({mode:"list",flt:"all"})},
-          {label:"This Week",value:thisWeek.length+(lastWeek.length>0?` (â†‘${thisWeek.length-lastWeek.length>=0?"+":""}${thisWeek.length-lastWeek.length} vs last)`:``),icon:"ðŸ“…",color:"#4ade80",onClick:()=>goToHistory({mode:"calendar",calView:"week"})},
-          {label:"Current Streak",value:streak+(streak>0?" day"+(streak>1?"s":""):""),icon:"ðŸ”¥",color:streak>=7?"#ef4444":streak>=3?"#f59e0b":"#94a3b8",onClick:null},
-          {label:"Longest Streak",value:longestStreak+(longestStreak>0?" day"+(longestStreak>1?"s":""):""),icon:"ðŸ…",color:"#a78bfa",onClick:null},
+          {label:"Total Sessions",value:sessions.length,icon:"🏋️",color:"#f59e0b",onClick:()=>goToHistory({mode:"list",flt:"all"})},
+          {label:"This Week",value:thisWeek.length+(lastWeek.length>0?` (↑${thisWeek.length-lastWeek.length>=0?"+":""}${thisWeek.length-lastWeek.length} vs last)`:``),icon:"📅",color:"#4ade80",onClick:()=>goToHistory({mode:"calendar",calView:"week"})},
+          {label:"Current Streak",value:streak+(streak>0?" day"+(streak>1?"s":""):""),icon:"🔥",color:streak>=7?"#ef4444":streak>=3?"#f59e0b":"#94a3b8",onClick:null},
+          {label:"Longest Streak",value:longestStreak+(longestStreak>0?" day"+(longestStreak>1?"s":""):""),icon:"🏅",color:"#a78bfa",onClick:null},
         ].map((st,i)=>(
           <div key={i} onClick={st.onClick||undefined}
             style={{background:"rgba(255,255,255,0.03)",border:`1px solid ${st.color}30`,borderRadius:12,padding:"14px 14px",cursor:st.onClick?"pointer":"default",transition:st.onClick?"opacity 0.15s":"none",WebkitTapHighlightColor:"transparent"}}
@@ -3352,7 +3352,7 @@ function Dashboard({sessions,activeProg,setView,prs,customExercises,goToHistory,
             onMouseLeave={e=>{e.currentTarget.style.opacity="1";}}>
             <div style={{fontSize:20,marginBottom:4}}>{st.icon}</div>
             <div style={{color:st.color,fontWeight:800,fontSize:18,lineHeight:1.1}}>{st.value}</div>
-            <div style={{color:"#64748b",fontSize:11,marginTop:3}}>{st.label}{st.onClick&&<span style={{color:st.color,fontSize:9,marginLeft:4,opacity:0.6}}>â†—</span>}</div>
+            <div style={{color:"#64748b",fontSize:11,marginTop:3}}>{st.label}{st.onClick&&<span style={{color:st.color,fontSize:9,marginLeft:4,opacity:0.6}}>↗</span>}</div>
           </div>
         ))}
       </div>
@@ -3361,12 +3361,12 @@ function Dashboard({sessions,activeProg,setView,prs,customExercises,goToHistory,
       <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:10,marginBottom:12}}>
         <div style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(74,222,128,0.2)",borderRadius:12,padding:"14px 14px"}}>
           <div style={{color:"#64748b",fontSize:11,marginBottom:4}}>TOTAL VOLUME</div>
-          <div style={{color:"#4ade80",fontWeight:800,fontSize:18}}>{totalVol>0?(unit==="lb"?totalVol.toLocaleString():(totalVol*0.453592/1000).toFixed(1)+"k")+" "+wLabel(unit):"â€”"}</div>
+          <div style={{color:"#4ade80",fontWeight:800,fontSize:18}}>{totalVol>0?(unit==="lb"?totalVol.toLocaleString():(totalVol*0.453592/1000).toFixed(1)+"k")+" "+wLabel(unit):"—"}</div>
           <div style={{color:"#475569",fontSize:11,marginTop:2}}>all time</div>
         </div>
         <div style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(139,92,246,0.2)",borderRadius:12,padding:"14px 14px"}}>
           <div style={{color:"#64748b",fontSize:11,marginBottom:4}}>TOP MUSCLE</div>
-          <div style={{color:"#a78bfa",fontWeight:800,fontSize:18,textTransform:"capitalize"}}>{topCat||"â€”"}</div>
+          <div style={{color:"#a78bfa",fontWeight:800,fontSize:18,textTransform:"capitalize"}}>{topCat||"—"}</div>
           <div style={{color:"#475569",fontSize:11,marginTop:2}}>most trained</div>
         </div>
       </div>
@@ -3374,12 +3374,12 @@ function Dashboard({sessions,activeProg,setView,prs,customExercises,goToHistory,
       {/* Personal Records */}
       {topPRs.length>0&&(
         <div style={S.card}>
-          <div style={S.cHdr}><h2 style={S.cT}>ðŸ† Personal Records</h2><span style={{color:"#64748b",fontSize:12}}>Est. 1RM</span></div>
+          <div style={S.cHdr}><h2 style={S.cT}>🏆 Personal Records</h2><span style={{color:"#64748b",fontSize:12}}>Est. 1RM</span></div>
           {topPRs.map(([name,pr],i)=>(
             <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 0",borderTop:i>0?"1px solid rgba(255,255,255,0.05)":"none"}}>
               <div>
                 <div style={{color:"#e2e8f0",fontWeight:600,fontSize:13}}>{name}</div>
-                <div style={{color:"#64748b",fontSize:11,marginTop:1}}>{dispW(pr.w,unit)}{wLabel(unit)} Ã— {pr.r} Â· {new Date(pr.date).toLocaleDateString("en-US",{month:"short",day:"numeric"})}</div>
+                <div style={{color:"#64748b",fontSize:11,marginTop:1}}>{dispW(pr.w,unit)}{wLabel(unit)} × {pr.r} · {new Date(pr.date).toLocaleDateString("en-US",{month:"short",day:"numeric"})}</div>
               </div>
               <div style={{textAlign:"right"}}>
                 <div style={{color:"#f59e0b",fontWeight:800,fontSize:15}}>{unit==="lb"?pr.e1rm.toFixed(1):(pr.e1rm*0.453592).toFixed(1)}<span style={{fontSize:10,fontWeight:600}}> {wLabel(unit)}</span></div>
@@ -3397,14 +3397,14 @@ function Dashboard({sessions,activeProg,setView,prs,customExercises,goToHistory,
             <span style={{fontSize:32}}>{prog.emoji}</span>
             <div>
               <div style={{color:"#f1f5f9",fontWeight:700,fontSize:17}}>{prog.name}</div>
-              <div style={{color:"#94a3b8",fontSize:13}}>{prog.days}x/week Â· {prog.weeks} weeks Â· {prog.level}</div>
+              <div style={{color:"#94a3b8",fontSize:13}}>{prog.days}x/week · {prog.weeks} weeks · {prog.level}</div>
             </div>
           </div>
-          <button onClick={()=>setView("log")} style={S.bp}>âœï¸ Log Next Workout</button>
+          <button onClick={()=>setView("log")} style={S.bp}>✏️ Log Next Workout</button>
         </div>
       ) : (
         <div style={{...S.card,textAlign:"center",padding:"24px"}}>
-          <div style={{fontSize:36,marginBottom:10}}>ðŸ“‹</div>
+          <div style={{fontSize:36,marginBottom:10}}>📋</div>
           <div style={{color:"#f1f5f9",fontWeight:600,marginBottom:6}}>No Active Program</div>
           <div style={{color:"#64748b",fontSize:13,marginBottom:14}}>Browse programs to find one that fits your goals</div>
           <button onClick={()=>setView("programs")} style={S.bp}>Browse Programs</button>
@@ -3413,9 +3413,9 @@ function Dashboard({sessions,activeProg,setView,prs,customExercises,goToHistory,
       <div style={S.card}>
         <div style={S.cHdr}><h2 style={S.cT}>Quick Actions</h2></div>
         <div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
-          <button onClick={()=>setView("log")} style={S.bp}>âœï¸ Log Workout</button>
-          <button onClick={()=>setView("history")} style={S.bs}>ðŸ“Š History</button>
-          <button onClick={()=>setView("programs")} style={S.bs}>ðŸ“‹ Programs</button>
+          <button onClick={()=>setView("log")} style={S.bp}>✏️ Log Workout</button>
+          <button onClick={()=>setView("history")} style={S.bs}>📊 History</button>
+          <button onClick={()=>setView("programs")} style={S.bs}>📋 Programs</button>
         </div>
       </div>
       {sessions.length>0&&(
@@ -3428,10 +3428,10 @@ function Dashboard({sessions,activeProg,setView,prs,customExercises,goToHistory,
               onMouseLeave={e=>e.currentTarget.style.opacity="1"}>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                 <div style={{color:"#e2e8f0",fontWeight:600,fontSize:14}}>{s.name}</div>
-                <span style={{color:"#475569",fontSize:11}}>â†—</span>
+                <span style={{color:"#475569",fontSize:11}}>↗</span>
               </div>
               <div style={{color:"#64748b",fontSize:12,marginTop:3}}>
-                {new Date(s.date).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"})} Â· {s.exercises?.length||0} exercises
+                {new Date(s.date).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"})} · {s.exercises?.length||0} exercises
               </div>
             </div>
           ))}
@@ -3475,7 +3475,7 @@ function ProgramBrowser({activeProg,saveProg,setView}){
       <div style={S.pgH}><h1 style={S.pgT}>Programs</h1><p style={S.pgS}>{PROGRAMS.length} programs across {Object.keys(CAT_META).length} categories</p></div>
       <div style={S.card}>
         <div style={S.cHdr}>
-          <h2 style={S.cT}>ðŸŽ¯ Get a Recommendation</h2>
+          <h2 style={S.cT}>🎯 Get a Recommendation</h2>
           <button onClick={()=>setShowRec(!showRec)} style={S.lnk}>{showRec?"Hide":"Expand"}</button>
         </div>
         {showRec&&(
@@ -3489,20 +3489,20 @@ function ProgramBrowser({activeProg,saveProg,setView}){
             <div style={{marginBottom:16}}>
               <div style={S.lbl}>Primary goal?</div>
               <div style={{display:"flex",gap:8,marginTop:6,flexWrap:"wrap"}}>
-                {[{id:"strength",label:"ðŸ‹ï¸ Strength"},{id:"muscle",label:"ðŸ’ª Muscle"},{id:"ppl",label:"ðŸ”„ PPL"},{id:"athletic",label:"âš¡ Athletic"},{id:"bodyweight",label:"ðŸ¤¸ Bodyweight"},{id:"home",label:"ðŸ  Home Gym"},{id:"tennis",label:"ðŸŽ¾ Tennis"}].map(g=>(
+                {[{id:"strength",label:"🏋️ Strength"},{id:"muscle",label:"💪 Muscle"},{id:"ppl",label:"🔄 PPL"},{id:"athletic",label:"⚡ Athletic"},{id:"bodyweight",label:"🤸 Bodyweight"},{id:"home",label:"🏠 Home Gym"},{id:"tennis",label:"🎾 Tennis"}].map(g=>(
                   <button key={g.id} onClick={()=>setRecGoal(g.id)} style={{...S.chip,...(recGoal===g.id?S.chipA:{})}}>{g.label}</button>
                 ))}
               </div>
             </div>
-            <button onClick={getRecommendation} style={S.bp}>Get Recommendation âœ¨</button>
+            <button onClick={getRecommendation} style={S.bp}>Get Recommendation ✨</button>
           </div>
         )}
         {rec&&(
           <div style={{marginTop:16,padding:16,background:"rgba(245,158,11,0.08)",borderRadius:10,border:"1px solid rgba(245,158,11,0.25)"}}>
-            <div style={{color:"#f59e0b",fontWeight:700,marginBottom:4}}>âœ¨ Recommended:</div>
+            <div style={{color:"#f59e0b",fontWeight:700,marginBottom:4}}>✨ Recommended:</div>
             <div style={{color:"#f1f5f9",fontWeight:600}}>{rec.emoji} {rec.name}</div>
             <div style={{color:"#94a3b8",fontSize:13}}>{rec.tagline}</div>
-            <button onClick={()=>setExp(rec.id)} style={{...S.lnk,marginTop:8,display:"block"}}>View Details â†’</button>
+            <button onClick={()=>setExp(rec.id)} style={{...S.lnk,marginTop:8,display:"block"}}>View Details →</button>
           </div>
         )}
       </div>
@@ -3542,14 +3542,14 @@ function ProgramBrowser({activeProg,saveProg,setView}){
                 </div>
                 <div style={{color:"#94a3b8",fontSize:13,marginTop:4}}>{prog.tagline}</div>
                 <div style={{display:"flex",gap:10,marginTop:6,flexWrap:"wrap"}}>
-                  <span style={S.bdg}>ðŸ“… {prog.days}x/week</span>
-                  <span style={S.bdg}>â± {prog.weeks} weeks</span>
-                  <span style={S.bdg}>ðŸŽ¯ {prog.level}</span>
+                  <span style={S.bdg}>📅 {prog.days}x/week</span>
+                  <span style={S.bdg}>⏱ {prog.weeks} weeks</span>
+                  <span style={S.bdg}>🎯 {prog.level}</span>
                 </div>
               </div>
             </div>
             <button onClick={()=>setExp(isExp?null:prog.id)} style={{...S.exB,marginTop:12}}>
-              {isExp?"â–² Hide Details":"â–¼ View Program Details"}
+              {isExp?"▲ Hide Details":"▼ View Program Details"}
             </button>
             {isExp&&<ProgDetail prog={prog} isActive={isActive} saveProg={saveProg} setView={setView} m={m}/>}
           </div>
@@ -3586,7 +3586,7 @@ function ProgDetail({prog,isActive,saveProg,setView,m}){
           <div key={wn} style={{marginTop:8,background:"rgba(255,255,255,0.03)",borderRadius:8,border:"1px solid rgba(255,255,255,0.07)"}}>
             <button onClick={()=>setWOpen(wOpen===wn?null:wn)} style={{width:"100%",display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 12px",background:"transparent",border:"none",cursor:"pointer"}}>
               <span style={{color:"#e2e8f0",fontWeight:600,fontSize:13}}>{wn}</span>
-              <span style={{color:"#64748b",fontSize:11}}>{w.focus} {wOpen===wn?"â–²":"â–¼"}</span>
+              <span style={{color:"#64748b",fontSize:11}}>{w.focus} {wOpen===wn?"▲":"▼"}</span>
             </button>
             {wOpen===wn&&(
               <div style={{padding:"0 12px 12px"}}>
@@ -3597,10 +3597,10 @@ function ProgDetail({prog,isActive,saveProg,setView,m}){
                       <div style={{color:"#e2e8f0",fontSize:13,fontWeight:500}}>{getN(ex.id)}</div>
                       <div style={{display:"flex",gap:6,marginTop:3,flexWrap:"wrap",alignItems:"center"}}>
                         {ex.sets&&<span style={{color:"#64748b",fontSize:11}}>{ex.sets} sets</span>}
-                        {ex.reps&&<span style={{color:"#64748b",fontSize:11}}>Ã— {ex.reps}</span>}
+                        {ex.reps&&<span style={{color:"#64748b",fontSize:11}}>× {ex.reps}</span>}
                         {ex.rir&&<span style={{background:"rgba(245,158,11,0.15)",color:"#f59e0b",fontSize:11,fontWeight:700,padding:"1px 6px",borderRadius:4}}>RIR {ex.rir}</span>}
                         {ex.rpe&&<span style={{color:"#475569",fontSize:10}}>RPE {ex.rpe}</span>}
-                        {ex.rest&&<span style={{color:"#475569",fontSize:10}}>Â· {ex.rest}</span>}
+                        {ex.rest&&<span style={{color:"#475569",fontSize:10}}>· {ex.rest}</span>}
                       </div>
                       {ex.notes&&<div style={{color:"#475569",fontSize:11,marginTop:3,fontStyle:"italic"}}>{ex.notes}</div>}
                     </div>
@@ -3613,7 +3613,7 @@ function ProgDetail({prog,isActive,saveProg,setView,m}){
       </div>
       <div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
         {!isActive
-          ?<button onClick={()=>saveProg({id:prog.id,startDate:new Date().toISOString()})} style={S.bp}>â–¶ Start Program</button>
+          ?<button onClick={()=>saveProg({id:prog.id,startDate:new Date().toISOString()})} style={S.bp}>▶ Start Program</button>
           :<button onClick={()=>saveProg(null)} style={S.bd}>Stop Program</button>
         }
         <button onClick={()=>setView("log")} style={S.bs}>Log a Session</button>
@@ -3623,7 +3623,7 @@ function ProgDetail({prog,isActive,saveProg,setView,m}){
 }
 
 
-// â”€â”€ WORKOUT LOGGER (enhanced: custom ex save, overload suggestions, edit mode, notes) â”€â”€
+// ── WORKOUT LOGGER (enhanced: custom ex save, overload suggestions, edit mode, notes) ──
 function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCustomEx,sessions,editMode=false,editData=null,loggerDraft,saveDraft,clearDraft,unit}){
   const allEx=[...customExercises.map(e=>({...e,isCustom:true})),...ALL_EX];
 
@@ -3706,7 +3706,7 @@ function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCusto
   const loadWorkout=(wn)=>{
     if(!prog) return;
     const w=prog.workouts[wn];
-    setSelW(wn); setName(`${prog.name} â€“ ${wn}`);
+    setSelW(wn); setName(`${prog.name} – ${wn}`);
     setExercises(w.exs.map(ex=>({
       uid:Date.now()+Math.random(),
       name:getN(ex.id),
@@ -3770,22 +3770,22 @@ function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCusto
 
   if(saved) return (
     <div style={{...S.pg,textAlign:"center",paddingTop:80}}>
-      <div style={{fontSize:60,marginBottom:16}}>âœ…</div>
+      <div style={{fontSize:60,marginBottom:16}}>✅</div>
       <div style={{color:"#4ade80",fontSize:24,fontWeight:700}}>{editMode?"Session Updated!":"Session Saved!"}</div>
-      <div style={{color:"#64748b",marginTop:8}}>Great work ðŸ’ª</div>
+      <div style={{color:"#64748b",marginTop:8}}>Great work 💪</div>
     </div>
   );
 
   return (
     <div style={S.pg}>
-      <div style={S.pgH}><h1 style={S.pgT}>{editMode?"âœï¸ Edit Session":"Log Workout"}</h1></div>
+      <div style={S.pgH}><h1 style={S.pgT}>{editMode?"✏️ Edit Session":"Log Workout"}</h1></div>
 
-      {/* Option A: Draft recovery banner â€” shown when app was closed mid-session */}
+      {/* Option A: Draft recovery banner — shown when app was closed mid-session */}
       {showDraftBanner&&(
         <div style={{background:"rgba(245,158,11,0.08)",border:"1px solid rgba(245,158,11,0.35)",borderRadius:12,padding:"14px 16px",marginBottom:14}}>
-          <div style={{color:"#f59e0b",fontWeight:700,fontSize:14,marginBottom:4}}>ðŸ“‹ Unsaved session found</div>
+          <div style={{color:"#f59e0b",fontWeight:700,fontSize:14,marginBottom:4}}>📋 Unsaved session found</div>
           <div style={{color:"#94a3b8",fontSize:13,marginBottom:12}}>
-            "{loggerDraft.name||"Untitled workout"}" Â· {loggerDraft.exercises?.length||0} exercises Â· {new Date(loggerDraft.savedAt).toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"})}
+            "{loggerDraft.name||"Untitled workout"}" · {loggerDraft.exercises?.length||0} exercises · {new Date(loggerDraft.savedAt).toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"})}
           </div>
           <div style={{display:"flex",gap:8}}>
             <button onClick={()=>{
@@ -3795,7 +3795,7 @@ function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCusto
               setSessionNotes(loggerDraft.sessionNotes||"");
               setExercises(loggerDraft.exercises||[]);
               setShowDraftBanner(false);
-            }} style={S.bp}>â†© Restore Session</button>
+            }} style={S.bp}>↩ Restore Session</button>
             <button onClick={async()=>{await clearDraft();setShowDraftBanner(false);setMode(null);setExercises([]);setName("");setSessionNotes("");setSelW(null);}} style={S.bs}>Discard</button>
           </div>
         </div>
@@ -3808,29 +3808,29 @@ function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCusto
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:14}}>
               <div>
                 <div style={{color:"#f1f5f9",fontWeight:700,fontSize:15}}>{prevSetsModal.exName}</div>
-                <div style={{color:"#64748b",fontSize:12,marginTop:2}}>{prevSetsModal.sessionName} Â· {new Date(prevSetsModal.date).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"})}</div>
+                <div style={{color:"#64748b",fontSize:12,marginTop:2}}>{prevSetsModal.sessionName} · {new Date(prevSetsModal.date).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"})}</div>
               </div>
-              <button onClick={()=>setPrevSetsModal(null)} style={{background:"transparent",border:"none",color:"#475569",fontSize:20,cursor:"pointer",lineHeight:1,padding:"0 4px"}}>Ã—</button>
+              <button onClick={()=>setPrevSetsModal(null)} style={{background:"transparent",border:"none",color:"#475569",fontSize:20,cursor:"pointer",lineHeight:1,padding:"0 4px"}}>×</button>
             </div>
-            <div style={{color:"#4ade80",fontSize:11,fontWeight:700,marginBottom:8}}>ðŸ“ˆ Previous session sets</div>
+            <div style={{color:"#4ade80",fontSize:11,fontWeight:700,marginBottom:8}}>📈 Previous session sets</div>
             {prevSetsModal.sets.map((st,i)=>(
               <div key={i} style={{display:"grid",gridTemplateColumns:"auto 1fr 1fr 1fr 1fr",gap:8,alignItems:"center",padding:"7px 0",borderTop:i>0?"1px solid rgba(255,255,255,0.05)":"none"}}>
                 <div style={{color:"#475569",fontSize:11,minWidth:36}}>Set {i+1}</div>
                 <div style={{textAlign:"center"}}>
                   <div style={{color:"#64748b",fontSize:9,marginBottom:2}}>{wLabel(unit)}</div>
-                  <div style={{color:st.done?"#4ade80":"#e2e8f0",fontWeight:600,fontSize:13}}>{st.w?dispW(st.w,unit):"â€”"}</div>
+                  <div style={{color:st.done?"#4ade80":"#e2e8f0",fontWeight:600,fontSize:13}}>{st.w?dispW(st.w,unit):"—"}</div>
                 </div>
                 <div style={{textAlign:"center"}}>
                   <div style={{color:"#64748b",fontSize:9,marginBottom:2}}>reps</div>
-                  <div style={{color:st.done?"#4ade80":"#e2e8f0",fontWeight:600,fontSize:13}}>{st.r||"â€”"}</div>
+                  <div style={{color:st.done?"#4ade80":"#e2e8f0",fontWeight:600,fontSize:13}}>{st.r||"—"}</div>
                 </div>
                 <div style={{textAlign:"center"}}>
                   <div style={{color:"#64748b",fontSize:9,marginBottom:2}}>RIR</div>
-                  <div style={{color:"#f59e0b",fontSize:13}}>{st.rir||"â€”"}</div>
+                  <div style={{color:"#f59e0b",fontSize:13}}>{st.rir||"—"}</div>
                 </div>
                 <div style={{textAlign:"center"}}>
                   <div style={{color:"#64748b",fontSize:9,marginBottom:2}}>RPE</div>
-                  <div style={{color:"#94a3b8",fontSize:13}}>{st.rpe||"â€”"}</div>
+                  <div style={{color:"#94a3b8",fontSize:13}}>{st.rpe||"—"}</div>
                 </div>
               </div>
             ))}
@@ -3848,7 +3848,7 @@ function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCusto
                 <div style={{color:"#f1f5f9",fontWeight:700,fontSize:16}}>{instrModal.name}</div>
                 {instrModal.level&&<div style={{color:"#64748b",fontSize:11,marginTop:3,textTransform:"capitalize"}}>{instrModal.level}</div>}
               </div>
-              <button onClick={()=>setInstrModal(null)} style={{background:"transparent",border:"none",color:"#475569",fontSize:22,cursor:"pointer",lineHeight:1,padding:"0 4px",WebkitTapHighlightColor:"transparent"}}>Ã—</button>
+              <button onClick={()=>setInstrModal(null)} style={{background:"transparent",border:"none",color:"#475569",fontSize:22,cursor:"pointer",lineHeight:1,padding:"0 4px",WebkitTapHighlightColor:"transparent"}}>×</button>
             </div>
             <div style={{color:"#f59e0b",fontSize:11,fontWeight:700,marginBottom:10,letterSpacing:1}}>HOW TO PERFORM</div>
             {instrModal.instructions.map((step,i)=>(
@@ -3866,7 +3866,7 @@ function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCusto
       {showCancelConfirm&&(
         <div onClick={()=>setShowCancelConfirm(false)} style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.75)",zIndex:300,display:"flex",alignItems:"center",justifyContent:"center",padding:"0 24px"}}>
           <div onClick={e=>e.stopPropagation()} style={{background:"#0d1627",border:"1px solid rgba(239,68,68,0.3)",borderRadius:20,padding:"24px",width:"100%",maxWidth:340}}>
-            <div style={{fontSize:28,textAlign:"center",marginBottom:12}}>âš ï¸</div>
+            <div style={{fontSize:28,textAlign:"center",marginBottom:12}}>⚠️</div>
             <div style={{color:"#f1f5f9",fontWeight:700,fontSize:16,textAlign:"center",marginBottom:8}}>Cancel Session?</div>
             <div style={{color:"#94a3b8",fontSize:13,textAlign:"center",marginBottom:20}}>Your progress will not be saved.</div>
             <div style={{display:"flex",gap:10}}>
@@ -3892,12 +3892,12 @@ function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCusto
           <h2 style={S.cT}>Choose Logging Mode</h2>
           <div style={{display:"flex",gap:12,flexWrap:"wrap",marginTop:16}}>
             {prog&&<button onClick={()=>setMode("prog_select")} style={{...S.modeC,borderColor:"rgba(245,158,11,0.3)"}}>
-              <div style={{fontSize:28,marginBottom:8}}>ðŸ“‹</div>
+              <div style={{fontSize:28,marginBottom:8}}>📋</div>
               <div style={{color:"#f1f5f9",fontWeight:600}}>Program Workout</div>
               <div style={{color:"#64748b",fontSize:12,marginTop:4}}>{prog.name}</div>
             </button>}
             <button onClick={()=>{setMode("active");setName("Free Workout");}} style={{...S.modeC,borderColor:"rgba(74,222,128,0.3)"}}>
-              <div style={{fontSize:28,marginBottom:8}}>âœï¸</div>
+              <div style={{fontSize:28,marginBottom:8}}>✏️</div>
               <div style={{color:"#f1f5f9",fontWeight:600}}>Free Workout</div>
               <div style={{color:"#64748b",fontSize:12,marginTop:4}}>Pick your own exercises</div>
             </button>
@@ -3913,14 +3913,14 @@ function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCusto
               <button key={wn} onClick={()=>loadWorkout(wn)} style={{...S.chip,padding:"10px 14px"}}>{wn}</button>
             ))}
           </div>
-          <button onClick={()=>setMode(null)} style={{...S.bs,marginTop:12}}>â† Back</button>
+          <button onClick={()=>setMode(null)} style={{...S.bs,marginTop:12}}>← Back</button>
         </div>
       )}
 
       {(mode==="active"||editMode)&&<>
         <div style={S.card}>
           <div style={S.lbl}>Session Name</div>
-          <input value={name} onChange={e=>setName(e.target.value)} placeholder="e.g. Upper A â€“ Week 2" style={{...S.inp,marginTop:6}}/>
+          <input value={name} onChange={e=>setName(e.target.value)} placeholder="e.g. Upper A – Week 2" style={{...S.inp,marginTop:6}}/>
           <div style={{...S.lbl,marginTop:12}}>Session Notes (optional)</div>
           <textarea value={sessionNotes} onChange={e=>setSessionNotes(e.target.value)}
             placeholder="How did it feel? Any PRs, soreness, notes..."
@@ -3945,7 +3945,7 @@ function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCusto
                     {ex.isCustom&&<span style={{marginLeft:6,background:"rgba(139,92,246,0.2)",color:"#a78bfa",fontSize:9,fontWeight:700,padding:"1px 5px",borderRadius:4,verticalAlign:"middle"}}>CUSTOM</span>}
                     <span style={{color:"#475569",fontSize:11}}> ({ex.cat})</span>
                   </button>
-                  {instr&&<button onClick={e=>{e.stopPropagation();setInstrModal({name:ex.name,level:instr.level,instructions:instr.instructions});}} title="How to do this exercise" style={{background:"transparent",border:"1px solid rgba(100,116,139,0.3)",color:"#64748b",borderRadius:"50%",width:22,height:22,fontSize:11,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,WebkitTapHighlightColor:"transparent",outline:"none",fontWeight:700}}>â“˜</button>}
+                  {instr&&<button onClick={e=>{e.stopPropagation();setInstrModal({name:ex.name,level:instr.level,instructions:instr.instructions});}} title="How to do this exercise" style={{background:"transparent",border:"1px solid rgba(100,116,139,0.3)",color:"#64748b",borderRadius:"50%",width:22,height:22,fontSize:11,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,WebkitTapHighlightColor:"transparent",outline:"none",fontWeight:700}}>ⓘ</button>}
                 </div>
               );
             })}
@@ -3955,14 +3955,14 @@ function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCusto
           <div style={{marginTop:10}}>
             {showCustomCatPicker?(
               <div style={{background:"rgba(139,92,246,0.08)",border:"1px solid rgba(139,92,246,0.2)",borderRadius:10,padding:"12px"}}>
-                <div style={{color:"#a78bfa",fontSize:12,fontWeight:700,marginBottom:8}}>Save "{customName}" to library â€” pick muscle group:</div>
+                <div style={{color:"#a78bfa",fontSize:12,fontWeight:700,marginBottom:8}}>Save "{customName}" to library — pick muscle group:</div>
                 <div style={{display:"flex",gap:5,flexWrap:"wrap",marginBottom:10}}>
                   {ALL_CATS_DISPLAY.map(c=>(
                     <button key={c} onClick={()=>setCustomCat(c)} style={{...S.chip,fontSize:10,padding:"4px 9px",...(customCat===c?{...S.chipA,borderColor:"#a78bfa",color:"#a78bfa",background:"rgba(139,92,246,0.2)"}:{})}}>{c}</button>
                   ))}
                 </div>
                 <div style={{display:"flex",gap:8}}>
-                  <button onClick={addCustomEx} style={{...S.bp,background:"#8b5cf6",flex:1}}>âœ“ Save & Add</button>
+                  <button onClick={addCustomEx} style={{...S.bp,background:"#8b5cf6",flex:1}}>✓ Save & Add</button>
                   <button onClick={()=>setShowCustomCatPicker(false)} style={{...S.bs,padding:"10px 14px"}}>Cancel</button>
                 </div>
               </div>
@@ -4016,18 +4016,18 @@ function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCusto
                           background:"rgba(245,158,11,0.05)"}}
                       />
                       {exNameError&&<div style={{color:"#ef4444",fontSize:11,marginTop:4}}>Exercise name can't be empty</div>}
-                      <div style={{color:"#475569",fontSize:10,marginTop:3}}>Press Enter to save Â· Esc to cancel</div>
+                      <div style={{color:"#475569",fontSize:10,marginTop:3}}>Press Enter to save · Esc to cancel</div>
                     </div>
                   ):(
                     <div style={{display:"flex",alignItems:"center",gap:6,flexWrap:"wrap"}}>
                       <div style={{color:"#f1f5f9",fontWeight:700,fontSize:15}}>{ex.name}</div>
                       <button onClick={()=>{origExName.current=ex.name;setEditingExName(ex.uid);setExNameError(false);}}
                         title="Rename exercise"
-                        style={{background:"transparent",border:"none",color:"#475569",cursor:"pointer",fontSize:12,padding:"2px 4px",lineHeight:1,WebkitTapHighlightColor:"transparent",flexShrink:0}}>âœï¸</button>
+                        style={{background:"transparent",border:"none",color:"#475569",cursor:"pointer",fontSize:12,padding:"2px 4px",lineHeight:1,WebkitTapHighlightColor:"transparent",flexShrink:0}}>✏️</button>
                       {(()=>{const instr=EX_INSTRUCTIONS[ex.id];return instr?(
                         <button onClick={()=>setExpandedInstr(prev=>{const n=new Set(prev);n.has(ex.uid)?n.delete(ex.uid):n.add(ex.uid);return n;})}
                           style={{background:"transparent",border:"none",color:"#475569",cursor:"pointer",fontSize:10,padding:"1px 4px",WebkitTapHighlightColor:"transparent",textDecoration:"underline"}}>
-                          {expandedInstr.has(ex.uid)?"hide how-to":"how to â–¾"}
+                          {expandedInstr.has(ex.uid)?"hide how-to":"how to ▾"}
                         </button>
                       ):null;})()}
                     </div>
@@ -4045,13 +4045,13 @@ function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCusto
                     </div>
                   ):null;})()}
                   <div style={{color:"#64748b",fontSize:12,marginTop:3}}>
-                    Target: {ex.tSets} sets Ã— {ex.tReps}
-                    {ex.tRir&&<span style={{color:"#f59e0b",fontWeight:600}}> Â· RIR {ex.tRir}</span>}
+                    Target: {ex.tSets} sets × {ex.tReps}
+                    {ex.tRir&&<span style={{color:"#f59e0b",fontWeight:600}}> · RIR {ex.tRir}</span>}
                     <span style={{color:"#475569"}}> (RPE {ex.tRpe})</span>
-                    {" Â· "}{ex.tRest} rest
+                    {" · "}{ex.tRest} rest
                   </div>
                 </div>
-                <button onClick={()=>setConfirmRemoveEx(ex.uid)} style={{background:"transparent",border:"1px solid rgba(239,68,68,0.2)",color:"rgba(239,68,68,0.5)",borderRadius:6,padding:"4px 8px",cursor:"pointer",fontSize:12,WebkitTapHighlightColor:"transparent",flexShrink:0}}>âœ•</button>
+                <button onClick={()=>setConfirmRemoveEx(ex.uid)} style={{background:"transparent",border:"1px solid rgba(239,68,68,0.2)",color:"rgba(239,68,68,0.5)",borderRadius:6,padding:"4px 8px",cursor:"pointer",fontSize:12,WebkitTapHighlightColor:"transparent",flexShrink:0}}>✕</button>
               </div>
 
               {/* Exercise remove confirmation */}
@@ -4070,8 +4070,8 @@ function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCusto
                 <div style={{background:"rgba(74,222,128,0.06)",border:"1px solid rgba(74,222,128,0.2)",borderRadius:8,padding:"8px 12px",marginBottom:10}}>
                   <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                     <div style={{flex:1}}>
-                      <span style={{color:"#4ade80",fontSize:11,fontWeight:700}}>ðŸ“ˆ Last: </span>
-                      <span style={{color:"#94a3b8",fontSize:11}}>{dispW(lastPerf.w,unit)}{wLabel(unit)} Ã— {lastPerf.r} Â· </span>
+                      <span style={{color:"#4ade80",fontSize:11,fontWeight:700}}>📈 Last: </span>
+                      <span style={{color:"#94a3b8",fontSize:11}}>{dispW(lastPerf.w,unit)}{wLabel(unit)} × {lastPerf.r} · </span>
                       <span style={{color:"#4ade80",fontSize:11,fontWeight:700}}>Try {dispW(suggestedW,unit)}{wLabel(unit)} today</span>
                       <button onClick={()=>{
                         const prev=getPrevSets(ex.name,sessions);
@@ -4079,7 +4079,7 @@ function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCusto
                       }} style={{background:"transparent",border:"none",color:"#4ade80",cursor:"pointer",fontSize:10,marginLeft:6,padding:"0 4px",WebkitTapHighlightColor:"transparent",textDecoration:"underline"}}>see all sets</button>
                     </div>
                     <button onClick={()=>setDismissedSuggestions(s=>new Set([...s,ex.uid]))}
-                      style={{background:"transparent",border:"none",color:"#475569",cursor:"pointer",fontSize:14,WebkitTapHighlightColor:"transparent",flexShrink:0}}>Ã—</button>
+                      style={{background:"transparent",border:"none",color:"#475569",cursor:"pointer",fontSize:14,WebkitTapHighlightColor:"transparent",flexShrink:0}}>×</button>
                   </div>
                 </div>
               )}
@@ -4088,21 +4088,21 @@ function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCusto
                 <div key={si} style={{display:"grid",gridTemplateColumns:"auto 1fr 1fr 1fr 1fr auto",gap:6,alignItems:"center",marginBottom:6}}>
                   <div style={{color:"#475569",fontSize:11,minWidth:32,textAlign:"center"}}>Set {si+1}</div>
                   <div><div style={{color:"#64748b",fontSize:9,marginBottom:2,textAlign:"center"}}>{wLabel(unit)}</div>
-                    <input value={st.w} onChange={e=>upSet(ei,si,"w",e.target.value)} type="number" style={{...S.sinp,...(st.done?S.sinpD:{})}} placeholder="â€”"/></div>
+                    <input value={st.w} onChange={e=>upSet(ei,si,"w",e.target.value)} type="number" style={{...S.sinp,...(st.done?S.sinpD:{})}} placeholder="—"/></div>
                   <div><div style={{color:"#64748b",fontSize:9,marginBottom:2,textAlign:"center"}}>reps</div>
-                    <input value={st.r} onChange={e=>upSet(ei,si,"r",e.target.value)} type="number" style={{...S.sinp,...(st.done?S.sinpD:{})}} placeholder="â€”"/></div>
+                    <input value={st.r} onChange={e=>upSet(ei,si,"r",e.target.value)} type="number" style={{...S.sinp,...(st.done?S.sinpD:{})}} placeholder="—"/></div>
                   <div><div style={{color:"#64748b",fontSize:9,marginBottom:2,textAlign:"center"}}>RIR</div>
-                    <input value={st.rir} onChange={e=>upSet(ei,si,"rir",e.target.value)} type="number" style={{...S.sinp,...(st.done?S.sinpD:{})}} placeholder="â€”"/></div>
+                    <input value={st.rir} onChange={e=>upSet(ei,si,"rir",e.target.value)} type="number" style={{...S.sinp,...(st.done?S.sinpD:{})}} placeholder="—"/></div>
                   <div><div style={{color:"#64748b",fontSize:9,marginBottom:2,textAlign:"center"}}>RPE</div>
-                    <input value={st.rpe} onChange={e=>upSet(ei,si,"rpe",e.target.value)} type="number" style={{...S.sinp,...(st.done?S.sinpD:{})}} placeholder="â€”"/></div>
-                  <button onClick={()=>upSet(ei,si,"done",!st.done)} style={{...S.doneB,...(st.done?S.doneBA:{}),width:34,flexShrink:0,WebkitTapHighlightColor:"transparent"}}>âœ“</button>
+                    <input value={st.rpe} onChange={e=>upSet(ei,si,"rpe",e.target.value)} type="number" style={{...S.sinp,...(st.done?S.sinpD:{})}} placeholder="—"/></div>
+                  <button onClick={()=>upSet(ei,si,"done",!st.done)} style={{...S.doneB,...(st.done?S.doneBA:{}),width:34,flexShrink:0,WebkitTapHighlightColor:"transparent"}}>✓</button>
                 </div>
               ))}
               <div style={{display:"flex",gap:8,marginTop:8,flexWrap:"wrap"}}>
                 <button onClick={()=>addSet(ei)} style={S.addS}>+ Set</button>
-                {ex.sets.length>1&&<button onClick={()=>remSet(ei,ex.sets.length-1)} style={S.addS}>âˆ’ Set</button>}
+                {ex.sets.length>1&&<button onClick={()=>remSet(ei,ex.sets.length-1)} style={S.addS}>− Set</button>}
                 {[60,90,120].map(s=>(
-                  <button key={s} onClick={()=>startTimer(s)} style={{...S.tmrB,WebkitTapHighlightColor:"transparent"}}>â± {s}s</button>
+                  <button key={s} onClick={()=>startTimer(s)} style={{...S.tmrB,WebkitTapHighlightColor:"transparent"}}>⏱ {s}s</button>
                 ))}
               </div>
               <div style={{marginTop:10}}>
@@ -4116,9 +4116,9 @@ function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCusto
         {exercises.length>0&&(
           <div style={{display:"flex",flexDirection:"column",gap:8,marginTop:4}}>
             <button onClick={handleSave} style={{...S.bp,width:"100%",padding:"14px",fontSize:15}}>
-              {editMode?"ðŸ’¾ Save Changes":"ðŸ’¾ Save Session"}
+              {editMode?"💾 Save Changes":"💾 Save Session"}
             </button>
-            {!editMode&&<button onClick={()=>setShowCancelConfirm(true)} style={{...S.bd,width:"100%",padding:"11px",fontSize:13}}>âœ• Cancel Session</button>}
+            {!editMode&&<button onClick={()=>setShowCancelConfirm(true)} style={{...S.bd,width:"100%",padding:"11px",fontSize:13}}>✕ Cancel Session</button>}
           </div>
         )}
       </>}
@@ -4126,7 +4126,7 @@ function WorkoutLogger({activeProg,saveSession,setView,customExercises,saveCusto
   );
 }
 
-// â”€â”€ HISTORY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── HISTORY ───────────────────────────────────────────────
 function History({sessions,delSession,importSessions,deletedSessions,restoreSession,permDeleteSession,setEditSession,historyMode,setHistoryMode,historyCalView,setHistoryCalView,historyExp,setHistoryExp,historyFlt,setHistoryFlt,unit}){
   const mode=historyMode; const setMode=setHistoryMode;
   const calView=historyCalView; const setCalView=setHistoryCalView;
@@ -4176,12 +4176,12 @@ function History({sessions,delSession,importSessions,deletedSessions,restoreSess
           <div><h1 style={S.pgT}>History</h1><p style={S.pgS}>{sessions.length} sessions logged</p></div>
           <div style={{display:"flex",gap:6,flexWrap:"wrap",justifyContent:"flex-end"}}>
             {sessions.length>0&&<>
-              <button onClick={()=>exportJSON(sessions)} title="Export JSON backup" style={ebtn}>â¬‡ JSON</button>
-              <button onClick={()=>exportCSV(sessions)} title="Export CSV" style={ebtnG}>â¬‡ CSV</button>
-              <button onClick={()=>setShowQR(true)} title="QR Export (last 30 days)" style={{...ebtn,background:"rgba(245,158,11,0.1)",border:"1px solid rgba(245,158,11,0.3)",color:"#f59e0b"}}>â¬¡ QR</button>
+              <button onClick={()=>exportJSON(sessions)} title="Export JSON backup" style={ebtn}>⬇ JSON</button>
+              <button onClick={()=>exportCSV(sessions)} title="Export CSV" style={ebtnG}>⬇ CSV</button>
+              <button onClick={()=>setShowQR(true)} title="QR Export (last 30 days)" style={{...ebtn,background:"rgba(245,158,11,0.1)",border:"1px solid rgba(245,158,11,0.3)",color:"#f59e0b"}}>⬡ QR</button>
             </>}
             <label style={{...ebtn,background:"rgba(6,182,212,0.1)",border:"1px solid rgba(6,182,212,0.3)",color:"#06b6d4",cursor:"pointer"}}>
-              â¬† Import
+              ⬆ Import
               <input type="file" accept=".json" onChange={handleImport} style={{display:"none"}}/>
             </label>
           </div>
@@ -4192,7 +4192,7 @@ function History({sessions,delSession,importSessions,deletedSessions,restoreSess
 
       {sessions.length===0?(
         <div style={{...S.card,textAlign:"center",padding:"48px 24px"}}>
-          <div style={{fontSize:48,marginBottom:16}}>ðŸ“Š</div>
+          <div style={{fontSize:48,marginBottom:16}}>📊</div>
           <div style={{color:"#f1f5f9",fontWeight:600,marginBottom:8}}>No sessions yet</div>
           <div style={{color:"#64748b",fontSize:14}}>Log your first workout to see it here</div>
         </div>
@@ -4200,12 +4200,12 @@ function History({sessions,delSession,importSessions,deletedSessions,restoreSess
         <>
           {/* List / Calendar toggle */}
           <div style={{display:"flex",background:"rgba(255,255,255,0.04)",borderRadius:10,padding:3,marginBottom:14,border:"1px solid rgba(255,255,255,0.07)"}}>
-            {[{id:"list",l:"ðŸ“‹ List"},{id:"calendar",l:"ðŸ“… Calendar"}].map(m=>(
+            {[{id:"list",l:"📋 List"},{id:"calendar",l:"📅 Calendar"}].map(m=>(
               <button key={m.id} onClick={()=>setMode(m.id)} style={{flex:1,background:mode===m.id?"#f59e0b":"transparent",color:mode===m.id?"#000":"#64748b",border:"none",borderRadius:8,padding:"8px 0",fontFamily:"inherit",fontWeight:700,fontSize:13,cursor:"pointer",transition:"all 0.15s",WebkitTapHighlightColor:"transparent"}}>{m.l}</button>
             ))}
           </div>
 
-          {/* â”€â”€ LIST MODE â”€â”€ */}
+          {/* ── LIST MODE ── */}
           {mode==="list"&&(
             <>
               <div style={{display:"flex",gap:8,marginBottom:14,flexWrap:"wrap"}}>
@@ -4224,16 +4224,16 @@ function History({sessions,delSession,importSessions,deletedSessions,restoreSess
                         <div style={{color:"#f1f5f9",fontWeight:700,fontSize:15}}>{s.name}</div>
                         <div style={{color:"#64748b",fontSize:12,marginTop:4}}>
                           {new Date(s.date).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric"})}
-                          {" Â· "}{s.exercises?.length||0} exercises
-                          {sv>0&&` Â· ${unit==="lb"?sv.toLocaleString():(sv*0.453592).toFixed(0)} ${wLabel(unit)}`}
+                          {" · "}{s.exercises?.length||0} exercises
+                          {sv>0&&` · ${unit==="lb"?sv.toLocaleString():(sv*0.453592).toFixed(0)} ${wLabel(unit)}`}
                         </div>
                       </div>
                       <div style={{display:"flex",alignItems:"center",gap:6,marginLeft:8,flexShrink:0}}>
-                        <span style={{color:"#475569",fontSize:13,transition:"transform 0.2s",display:"inline-block",transform:isExp?"rotate(180deg)":"rotate(0deg)"}}>â–¼</span>
+                        <span style={{color:"#475569",fontSize:13,transition:"transform 0.2s",display:"inline-block",transform:isExp?"rotate(180deg)":"rotate(0deg)"}}>▼</span>
                         <button onClick={(e)=>{e.stopPropagation();setEditSession(s);}} title="Edit session"
-                          style={{background:"transparent",border:"1px solid rgba(245,158,11,0.3)",color:"#f59e0b",borderRadius:6,padding:"5px 8px",cursor:"pointer",fontSize:12,outline:"none",WebkitTapHighlightColor:"transparent"}}>âœï¸</button>
+                          style={{background:"transparent",border:"1px solid rgba(245,158,11,0.3)",color:"#f59e0b",borderRadius:6,padding:"5px 8px",cursor:"pointer",fontSize:12,outline:"none",WebkitTapHighlightColor:"transparent"}}>✏️</button>
                         <button onClick={(e)=>{e.stopPropagation();setConfirmDelete(s);}}
-                          style={{background:"transparent",border:"1px solid rgba(239,68,68,0.3)",color:"rgba(239,68,68,0.6)",borderRadius:6,padding:"5px 9px",cursor:"pointer",fontSize:13,outline:"none",WebkitTapHighlightColor:"transparent"}}>Ã—</button>
+                          style={{background:"transparent",border:"1px solid rgba(239,68,68,0.3)",color:"rgba(239,68,68,0.6)",borderRadius:6,padding:"5px 9px",cursor:"pointer",fontSize:13,outline:"none",WebkitTapHighlightColor:"transparent"}}>×</button>
                       </div>
                     </div>
                     <div style={{maxHeight:isExp?1200:0,overflow:"hidden",transition:"max-height 0.35s cubic-bezier(0.4,0,0.2,1)"}}>
@@ -4247,7 +4247,7 @@ function History({sessions,delSession,importSessions,deletedSessions,restoreSess
             </>
           )}
 
-          {/* â”€â”€ CALENDAR MODE â”€â”€ */}
+          {/* ── CALENDAR MODE ── */}
           {mode==="calendar"&&(
             <>
               <div style={{display:"flex",background:"rgba(255,255,255,0.03)",borderRadius:8,padding:2,marginBottom:12,gap:2}}>
@@ -4264,11 +4264,11 @@ function History({sessions,delSession,importSessions,deletedSessions,restoreSess
         </>
       )}
 
-      {/* â”€â”€ CHANGE 1: DELETE CONFIRMATION MODAL â”€â”€ */}
+      {/* ── CHANGE 1: DELETE CONFIRMATION MODAL ── */}
       {confirmDelete&&(
         <div onClick={()=>setConfirmDelete(null)} style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.75)",zIndex:300,display:"flex",alignItems:"center",justifyContent:"center",padding:"0 24px"}}>
           <div onClick={e=>e.stopPropagation()} style={{background:"#0d1627",border:"1px solid rgba(239,68,68,0.3)",borderRadius:20,padding:"24px",width:"100%",maxWidth:340}}>
-            <div style={{fontSize:28,textAlign:"center",marginBottom:12}}>ðŸ—‘</div>
+            <div style={{fontSize:28,textAlign:"center",marginBottom:12}}>🗑</div>
             <div style={{color:"#f1f5f9",fontWeight:700,fontSize:16,textAlign:"center",marginBottom:8}}>Delete Session?</div>
             <div style={{color:"#94a3b8",fontSize:13,textAlign:"center",marginBottom:4}}>"{confirmDelete.name}"</div>
             <div style={{color:"#475569",fontSize:12,textAlign:"center",marginBottom:20}}>This will move it to Deleted Sessions where it's kept for 30 days before permanent removal. You can undo within 5 seconds.</div>
@@ -4280,14 +4280,14 @@ function History({sessions,delSession,importSessions,deletedSessions,restoreSess
         </div>
       )}
 
-      {/* â”€â”€ DELETED SESSIONS â”€â”€ */}
+      {/* ── DELETED SESSIONS ── */}
       <div style={{marginTop:20}}>
         <button onClick={()=>setShowDeleted(v=>!v)}
           style={{width:"100%",display:"flex",justifyContent:"space-between",alignItems:"center",background:"rgba(239,68,68,0.04)",border:"1px solid rgba(239,68,68,0.15)",borderRadius:12,padding:"12px 16px",cursor:"pointer",fontFamily:"inherit",WebkitTapHighlightColor:"transparent",outline:"none"}}>
-          <span style={{color:"#ef4444",fontWeight:700,fontSize:13}}>ðŸ—‘ Deleted Sessions</span>
+          <span style={{color:"#ef4444",fontWeight:700,fontSize:13}}>🗑 Deleted Sessions</span>
           <div style={{display:"flex",alignItems:"center",gap:8}}>
             {deletedSessions.length>0&&<span style={{background:"rgba(239,68,68,0.15)",color:"#ef4444",borderRadius:20,padding:"2px 8px",fontSize:12,fontWeight:700}}>{deletedSessions.length}</span>}
-            <span style={{color:"#64748b",fontSize:13,transition:"transform 0.2s",display:"inline-block",transform:showDeleted?"rotate(180deg)":"rotate(0deg)"}}>â–¼</span>
+            <span style={{color:"#64748b",fontSize:13,transition:"transform 0.2s",display:"inline-block",transform:showDeleted?"rotate(180deg)":"rotate(0deg)"}}>▼</span>
           </div>
         </button>
         <div style={{maxHeight:showDeleted?6000:0,overflow:"hidden",transition:"max-height 0.4s cubic-bezier(0.4,0,0.2,1)"}}>
@@ -4301,20 +4301,20 @@ function History({sessions,delSession,importSessions,deletedSessions,restoreSess
                 const isExpDel=expandedDel===s.id;
                 return(
                   <div key={s.id} style={{...S.card,borderColor:"rgba(239,68,68,0.15)",marginBottom:8,padding:0,overflow:"hidden"}}>
-                    {/* Card header â€” tappable to expand */}
+                    {/* Card header — tappable to expand */}
                     <div onClick={()=>setExpandedDel(isExpDel?null:s.id)}
                       style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",padding:"14px 16px",cursor:"pointer",WebkitTapHighlightColor:"transparent"}}>
                       <div style={{flex:1}}>
                         <div style={{color:"#94a3b8",fontWeight:600,fontSize:14}}>{s.name}</div>
                         <div style={{color:"#475569",fontSize:12,marginTop:3}}>
                           {new Date(s.date).toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric",year:"numeric"})}
-                          {" Â· "}{s.exercises?.length||0} exercises
+                          {" · "}{s.exercises?.length||0} exercises
                         </div>
                         <div style={{color:daysLeft<=3?"#ef4444":"#64748b",fontSize:11,marginTop:4,fontWeight:daysLeft<=3?700:400}}>
-                          Deleted {new Date(deletedAt).toLocaleDateString("en-US",{month:"short",day:"numeric"})} Â· {daysLeft} day{daysLeft!==1?"s":""} until permanent deletion
+                          Deleted {new Date(deletedAt).toLocaleDateString("en-US",{month:"short",day:"numeric"})} · {daysLeft} day{daysLeft!==1?"s":""} until permanent deletion
                         </div>
                       </div>
-                      <span style={{color:"#475569",fontSize:13,transition:"transform 0.2s",display:"inline-block",transform:isExpDel?"rotate(180deg)":"rotate(0deg)",marginLeft:8,flexShrink:0}}>â–¼</span>
+                      <span style={{color:"#475569",fontSize:13,transition:"transform 0.2s",display:"inline-block",transform:isExpDel?"rotate(180deg)":"rotate(0deg)",marginLeft:8,flexShrink:0}}>▼</span>
                     </div>
 
                     {/* Change 3: Expandable full session detail */}
@@ -4336,7 +4336,7 @@ function History({sessions,delSession,importSessions,deletedSessions,restoreSess
                         </div>
                       ):(
                         <div style={{display:"flex",gap:8}}>
-                          <button onClick={()=>restoreSession(s.id)} style={{...S.bs,padding:"7px 14px",fontSize:12,borderColor:"rgba(74,222,128,0.3)",color:"#4ade80",flex:1}}>â†© Restore</button>
+                          <button onClick={()=>restoreSession(s.id)} style={{...S.bs,padding:"7px 14px",fontSize:12,borderColor:"rgba(74,222,128,0.3)",color:"#4ade80",flex:1}}>↩ Restore</button>
                           <button onClick={()=>setConfirmPermDel(s.id)} style={{...S.bd,padding:"7px 14px",fontSize:12}}>Delete Forever</button>
                         </div>
                       )}
@@ -4353,7 +4353,7 @@ function History({sessions,delSession,importSessions,deletedSessions,restoreSess
 }
 
 
-// â”€â”€ QR MODAL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── QR MODAL ─────────────────────────────────────────────
 function QRModal({data,onClose}){
   const ref=useRef(null);
   const [err,setErr]=useState(null);
@@ -4374,8 +4374,8 @@ function QRModal({data,onClose}){
   return(
     <div onClick={onClose} style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.8)",zIndex:300,display:"flex",alignItems:"center",justifyContent:"center"}}>
       <div onClick={e=>e.stopPropagation()} style={{background:"#0d1627",border:"1px solid rgba(245,158,11,0.3)",borderRadius:20,padding:"24px",textAlign:"center",maxWidth:300,width:"88%"}}>
-        <div style={{color:"#f59e0b",fontWeight:700,fontSize:14,marginBottom:4}}>ðŸ“± QR Export</div>
-        <div style={{color:"#64748b",fontSize:12,marginBottom:16}}>Last 30 days Â· Scan on another device then import the saved file</div>
+        <div style={{color:"#f59e0b",fontWeight:700,fontSize:14,marginBottom:4}}>📱 QR Export</div>
+        <div style={{color:"#64748b",fontSize:12,marginBottom:16}}>Last 30 days · Scan on another device then import the saved file</div>
         {err
           ?<div style={{color:"#ef4444",fontSize:13,padding:"20px 0"}}>{err}</div>
           :<div ref={ref} style={{background:"#fff",padding:10,borderRadius:10,display:"inline-block",minWidth:240,minHeight:240}}/>
@@ -4386,11 +4386,11 @@ function QRModal({data,onClose}){
   );
 }
 
-// â”€â”€ SESSION DETAIL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── SESSION DETAIL ────────────────────────────────────────
 function SessionDetail({session,unit}){
   return(
     <div>
-      {session.notes&&<div style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(255,255,255,0.07)",borderRadius:8,padding:"8px 12px",marginBottom:10,color:"#94a3b8",fontSize:12,fontStyle:"italic",lineHeight:1.5}}>ðŸ’¬ {session.notes}</div>}
+      {session.notes&&<div style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(255,255,255,0.07)",borderRadius:8,padding:"8px 12px",marginBottom:10,color:"#94a3b8",fontSize:12,fontStyle:"italic",lineHeight:1.5}}>💬 {session.notes}</div>}
       {session.exercises?.length>0?(
         session.exercises.map((ex,i)=>(
           <div key={i} style={{paddingTop:10,marginTop:i>0?2:0,borderTop:i>0?"1px solid rgba(255,255,255,0.05)":"none"}}>
@@ -4404,7 +4404,7 @@ function SessionDetail({session,unit}){
             <div style={{display:"flex",flexWrap:"wrap",gap:5}}>
               {ex.sets?.filter(st=>st.w||st.r).map((st,j)=>(
                 <div key={j} style={{background:"rgba(245,158,11,0.07)",border:"1px solid rgba(245,158,11,0.18)",borderRadius:6,padding:"4px 8px",fontSize:11}}>
-                  <span style={{color:"#f1f5f9",fontWeight:600}}>{st.w&&`${dispW(st.w,unit)}${wLabel(unit)}`}{st.w&&st.r&&" Ã— "}{st.r&&`${st.r}`}</span>
+                  <span style={{color:"#f1f5f9",fontWeight:600}}>{st.w&&`${dispW(st.w,unit)}${wLabel(unit)}`}{st.w&&st.r&&" × "}{st.r&&`${st.r}`}</span>
                   {st.rir!=null&&st.rir!==""&&<span style={{color:"#f59e0b",fontWeight:700,marginLeft:5}}>RIR {st.rir}</span>}
                   {st.rpe&&<span style={{color:"#94a3b8",marginLeft:4}}>RPE {st.rpe}</span>}
                 </div>
@@ -4419,7 +4419,7 @@ function SessionDetail({session,unit}){
   );
 }
 
-// â”€â”€ POPOVER POSITION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── POPOVER POSITION ─────────────────────────────────────
 function calcPopoverPos(cellRect,containerRect,cardW,cardH){
   const PAD=8;
   const anchorLeft=cellRect.left-containerRect.left;
@@ -4434,7 +4434,7 @@ function calcPopoverPos(cellRect,containerRect,cardW,cardH){
   return{left,top,arrowLeft,flipped:wouldClipBottom};
 }
 
-// â”€â”€ CALENDAR HELPERS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── CALENDAR HELPERS ─────────────────────────────────────
 const CAL_MONTHS_SHORT=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const CAL_MONTHS_FULL=["January","February","March","April","May","June","July","August","September","October","November","December"];
 const CAL_DAYS_SHORT=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
@@ -4449,7 +4449,7 @@ function dayCellBorder(isToday,isSel,trained){if(isToday)return"2px solid #4ade8
 function dayCellNumColor(isToday,isSel,trained,intensity){if(isToday)return"#4ade80";if(isSel&&trained)return"#f1f5f9";if(intensity>0.55)return"rgba(0,0,0,0.85)";if(trained)return"#fde68a";return"#475569";}
 function HeatLegend(){const steps=[0,0.2,0.4,0.6,0.8,1.0];return(<div style={{display:"flex",alignItems:"center",gap:4,marginTop:4}}><span style={{color:"#475569",fontSize:9}}>Vol:</span>{steps.map((a,i)=><div key={i} style={{width:13,height:13,borderRadius:3,background:heatBg(a)}}/>)}<span style={{color:"#475569",fontSize:9}}>High</span></div>);}
 
-// â”€â”€ CAL DAY VIEW â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── CAL DAY VIEW ──────────────────────────────────────────
 function CalDayView({unit,selectedDay,setSelectedDay,sbd}){
   const [expSession,setExpSession]=useState(null);
   const sessions=sbd[selectedDay]||[];
@@ -4461,23 +4461,23 @@ function CalDayView({unit,selectedDay,setSelectedDay,sbd}){
   return(
     <div style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(255,255,255,0.06)",borderRadius:14,padding:"18px 16px"}}>
       <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:20}}>
-        <button onClick={()=>shift(-1)} style={nbtn}>â† Day</button>
+        <button onClick={()=>shift(-1)} style={nbtn}>← Day</button>
         <div style={{textAlign:"center"}}>
           <div style={{fontWeight:700,fontSize:15,color:isToday?"#4ade80":"#f1f5f9"}}>{new Date(selectedDay+"T12:00:00").toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric",year:"numeric"})}</div>
           {isToday&&<div style={{fontSize:11,color:"#4ade80",fontWeight:600,marginTop:2}}>Today</div>}
         </div>
-        <button onClick={()=>shift(1)} style={nbtn}>Day â†’</button>
+        <button onClick={()=>shift(1)} style={nbtn}>Day →</button>
       </div>
       {sessions.length===0?(
         <div style={{textAlign:"center",padding:"32px 0",color:"#64748b"}}>
-          <div style={{fontSize:36,marginBottom:10}}>ðŸ›‹ï¸</div>
+          <div style={{fontSize:36,marginBottom:10}}>🛋️</div>
           <div style={{fontWeight:600,color:"#94a3b8"}}>Rest Day</div>
           <div style={{fontSize:12,marginTop:4}}>No sessions logged</div>
         </div>
       ):(
         <>
           <div style={{display:"flex",gap:8,marginBottom:16}}>
-            {[{v:sessions.length,l:"session"+(sessions.length>1?"s":""),c:"#f59e0b",bg:"rgba(245,158,11,0.08)",bd:"rgba(245,158,11,0.2)"},{v:totalVol>0?totalVol.toLocaleString():"â€”",l:wLabel(unit)+" volume",c:"#4ade80",bg:"rgba(74,222,128,0.08)",bd:"rgba(74,222,128,0.2)"},{v:sessions.reduce((a,s)=>a+(s.exercises?.length||0),0),l:"exercises",c:"#a78bfa",bg:"rgba(139,92,246,0.08)",bd:"rgba(139,92,246,0.2)"}].map((st,i)=>(
+            {[{v:sessions.length,l:"session"+(sessions.length>1?"s":""),c:"#f59e0b",bg:"rgba(245,158,11,0.08)",bd:"rgba(245,158,11,0.2)"},{v:totalVol>0?totalVol.toLocaleString():"—",l:wLabel(unit)+" volume",c:"#4ade80",bg:"rgba(74,222,128,0.08)",bd:"rgba(74,222,128,0.2)"},{v:sessions.reduce((a,s)=>a+(s.exercises?.length||0),0),l:"exercises",c:"#a78bfa",bg:"rgba(139,92,246,0.08)",bd:"rgba(139,92,246,0.2)"}].map((st,i)=>(
               <div key={i} style={{flex:1,background:st.bg,border:`1px solid ${st.bd}`,borderRadius:8,padding:"10px 12px"}}>
                 <div style={{color:st.c,fontWeight:700,fontSize:20}}>{st.v}</div>
                 <div style={{color:"#64748b",fontSize:11}}>{st.l}</div>
@@ -4492,9 +4492,9 @@ function CalDayView({unit,selectedDay,setSelectedDay,sbd}){
                 <div onClick={()=>setExpSession(isExp?null:s.id)} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"12px 14px",cursor:"pointer",WebkitTapHighlightColor:"transparent"}}>
                   <div>
                     <div style={{fontWeight:700,color:"#f1f5f9",fontSize:13}}>{s.name}</div>
-                    <div style={{color:"#64748b",fontSize:11,marginTop:2}}>{s.exercises?.length||0} exercises{sv>0?` Â· ${sv.toLocaleString()} kg`:""}</div>
+                    <div style={{color:"#64748b",fontSize:11,marginTop:2}}>{s.exercises?.length||0} exercises{sv>0?` · ${sv.toLocaleString()} kg`:""}</div>
                   </div>
-                  <span style={{color:"#475569",fontSize:14,transition:"transform 0.2s",display:"inline-block",transform:isExp?"rotate(180deg)":"rotate(0deg)"}}>â–¼</span>
+                  <span style={{color:"#475569",fontSize:14,transition:"transform 0.2s",display:"inline-block",transform:isExp?"rotate(180deg)":"rotate(0deg)"}}>▼</span>
                 </div>
                 <div style={{maxHeight:isExp?800:0,overflow:"hidden",transition:"max-height 0.3s cubic-bezier(0.4,0,0.2,1)"}}>
                   <div style={{padding:"0 14px 14px"}}><SessionDetail session={s} unit={unit}/></div>
@@ -4508,7 +4508,7 @@ function CalDayView({unit,selectedDay,setSelectedDay,sbd}){
   );
 }
 
-// â”€â”€ CAL WEEK VIEW â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── CAL WEEK VIEW ─────────────────────────────────────────
 function CalWeekView({unit,currentDate,setCurrentDate,selectedDay,setSelectedDay,sbd,maxV}){
   const [expSession,setExpSession]=useState(null);
   const TODAY=calToday();
@@ -4518,7 +4518,7 @@ function CalWeekView({unit,currentDate,setCurrentDate,selectedDay,setSelectedDay
   const dayLbls=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
   const shiftWeek=(n)=>{const d=new Date(currentDate);d.setDate(d.getDate()+n*7);setCurrentDate(d);setExpSession(null);};
   const s0=weekDays[0],s6=weekDays[6];
-  const wLabel=s0.getMonth()===s6.getMonth()?`${CAL_MONTHS_FULL[s0.getMonth()]} ${s0.getDate()}â€“${s6.getDate()}, ${s0.getFullYear()}`:`${CAL_MONTHS_SHORT[s0.getMonth()]} ${s0.getDate()} â€“ ${CAL_MONTHS_SHORT[s6.getMonth()]} ${s6.getDate()}, ${s0.getFullYear()}`;
+  const wLabel=s0.getMonth()===s6.getMonth()?`${CAL_MONTHS_FULL[s0.getMonth()]} ${s0.getDate()}–${s6.getDate()}, ${s0.getFullYear()}`:`${CAL_MONTHS_SHORT[s0.getMonth()]} ${s0.getDate()} – ${CAL_MONTHS_SHORT[s6.getMonth()]} ${s6.getDate()}, ${s0.getFullYear()}`;
   const totalVol=weekDays.reduce((a,d)=>a+calVolForDate(sbd,calFmt(d)),0);
   const trainedDays=weekDays.filter(d=>(sbd[calFmt(d)]||[]).length>0).length;
   const nbtn={background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.1)",color:"#94a3b8",borderRadius:8,padding:"6px 12px",cursor:"pointer",fontSize:12,fontFamily:"inherit",fontWeight:600,outline:"none",WebkitTapHighlightColor:"transparent"};
@@ -4528,9 +4528,9 @@ function CalWeekView({unit,currentDate,setCurrentDate,selectedDay,setSelectedDay
     <div>
       <div style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(255,255,255,0.06)",borderRadius:14,padding:"14px 14px",marginBottom:10}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
-          <button onClick={()=>shiftWeek(-1)} style={nbtn}>â† Week</button>
-          <div style={{textAlign:"center"}}><div style={{fontWeight:700,fontSize:13}}>{wLabel}</div><div style={{color:"#64748b",fontSize:11,marginTop:1}}>{trainedDays} sessions{totalVol>0?` Â· ${totalVol.toLocaleString()} kg`:""}</div></div>
-          <button onClick={()=>shiftWeek(1)} style={nbtn}>Week â†’</button>
+          <button onClick={()=>shiftWeek(-1)} style={nbtn}>← Week</button>
+          <div style={{textAlign:"center"}}><div style={{fontWeight:700,fontSize:13}}>{wLabel}</div><div style={{color:"#64748b",fontSize:11,marginTop:1}}>{trainedDays} sessions{totalVol>0?` · ${totalVol.toLocaleString()} kg`:""}</div></div>
+          <button onClick={()=>shiftWeek(1)} style={nbtn}>Week →</button>
         </div>
         <HeatLegend/>
         <div style={{display:"grid",gridTemplateColumns:"repeat(7,1fr)",gap:5,marginTop:12}}>
@@ -4540,7 +4540,7 @@ function CalWeekView({unit,currentDate,setCurrentDate,selectedDay,setSelectedDay
               <div key={i} onClick={()=>handleDayClick(ds)} style={{borderRadius:10,padding:"8px 6px",minHeight:100,background:heatBg(intensity),border:dayCellBorder(isToday,isSel,trained),boxSizing:"border-box",cursor:"pointer",transition:"all 0.12s",position:"relative",outline:"none",WebkitTapHighlightColor:"transparent"}}>
                 <div style={{fontSize:9,color:isToday?"#4ade80":"#64748b",fontWeight:700}}>{dayLbls[i]}</div>
                 <div style={{fontSize:18,fontWeight:700,color:isToday?"#4ade80":"#f1f5f9",margin:"3px 0 5px"}}>{d.getDate()}</div>
-                {trained?(<>{sessions.slice(0,2).map((s,j)=><div key={j} style={{fontSize:8,background:"rgba(0,0,0,0.25)",color:"#fde68a",borderRadius:3,padding:"2px 4px",marginBottom:2,fontWeight:600,overflow:"hidden",whiteSpace:"nowrap",textOverflow:"ellipsis"}}>{s.name.length>16?s.name.slice(0,16)+"â€¦":s.name}</div>)}{sessions.length>2&&<div style={{fontSize:7,color:"rgba(253,230,138,0.7)"}}>+{sessions.length-2} more</div>}{vol>0&&<div style={{position:"absolute",bottom:6,right:6,fontSize:8,color:"rgba(253,230,138,0.7)",fontWeight:700}}>{vol>=1000?(vol/1000).toFixed(1)+"k":vol}kg</div>}</>):(<div style={{fontSize:9,color:"#475569",marginTop:4}}>Rest</div>)}
+                {trained?(<>{sessions.slice(0,2).map((s,j)=><div key={j} style={{fontSize:8,background:"rgba(0,0,0,0.25)",color:"#fde68a",borderRadius:3,padding:"2px 4px",marginBottom:2,fontWeight:600,overflow:"hidden",whiteSpace:"nowrap",textOverflow:"ellipsis"}}>{s.name.length>16?s.name.slice(0,16)+"…":s.name}</div>)}{sessions.length>2&&<div style={{fontSize:7,color:"rgba(253,230,138,0.7)"}}>+{sessions.length-2} more</div>}{vol>0&&<div style={{position:"absolute",bottom:6,right:6,fontSize:8,color:"rgba(253,230,138,0.7)",fontWeight:700}}>{vol>=1000?(vol/1000).toFixed(1)+"k":vol}kg</div>}</>):(<div style={{fontSize:9,color:"#475569",marginTop:4}}>Rest</div>)}
               </div>
             );
           })}
@@ -4550,7 +4550,7 @@ function CalWeekView({unit,currentDate,setCurrentDate,selectedDay,setSelectedDay
         <div style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(255,255,255,0.08)",borderRadius:12,borderLeft:"3px solid #f59e0b",overflow:"hidden"}}>
           <div style={{padding:"12px 14px 4px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
             <span style={{fontWeight:700,fontSize:13,color:"#f1f5f9"}}>{selectedDay&&new Date(selectedDay+"T12:00:00").toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric"})}</span>
-            <button onClick={()=>{setSelectedDay(null);setExpSession(null);}} style={{background:"transparent",border:"none",color:"#475569",cursor:"pointer",fontSize:18,fontFamily:"inherit",outline:"none",WebkitTapHighlightColor:"transparent"}}>Ã—</button>
+            <button onClick={()=>{setSelectedDay(null);setExpSession(null);}} style={{background:"transparent",border:"none",color:"#475569",cursor:"pointer",fontSize:18,fontFamily:"inherit",outline:"none",WebkitTapHighlightColor:"transparent"}}>×</button>
           </div>
           {selSessions.map((s,i)=>{
             const sv=(()=>{let v=0;s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{v+=(parseFloat(set.w)||0)*(parseFloat(set.r)||0);}));return v;})();
@@ -4558,8 +4558,8 @@ function CalWeekView({unit,currentDate,setCurrentDate,selectedDay,setSelectedDay
             return(
               <div key={i} style={{margin:"0 14px",marginBottom:8,background:"rgba(255,255,255,0.02)",border:`1px solid ${isExp?"rgba(245,158,11,0.3)":"rgba(255,255,255,0.06)"}`,borderRadius:10,overflow:"hidden"}}>
                 <div onClick={()=>setExpSession(isExp?null:s.id)} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 12px",cursor:"pointer",WebkitTapHighlightColor:"transparent"}}>
-                  <div><div style={{fontWeight:700,color:"#f1f5f9",fontSize:13}}>{s.name}</div><div style={{color:"#64748b",fontSize:11,marginTop:2}}>{s.exercises?.length||0} exercises{sv>0?` Â· ${sv.toLocaleString()} kg`:""}</div></div>
-                  <span style={{color:"#475569",fontSize:13,transition:"transform 0.2s",display:"inline-block",transform:isExp?"rotate(180deg)":"rotate(0deg)"}}>â–¼</span>
+                  <div><div style={{fontWeight:700,color:"#f1f5f9",fontSize:13}}>{s.name}</div><div style={{color:"#64748b",fontSize:11,marginTop:2}}>{s.exercises?.length||0} exercises{sv>0?` · ${sv.toLocaleString()} kg`:""}</div></div>
+                  <span style={{color:"#475569",fontSize:13,transition:"transform 0.2s",display:"inline-block",transform:isExp?"rotate(180deg)":"rotate(0deg)"}}>▼</span>
                 </div>
                 <div style={{maxHeight:isExp?800:0,overflow:"hidden",transition:"max-height 0.3s cubic-bezier(0.4,0,0.2,1)"}}>
                   <div style={{padding:"0 12px 12px"}}><SessionDetail session={s} unit={unit}/></div>
@@ -4574,7 +4574,7 @@ function CalWeekView({unit,currentDate,setCurrentDate,selectedDay,setSelectedDay
   );
 }
 
-// â”€â”€ CAL MONTH VIEW â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── CAL MONTH VIEW ────────────────────────────────────────
 function CalMonthView({unit,currentDate,setCurrentDate,selectedDay,setSelectedDay,sbd,maxV}){
   const TODAY=calToday();
   const month=currentDate.getMonth(),year=currentDate.getFullYear();
@@ -4603,9 +4603,9 @@ function CalMonthView({unit,currentDate,setCurrentDate,selectedDay,setSelectedDa
     <div>
       <div ref={containerRef} style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(255,255,255,0.06)",borderRadius:14,padding:"14px 14px",marginBottom:10,position:"relative"}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
-          <button onClick={()=>shiftMonth(-1)} style={nbtn}>â†</button>
-          <div style={{textAlign:"center"}}><div style={{fontWeight:700,fontSize:14}}>{CAL_MONTHS_FULL[month]} {year}</div><div style={{color:"#64748b",fontSize:11,marginTop:1}}>{trainedDays} sessions{totalVol>0?` Â· ${totalVol.toLocaleString()} kg`:""}</div></div>
-          <button onClick={()=>shiftMonth(1)} style={nbtn}>â†’</button>
+          <button onClick={()=>shiftMonth(-1)} style={nbtn}>←</button>
+          <div style={{textAlign:"center"}}><div style={{fontWeight:700,fontSize:14}}>{CAL_MONTHS_FULL[month]} {year}</div><div style={{color:"#64748b",fontSize:11,marginTop:1}}>{trainedDays} sessions{totalVol>0?` · ${totalVol.toLocaleString()} kg`:""}</div></div>
+          <button onClick={()=>shiftMonth(1)} style={nbtn}>→</button>
         </div>
         <HeatLegend/>
         <div style={{display:"grid",gridTemplateColumns:"repeat(7,1fr)",gap:3,margin:"10px 0 4px"}}>
@@ -4616,7 +4616,7 @@ function CalMonthView({unit,currentDate,setCurrentDate,selectedDay,setSelectedDa
             const dStr=ds(d);const sessions=dStr?(sbd[dStr]||[]):[];const trained=sessions.length>0;const isToday=dStr===TODAY;const isSel=dStr===selectedDay;const intensity=dStr?calIntensity(sbd,dStr,maxV):0;
             return(
               <div key={i} onClick={(e)=>{if(d&&dStr)handleCellClick(dStr,e);}} style={{aspectRatio:"1",borderRadius:6,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",position:"relative",background:d?heatBg(intensity):"transparent",border:d?dayCellBorder(isToday,isSel,trained):"1px solid transparent",boxSizing:"border-box",cursor:d?"pointer":"default",transition:"all 0.1s",outline:"none",WebkitTapHighlightColor:"transparent"}}>
-                {d&&<><span style={{fontSize:11,fontWeight:trained||isToday?700:400,color:dayCellNumColor(isToday,isSel,trained,intensity)}}>{d}</span>{trained&&<div style={{width:3,height:3,borderRadius:"50%",background:intensity>0.55?"rgba(0,0,0,0.4)":"#f59e0b",marginTop:1}}/>}{sessions.length>1&&<span style={{fontSize:7,color:intensity>0.55?"rgba(0,0,0,0.5)":"#f59e0b",fontWeight:700}}>Ã—{sessions.length}</span>}</>}
+                {d&&<><span style={{fontSize:11,fontWeight:trained||isToday?700:400,color:dayCellNumColor(isToday,isSel,trained,intensity)}}>{d}</span>{trained&&<div style={{width:3,height:3,borderRadius:"50%",background:intensity>0.55?"rgba(0,0,0,0.4)":"#f59e0b",marginTop:1}}/>}{sessions.length>1&&<span style={{fontSize:7,color:intensity>0.55?"rgba(0,0,0,0.5)":"#f59e0b",fontWeight:700}}>×{sessions.length}</span>}</>}
               </div>
             );
           })}
@@ -4631,18 +4631,18 @@ function CalMonthView({unit,currentDate,setCurrentDate,selectedDay,setSelectedDa
                   <div style={{color:"#f59e0b",fontSize:9,fontWeight:700,letterSpacing:1,marginBottom:3}}>{new Date(popover.ds+"T12:00:00").toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"}).toUpperCase()}</div>
                   {sbd[popover.ds].map((s,i)=><div key={i} style={{color:"#f1f5f9",fontWeight:700,fontSize:12,lineHeight:1.3}}>{s.name}</div>)}
                 </div>
-                <button onClick={()=>{setPopover(null);setSelectedDay(null);setCardExp(null);}} style={{background:"transparent",border:"none",color:"#475569",cursor:"pointer",fontSize:16,fontFamily:"inherit",outline:"none",WebkitTapHighlightColor:"transparent",flexShrink:0,marginLeft:8}}>Ã—</button>
+                <button onClick={()=>{setPopover(null);setSelectedDay(null);setCardExp(null);}} style={{background:"transparent",border:"none",color:"#475569",cursor:"pointer",fontSize:16,fontFamily:"inherit",outline:"none",WebkitTapHighlightColor:"transparent",flexShrink:0,marginLeft:8}}>×</button>
               </div>
               <div style={{display:"flex",gap:12,marginTop:8}}>
-                {(()=>{const ss=sbd[popover.ds];const vol=ss.reduce((a,s)=>{let v=0;s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{v+=(parseFloat(set.w)||0)*(parseFloat(set.r)||0);}));return a+v;},0);const ex=ss.reduce((a,s)=>a+(s.exercises?.length||0),0);return[{v:vol>0?(unit==="lb"?(vol>=1000?(vol/1000).toFixed(1)+"k":vol):(vol>=1000?(vol*0.453592/1000).toFixed(1)+"k":(vol*0.453592).toFixed(0)))+wLabel(unit):"â€”",c:"#f59e0b"},{v:ex+" ex",c:"#a78bfa"}].map((st,i)=><span key={i} style={{color:st.c,fontWeight:700,fontSize:12}}>{st.v}</span>);})()}
+                {(()=>{const ss=sbd[popover.ds];const vol=ss.reduce((a,s)=>{let v=0;s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{v+=(parseFloat(set.w)||0)*(parseFloat(set.r)||0);}));return a+v;},0);const ex=ss.reduce((a,s)=>a+(s.exercises?.length||0),0);return[{v:vol>0?(unit==="lb"?(vol>=1000?(vol/1000).toFixed(1)+"k":vol):(vol>=1000?(vol*0.453592/1000).toFixed(1)+"k":(vol*0.453592).toFixed(0)))+wLabel(unit):"—",c:"#f59e0b"},{v:ex+" ex",c:"#a78bfa"}].map((st,i)=><span key={i} style={{color:st.c,fontWeight:700,fontSize:12}}>{st.v}</span>);})()}
               </div>
             </div>
             <div style={{padding:"8px 14px 4px",maxHeight:280,overflowY:"auto"}}>
               {sbd[popover.ds].map((s,si)=>(
                 <div key={si} style={{marginBottom:6,background:"rgba(255,255,255,0.02)",border:`1px solid ${cardExp===s.id?"rgba(245,158,11,0.25)":"rgba(255,255,255,0.06)"}`,borderRadius:8,overflow:"hidden"}}>
                   <div onClick={()=>setCardExp(cardExp===s.id?null:s.id)} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 10px",cursor:"pointer",WebkitTapHighlightColor:"transparent"}}>
-                    <span style={{color:"#f1f5f9",fontSize:11,fontWeight:600}}>{s.name.length>24?s.name.slice(0,24)+"â€¦":s.name}</span>
-                    <span style={{color:"#475569",fontSize:11,transition:"transform 0.2s",display:"inline-block",transform:cardExp===s.id?"rotate(180deg)":"rotate(0deg)"}}>â–¼</span>
+                    <span style={{color:"#f1f5f9",fontSize:11,fontWeight:600}}>{s.name.length>24?s.name.slice(0,24)+"…":s.name}</span>
+                    <span style={{color:"#475569",fontSize:11,transition:"transform 0.2s",display:"inline-block",transform:cardExp===s.id?"rotate(180deg)":"rotate(0deg)"}}>▼</span>
                   </div>
                   <div style={{maxHeight:cardExp===s.id?600:0,overflow:"hidden",transition:"max-height 0.3s cubic-bezier(0.4,0,0.2,1)"}}>
                     <div style={{padding:"0 10px 10px"}}><SessionDetail session={s} unit={unit}/></div>
@@ -4659,7 +4659,7 @@ function CalMonthView({unit,currentDate,setCurrentDate,selectedDay,setSelectedDa
   );
 }
 
-// â”€â”€ CAL YEAR VIEW â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── CAL YEAR VIEW ─────────────────────────────────────────
 function CalYearView({unit,currentDate,setCurrentDate,selectedDay,setSelectedDay,sbd,maxV,sessions}){
   const TODAY=calToday();
   const year=currentDate.getFullYear();
@@ -4669,7 +4669,7 @@ function CalYearView({unit,currentDate,setCurrentDate,selectedDay,setSelectedDay
   const yearSessions=sessions.filter(s=>s.date.slice(0,4)===String(year));
   const yearVol=yearSessions.reduce((a,s)=>{let v=0;s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{v+=(parseFloat(set.w)||0)*(parseFloat(set.r)||0);}));return a+v;},0);
   const yearDays=new Set(yearSessions.map(s=>s.date.slice(0,10))).size;
-  const bestMonth=(()=>{const byM={};yearSessions.forEach(s=>{const m=s.date.slice(0,7);let v=0;s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{v+=(parseFloat(set.w)||0)*(parseFloat(set.r)||0);}));byM[m]=(byM[m]||0)+v;});const best=Object.entries(byM).sort((a,b)=>b[1]-a[1])[0];return best?CAL_MONTHS_SHORT[parseInt(best[0].slice(5,7))-1]:"â€”";})();
+  const bestMonth=(()=>{const byM={};yearSessions.forEach(s=>{const m=s.date.slice(0,7);let v=0;s.exercises?.forEach(ex=>ex.sets?.forEach(set=>{v+=(parseFloat(set.w)||0)*(parseFloat(set.r)||0);}));byM[m]=(byM[m]||0)+v;});const best=Object.entries(byM).sort((a,b)=>b[1]-a[1])[0];return best?CAL_MONTHS_SHORT[parseInt(best[0].slice(5,7))-1]:"—";})();
   const shiftYear=(n)=>{const d=new Date(currentDate);d.setFullYear(d.getFullYear()+n);setCurrentDate(d);};
   const nbtn={background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.1)",color:"#94a3b8",borderRadius:8,padding:"6px 12px",cursor:"pointer",fontSize:12,fontFamily:"inherit",fontWeight:600,outline:"none",WebkitTapHighlightColor:"transparent"};
   const openSheet=(ds)=>{setSelectedDay(ds);setExpSession(null);setSheetOpen(true);setTimeout(()=>setSheetVisible(true),10);};
@@ -4679,12 +4679,12 @@ function CalYearView({unit,currentDate,setCurrentDate,selectedDay,setSelectedDay
     <div>
       <div style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(255,255,255,0.06)",borderRadius:14,padding:"14px 14px",marginBottom:10}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}>
-          <button onClick={()=>shiftYear(-1)} style={nbtn}>â† {year-1}</button>
+          <button onClick={()=>shiftYear(-1)} style={nbtn}>← {year-1}</button>
           <span style={{fontWeight:700,fontSize:18,letterSpacing:1}}>{year}</span>
-          <button onClick={()=>shiftYear(1)} style={nbtn}>{year+1} â†’</button>
+          <button onClick={()=>shiftYear(1)} style={nbtn}>{year+1} →</button>
         </div>
         <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:8,marginBottom:14}}>
-          {[{v:yearDays,l:"Training days",c:"#f59e0b"},{v:yearVol>0?(unit==="lb"?(yearVol/1000).toFixed(1)+"k":(yearVol*0.453592/1000).toFixed(1)+"k")+" "+wLabel(unit):"â€”",l:"Total volume",c:"#4ade80"},{v:bestMonth,l:"Best month",c:"#a78bfa"}].map((st,i)=>(
+          {[{v:yearDays,l:"Training days",c:"#f59e0b"},{v:yearVol>0?(unit==="lb"?(yearVol/1000).toFixed(1)+"k":(yearVol*0.453592/1000).toFixed(1)+"k")+" "+wLabel(unit):"—",l:"Total volume",c:"#4ade80"},{v:bestMonth,l:"Best month",c:"#a78bfa"}].map((st,i)=>(
             <div key={i} style={{background:"rgba(255,255,255,0.02)",border:"1px solid rgba(255,255,255,0.06)",borderRadius:10,padding:"10px 12px"}}>
               <div style={{color:st.c,fontWeight:700,fontSize:20}}>{st.v}</div>
               <div style={{color:"#64748b",fontSize:11,marginTop:2}}>{st.l}</div>
@@ -4705,7 +4705,7 @@ function CalYearView({unit,currentDate,setCurrentDate,selectedDay,setSelectedDay
               <div key={m} style={{background:"rgba(255,255,255,0.015)",border:todayMonth?"1px solid rgba(74,222,128,0.2)":"1px solid rgba(255,255,255,0.06)",borderRadius:10,padding:"8px 8px 6px"}}>
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:5}}>
                   <span style={{fontWeight:700,fontSize:12,color:todayMonth?"#4ade80":"#f1f5f9"}}>{CAL_MONTHS_SHORT[m]}</span>
-                  {trainedDays>0?<span style={{fontSize:8,color:"#475569"}}>{trainedDays}d{monthVol>0?` Â· ${monthVol>=1000?(monthVol/1000).toFixed(1)+"k":monthVol}kg`:""}</span>:<span style={{fontSize:8,color:"#475569"}}>â€”</span>}
+                  {trainedDays>0?<span style={{fontSize:8,color:"#475569"}}>{trainedDays}d{monthVol>0?` · ${monthVol>=1000?(monthVol/1000).toFixed(1)+"k":monthVol}kg`:""}</span>:<span style={{fontSize:8,color:"#475569"}}>—</span>}
                 </div>
                 <div style={{display:"grid",gridTemplateColumns:"repeat(7,1fr)",gap:1,marginBottom:1}}>
                   {["S","M","T","W","T","F","S"].map((d,i)=><div key={i} style={{textAlign:"center",fontSize:6,color:"#475569",lineHeight:"12px"}}>{d}</div>)}
@@ -4728,7 +4728,7 @@ function CalYearView({unit,currentDate,setCurrentDate,selectedDay,setSelectedDay
         </div>
       </div>
       <div style={{background:"rgba(100,116,139,0.06)",border:"1px solid rgba(255,255,255,0.06)",borderRadius:10,padding:"10px 14px"}}>
-        <span style={{color:"#64748b",fontSize:12}}>ðŸ’¡ Tap any trained day to see full workout detail. Today outlined in green.</span>
+        <span style={{color:"#64748b",fontSize:12}}>💡 Tap any trained day to see full workout detail. Today outlined in green.</span>
       </div>
       {sheetOpen&&<div onClick={closeSheet} style={{position:"fixed",inset:0,background:`rgba(0,0,0,${sheetVisible?0.6:0})`,zIndex:40,transition:"background 0.3s"}}/>}
       {sheetOpen&&(
@@ -4739,7 +4739,7 @@ function CalYearView({unit,currentDate,setCurrentDate,selectedDay,setSelectedDay
               <div style={{color:"#f59e0b",fontSize:10,fontWeight:700,letterSpacing:1}}>WORKOUT DETAIL</div>
               <div style={{color:"#f1f5f9",fontWeight:700,fontSize:15,marginTop:2}}>{selectedDay&&new Date(selectedDay+"T12:00:00").toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric",year:"numeric"})}</div>
             </div>
-            <button onClick={closeSheet} style={{background:"rgba(255,255,255,0.06)",border:"none",color:"#94a3b8",cursor:"pointer",fontSize:16,width:32,height:32,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"inherit",outline:"none",WebkitTapHighlightColor:"transparent"}}>Ã—</button>
+            <button onClick={closeSheet} style={{background:"rgba(255,255,255,0.06)",border:"none",color:"#94a3b8",cursor:"pointer",fontSize:16,width:32,height:32,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"inherit",outline:"none",WebkitTapHighlightColor:"transparent"}}>×</button>
           </div>
           <div style={{overflowY:"auto",padding:"12px 20px 40px",flex:1}}>
             {sheetSessions.map((s,i)=>{
@@ -4748,8 +4748,8 @@ function CalYearView({unit,currentDate,setCurrentDate,selectedDay,setSelectedDay
               return(
                 <div key={i} style={{background:"rgba(255,255,255,0.02)",border:`1px solid ${isExp?"rgba(245,158,11,0.3)":"rgba(255,255,255,0.07)"}`,borderRadius:12,marginBottom:10,overflow:"hidden"}}>
                   <div onClick={()=>setExpSession(isExp?null:s.id)} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"14px 16px",cursor:"pointer",WebkitTapHighlightColor:"transparent"}}>
-                    <div><div style={{fontWeight:700,color:"#f1f5f9",fontSize:14}}>{s.name}</div><div style={{color:"#64748b",fontSize:12,marginTop:3}}>{s.exercises?.length||0} exercises{sv>0?` Â· ${sv.toLocaleString()} kg`:""}</div></div>
-                    <span style={{color:"#475569",fontSize:14,transition:"transform 0.2s",display:"inline-block",transform:isExp?"rotate(180deg)":"rotate(0deg)"}}>â–¼</span>
+                    <div><div style={{fontWeight:700,color:"#f1f5f9",fontSize:14}}>{s.name}</div><div style={{color:"#64748b",fontSize:12,marginTop:3}}>{s.exercises?.length||0} exercises{sv>0?` · ${sv.toLocaleString()} kg`:""}</div></div>
+                    <span style={{color:"#475569",fontSize:14,transition:"transform 0.2s",display:"inline-block",transform:isExp?"rotate(180deg)":"rotate(0deg)"}}>▼</span>
                   </div>
                   <div style={{maxHeight:isExp?1000:0,overflow:"hidden",transition:"max-height 0.35s cubic-bezier(0.4,0,0.2,1)"}}>
                     <div style={{padding:"0 16px 16px"}}><SessionDetail session={s} unit={unit}/></div>
@@ -4764,7 +4764,7 @@ function CalYearView({unit,currentDate,setCurrentDate,selectedDay,setSelectedDay
   );
 }
 
-// â”€â”€ EXPORT HELPERS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── EXPORT HELPERS ────────────────────────────────────────
 function exportJSON(sessions){
   const blob=new Blob([JSON.stringify({exported:new Date().toISOString(),sessions},null,2)],{type:"application/json"});
   const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`ironlog-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();
@@ -4795,17 +4795,17 @@ function Nutrition() {
   const [goal, setGoal] = useState("muscle");
   const [section, setSection] = useState("calculator");
 
-  // â”€â”€ Unit helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Unit helpers ──────────────────────────────────────────
   const wKg = unit==="lb" ? (parseFloat(weight)||175)*0.453592 : (parseFloat(weight)||80);
   const wLb = wKg*2.20462;
   const hCm = unit==="lb" ? (parseFloat(height)||70)*2.54 : (parseFloat(height)||178);
 
-  // â”€â”€ Mifflin-St Jeor BMR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Mifflin-St Jeor BMR ───────────────────────────────────
   const bmr = sex==="male"
     ? Math.round(10*wKg + 6.25*hCm - 5*(parseFloat(age)||28) + 5)
     : Math.round(10*wKg + 6.25*hCm - 5*(parseFloat(age)||28) - 161);
 
-  // Activity multipliers (slightly conservative â€” avoids overestimating)
+  // Activity multipliers (slightly conservative — avoids overestimating)
   const actMap = {
     sedentary:{label:"Sedentary",sub:"Desk job, little exercise",mult:1.2},
     light:{label:"Lightly Active",sub:"1-3 days/week training",mult:1.375},
@@ -4815,51 +4815,51 @@ function Nutrition() {
   };
   const tdee = Math.round(bmr * actMap[activity].mult);
 
-  // â”€â”€ Goal configurations â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Goal configurations ───────────────────────────────────
   const goals = {
     muscle: {
-      label:"Lean Bulk",icon:"ðŸ’ª",color:"#4ade80",
+      label:"Lean Bulk",icon:"💪",color:"#4ade80",
       calories: tdee+200,
-      surplusNote:"~200â€“300 kcal surplus (0.25â€“0.5 lb/week gain)",
+      surplusNote:"~200–300 kcal surplus (0.25–0.5 lb/week gain)",
       proteinMin: Math.round(wLb*0.8), proteinMax: Math.round(wLb*1.0),
-      proteinNote:"0.8â€“1.0g per lb Â· Supports muscle protein synthesis",
+      proteinNote:"0.8–1.0g per lb · Supports muscle protein synthesis",
       fatMin: Math.round(tdee*0.25/9), fatMax: Math.round(tdee*0.30/9),
-      fatNote:"25â€“30% of calories Â· Hormonal health",
-      rateNote:"Target: 0.25â€“0.5 lb gained per week. More than 1 lb/week means too much fat gain.",
-      sources:["Greg Nuckols / Stronger By Science","Eric Helms â€“ Muscle & Strength Pyramid","RP Strength (Dr. Mike Israetel)"],
+      fatNote:"25–30% of calories · Hormonal health",
+      rateNote:"Target: 0.25–0.5 lb gained per week. More than 1 lb/week means too much fat gain.",
+      sources:["Greg Nuckols / Stronger By Science","Eric Helms – Muscle & Strength Pyramid","RP Strength (Dr. Mike Israetel)"],
     },
     cut: {
-      label:"Cut / Fat Loss",icon:"ðŸ”¥",color:"#f59e0b",
+      label:"Cut / Fat Loss",icon:"🔥",color:"#f59e0b",
       calories: tdee-500,
-      surplusNote:"~500 kcal deficit (â‰ˆ1 lb fat loss/week)",
+      surplusNote:"~500 kcal deficit (≈1 lb fat loss/week)",
       proteinMin: Math.round(wLb*0.9), proteinMax: Math.round(wLb*1.2),
-      proteinNote:"0.9â€“1.2g per lb Â· Higher during cut to preserve muscle (Helms et al. 2014)",
+      proteinNote:"0.9–1.2g per lb · Higher during cut to preserve muscle (Helms et al. 2014)",
       fatMin: Math.round(tdee*0.20/9), fatMax: Math.round(tdee*0.25/9),
-      fatNote:"20â€“25% of calories minimum Â· Below 15% risks hormonal issues",
-      rateNote:"Target: 0.5â€“1% bodyweight/week. Slower = more muscle retained. Cut cycles max 12 weeks.",
-      sources:["Eric Helms â€“ Evidence-Based Recommendations (J Sports Nutr. 2014)","Dr. Mike Israetel â€“ Renaissance Diet 2.0","r/Fitness Wiki â€“ Improving Your Diet"],
+      fatNote:"20–25% of calories minimum · Below 15% risks hormonal issues",
+      rateNote:"Target: 0.5–1% bodyweight/week. Slower = more muscle retained. Cut cycles max 12 weeks.",
+      sources:["Eric Helms – Evidence-Based Recommendations (J Sports Nutr. 2014)","Dr. Mike Israetel – Renaissance Diet 2.0","r/Fitness Wiki – Improving Your Diet"],
     },
     maintain: {
-      label:"Maintenance / Recomp",icon:"âš–ï¸",color:"#8b5cf6",
+      label:"Maintenance / Recomp",icon:"⚖️",color:"#8b5cf6",
       calories: tdee,
-      surplusNote:"At TDEE Â· Prioritize protein to improve body comp over time",
+      surplusNote:"At TDEE · Prioritize protein to improve body comp over time",
       proteinMin: Math.round(wLb*0.75), proteinMax: Math.round(wLb*1.0),
-      proteinNote:"0.75â€“1.0g per lb Â· Recomp requires adequate protein even without surplus",
+      proteinNote:"0.75–1.0g per lb · Recomp requires adequate protein even without surplus",
       fatMin: Math.round(tdee*0.25/9), fatMax: Math.round(tdee*0.30/9),
-      fatNote:"25â€“30% of calories",
+      fatNote:"25–30% of calories",
       rateNote:"Body recomp (lose fat, gain muscle simultaneously) works best for beginners and those returning after a break.",
       sources:["r/Fitness Wiki","Greg Nuckols / Stronger By Science"],
     },
     aggressive_cut: {
-      label:"Aggressive Cut",icon:"âš¡",color:"#ef4444",
+      label:"Aggressive Cut",icon:"⚡",color:"#ef4444",
       calories: Math.round(tdee*0.75),
-      surplusNote:"~25% deficit Â· Higher fat loss, more muscle risk. Use sparingly.",
+      surplusNote:"~25% deficit · Higher fat loss, more muscle risk. Use sparingly.",
       proteinMin: Math.round(wLb*1.0), proteinMax: Math.round(wLb*1.2),
-      proteinNote:"1.0â€“1.2g per lb Â· Maximum protein to spare muscle during aggressive cut",
+      proteinNote:"1.0–1.2g per lb · Maximum protein to spare muscle during aggressive cut",
       fatMin: Math.round(tdee*0.15/9), fatMax: Math.round(tdee*0.20/9),
-      fatNote:"15â€“20% of calories minimum Â· Do not go lower",
+      fatNote:"15–20% of calories minimum · Do not go lower",
       rateNote:"Not recommended for more than 6-8 weeks. Best used if BF% is high (>25% M / >35% F) before switching to moderate deficit.",
-      sources:["Eric Helms et al. 2014","Dr. Layne Norton â€“ Research-Based Approach"],
+      sources:["Eric Helms et al. 2014","Dr. Layne Norton – Research-Based Approach"],
     },
   };
 
@@ -4871,38 +4871,38 @@ function Nutrition() {
 
   // Supplement tiers
   const supps = [
-    {tier:1, name:"Creatine Monohydrate", dose:"3â€“5g daily",timing:"Any time â€” consistency matters",icon:"âš¡",
-     evidence:"ðŸ”¬ Strongest evidence of any supplement. Increases power output 5-15%, improves body composition. No loading phase needed.",color:"#4ade80"},
-    {tier:1, name:"Protein Powder (Whey/Plant)", dose:"1â€“2 scoops (25â€“50g protein)",timing:"Any time â€” used to hit daily protein target",icon:"ðŸ¥›",
-     evidence:"ðŸ”¬ Effective for reaching daily protein targets. Whey has highest leucine content â€” best for muscle protein synthesis.",color:"#4ade80"},
-    {tier:1, name:"Caffeine", dose:"3â€“6mg per kg bodyweight",timing:"30â€“60 min pre-workout",icon:"â˜•",
-     evidence:"ðŸ”¬ Reliably improves strength, endurance, and focus. Tolerance builds â€” cycle off for 1-2 weeks monthly.",color:"#4ade80"},
-    {tier:2, name:"Vitamin D3", dose:"2,000â€“4,000 IU daily",timing:"With fat-containing meal",icon:"â˜€ï¸",
-     evidence:"ðŸ“Š Most people are deficient. Supports testosterone, immune function, bone density. Test levels before supplementing.",color:"#f59e0b"},
-    {tier:2, name:"Omega-3 Fish Oil", dose:"1â€“2g EPA+DHA daily",timing:"With meals",icon:"ðŸŸ",
-     evidence:"ðŸ“Š Anti-inflammatory. May support muscle protein synthesis and reduce DOMS. Eat 2+ servings fatty fish/week instead if possible.",color:"#f59e0b"},
-    {tier:2, name:"Magnesium Glycinate", dose:"200â€“400mg",timing:"Before bed",icon:"ðŸ’¤",
-     evidence:"ðŸ“Š Most athletes are deficient. Supports sleep quality, muscle recovery, testosterone production.",color:"#f59e0b"},
-    {tier:3, name:"Beta-Alanine", dose:"3.2â€“6.4g daily",timing:"Any time (split doses to avoid tingling)",icon:"ðŸŒ¡ï¸",
-     evidence:"âš ï¸ Modest benefits for endurance >60 sec. Causes harmless skin tingling. Less relevant for strength training.",color:"#94a3b8"},
-    {tier:3, name:"Citrulline Malate", dose:"6â€“8g",timing:"45â€“60 min pre-workout",icon:"ðŸ‹",
-     evidence:"âš ï¸ Mild pump enhancement, minor endurance benefit. Not transformative for most lifters.",color:"#94a3b8"},
-    {tier:3, name:"BCAA/EAA", dose:"5â€“10g",timing:"During or after workout",icon:"ðŸ§ª",
-     evidence:"âš ï¸ Redundant if you hit 0.8â€“1g/lb protein daily. Complete protein sources already contain all BCAAs. Save your money.",color:"#94a3b8"},
+    {tier:1, name:"Creatine Monohydrate", dose:"3–5g daily",timing:"Any time — consistency matters",icon:"⚡",
+     evidence:"🔬 Strongest evidence of any supplement. Increases power output 5-15%, improves body composition. No loading phase needed.",color:"#4ade80"},
+    {tier:1, name:"Protein Powder (Whey/Plant)", dose:"1–2 scoops (25–50g protein)",timing:"Any time — used to hit daily protein target",icon:"🥛",
+     evidence:"🔬 Effective for reaching daily protein targets. Whey has highest leucine content — best for muscle protein synthesis.",color:"#4ade80"},
+    {tier:1, name:"Caffeine", dose:"3–6mg per kg bodyweight",timing:"30–60 min pre-workout",icon:"☕",
+     evidence:"🔬 Reliably improves strength, endurance, and focus. Tolerance builds — cycle off for 1-2 weeks monthly.",color:"#4ade80"},
+    {tier:2, name:"Vitamin D3", dose:"2,000–4,000 IU daily",timing:"With fat-containing meal",icon:"☀️",
+     evidence:"📊 Most people are deficient. Supports testosterone, immune function, bone density. Test levels before supplementing.",color:"#f59e0b"},
+    {tier:2, name:"Omega-3 Fish Oil", dose:"1–2g EPA+DHA daily",timing:"With meals",icon:"🐟",
+     evidence:"📊 Anti-inflammatory. May support muscle protein synthesis and reduce DOMS. Eat 2+ servings fatty fish/week instead if possible.",color:"#f59e0b"},
+    {tier:2, name:"Magnesium Glycinate", dose:"200–400mg",timing:"Before bed",icon:"💤",
+     evidence:"📊 Most athletes are deficient. Supports sleep quality, muscle recovery, testosterone production.",color:"#f59e0b"},
+    {tier:3, name:"Beta-Alanine", dose:"3.2–6.4g daily",timing:"Any time (split doses to avoid tingling)",icon:"🌡️",
+     evidence:"⚠️ Modest benefits for endurance >60 sec. Causes harmless skin tingling. Less relevant for strength training.",color:"#94a3b8"},
+    {tier:3, name:"Citrulline Malate", dose:"6–8g",timing:"45–60 min pre-workout",icon:"🍋",
+     evidence:"⚠️ Mild pump enhancement, minor endurance benefit. Not transformative for most lifters.",color:"#94a3b8"},
+    {tier:3, name:"BCAA/EAA", dose:"5–10g",timing:"During or after workout",icon:"🧪",
+     evidence:"⚠️ Redundant if you hit 0.8–1g/lb protein daily. Complete protein sources already contain all BCAAs. Save your money.",color:"#94a3b8"},
   ];
 
   // Key principles from Helms, Nuckols, Israetel
   const principles = [
-    {icon:"ðŸ†", title:"Calories are king", body:"Your total daily caloric intake is the #1 nutrition variable. Macros matter, meal timing matters less. Get the calories right first."},
-    {icon:"ðŸ¥©", title:"Protein is #2", body:"After calories, protein is the most important variable. Hit 0.8â€“1g per lb bodyweight consistently. Distribute across 3â€“5 meals of 30â€“50g each for best muscle protein synthesis (Jorn Trommelen, PhD)."},
-    {icon:"ðŸš", title:"Carbs fuel performance", body:"Don't fear carbs. They replenish glycogen and directly fuel lifting performance. Higher carbs = better sessions = more muscle over time. Prioritize carbs around training."},
-    {icon:"ðŸ§ˆ", title:"Fat supports hormones", body:"Never drop fat below 15â€“20% of total calories. Dietary fat supports testosterone production, joint health, and vitamin absorption. Prioritize omega-3s and unsaturated sources."},
-    {icon:"ðŸ“‰", title:"Slow cut = more muscle retained", body:"The faster you cut, the more muscle you lose. Target 0.5â€“1% bodyweight per week maximum. Eric Helms' research shows ~0.5%/week preserves nearly all muscle during a cut."},
-    {icon:"ðŸ“ˆ", title:"Small surplus for lean bulking", body:"A 200â€“300 kcal surplus is sufficient for most trained individuals to build muscle while minimizing fat gain. 'Dirty bulking' primarily adds fat, not muscle. Beginners can gain muscle at maintenance."},
-    {icon:"â°", title:"Meal timing is overrated (mostly)", body:"Pre- and post-workout nutrition matters less than getting total daily protein/calories right. A protein-rich meal within ~3 hours either side of training is sufficient. Eat when it fits your schedule."},
-    {icon:"ðŸ”", title:"Track, adjust, repeat", body:"No formula is perfectly accurate. Weigh yourself daily (use 7-day average), track food for 2â€“4 weeks, then adjust Â±10% calories based on real weight trend. The scale doesn't lie."},
-    {icon:"ðŸ½ï¸", title:"Diet breaks on long cuts", body:"On cuts lasting >12 weeks, a 1â€“2 week diet break at maintenance every 6â€“8 weeks reduces metabolic adaptation and adherence fatigue, making the rest of the cut more effective."},
-    {icon:"ðŸ˜´", title:"Sleep is a nutrition variable", body:"Sleep deprivation suppresses muscle protein synthesis, increases cortisol, and dramatically increases hunger hormones. 7â€“9 hours is a performance nutrition tool."},
+    {icon:"🏆", title:"Calories are king", body:"Your total daily caloric intake is the #1 nutrition variable. Macros matter, meal timing matters less. Get the calories right first."},
+    {icon:"🥩", title:"Protein is #2", body:"After calories, protein is the most important variable. Hit 0.8–1g per lb bodyweight consistently. Distribute across 3–5 meals of 30–50g each for best muscle protein synthesis (Jorn Trommelen, PhD)."},
+    {icon:"🍚", title:"Carbs fuel performance", body:"Don't fear carbs. They replenish glycogen and directly fuel lifting performance. Higher carbs = better sessions = more muscle over time. Prioritize carbs around training."},
+    {icon:"🧈", title:"Fat supports hormones", body:"Never drop fat below 15–20% of total calories. Dietary fat supports testosterone production, joint health, and vitamin absorption. Prioritize omega-3s and unsaturated sources."},
+    {icon:"📉", title:"Slow cut = more muscle retained", body:"The faster you cut, the more muscle you lose. Target 0.5–1% bodyweight per week maximum. Eric Helms' research shows ~0.5%/week preserves nearly all muscle during a cut."},
+    {icon:"📈", title:"Small surplus for lean bulking", body:"A 200–300 kcal surplus is sufficient for most trained individuals to build muscle while minimizing fat gain. 'Dirty bulking' primarily adds fat, not muscle. Beginners can gain muscle at maintenance."},
+    {icon:"⏰", title:"Meal timing is overrated (mostly)", body:"Pre- and post-workout nutrition matters less than getting total daily protein/calories right. A protein-rich meal within ~3 hours either side of training is sufficient. Eat when it fits your schedule."},
+    {icon:"🔁", title:"Track, adjust, repeat", body:"No formula is perfectly accurate. Weigh yourself daily (use 7-day average), track food for 2–4 weeks, then adjust ±10% calories based on real weight trend. The scale doesn't lie."},
+    {icon:"🍽️", title:"Diet breaks on long cuts", body:"On cuts lasting >12 weeks, a 1–2 week diet break at maintenance every 6–8 weeks reduces metabolic adaptation and adherence fatigue, making the rest of the cut more effective."},
+    {icon:"😴", title:"Sleep is a nutrition variable", body:"Sleep deprivation suppresses muscle protein synthesis, increases cortisol, and dramatically increases hunger hormones. 7–9 hours is a performance nutrition tool."},
   ];
 
   const tabStyle = (active) => ({
@@ -4928,12 +4928,12 @@ function Nutrition() {
     <div style={S.pg}>
       <div style={S.pgH}>
         <h1 style={S.pgT}>Nutrition</h1>
-        <p style={S.pgS}>Evidence-based Â· Helms Â· Nuckols Â· RP Strength</p>
+        <p style={S.pgS}>Evidence-based · Helms · Nuckols · RP Strength</p>
       </div>
 
       {/* Tab nav */}
       <div style={{display:"flex",gap:6,marginBottom:16}}>
-        {[{id:"calculator",label:"ðŸ§® Calculator"},{id:"supplements",label:"ðŸ’Š Supplements"},{id:"principles",label:"ðŸ“– Principles"}].map(t=>(
+        {[{id:"calculator",label:"🧮 Calculator"},{id:"supplements",label:"💊 Supplements"},{id:"principles",label:"📖 Principles"}].map(t=>(
           <button key={t.id} onClick={()=>setSection(t.id)} style={tabStyle(section===t.id)}>{t.label}</button>
         ))}
       </div>
@@ -4953,7 +4953,7 @@ function Nutrition() {
               <div style={S.lbl}>Biological Sex</div>
               <div style={{display:"flex",gap:6,marginTop:6}}>
                 {["male","female"].map(s=>(
-                  <button key={s} onClick={()=>setSex(s)} style={{...S.chip,flex:1,textAlign:"center",...(sex===s?S.chipA:{})}}>{s==="male"?"â™‚ Male":"â™€ Female"}</button>
+                  <button key={s} onClick={()=>setSex(s)} style={{...S.chip,flex:1,textAlign:"center",...(sex===s?S.chipA:{})}}>{s==="male"?"♂ Male":"♀ Female"}</button>
                 ))}
               </div>
             </div>
@@ -4984,7 +4984,7 @@ function Nutrition() {
                     <div style={{color:activity===k?"#f59e0b":"#e2e8f0",fontSize:13,fontWeight:activity===k?700:400}}>{a.label}</div>
                     <div style={{color:"#64748b",fontSize:11}}>{a.sub}</div>
                   </div>
-                  <div style={{color:activity===k?"#f59e0b":"#475569",fontSize:12,fontWeight:700}}>Ã—{a.mult}</div>
+                  <div style={{color:activity===k?"#f59e0b":"#475569",fontSize:12,fontWeight:700}}>×{a.mult}</div>
                 </button>
               ))}
             </div>
@@ -5037,9 +5037,9 @@ function Nutrition() {
 
           {/* Macro rows */}
           {[
-            {name:"Protein",icon:"ðŸ¥©",min:g.proteinMin,max:g.proteinMax,unit:"g",cal:g.proteinMin*4,pct:Math.round(g.proteinMin*4/g.calories*100),color:"#4ade80",note:g.proteinNote},
-            {name:"Fat",icon:"ðŸ§ˆ",min:g.fatMin,max:g.fatMax,unit:"g",cal:g.fatMin*9,pct:Math.round(g.fatMin*9/g.calories*100),color:"#f59e0b",note:g.fatNote},
-            {name:"Carbs",icon:"ðŸš",min:carbsG,max:null,unit:"g",cal:carbCals,pct:Math.round(carbCals/g.calories*100),color:"#60a5fa",note:"Fill remaining calories after protein + fat"},
+            {name:"Protein",icon:"🥩",min:g.proteinMin,max:g.proteinMax,unit:"g",cal:g.proteinMin*4,pct:Math.round(g.proteinMin*4/g.calories*100),color:"#4ade80",note:g.proteinNote},
+            {name:"Fat",icon:"🧈",min:g.fatMin,max:g.fatMax,unit:"g",cal:g.fatMin*9,pct:Math.round(g.fatMin*9/g.calories*100),color:"#f59e0b",note:g.fatNote},
+            {name:"Carbs",icon:"🍚",min:carbsG,max:null,unit:"g",cal:carbCals,pct:Math.round(carbCals/g.calories*100),color:"#60a5fa",note:"Fill remaining calories after protein + fat"},
           ].map(macro=>(
             <div key={macro.name} style={{background:"rgba(255,255,255,0.03)",borderRadius:10,padding:"12px 14px",marginBottom:8,border:"1px solid rgba(255,255,255,0.06)"}}>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:6}}>
@@ -5049,9 +5049,9 @@ function Nutrition() {
                 </div>
                 <div style={{textAlign:"right"}}>
                   <div style={{color:macro.color,fontWeight:800,fontSize:18}}>
-                    {macro.max?`${macro.min}â€“${macro.max}`:macro.min}{macro.unit}
+                    {macro.max?`${macro.min}–${macro.max}`:macro.min}{macro.unit}
                   </div>
-                  <div style={{color:"#64748b",fontSize:10}}>{macro.pct}% Â· ~{macro.cal.toLocaleString()} kcal</div>
+                  <div style={{color:"#64748b",fontSize:10}}>{macro.pct}% · ~{macro.cal.toLocaleString()} kcal</div>
                 </div>
               </div>
               {/* Progress bar */}
@@ -5068,19 +5068,19 @@ function Nutrition() {
 
           <div style={{marginTop:12,padding:"8px 12px",background:"rgba(255,255,255,0.03)",borderRadius:8}}>
             <div style={{color:"#475569",fontSize:10,marginBottom:4}}>Sources</div>
-            {g.sources.map((s,i)=><div key={i} style={{color:"#475569",fontSize:11}}>Â· {s}</div>)}
+            {g.sources.map((s,i)=><div key={i} style={{color:"#475569",fontSize:11}}>· {s}</div>)}
           </div>
         </div>
 
         {/* Meal timing */}
         <div style={S.card}>
-          <h2 style={{...S.cT,marginBottom:14}}>â° Meal Timing & Frequency</h2>
+          <h2 style={{...S.cT,marginBottom:14}}>⏰ Meal Timing & Frequency</h2>
           {[
-            {label:"Total meals/day",val:"3â€“5",note:"Research shows protein distribution across meals matters more than total count. Aim for 30â€“50g protein per meal."},
-            {label:"Pre-workout meal",val:"1â€“3 hrs before",note:"A protein + carb meal 1-3 hours before training is sufficient. No need for special timing if you train early."},
+            {label:"Total meals/day",val:"3–5",note:"Research shows protein distribution across meals matters more than total count. Aim for 30–50g protein per meal."},
+            {label:"Pre-workout meal",val:"1–3 hrs before",note:"A protein + carb meal 1-3 hours before training is sufficient. No need for special timing if you train early."},
             {label:"Post-workout",val:"Within 3 hours",note:"The 'anabolic window' is 3+ hours wide, not 30 minutes. Hit your total daily protein first."},
-            {label:"Protein per meal",val:"30â€“50g",note:"~0.4g/kg per meal is the threshold to maximally stimulate muscle protein synthesis (Jorn Trommelen, PhD)."},
-            {label:"Before bed",val:"Casein 40g optional",note:"Slow-digesting casein (cottage cheese, Greek yogurt) before sleep may support overnight MPS â€” moderate evidence."},
+            {label:"Protein per meal",val:"30–50g",note:"~0.4g/kg per meal is the threshold to maximally stimulate muscle protein synthesis (Jorn Trommelen, PhD)."},
+            {label:"Before bed",val:"Casein 40g optional",note:"Slow-digesting casein (cottage cheese, Greek yogurt) before sleep may support overnight MPS — moderate evidence."},
           ].map((row,i)=>(
             <div key={i} style={{padding:"10px 0",borderTop:i>0?"1px solid rgba(255,255,255,0.04)":"none"}}>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
@@ -5098,7 +5098,7 @@ function Nutrition() {
           <div style={{...S.card,marginBottom:12}}>
             <p style={{color:"#94a3b8",fontSize:13,lineHeight:1.6,margin:0}}>
               Supplements are additive, not foundational. Fix sleep, diet, and training first.
-              At best, supplements add 2â€“5% to results (Dr. Mike Israetel, Renaissance Diet 2.0).
+              At best, supplements add 2–5% to results (Dr. Mike Israetel, Renaissance Diet 2.0).
               Tier 1 = strong evidence from multiple studies. Tier 2 = moderate benefit, context-dependent. Tier 3 = weak or situational.
             </p>
           </div>
@@ -5119,7 +5119,7 @@ function Nutrition() {
                       </div>
                       <span style={{background:`${s.color}15`,color:s.color,padding:"2px 8px",borderRadius:6,fontSize:10,fontWeight:700,flexShrink:0,marginLeft:8}}>{s.dose}</span>
                     </div>
-                    <div style={{color:"#64748b",fontSize:11,marginBottom:4}}>â± {s.timing}</div>
+                    <div style={{color:"#64748b",fontSize:11,marginBottom:4}}>⏱ {s.timing}</div>
                     <div style={{color:"#94a3b8",fontSize:12,lineHeight:1.5}}>{s.evidence}</div>
                   </div>
                 ))}
@@ -5154,5 +5154,4 @@ function Nutrition() {
     </div>
   );
 }
-
-// cache-bust: 2026-04-02-2328
+const _v='4.8.0';
